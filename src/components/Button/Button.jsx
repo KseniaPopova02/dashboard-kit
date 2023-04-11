@@ -1,7 +1,7 @@
 import React from "react";
 import { StyledBtn } from "./styled";
 
-export const ButtonForm = ({
+export const Button = ({
   children,
   onClick,
   className = "",
