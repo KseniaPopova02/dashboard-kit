@@ -14,8 +14,8 @@ import { Container } from "./style";
 export const Forgot = () => (
   <Container>
     <Logo />
-    <LogoTitle />
-    <LogoSubtitle />
+    <LogoTitle>Log In to Dashboard Kit</LogoTitle>
+    <LogoSubtitle>Enter your email and password</LogoSubtitle>
     <Label>email</Label>
     <Input>Email address</Input>
     <Label>password</Label>
