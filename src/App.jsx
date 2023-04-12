@@ -12,7 +12,7 @@ import {
 
 const App = () => (
   <BrowserRouter>
-    {/* <GlobalStyle /> */}
+    <GlobalStyle />
 
     <Routes>
       <Route path="/" element={<Layout />}>
