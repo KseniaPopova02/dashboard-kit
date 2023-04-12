@@ -1,4 +1,4 @@
-import { GlobalStyle } from "./styles/globalStyles";
+import { GlobalStyle } from "./modal/styles/globalStyles";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import {
   Forgot,
