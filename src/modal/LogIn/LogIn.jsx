@@ -1,7 +1,12 @@
 import React from "react";
-import { Logo, LogoTitle, LogoSubtitle, Question } from "../../components";
+import {
+  Logo,
+  LogoTitle,
+  LogoSubtitle,
+  Question,
+  Container,
+} from "../../components";
 import { LogInForm } from "../../modal";
-import { Container } from "./style";
 
 export const LogIn = () => (
   <Container>
