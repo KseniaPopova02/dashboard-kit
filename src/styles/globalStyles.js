@@ -8,6 +8,7 @@ body {
     font-size: 14px;
     line-height: 20px;
     background: #363740;
+    position: relative;
 
   }
   @font-face {
