@@ -7,3 +7,4 @@ export * from "./Button";
 export * from "./InputPassword";
 export * from "./Input";
 export * from "./Container";
+export * from "./Error";
