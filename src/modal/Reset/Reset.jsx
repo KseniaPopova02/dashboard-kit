@@ -3,11 +3,11 @@ import { Logo, LogoTitle, LogoSubtitle, Question } from "../../components";
 import { LogInForm } from "../../modal";
 import { Container } from "./style";
 
-export const LogIn = () => (
+export const Reset = () => (
   <Container>
     <Logo />
-    <LogoTitle>Log In to Dashboard Kit</LogoTitle>
-    <LogoSubtitle>Enter your email and password</LogoSubtitle>
+    <LogoTitle>Reset Password</LogoTitle>
+    <LogoSubtitle>Enter new password</LogoSubtitle>
     <LogInForm />
     <Question />
   </Container>
