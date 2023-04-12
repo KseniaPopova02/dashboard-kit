@@ -7,6 +7,8 @@ body {
     color: #4b506d;
     font-size: 14px;
     line-height: 20px;
+    background: #363740;
+
   }
   @font-face {
   font-family: "Mulish", sans-serif;

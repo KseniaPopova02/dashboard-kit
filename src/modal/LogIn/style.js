@@ -6,5 +6,9 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   max-width: 380px;
-  margin: auto;
+  margin: 50px auto;
+  background-color: #fff;
+  border: 1px solid #dfe0eb;
+  border-radius: 8px;
+  padding: 40px 20px;
 `;
