@@ -16,16 +16,6 @@ export const LogInForm = () => {
       email: Yup.string().required(<Error>Email is required</Error>),
       password: Yup.string().required(<Error>Password is required</Error>),
     }),
-    // validate: (values) => {
-    //   const errors = {};
-    //   if (!values.email) {
-    //     errors.email = <Error>Email is required</Error>;
-    //   }
-    //   if (!values.password) {
-    //     errors.password = <Error>Password is required</Error>;
-    //   }
-    //   return errors;
-    // },
   });
   return (
     <StyledForm onSubmit={formik.handleSubmit}>
