@@ -25,6 +25,7 @@ export const LogInForm = () => {
       />
       <Label>Password</Label>
       <InputPassword
+        placeholder="password"
         name="password"
         value={formik.values.password}
         onChange={formik.handleChange}
