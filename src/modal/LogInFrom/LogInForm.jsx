@@ -1,5 +1,5 @@
 import { Input, InputPassword, Button, Label, Error } from "../../components";
-import { Formik, Form, Field, useFormik } from "formik";
+import { useFormik } from "formik";
 import * as Yup from "yup";
 import { StyledForm } from "./style";
 
