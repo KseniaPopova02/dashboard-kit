@@ -1,4 +1,4 @@
-import { Input, InputPassword, Button, Label } from "../../components";
+import { Input, InputPassword, Button, Label, Error } from "../../components";
 import { Formik, Form, Field, useFormik } from "formik";
 import { StyledForm } from "./style";
 
@@ -10,6 +10,16 @@ export const LogInForm = () => {
     },
     onSubmit: (values) => {
       console.log("submit", values);
+    },
+    validate: (values) => {
+      const errors = {};
+      if (!values.email) {
+        errors.email = <Error>Email is required</Error>;
+      }
+      if (!values.password) {
+        errors.password = <Error>Password is required</Error>;
+      }
+      return errors;
     },
   });
   return (
@@ -23,6 +33,7 @@ export const LogInForm = () => {
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
       />
+      {formik.errors.email && formik.touched.email && formik.errors.email}
       <Label>Password</Label>
       <InputPassword
         placeholder="password"
@@ -31,6 +42,9 @@ export const LogInForm = () => {
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
       />
+      {formik.errors.password &&
+        formik.touched.password &&
+        formik.errors.password}
       <Button type="submit">Log In</Button>
     </StyledForm>
   );
