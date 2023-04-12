@@ -1,14 +1,19 @@
 import React from "react";
-import { Logo, LogoTitle, LogoSubtitle, Question } from "../../components";
-import { LogInForm } from "../../modal";
-import { Container } from "./style";
+import {
+  Logo,
+  LogoTitle,
+  LogoSubtitle,
+  Question,
+  Container,
+} from "../../components";
+import { ResetForm } from "../../modal";
 
 export const Reset = () => (
   <Container>
     <Logo />
     <LogoTitle>Reset Password</LogoTitle>
     <LogoSubtitle>Enter new password</LogoSubtitle>
-    <LogInForm />
+    <ResetForm />
     <Question />
   </Container>
 );

@@ -1,9 +1,9 @@
-import { Input, InputPassword, Button, Label, Error } from "../../components";
+import { InputPassword, Button, Label, Error } from "../../components";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { StyledForm } from "./style";
 
-export const LogInForm = () => {
+export const ResetForm = () => {
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -19,6 +19,7 @@ export const LogInForm = () => {
   });
   return (
     <StyledForm onSubmit={formik.handleSubmit}>
+      <Label>new password</Label>
       <InputPassword
         placeholder="password"
         name="password"
@@ -29,6 +30,7 @@ export const LogInForm = () => {
       {formik.errors.password &&
         formik.touched.password &&
         formik.errors.password}
+      <Label>confirm new password</Label>
       <InputPassword
         placeholder="password"
         name="password"

@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledBtn } from "./styles";
+import { StyledBtn } from "./style";
 
 export const Button = ({
   children,
