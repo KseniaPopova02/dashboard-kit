@@ -6,7 +6,7 @@ export const Button = ({
   onClick,
   className = "",
   type = "button",
-  disabled = "false",
+  disabled = false,
 }) => (
   <StyledBtn
     onClick={onClick}

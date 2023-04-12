@@ -8,6 +8,7 @@ import {
   SignUp,
   NotFound,
   Layout,
+  LogInForm,
 } from "./modal";
 const App = () => (
   <>
