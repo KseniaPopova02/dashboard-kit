@@ -5,4 +5,3 @@ export * from "./Reset";
 export * from "./SignUp";
 export * from "./NotFound";
 export * from "./Layout";
-export * from "./LogInFrom";
