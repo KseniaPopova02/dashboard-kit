@@ -1,6 +1,6 @@
 import React from "react";
 import { useField } from "formik";
-import { Label, Password, Error } from "../../components";
+import { Label, InputPassword, Error } from "../../components";
 
 export const CustomInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
@@ -8,7 +8,7 @@ export const CustomInput = ({ label, ...props }) => {
   return (
     <>
       <Label>{label}</Label>
-      <Password {...field} {...props} />
+      <InputPassword {...field} {...props} />
       {meta.touched && meta.error && <Error>{meta.error}</Error>}
     </>
   );
