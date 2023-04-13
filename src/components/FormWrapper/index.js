@@ -1,1 +1,1 @@
-export * from "./StyledForm";
+export * from "./style";
