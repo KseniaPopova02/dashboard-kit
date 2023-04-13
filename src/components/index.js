@@ -10,3 +10,4 @@ export * from "./Error";
 export * from "./CustomInput";
 export * from "./Container";
 export * from "./FormWrapper";
+export * from "./CustomPasswordInput";

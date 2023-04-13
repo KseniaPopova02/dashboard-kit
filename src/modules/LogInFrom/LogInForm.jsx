@@ -1,4 +1,9 @@
-import { Button, FormWrapper, CustomInput } from "../../components";
+import {
+  Button,
+  FormWrapper,
+  CustomInput,
+  CustomPasswordInput,
+} from "../../components";
 import { Formik, Form } from "formik";
 import { validationSchema } from "./schema";
 
@@ -17,6 +22,7 @@ export const LogInForm = () => {
               type="text"
               placeholder="Email"
             />
+
             <Button type="submit">Log In</Button>
           </FormWrapper>
         </Form>
