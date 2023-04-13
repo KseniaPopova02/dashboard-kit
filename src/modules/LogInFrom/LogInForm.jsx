@@ -51,7 +51,9 @@ export const LogInForm = () => {
           ""
         )}
 
-        <Button type="submit">Log In</Button>
+        <Button disabled={formik.isSubmitting} type="submit">
+          Log In
+        </Button>
       </FormWrapper>
     </form>
   );
