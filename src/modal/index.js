@@ -6,3 +6,4 @@ export * from "./SignUp";
 export * from "./NotFound";
 export * from "./Layout";
 export * from "./LogInFrom";
+export * from "./SignUpForm";
