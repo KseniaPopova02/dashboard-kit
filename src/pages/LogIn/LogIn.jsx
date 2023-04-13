@@ -3,10 +3,10 @@ import {
   Logo,
   LogoTitle,
   LogoSubtitle,
-  Question,
+  SignUpQuestion,
   Container,
 } from "../../components";
-import { LogInForm } from "../../modal";
+import { LogInForm } from "../../modules";
 
 export const LogIn = () => (
   <Container>
@@ -14,6 +14,6 @@ export const LogIn = () => (
     <LogoTitle>Log In to Dashboard Kit</LogoTitle>
     <LogoSubtitle>Enter your email and password</LogoSubtitle>
     <LogInForm />
-    <Question />
+    <SignUpQuestion />
   </Container>
 );
