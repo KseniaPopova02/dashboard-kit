@@ -48,6 +48,7 @@ export const SignUpForm = () => {
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
       />
+      {formik.errors.email && formik.touched.email && formik.errors.email}
       <Label>First name</Label>
       <Input
         placeholder="First name"
@@ -57,6 +58,7 @@ export const SignUpForm = () => {
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
       />
+      {formik.errors.name && formik.touched.name && formik.errors.name}
       <Label>Last name</Label>
       <Input
         placeholder="Last name"
@@ -66,6 +68,7 @@ export const SignUpForm = () => {
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
       />
+      {formik.errors.surname && formik.touched.surname && formik.errors.surname}
       <Label>Password</Label>
       <InputPassword
         name="password"
@@ -73,6 +76,9 @@ export const SignUpForm = () => {
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
       />
+      {formik.errors.password &&
+        formik.touched.password &&
+        formik.errors.password}
       <Label>confirm password</Label>
       <InputPassword
         name="repeatPassword"
@@ -80,6 +86,9 @@ export const SignUpForm = () => {
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
       />
+      {formik.errors.repeatPassword &&
+        formik.touched.repeatPassword &&
+        formik.errors.repeatPassword}
       <Button type="submit">Register</Button>
     </StyledForm>
   );
