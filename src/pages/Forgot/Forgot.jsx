@@ -3,10 +3,10 @@ import {
   Logo,
   LogoTitle,
   LogoSubtitle,
-  Question,
+  SignUpQuestion,
   Container,
 } from "../../components";
-import { ForgotForm } from "../ForgotForm";
+import { ForgotForm } from "../../modules";
 
 export const Forgot = () => (
   <Container>
@@ -14,6 +14,6 @@ export const Forgot = () => (
     <LogoTitle>Forgot password?</LogoTitle>
     <LogoSubtitle>Enter your email from registered account</LogoSubtitle>
     <ForgotForm />
-    <Question />
+    <SignUpQuestion />
   </Container>
 );
