@@ -1,6 +1,12 @@
-import { Input, InputPassword, Button, Label, Error } from "../../components";
+import {
+  Input,
+  InputPassword,
+  Button,
+  Label,
+  Error,
+  StyledForm,
+} from "../../components";
 import { useFormik } from "formik";
-import { StyledForm } from "./style";
 import * as Yup from "yup";
 
 export const SignUpForm = () => {
@@ -68,7 +74,7 @@ export const SignUpForm = () => {
       />
       <Label>confirm password</Label>
       <InputPassword
-        name="password"
+        name="repeatPassword"
         value={formik.values.repeatPassword}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
