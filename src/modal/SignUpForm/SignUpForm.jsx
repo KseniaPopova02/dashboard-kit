@@ -25,7 +25,9 @@ export const SignUpForm = () => {
         .matches(/^[A-Za-z ]*$/, "Please enter valid surname")
         .max(40)
         .required(<Error>Surname is required</Error>),
-      password: Yup.string().required(<Error>Password is required</Error>),
+      repeatPassword: Yup.string()
+        .required(<Error>Password is required</Error>)
+        .oneOf([Yup.ref("password")], <Error>Passwords must match</Error>),
     }),
   });
   return (
