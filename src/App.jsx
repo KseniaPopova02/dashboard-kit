@@ -1,5 +1,5 @@
 import { GlobalStyle } from "./styles/globalStyles";
-import { Reset } from "./modal";
+import { Reset } from "./pages";
 
 const App = () => (
   <>

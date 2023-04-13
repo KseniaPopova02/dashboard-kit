@@ -3,10 +3,10 @@ import {
   Logo,
   LogoTitle,
   LogoSubtitle,
-  Question,
+  SignUpQuestion,
   Container,
 } from "../../components";
-import { ResetForm } from "../../modal";
+import { ResetForm } from "../../modules";
 
 export const Reset = () => (
   <Container>
@@ -14,6 +14,6 @@ export const Reset = () => (
     <LogoTitle>Reset Password</LogoTitle>
     <LogoSubtitle>Enter new password</LogoSubtitle>
     <ResetForm />
-    <Question />
+    <SignUpQuestion />
   </Container>
 );
