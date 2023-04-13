@@ -8,3 +8,4 @@ export * from "./InputPassword";
 export * from "./Input";
 export * from "./Error";
 export * from "./StyledFrom";
+export * from "./CustomInput";
