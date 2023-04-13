@@ -7,7 +7,7 @@ import {
   StyledForm,
 } from "../../components";
 import { useFormik } from "formik";
-import * as Yup from "yup";
+import { validationSchema } from "./schema";
 
 export const LogInForm = () => {
   const formik = useFormik({
@@ -18,10 +18,7 @@ export const LogInForm = () => {
     onSubmit: (values) => {
       console.log("submit", values);
     },
-    validationSchema: Yup.object({
-      email: Yup.string().required(<Error>Email is required</Error>),
-      password: Yup.string().required(<Error>Password is required</Error>),
-    }),
+    validationSchema: validationSchema,
   });
   return (
     <StyledForm onSubmit={formik.handleSubmit}>
@@ -34,7 +31,7 @@ export const LogInForm = () => {
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
       />
-      {formik.errors.email && formik.touched.email && formik.errors.email}
+      <Error>{formik.touched.email && formik.errors.email}</Error>
       <Label>Password</Label>
       <InputPassword
         placeholder="password"
@@ -43,9 +40,7 @@ export const LogInForm = () => {
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
       />
-      {formik.errors.password &&
-        formik.touched.password &&
-        formik.errors.password}
+      <Error>{formik.touched.password && formik.errors.password}</Error>
       <Button type="submit">Log In</Button>
     </StyledForm>
   );
