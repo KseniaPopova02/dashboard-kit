@@ -1,5 +1,5 @@
 import { GlobalStyle } from "./styles/globalStyles";
-import { SignUp } from "./modal";
+import { SignUp } from "./pages";
 
 const App = () => (
   <>

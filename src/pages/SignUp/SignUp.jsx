@@ -1,6 +1,6 @@
 import React from "react";
 import { Logo, LogoTitle, LogoSubtitle, Container } from "../../components";
-import { SignUpForm } from "../../modal";
+import { SignUpForm } from "../../modules";
 
 export const SignUp = () => (
   <Container>
