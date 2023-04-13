@@ -1,6 +1,6 @@
 import * as Yup from "yup";
 
-const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])$/;
+const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
 
 // (?=.*\d)          should contain at least one digit
 //   (?=.*[a-z])     should contain at least one lower case

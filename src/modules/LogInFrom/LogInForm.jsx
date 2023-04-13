@@ -32,7 +32,11 @@ export const LogInForm = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
         />
-        <Error>{formik.touched.email && formik.errors.email}</Error>
+        {formik.touched.email && formik.errors.email ? (
+          <Error>{formik.errors.email}</Error>
+        ) : (
+          ""
+        )}
         <Label>Password</Label>
         <InputPassword
           placeholder="password"
@@ -41,7 +45,12 @@ export const LogInForm = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
         />
-        <Error>{formik.touched.password && formik.errors.password}</Error>
+        {formik.touched.password && formik.errors.password ? (
+          <Error>{formik.errors.password}</Error>
+        ) : (
+          ""
+        )}
+
         <Button type="submit">Log In</Button>
       </FormWrapper>
     </form>
