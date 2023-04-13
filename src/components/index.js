@@ -6,5 +6,6 @@ export * from "./Question";
 export * from "./Button";
 export * from "./InputPassword";
 export * from "./Input";
-export * from "./Container";
 export * from "./Error";
+export * from "./StyledFrom";
+export * from "./Container";
