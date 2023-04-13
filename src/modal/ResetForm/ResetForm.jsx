@@ -6,15 +6,17 @@ import { StyledForm } from "./style";
 export const ResetForm = () => {
   const formik = useFormik({
     initialValues: {
-      email: "",
       password: "",
+      repeatPassword: "",
     },
     onSubmit: (values) => {
       console.log("submit", values);
     },
     validationSchema: Yup.object({
-      email: Yup.string().required(<Error>Email is required</Error>),
       password: Yup.string().required(<Error>Password is required</Error>),
+      repeatPassword: Yup.string()
+        .required(<Error>Password is required</Error>)
+        .oneOf([Yup.ref("password")], <Error>Passwords must match</Error>),
     }),
   });
   return (
@@ -33,14 +35,14 @@ export const ResetForm = () => {
       <Label>confirm new password</Label>
       <InputPassword
         placeholder="password"
-        name="password"
-        value={formik.values.password}
+        name="repeatPassword"
+        value={formik.values.repeatPassword}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
       />
-      {formik.errors.password &&
-        formik.touched.password &&
-        formik.errors.password}
+      {formik.errors.repeatPassword &&
+        formik.touched.repeatPassword &&
+        formik.errors.repeatPassword}
       <Button type="submit">Log In</Button>
     </StyledForm>
   );
