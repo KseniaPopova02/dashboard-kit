@@ -1,7 +1,13 @@
-import { Input, InputPassword, Button, Label, Error } from "../../components";
+import {
+  Input,
+  InputPassword,
+  Button,
+  Label,
+  Error,
+  StyledForm,
+} from "../../components";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { StyledForm } from "./style";
 
 export const LogInForm = () => {
   const formik = useFormik({
