@@ -2,7 +2,7 @@ import React from "react";
 import { useField } from "formik";
 import { Label, InputPassword, Error } from "../../components";
 
-export const CustomInput = ({ label, ...props }) => {
+export const CustomPasswordInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
 
   return (
