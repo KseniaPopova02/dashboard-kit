@@ -1,7 +1,12 @@
 import React from "react";
-import { Logo, LogoTitle, LogoSubtitle, Question } from "../../components";
+import {
+  Logo,
+  LogoTitle,
+  LogoSubtitle,
+  Question,
+  Container,
+} from "../../components";
 import { ForgotForm } from "../ForgotForm";
-import { Container } from "../../components";
 
 export const Forgot = () => (
   <Container>

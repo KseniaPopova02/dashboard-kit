@@ -1,7 +1,6 @@
-import { Input, Button, Label, Error } from "../../components";
+import { Input, Button, Label, Error, StyledForm } from "../../components";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { StyledForm } from "./style";
 
 export const ForgotForm = () => {
   const formik = useFormik({
