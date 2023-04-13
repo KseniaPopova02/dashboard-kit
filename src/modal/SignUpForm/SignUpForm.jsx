@@ -25,11 +25,11 @@ export const SignUpForm = () => {
       email: Yup.string().required(<Error>Email is required</Error>),
       name: Yup.string()
         .matches(/^[A-Za-z ]*$/, "Please enter valid name")
-        .max(40)
+        .min(3)
         .required(<Error>Name is required</Error>),
       surname: Yup.string()
         .matches(/^[A-Za-z ]*$/, "Please enter valid surname")
-        .max(40)
+        .min(3)
         .required(<Error>Surname is required</Error>),
       repeatPassword: Yup.string()
         .required(<Error>Password is required</Error>)
