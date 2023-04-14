@@ -20,7 +20,7 @@ export const LogInForm = () => {
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      {(isSubmitting) => (
+      {(props) => (
         <Form>
           <FormWrapper>
             <CustomInput
@@ -35,9 +35,7 @@ export const LogInForm = () => {
               type="text"
               placeholder="password"
             />
-            <Button disabled={isSubmitting} type="submit">
-              Log In
-            </Button>
+            <Button type="submit">Log In</Button>
           </FormWrapper>
         </Form>
       )}
