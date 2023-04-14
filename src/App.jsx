@@ -1,5 +1,5 @@
 import { GlobalStyle } from "./styles/globalStyles";
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Forgot, ForgotSuccess, LogIn, Reset, SignUp, NotFound } from "./pages";
 import { Layout } from "./modules";
 
