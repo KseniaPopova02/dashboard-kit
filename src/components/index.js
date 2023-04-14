@@ -7,6 +7,6 @@ export * from "./Button";
 export * from "./InputPassword";
 export * from "./Input";
 export * from "./Error";
-export * from "./StyledFrom";
+export * from "./FromWrapper";
 export * from "./CustomInput";
 export * from "./CustomPasswordInput";
