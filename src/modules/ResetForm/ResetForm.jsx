@@ -15,7 +15,7 @@ export const ResetForm = () => (
     validationSchema={validationSchema}
     onSubmit={onSubmit}
   >
-    {(props) => (
+    {() => (
       <Form>
         <FormWrapper>
           <CustomPasswordInput
