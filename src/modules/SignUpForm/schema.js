@@ -25,4 +25,7 @@ export const validationSchema = Yup.object().shape({
         "Password should contains at least: one digit, one lower case, one upper case",
     })
     .required("Password is required"),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref("password"), null], "Passwords must match")
+    .required("Password is required"),
 });
