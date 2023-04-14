@@ -1,11 +1,7 @@
-import {
-  Button,
-  FormWrapper,
-  CustomInput,
-  CustomPasswordInput,
-} from "../../components";
+import { Button, FormWrapper, CustomPasswordInput } from "../../components";
 import { Formik, Form } from "formik";
 import { validationSchema } from "./schema";
+import { initialValues } from "./initialValues";
 
 const onSubmit = async (values, actions) => {
   console.log("values:", values);
@@ -15,7 +11,7 @@ const onSubmit = async (values, actions) => {
 
 export const ResetForm = () => (
   <Formik
-    initialValues={{ password: "", confirmPassword: "" }}
+    initialValues={initialValues}
     validationSchema={validationSchema}
     onSubmit={onSubmit}
   >
