@@ -2,31 +2,33 @@ import { Button, FormWrapper, CustomInput } from "../../components";
 import { Formik, Form } from "formik";
 import { validationSchema } from "./schema";
 import { initialValues } from "./initialValues";
+import { useNavigate } from "react-router-dom";
 
-const onSubmit = async (values, actions) => {
-  console.log("values:", values);
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  actions.resetForm();
+export const ForgotForm = () => {
+  const navigate = useNavigate();
+  const onSubmit = () => {
+    navigate("/forgotSuccess");
+  };
+
+  return (
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={onSubmit}
+    >
+      {() => (
+        <Form>
+          <FormWrapper>
+            <CustomInput
+              label="Email"
+              name="email"
+              type="text"
+              placeholder="Email"
+            />
+            <Button type="submit">Send</Button>
+          </FormWrapper>
+        </Form>
+      )}
+    </Formik>
+  );
 };
-
-export const ForgotForm = () => (
-  <Formik
-    initialValues={initialValues}
-    validationSchema={validationSchema}
-    onSubmit={onSubmit}
-  >
-    {(props) => (
-      <Form>
-        <FormWrapper>
-          <CustomInput
-            label="Email"
-            name="email"
-            type="text"
-            placeholder="Email"
-          />
-          <Button type="submit">Log In</Button>
-        </FormWrapper>
-      </Form>
-    )}
-  </Formik>
-);
