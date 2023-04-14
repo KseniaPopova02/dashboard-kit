@@ -6,6 +6,7 @@ import {
 } from "../../components";
 import { Formik, Form } from "formik";
 import { validationSchema } from "./schema";
+import { initialValues } from "./initialValues";
 
 const onSubmit = async (values, actions) => {
   console.log("values:", values);
@@ -16,7 +17,7 @@ const onSubmit = async (values, actions) => {
 export const LogInForm = () => {
   return (
     <Formik
-      initialValues={{ email: "", password: "" }}
+      initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
