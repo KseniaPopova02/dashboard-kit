@@ -1,1 +1,1 @@
-export * from "./FormWrapper";
+export * from "./style";
