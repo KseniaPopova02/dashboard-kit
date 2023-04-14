@@ -21,7 +21,7 @@ export const LogInForm = () => {
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      {(props) => (
+      {() => (
         <Form>
           <FormWrapper>
             <CustomInput
