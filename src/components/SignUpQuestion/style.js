@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const StyledText = styled.div`
   font-weight: 400;
@@ -8,7 +9,7 @@ export const StyledText = styled.div`
   text-align: center;
 `;
 
-export const StyledLink = styled.a`
+export const StyledLink = styled(Link)`
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
