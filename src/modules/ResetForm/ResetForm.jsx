@@ -1,49 +1,44 @@
-import { InputPassword, Button, Label, Error } from "../../components";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import { StyledForm } from "./style";
+import {
+  Button,
+  FormWrapper,
+  CustomInput,
+  CustomPasswordInput,
+} from "../../components";
+import { Formik, Form } from "formik";
+import { validationSchema } from "./schema";
+
+const onSubmit = async (values, actions) => {
+  console.log("values:", values);
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  actions.resetForm();
+};
 
 export const ResetForm = () => {
-  const formik = useFormik({
-    initialValues: {
-      password: "",
-      repeatPassword: "",
-    },
-    onSubmit: (values) => {
-      console.log("submit", values);
-    },
-    validationSchema: Yup.object({
-      password: Yup.string().required(<Error>Password is required</Error>),
-      repeatPassword: Yup.string()
-        .required(<Error>Password is required</Error>)
-        .oneOf([Yup.ref("password")], <Error>Passwords must match</Error>),
-    }),
-  });
   return (
-    <StyledForm onSubmit={formik.handleSubmit}>
-      <Label>new password</Label>
-      <InputPassword
-        placeholder="password"
-        name="password"
-        value={formik.values.password}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-      />
-      {formik.errors.password &&
-        formik.touched.password &&
-        formik.errors.password}
-      <Label>confirm new password</Label>
-      <InputPassword
-        placeholder="password"
-        name="repeatPassword"
-        value={formik.values.repeatPassword}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-      />
-      {formik.errors.repeatPassword &&
-        formik.touched.repeatPassword &&
-        formik.errors.repeatPassword}
-      <Button type="submit">Log In</Button>
-    </StyledForm>
+    <Formik
+      initialValues={{ password: "", confirmPassword: "" }}
+      validationSchema={validationSchema}
+      onSubmit={onSubmit}
+    >
+      {(props) => (
+        <Form>
+          <FormWrapper>
+            <CustomPasswordInput
+              label="new password"
+              name="password"
+              type="text"
+              placeholder="password"
+            />
+            <CustomPasswordInput
+              label="confirm new password"
+              name="confirmPassword"
+              type="text"
+              placeholder="password"
+            />
+            <Button type="submit">Send</Button>
+          </FormWrapper>
+        </Form>
+      )}
+    </Formik>
   );
 };
