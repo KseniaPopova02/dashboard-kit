@@ -13,32 +13,30 @@ const onSubmit = async (values, actions) => {
   actions.resetForm();
 };
 
-export const ResetForm = () => {
-  return (
-    <Formik
-      initialValues={{ password: "", confirmPassword: "" }}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
-    >
-      {(props) => (
-        <Form>
-          <FormWrapper>
-            <CustomPasswordInput
-              label="new password"
-              name="password"
-              type="text"
-              placeholder="password"
-            />
-            <CustomPasswordInput
-              label="confirm new password"
-              name="confirmPassword"
-              type="text"
-              placeholder="password"
-            />
-            <Button type="submit">Send</Button>
-          </FormWrapper>
-        </Form>
-      )}
-    </Formik>
-  );
-};
+export const ResetForm = () => (
+  <Formik
+    initialValues={{ password: "", confirmPassword: "" }}
+    validationSchema={validationSchema}
+    onSubmit={onSubmit}
+  >
+    {(props) => (
+      <Form>
+        <FormWrapper>
+          <CustomPasswordInput
+            label="new password"
+            name="password"
+            type="text"
+            placeholder="password"
+          />
+          <CustomPasswordInput
+            label="confirm new password"
+            name="confirmPassword"
+            type="text"
+            placeholder="password"
+          />
+          <Button type="submit">Send</Button>
+        </FormWrapper>
+      </Form>
+    )}
+  </Formik>
+);
