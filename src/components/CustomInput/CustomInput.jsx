@@ -4,7 +4,7 @@ import { Label, Input, Error } from "../../components";
 
 export const CustomInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
-  console.log(meta);
+  console.log(meta, field);
 
   return (
     <>
