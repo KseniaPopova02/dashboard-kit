@@ -20,7 +20,7 @@ export const SignUpForm = () => (
     validationSchema={validationSchema}
     onSubmit={onSubmit}
   >
-    {(props) => (
+    {() => (
       <Form>
         <FormWrapper>
           <CustomInput
