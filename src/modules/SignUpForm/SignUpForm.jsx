@@ -13,7 +13,7 @@ const onSubmit = async (values, actions) => {
   actions.resetForm();
 };
 
-export const LogInForm = () => {
+export const SignUpForm = () => {
   return (
     <Formik
       initialValues={{
