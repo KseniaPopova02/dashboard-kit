@@ -8,26 +8,24 @@ const onSubmit = async (values, actions) => {
   actions.resetForm();
 };
 
-export const ForgotForm = () => {
-  return (
-    <Formik
-      initialValues={{ email: "" }}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
-    >
-      {(props) => (
-        <Form>
-          <FormWrapper>
-            <CustomInput
-              label="Email"
-              name="email"
-              type="text"
-              placeholder="Email"
-            />
-            <Button type="submit">Log In</Button>
-          </FormWrapper>
-        </Form>
-      )}
-    </Formik>
-  );
-};
+export const ForgotForm = () => (
+  <Formik
+    initialValues={{ email: "" }}
+    validationSchema={validationSchema}
+    onSubmit={onSubmit}
+  >
+    {(props) => (
+      <Form>
+        <FormWrapper>
+          <CustomInput
+            label="Email"
+            name="email"
+            type="text"
+            placeholder="Email"
+          />
+          <Button type="submit">Log In</Button>
+        </FormWrapper>
+      </Form>
+    )}
+  </Formik>
+);
