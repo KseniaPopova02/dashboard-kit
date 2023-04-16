@@ -3,8 +3,11 @@ import { useField } from "formik";
 import { Label, Input, Error } from "../../components";
 
 export const CustomInput = ({ label, ...props }) => {
+  console.log("Props before:", props);
   const [field, meta] = useField(props);
-  console.log(meta, field);
+  console.log("Props after:", useField(props));
+  console.log("field:", field);
+  console.log("meta:", meta);
 
   return (
     <>
