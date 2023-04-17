@@ -1,4 +1,8 @@
-import { Button, FormWrapper, CustomPasswordInput } from "../../components";
+import {
+  Button,
+  StyledFormWrapper,
+  CustomPasswordInput,
+} from "../../components";
 import { Formik, Form } from "formik";
 import { validationSchema } from "./schema";
 import { initialValues } from "./initialValues";
@@ -17,7 +21,7 @@ export const ResetForm = () => (
   >
     {() => (
       <Form>
-        <FormWrapper>
+        <StyledFormWrapper>
           <CustomPasswordInput
             label="new password"
             name="password"
@@ -31,7 +35,7 @@ export const ResetForm = () => (
             placeholder="password"
           />
           <Button type="submit">Send</Button>
-        </FormWrapper>
+        </StyledFormWrapper>
       </Form>
     )}
   </Formik>
