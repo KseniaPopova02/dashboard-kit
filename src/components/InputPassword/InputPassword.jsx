@@ -7,6 +7,7 @@ export const InputPassword = ({
   name = "",
   value = "",
   onChange,
+  ...rest
 }) => (
   <StyledInput
     placeholder={placeholder}
@@ -14,5 +15,6 @@ export const InputPassword = ({
     name={name}
     value={value}
     onChange={onChange}
+    {...rest}
   />
 );
