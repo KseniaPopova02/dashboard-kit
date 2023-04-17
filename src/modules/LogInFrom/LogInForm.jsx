@@ -1,6 +1,6 @@
 import {
   Button,
-  FormWrapper,
+  StyledFormWrapper,
   CustomInput,
   CustomPasswordInput,
 } from "../../components";
@@ -23,7 +23,7 @@ export const LogInForm = () => {
     >
       {() => (
         <Form>
-          <FormWrapper>
+          <StyledFormWrapper>
             <CustomInput
               label="Email"
               name="email"
@@ -37,7 +37,7 @@ export const LogInForm = () => {
               placeholder="password"
             />
             <Button type="submit">Log In</Button>
-          </FormWrapper>
+          </StyledFormWrapper>
         </Form>
       )}
     </Formik>
