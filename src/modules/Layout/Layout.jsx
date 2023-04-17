@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
-import { Container } from "../../components";
+import { StyledContainer } from "../../components";
 
 export const Layout = () => (
-  <Container>
+  <StyledContainer>
     <Outlet />
-  </Container>
+  </StyledContainer>
 );
