@@ -1,4 +1,4 @@
-import { Button, FormWrapper, CustomInput } from "../../components";
+import { Button, StyledFormWrapper, CustomInput } from "../../components";
 import { Formik, Form } from "formik";
 import { validationSchema } from "./schema";
 import { initialValues } from "./initialValues";
@@ -19,7 +19,7 @@ export const ForgotForm = () => {
     >
       {() => (
         <Form>
-          <FormWrapper>
+          <StyledFormWrapper>
             <CustomInput
               label="Email"
               name="email"
@@ -27,7 +27,7 @@ export const ForgotForm = () => {
               placeholder="Email"
             />
             <Button type="submit">Send</Button>
-          </FormWrapper>
+          </StyledFormWrapper>
         </Form>
       )}
     </Formik>
