@@ -1,5 +1,5 @@
 import React from "react";
-import { InputAnt } from "./style";
+import { StyledInputAnt } from "./style";
 
 export const Input = ({
   className = "input",
@@ -10,7 +10,7 @@ export const Input = ({
   onChange,
   ...rest
 }) => (
-  <InputAnt
+  <StyledInputAnt
     className={className}
     placeholder={placeholder}
     type={type}

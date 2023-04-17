@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Input } from "antd";
 
-export const InputAnt = styled(Input)`
+export const StyledInputAnt = styled(Input)`
   &.ant-input {
     &.input {
       border: 1px solid #dfe0eb;
