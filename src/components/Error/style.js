@@ -13,5 +13,4 @@ export const StyledSvg = styled.svg`
 export const StyledWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 24px;
 `;
