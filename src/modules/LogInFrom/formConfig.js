@@ -18,3 +18,8 @@ export const validationSchema = Yup.object().shape({
     })
     .required("Password is required"),
 });
+
+export const initialValues = {
+  email: "",
+  password: "",
+};

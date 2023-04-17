@@ -1,12 +1,6 @@
-import {
-  Button,
-  StyledFormWrapper,
-  CustomInput,
-  CustomPasswordInput,
-} from "../../components";
-import { Formik, Form } from "formik";
-import { validationSchema } from "./schema";
-import { initialValues } from "./initialValues";
+import { FormContent } from "./FormContent";
+import { Formik } from "formik";
+import { initialValues, validationSchema } from "./formConfig";
 
 const onSubmit = async (actions) => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -20,25 +14,7 @@ export const LogInForm = () => {
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      {() => (
-        <Form>
-          <StyledFormWrapper>
-            <CustomInput
-              label="Email"
-              name="email"
-              type="text"
-              placeholder="Email"
-            />
-            <CustomPasswordInput
-              label="Password"
-              name="password"
-              type="text"
-              placeholder="password"
-            />
-            <Button type="submit">Log In</Button>
-          </StyledFormWrapper>
-        </Form>
-      )}
+      {() => <FormContent />}
     </Formik>
   );
 };
