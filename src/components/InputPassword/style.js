@@ -12,7 +12,6 @@ export const StyledInput = styled(Input.Password)`
     max-width: 316px;
     width: 100%;
     outline: none;
-    margin-bottom: 24px;
     &:hover {
       border-color: #3751ff;
     }
