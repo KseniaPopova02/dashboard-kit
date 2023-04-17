@@ -5,3 +5,5 @@ export const validationSchema = Yup.object().shape({
     .email("Please input a valid email")
     .required("Email is required"),
 });
+
+export const initialValues = { email: "" };

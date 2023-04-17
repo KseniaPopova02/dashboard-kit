@@ -1,7 +1,7 @@
-import { Button, StyledFormWrapper, CustomInput } from "../../components";
-import { Formik, Form } from "formik";
-import { validationSchema } from "./schema";
-import { initialValues } from "./initialValues";
+import { FormContent } from "./FormContent";
+import { Formik } from "formik";
+import { validationSchema, initialValues } from "./formConfig";
+
 import { useNavigate } from "react-router-dom";
 import React from "react";
 
@@ -17,19 +17,7 @@ export const ForgotForm = () => {
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      {() => (
-        <Form>
-          <StyledFormWrapper>
-            <CustomInput
-              label="Email"
-              name="email"
-              type="text"
-              placeholder="Email"
-            />
-            <Button type="submit">Send</Button>
-          </StyledFormWrapper>
-        </Form>
-      )}
+      {() => <FormContent />}
     </Formik>
   );
 };
