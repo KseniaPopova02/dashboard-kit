@@ -7,7 +7,7 @@ export * from "./Button";
 export * from "./InputPassword";
 export * from "./Input";
 export * from "./Error";
+export * from "./FormWrapper";
 export * from "./CustomInput";
 export * from "./Container";
-export * from "./FormWrapper";
 export * from "./CustomPasswordInput";

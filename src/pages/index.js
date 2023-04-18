@@ -1,3 +1,4 @@
+export * from "./Forgot";
 export * from "./ForgotSuccess";
 export * from "./Forgot";
 export * from "./LogIn";
