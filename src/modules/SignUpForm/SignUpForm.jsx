@@ -2,8 +2,7 @@ import { Formik } from "formik";
 import { validationSchema, initialValues } from "./formConfig";
 import { FormContent } from "./FormContent";
 
-const onSubmit = async (values, actions) => {
-  console.log("values:", values);
+const onSubmit = async (actions) => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
   actions.resetForm();
 };
