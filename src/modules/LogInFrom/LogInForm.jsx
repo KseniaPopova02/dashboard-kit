@@ -7,14 +7,12 @@ const onSubmit = async (actions) => {
   actions.resetForm();
 };
 
-export const LogInForm = () => {
-  return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
-    >
-      {() => <FormContent />}
-    </Formik>
-  );
-};
+export const LogInForm = () => (
+  <Formik
+    initialValues={initialValues}
+    validationSchema={validationSchema}
+    onSubmit={onSubmit}
+  >
+    {() => <FormContent />}
+  </Formik>
+);
