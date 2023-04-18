@@ -35,5 +35,5 @@ export const initialValues = {
   name: "",
   surname: "",
   password: "",
-  repeatPassword: "",
+  confirmPassword: "",
 };
