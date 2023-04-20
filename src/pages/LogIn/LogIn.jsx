@@ -6,6 +6,7 @@ import {
   SignUpQuestion,
 } from "../../components";
 import { LogInForm } from "../../modules";
+import { StyledPasswordQuestion } from "./style";
 
 export const LogIn = () => (
   <>
@@ -14,5 +15,8 @@ export const LogIn = () => (
     <LogoSubtitle>Enter your email and password</LogoSubtitle>
     <LogInForm />
     <SignUpQuestion />
+    <StyledPasswordQuestion to="/forgot">
+      Forgot your password?
+    </StyledPasswordQuestion>
   </>
 );
