@@ -1,7 +1,12 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+html{
+  box-sizing: border-box;
+}
 body {
+    margin: 0;
+    padding: 0;
     font-family: "Mulish", sans-serif;
     font-weight: 700;
     color:${(props) => (props.loggedIn ? "#252733" : "#4b506d")};
