@@ -14,6 +14,7 @@ const App = () => (
         <Route path="sign-up" element={<SignUp />} />
         <Route path="*" element={<NotFound />} />
       </Route>
+      <Route path="/dashboard" />
     </Routes>
   </BrowserRouter>
 );
