@@ -11,13 +11,13 @@ export const validationSchema = Yup.object().shape({
     .email("Please input a valid email")
     .required("Email is required"),
   name: Yup.string()
-    .matches(/^[A-Za-z ]*$/, "Please enter valid name")
+    .matches(/^[A-Za-z ]*$/, "Please enter valid first name")
     .min(3)
-    .required("Name is required"),
+    .required("First name is required"),
   surname: Yup.string()
-    .matches(/^[A-Za-z ]*$/, "Please enter valid surname")
+    .matches(/^[A-Za-z ]*$/, "Please enter valid Last name")
     .min(3)
-    .required("Surname is required"),
+    .required("Last name is required"),
   password: Yup.string()
     .min(5)
     .matches(passwordRules, {
