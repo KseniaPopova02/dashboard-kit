@@ -11,3 +11,5 @@ export * from "./FormWrapper";
 export * from "./CustomInput";
 export * from "./Container";
 export * from "./CustomPasswordInput";
+export * from "./TopBar";
+export * from "./SideBar";
