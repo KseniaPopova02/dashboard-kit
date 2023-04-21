@@ -12,7 +12,7 @@ body {
     color:${(props) => (props.loggedIn ? "#252733" : "#4b506d")};
     font-size: 14px;
     line-height: 20px;
-    background: ${(props) => (props.loggedIn ? "#fff" : "#4b5069")};
+    background: ${(props) => (props.loggedIn ? "#F7F8FC" : "#4b5069")};
   }
   @font-face {
   font-family: "Mulish", sans-serif;
