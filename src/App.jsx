@@ -15,6 +15,7 @@ import {
   Articles,
   Settings,
   Subscription,
+  OverviewTicketsDetails,
 } from "./pages";
 import { FormLayout, MainLayout } from "./modules";
 
@@ -43,6 +44,10 @@ const App = () => {
             <Route path="forgotSuccess" element={<ForgotSuccess />} />
             <Route path="reset" element={<Reset />} />
             <Route path="signUp" element={<SignUp />} />
+            <Route
+              path="overview-tickets-details"
+              element={<OverviewTicketsDetails />}
+            />
             <Route path="*" element={<NotFound />} />
           </Route>
         )}

@@ -1,8 +1,9 @@
 import React from "react";
-import { OverviewData } from "../../modules";
+import { OverviewData, OverviewTickets } from "../../modules";
 
 export const View = () => (
   <>
-    <OverviewData></OverviewData>
+    <OverviewData />
+    <OverviewTickets />
   </>
 );
