@@ -17,6 +17,7 @@ export const StyledBtn = styled(Button)`
 export const StyledContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 
 export const StyledBtnText = styled.div`
