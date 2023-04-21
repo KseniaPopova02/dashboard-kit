@@ -24,6 +24,10 @@ export const StyledBtnText = styled.div`
   font-weight: 700;
   font-size: 19px;
   line-height: 24px;
+  text-transform: lowercase;
+  &::first-letter {
+    text-transform: uppercase;
+  }
 `;
 
 export const StyledBtnNum = styled.div`
