@@ -9,9 +9,9 @@ export const LogInForm = () => {
   const onSubmit = async (values, actions) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    const { userEmail, userPassword } = userData;
+    const { mockedEmail, mockedPassword } = userData;
 
-    if (values.email === userEmail && values.password === userPassword) {
+    if (values.email === mockedEmail && values.password === mockedPassword) {
       navigate("/dashboard");
     } else {
       actions.setFieldError("email", "Wrong email or password");
