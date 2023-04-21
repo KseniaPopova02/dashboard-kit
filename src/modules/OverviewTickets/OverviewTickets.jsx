@@ -26,7 +26,7 @@ export const OverviewTickets = () => {
             <StyledSpan>Group:</StyledSpan> Support
           </StyledSubtitle>
         </div>
-        <StyledLink to="/overview-tickets-details">View details</StyledLink>
+        <StyledLink to="overview-tickets-details">View details</StyledLink>
       </StyledHeaderWrapper>
       <div>
         {Object.entries(ticketsData).map(([key, value]) => (
