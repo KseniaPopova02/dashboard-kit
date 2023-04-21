@@ -1,9 +1,9 @@
 import React from "react";
-import { OverviewTabs, OverviewTickets } from "../../modules";
+import { OverviewInfo, OverviewTickets } from "../../modules";
 
 export const View = () => (
   <>
-    <OverviewTabs />
+    <OverviewInfo />
     <OverviewTickets />
   </>
 );
