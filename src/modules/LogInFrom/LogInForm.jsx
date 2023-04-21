@@ -2,16 +2,16 @@ import { FormContent } from "./FormContent";
 import { Formik } from "formik";
 import { initialValues, validationSchema } from "./formConfig";
 import { useNavigate } from "react-router-dom";
+import userData from "../../Data/userData.json";
 
 export const LogInForm = () => {
   const navigate = useNavigate();
   const onSubmit = async (values, actions) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    const mockedEmail = "anton@gmali.com";
-    const mockedPassword = "AntonLuchiiMentorVMire228";
+    const { userEmail, userPassword } = userData;
 
-    if (values.email === mockedEmail && values.password === mockedPassword) {
+    if (values.email === userEmail && values.password === userPassword) {
       navigate("/dashboard");
     } else {
       actions.setFieldError("email", "Wrong email or password");
