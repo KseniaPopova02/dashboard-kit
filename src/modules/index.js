@@ -4,5 +4,5 @@ export * from "./LogInFrom";
 export * from "./ForgotForm";
 export * from "./ResetForm";
 export * from "./SignUpForm";
-export * from "./OverviewData";
+export * from "./OverviewTabs";
 export * from "./OverviewTickets";

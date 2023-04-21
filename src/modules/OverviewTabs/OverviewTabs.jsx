@@ -5,12 +5,12 @@ import {
   StyledBtnText,
   StyledBtnNum,
 } from "./style";
-import data from "../../Data/DataOverview.json";
+import data from "../../Data/OverviewTabs.json";
 
-export const OverviewData = () => {
+export const OverviewTabs = () => {
   const [overviewData, setOverviewData] = useState([]);
   useEffect(() => {
-    setOverviewData(data.overviewData[0]);
+    setOverviewData(data.overviewTabsData[0]);
   }, []);
   return (
     <StyledContainer>
