@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
 import {
-  StyledBtn,
+  StyledBox,
   StyledContainer,
   StyledBtnText,
   StyledBtnNum,
@@ -15,10 +15,10 @@ export const OverviewInfo = () => {
   return (
     <StyledContainer>
       {Object.entries(overviewData).map(([key, value]) => (
-        <StyledBtn key={key}>
+        <StyledBox key={key}>
           <StyledBtnText>{key}</StyledBtnText>
           <StyledBtnNum>{value}</StyledBtnNum>
-        </StyledBtn>
+        </StyledBox>
       ))}
     </StyledContainer>
   );

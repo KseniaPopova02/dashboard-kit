@@ -1,13 +1,36 @@
 import styled from "styled-components";
-import { Button } from "antd";
 
-export const StyledBtn = styled(Button)`
+export const StyledBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border: 1px solid #dfe0eb;
   border-radius: 8px;
   background: #ffffff;
   width: 258px;
   height: 134px;
-  &:focus {
+  cursor: pointer;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border: 3px solid transparent;
+    border-radius: 11px;
+    z-index: -1;
+  }
+
+  &:hover::before {
+    border-color: #dde2ff;
+  }
+
+  &:hover {
+    border-color: #3751ff;
     & > * {
       color: #3751ff;
     }
