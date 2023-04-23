@@ -1,9 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
+import { Link } from "react-router-dom";
 
-export const OverviewTask = () => {
+export const OverviewTask = ({ showAllTasks }) => {
   const [tasks, setTasks] = useState([]);
+  const [displayTasks, setDisplayTasks] = useState(3);
+
+  useEffect(() => {
+    const storedTasks = JSON.parse(localStorage.getItem("tasks"));
+    if (storedTasks) {
+      setTasks(storedTasks);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   const initialValues = {
     taskName: "",
@@ -20,19 +33,18 @@ export const OverviewTask = () => {
 
   const onSubmit = (values, actions) => {
     const newTask = {
+      id: Date.now(),
       taskName: values.taskName,
       flags: values.flags,
     };
 
-    setTasks((prevTasks) => {
-      if (prevTasks.length === 3) {
-        return [newTask, ...prevTasks.slice(0, 2)];
-      } else {
-        return [newTask, ...prevTasks];
-      }
-    });
+    setTasks((prevTasks) => [newTask, ...prevTasks]);
 
     actions.resetForm();
+  };
+
+  const handleShowAllTasks = () => {
+    setDisplayTasks(tasks.length);
   };
 
   return (
@@ -70,17 +82,27 @@ export const OverviewTask = () => {
         )}
       </Formik>
       <h2>Tasks</h2>
-      {tasks.map((task) => (
-        <div key={task.taskName}>
-          <span>{task.taskName}</span>
-          {task.flags.urgent && <span>Urgent</span>}
-          {task.flags.new && <span>New</span>}
-          {task.flags.default && <span>Default</span>}
+      {tasks.length > 0 ? (
+        tasks
+          .slice(0, showAllTasks ? tasks.length : displayTasks)
+          .map((task) => (
+            <div key={task.id}>
+              <span>{task.taskName}</span>
+              {task.flags.urgent && <span>Urgent</span>}
+              {task.flags.new && <span>New</span>}
+              {task.flags.default && <span>Default</span>}
+            </div>
+          ))
+      ) : (
+        <div>No tasks yet</div>
+      )}
+      {!showAllTasks && tasks.length > 3 && (
+        <div>
+          <Link to="/overview-tasks" onClick={handleShowAllTasks}>
+            View all tasks
+          </Link>
         </div>
-      ))}
-      <div>
-        <a href="/all-tasks">View all tasks</a>
-      </div>
+      )}
     </div>
   );
 };

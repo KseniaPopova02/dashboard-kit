@@ -16,6 +16,7 @@ import {
   Settings,
   Subscription,
   OverviewTicketsDetails,
+  OverviewTasksPage,
 } from "./pages";
 import { FormLayout, MainLayout } from "./modules";
 
@@ -39,6 +40,7 @@ const App = () => {
               path="overview-tickets-details"
               element={<OverviewTicketsDetails />}
             />
+            <Route path="overview-tasks" element={<OverviewTasksPage />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         ) : (
