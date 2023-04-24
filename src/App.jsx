@@ -25,7 +25,7 @@ const App = () => {
       <GlobalStyle loggedIn={loggedIn} />
       <Routes>
         {loggedIn ? (
-          <Route path="/" element={<MainLayout />}>
+          <Route path="/dashboard" element={<MainLayout />}>
             <Route index element={<View />} />
             <Route path="Tickets" element={<Tickets />} />
             <Route path="Ideas" element={<Ideas />} />
