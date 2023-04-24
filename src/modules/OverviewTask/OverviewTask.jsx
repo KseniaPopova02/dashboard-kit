@@ -20,11 +20,7 @@ export const OverviewTask = ({ showAllTasks }) => {
 
   const initialValues = {
     taskName: "",
-    flags: {
-      urgent: false,
-      new: false,
-      default: true,
-    },
+    flags: "default",
   };
 
   const validationSchema = Yup.object().shape({
@@ -70,15 +66,15 @@ export const OverviewTask = ({ showAllTasks }) => {
             </div>
             <div>
               <label>
-                <Field type="checkbox" name="flags.urgent" />
+                <Field type="radio" name="flags" value="urgent" />
                 Urgent
               </label>
               <label>
-                <Field type="checkbox" name="flags.new" />
+                <Field type="radio" name="flags" value="new" />
                 New
               </label>
               <label>
-                <Field type="checkbox" name="flags.default" />
+                <Field type="radio" name="flags" value="default" />
                 Default
               </label>
             </div>
@@ -99,9 +95,9 @@ export const OverviewTask = ({ showAllTasks }) => {
             .map((task) => (
               <div key={task.id}>
                 <span>{task.taskName}</span>
-                {task.flags.urgent && <span>Urgent</span>}
-                {task.flags.new && <span>New</span>}
-                {task.flags.default && <span>Default</span>}
+                {task.flags === "urgent" && <span>Urgent</span>}
+                {task.flags === "new" && <span>New</span>}
+                {task.flags === "default" && <span>Default</span>}
               </div>
             ))}
         </>
@@ -110,7 +106,7 @@ export const OverviewTask = ({ showAllTasks }) => {
       )}
       {!showAllTasks && tasks.length > 3 && (
         <div>
-          <Link to="/overview-tasks" onClick={handleShowAllTasks}>
+          <Link to="/overview-tasks" onClick={() => handleShowAllTasks()}>
             View all tasks
           </Link>
         </div>
