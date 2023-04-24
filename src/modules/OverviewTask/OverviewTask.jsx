@@ -47,6 +47,11 @@ export const OverviewTask = ({ showAllTasks }) => {
     setDisplayTasks(tasks.length);
   };
 
+  const handleDeleteAllTasks = () => {
+    setTasks([]);
+    localStorage.removeItem("tasks");
+  };
+
   return (
     <div>
       <h2>Add Task</h2>
@@ -83,16 +88,23 @@ export const OverviewTask = ({ showAllTasks }) => {
       </Formik>
       <h2>Tasks</h2>
       {tasks.length > 0 ? (
-        tasks
-          .slice(0, showAllTasks ? tasks.length : displayTasks)
-          .map((task) => (
-            <div key={task.id}>
-              <span>{task.taskName}</span>
-              {task.flags.urgent && <span>Urgent</span>}
-              {task.flags.new && <span>New</span>}
-              {task.flags.default && <span>Default</span>}
-            </div>
-          ))
+        <>
+          <div>
+            <button type="button" onClick={handleDeleteAllTasks}>
+              Delete all tasks
+            </button>
+          </div>
+          {tasks
+            .slice(0, showAllTasks ? tasks.length : displayTasks)
+            .map((task) => (
+              <div key={task.id}>
+                <span>{task.taskName}</span>
+                {task.flags.urgent && <span>Urgent</span>}
+                {task.flags.new && <span>New</span>}
+                {task.flags.default && <span>Default</span>}
+              </div>
+            ))}
+        </>
       ) : (
         <div>No tasks yet</div>
       )}
