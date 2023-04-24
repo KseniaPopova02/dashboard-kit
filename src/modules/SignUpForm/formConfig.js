@@ -9,6 +9,18 @@ const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
 export const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email("Please input a valid email")
+    .test(
+      "unique-email",
+      "Email is already registered",
+      async function (value) {
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+        const existingUser = users.find((user) => user.email === value);
+        if (existingUser) {
+          return false;
+        }
+        return true;
+      }
+    )
     .required("Email is required"),
   name: Yup.string()
     .matches(/^[A-Za-z ]*$/, "Please enter valid first name")
