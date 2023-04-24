@@ -2,7 +2,6 @@ import { GlobalStyle } from "./styles/globalStyles";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
   Forgot,
-  ForgotSuccess,
   LogIn,
   Reset,
   SignUp,

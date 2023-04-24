@@ -1,8 +1,19 @@
 import { useState, useEffect } from "react";
 import { Formik } from "formik";
 import { initialValues, validationSchema } from "./FormConfig";
-import { Link } from "react-router-dom";
 import { FormContent } from "./FormContent";
+import {
+  StyledTaskWrapper,
+  StyledTaskTitle,
+  StyledSubTitle,
+  StyledHeaderWrapper,
+  StyledLink,
+  StyledNoTasks,
+  StyledTaskTextWrapper,
+  StyledSpanUrgent,
+  StyledSpanDefault,
+  StyledSpanNew,
+} from "./style";
 
 export const OverviewTask = ({ showAllTasks = false }) => {
   const [tasks, setTasks] = useState([]);
@@ -41,16 +52,20 @@ export const OverviewTask = ({ showAllTasks = false }) => {
   };
 
   return (
-    <div>
-      <div>
-        <h2>Tasks</h2>
-        <div>today</div>
+    <StyledTaskWrapper>
+      <StyledHeaderWrapper>
         <div>
-          <Link to="/overview-tasks" onClick={() => handleShowAllTasks()}>
-            View all tasks
-          </Link>
+          <StyledTaskTitle>Tasks</StyledTaskTitle>
+          <StyledSubTitle>Today</StyledSubTitle>
         </div>
-      </div>
+
+        <StyledLink
+          to="/dashboard/overview-tasks"
+          onClick={() => handleShowAllTasks()}
+        >
+          View all
+        </StyledLink>
+      </StyledHeaderWrapper>
 
       <Formik
         initialValues={initialValues}
@@ -64,17 +79,21 @@ export const OverviewTask = ({ showAllTasks = false }) => {
           {tasks
             .slice(0, showAllTasks ? tasks.length : displayTasks)
             .map((task) => (
-              <div key={task.id}>
-                <span>{task.taskName}</span>
-                {task.flags === "urgent" && <span>Urgent</span>}
-                {task.flags === "new" && <span>New</span>}
-                {task.flags === "default" && <span>Default</span>}
-              </div>
+              <StyledTaskTextWrapper key={task.id}>
+                <div>{task.taskName}</div>
+                {task.flags === "urgent" && (
+                  <StyledSpanUrgent>Urgent</StyledSpanUrgent>
+                )}
+                {task.flags === "new" && <StyledSpanNew>New</StyledSpanNew>}
+                {task.flags === "default" && (
+                  <StyledSpanDefault>Default</StyledSpanDefault>
+                )}
+              </StyledTaskTextWrapper>
             ))}
         </div>
       ) : (
-        <div>No tasks yet</div>
+        <StyledNoTasks>No tasks yet</StyledNoTasks>
       )}
-    </div>
+    </StyledTaskWrapper>
   );
 };

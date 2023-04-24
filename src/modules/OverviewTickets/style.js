@@ -5,7 +5,7 @@ export const StyledWrapper = styled.div`
   border: 1px solid #dfe0eb;
   border-radius: 8px;
   background: #ffffff;
-  max-width: 546px;
+  width: 546px;
 `;
 
 export const StyledHeaderWrapper = styled.div`
