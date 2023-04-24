@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
-import { Formik, Form, Field } from "formik";
-import * as Yup from "yup";
+import { Formik } from "formik";
+import { initialValues, validationSchema } from "./FormConfig";
 import { Link } from "react-router-dom";
+import { FormContent } from "./FormContent";
 
-export const OverviewTask = ({ showAllTasks }) => {
+export const OverviewTask = ({ showAllTasks = false }) => {
   const [tasks, setTasks] = useState([]);
   const [displayTasks, setDisplayTasks] = useState(3);
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem("tasks"));
@@ -14,20 +19,11 @@ export const OverviewTask = ({ showAllTasks }) => {
     }
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks]);
-
-  const initialValues = {
-    taskName: "",
-    flags: "default",
-  };
-
-  const validationSchema = Yup.object().shape({
-    taskName: Yup.string().required("Task name is required"),
-  });
-
   const onSubmit = (values, actions) => {
+    if (!values.taskName.trim() === "") {
+      actions.setFieldError("taskName", "Task name is red");
+      return;
+    }
     const newTask = {
       id: Date.now(),
       taskName: values.taskName,
@@ -50,46 +46,25 @@ export const OverviewTask = ({ showAllTasks }) => {
 
   return (
     <div>
-      <h2>Add Task</h2>
+      <div>
+        <h2>Tasks</h2>
+        <div>today</div>
+        <div>
+          <Link to="/overview-tasks" onClick={() => handleShowAllTasks()}>
+            View all tasks
+          </Link>
+        </div>
+      </div>
+
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
-        {(formikProps) => (
-          <Form>
-            <div>
-              <Field type="text" name="taskName" placeholder="Task name" />
-              {formikProps.touched.taskName && formikProps.errors.taskName && (
-                <div>{formikProps.errors.taskName}</div>
-              )}
-            </div>
-            <div>
-              <label>
-                <Field type="radio" name="flags" value="urgent" />
-                Urgent
-              </label>
-              <label>
-                <Field type="radio" name="flags" value="new" />
-                New
-              </label>
-              <label>
-                <Field type="radio" name="flags" value="default" />
-                Default
-              </label>
-            </div>
-            <button type="submit">Add Task</button>
-          </Form>
-        )}
+        {() => <FormContent handleDeleteAllTasks={handleDeleteAllTasks} />}
       </Formik>
-      <h2>Tasks</h2>
       {tasks.length > 0 ? (
-        <>
-          <div>
-            <button type="button" onClick={handleDeleteAllTasks}>
-              Delete all tasks
-            </button>
-          </div>
+        <div>
           {tasks
             .slice(0, showAllTasks ? tasks.length : displayTasks)
             .map((task) => (
@@ -100,16 +75,9 @@ export const OverviewTask = ({ showAllTasks }) => {
                 {task.flags === "default" && <span>Default</span>}
               </div>
             ))}
-        </>
+        </div>
       ) : (
         <div>No tasks yet</div>
-      )}
-      {!showAllTasks && tasks.length > 3 && (
-        <div>
-          <Link to="/overview-tasks" onClick={() => handleShowAllTasks()}>
-            View all tasks
-          </Link>
-        </div>
       )}
     </div>
   );
