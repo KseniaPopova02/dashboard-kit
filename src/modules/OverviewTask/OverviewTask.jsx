@@ -9,21 +9,17 @@ export const OverviewTask = ({ showAllTasks = false }) => {
   const [displayTasks, setDisplayTasks] = useState(3);
 
   useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks]);
-
-  useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem("tasks"));
     if (storedTasks) {
       setTasks(storedTasks);
     }
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
   const onSubmit = (values, actions) => {
-    if (!values.taskName.trim() === "") {
-      actions.setFieldError("taskName", "Task name is red");
-      return;
-    }
     const newTask = {
       id: Date.now(),
       taskName: values.taskName,
