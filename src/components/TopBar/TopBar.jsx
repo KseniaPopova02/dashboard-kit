@@ -18,21 +18,21 @@ export const TopBar = () => {
 
   const getTitle = () => {
     switch (location.pathname) {
-      case "/":
+      case "/dashboard":
         return "Overview";
-      case "/Tickets":
+      case "/dashboard/Tickets":
         return "Tickets";
-      case "/Ideas":
+      case "/dashboard/Ideas":
         return "Ideas";
-      case "/Contacts":
+      case "/dashboard/Contacts":
         return "Contacts";
-      case "/Agents":
+      case "/dashboard/Agents":
         return "Agents";
-      case "/Articles":
+      case "/dashboard/Articles":
         return "Articles";
-      case "/Settings":
+      case "/dashboard/Settings":
         return "Settings";
-      case "/Subscription":
+      case "/dashboard/Subscription":
         return "Subscription";
       default:
         return "Error";
