@@ -8,7 +8,6 @@ export const SignUpForm = () => {
 
   const onSubmit = async (values, actions) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log(values);
     const users = JSON.parse(localStorage.getItem("users")) || [];
     users.push(values);
     localStorage.setItem("users", JSON.stringify(users));
