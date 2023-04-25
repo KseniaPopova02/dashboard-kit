@@ -17,7 +17,7 @@ export const LogInForm = ({ updateLoggedIn }) => {
 
     if (user) {
       updateLoggedIn(true);
-      navigate("/dashboard");
+      navigate("/dashboard/Overview");
     } else {
       actions.setFieldError("email", "Wrong email or password");
       actions.setFieldError("password", "Wrong email or password");

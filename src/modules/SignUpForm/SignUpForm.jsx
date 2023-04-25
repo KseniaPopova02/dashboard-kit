@@ -12,7 +12,7 @@ export const SignUpForm = ({ updateLoggedIn }) => {
     users.push(values);
     localStorage.setItem("users", JSON.stringify(users));
     updateLoggedIn(true);
-    navigate("/dashboard");
+    navigate("/dashboard/Overview");
     actions.setSubmitting(false);
   };
 
