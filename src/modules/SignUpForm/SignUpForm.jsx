@@ -3,7 +3,7 @@ import { validationSchema, initialValues } from "./formConfig";
 import { FormContent } from "./FormContent";
 import { useNavigate } from "react-router-dom";
 
-export const SignUpForm = () => {
+export const SignUpForm = ({ updateLoggedIn }) => {
   const navigate = useNavigate();
 
   const onSubmit = async (values, actions) => {
@@ -12,6 +12,7 @@ export const SignUpForm = () => {
     users.push(values);
     localStorage.setItem("users", JSON.stringify(users));
     navigate("/dashboard/Overview");
+    updateLoggedIn(true);
     actions.setSubmitting(false);
   };
 
