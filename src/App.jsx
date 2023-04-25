@@ -24,7 +24,7 @@ const App = () => {
   const updateLoggedIn = (value) => {
     setLoggedIn(value);
   };
-
+  console.log(loggedIn);
   return (
     <BrowserRouter>
       <GlobalStyle loggedIn={loggedIn} />
