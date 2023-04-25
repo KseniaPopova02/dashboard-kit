@@ -6,7 +6,7 @@ import { Normalize } from "styled-normalize";
 
 const App = () => (
   <BrowserRouter>
-  <Normalize />
+    <Normalize />
     <GlobalStyle />
     <Routes>
       <Route path="/" element={<Layout />}>
