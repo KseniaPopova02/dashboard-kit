@@ -7,4 +7,5 @@ export const StyledTitle = styled.div`
   line-height: 30px;
   color: #252733;
   text-align: center;
+  margin-bottom: 12px;
 `;

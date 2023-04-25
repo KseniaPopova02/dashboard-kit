@@ -1,12 +1,12 @@
 import React from "react";
-import { StyledBtn } from "./styled";
+import { StyledBtn } from "./style";
 
 export const Button = ({
   children,
   onClick,
   className = "",
   type = "button",
-  disabled = "false",
+  disabled = false,
 }) => (
   <StyledBtn
     onClick={onClick}

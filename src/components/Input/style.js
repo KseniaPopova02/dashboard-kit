@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Input } from "antd";
 
-export const InputAnt = styled(Input)`
+export const StyledInputAnt = styled(Input)`
   &.ant-input {
     &.input {
       border: 1px solid #dfe0eb;
@@ -13,6 +13,7 @@ export const InputAnt = styled(Input)`
       max-width: 316px;
       width: 100%;
       outline: none;
+      margin-bottom: 5px;
       &:hover {
         border-color: #3751ff;
       }

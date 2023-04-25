@@ -6,4 +6,5 @@ export const StyledWrapper = styled.div`
   line-height: 20px;
   color: #9fa2b4;
   text-align: center;
+  margin-bottom: 48px;
 `;
