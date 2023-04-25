@@ -27,7 +27,7 @@ const App = () => {
       <Routes>
         {loggedIn ? (
           <Route path="/dashboard" element={<MainLayout />}>
-            <Route index element={<View />} />
+            <Route path="Overview" element={<View />} />
             <Route path="Tickets" element={<Tickets />} />
             <Route path="Ideas" element={<Ideas />} />
             <Route path="Contacts" element={<Contacts />} />
