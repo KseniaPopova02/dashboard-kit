@@ -1,6 +1,9 @@
 {
   "mockedEmail": "anton@gmali.com",
+<<<<<<< HEAD
   "mockedName": "Anton",
   "mockedLastName": "Fedosiev",
+=======
+>>>>>>> 32e26ed (remove: mocked data into different file)
   "mockedPassword": "AntonLuchiiMentorVMire228"
 }
