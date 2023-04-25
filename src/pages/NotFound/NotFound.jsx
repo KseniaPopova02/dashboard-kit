@@ -1,10 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-export const NotFound = () => (
-  <>
-    <h2>
-      This page doesn't exist. <Link to="/">Return</Link>
-    </h2>
-  </>
-);
+export const NotFound = () => {
+  const navigate = useNavigate();
+
+  const handleReturnClick = (event) => {
+    event.preventDefault();
+    navigate(-1);
+  };
+
+  return (
+    <>
+      <h2>
+        This page doesn't exist.
+        <Link to="#" onClick={handleReturnClick}>
+          Return
+        </Link>
+      </h2>
+    </>
+  );
+};
