@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { Checkbox } from "antd";
 
 export const StyledTaskWrapper = styled.div`
   border: 1px solid #dfe0eb;
@@ -130,5 +131,29 @@ export const StyledTaskTextWrapper = styled.div`
   padding: 18px 38px;
   &:not(:last-child) {
     border-bottom: 1px solid #dfe0eb;
+  }
+`;
+
+export const StyledTaskNameWrapper = styled.div`
+  display: flex;
+  gap: 15px;
+`;
+
+export const StyledCheckbox = styled(Checkbox)`
+  .ant-checkbox-inner {
+    border-radius: 50%;
+  }
+
+  &:hover .ant-checkbox-inner,
+  .ant-checkbox-input:focus + .ant-checkbox-inner {
+    border-color: #1890ff !important;
+    box-shadow: 0 0 0 2px #1890ff20;
+    border-radius: 50%;
+  }
+
+  .ant-checkbox-checked .ant-checkbox-inner {
+    background-color: #1890ff !important;
+    border-color: #1890ff !important;
+    border-radius: 50% !important;
   }
 `;

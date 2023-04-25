@@ -13,6 +13,8 @@ import {
   StyledSpanUrgent,
   StyledSpanDefault,
   StyledSpanNew,
+  StyledCheckbox,
+  StyledTaskNameWrapper,
 } from "./style";
 
 export const OverviewTask = ({ showAllTasks = false }) => {
@@ -35,6 +37,7 @@ export const OverviewTask = ({ showAllTasks = false }) => {
       id: Date.now(),
       taskName: values.taskName,
       flags: values.flags,
+      isChecked: false,
     };
 
     setTasks((prevTasks) => [newTask, ...prevTasks]);
@@ -49,6 +52,19 @@ export const OverviewTask = ({ showAllTasks = false }) => {
   const handleDeleteAllTasks = () => {
     setTasks([]);
     localStorage.removeItem("tasks");
+  };
+
+  console.log(tasks);
+
+  const handleCheckboxChange = (taskId) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) => {
+        if (task.id === taskId) {
+          return { ...task, isChecked: !task.isChecked };
+        }
+        return task;
+      })
+    );
   };
 
   return (
@@ -80,7 +96,14 @@ export const OverviewTask = ({ showAllTasks = false }) => {
             .slice(0, showAllTasks ? tasks.length : displayTasks)
             .map((task) => (
               <StyledTaskTextWrapper key={task.id}>
-                <div>{task.taskName}</div>
+                <StyledTaskNameWrapper>
+                  <StyledCheckbox
+                    checked={task.isChecked}
+                    onChange={() => handleCheckboxChange(task.id)}
+                  />
+                  <div>{task.taskName}</div>
+                </StyledTaskNameWrapper>
+
                 {task.flags === "urgent" && (
                   <StyledSpanUrgent>Urgent</StyledSpanUrgent>
                 )}
