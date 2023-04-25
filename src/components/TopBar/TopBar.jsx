@@ -18,7 +18,7 @@ export const TopBar = () => {
 
   const getTitle = () => {
     switch (location.pathname) {
-      case "/dashboard":
+      case "/dashboard/Overview":
         return "Overview";
       case "/dashboard/Tickets":
         return "Tickets";
