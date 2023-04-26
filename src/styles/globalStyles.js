@@ -1,13 +1,18 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+html{
+  box-sizing: border-box;
+}
 body {
+    margin: 0;
+    padding: 0;
     font-family: "Mulish", sans-serif;
     font-weight: 700;
-    color: #4b506d;
+    color:${(props) => (props.loggedIn ? "#252733" : "#4b506d")};
     font-size: 14px;
     line-height: 20px;
-    background: #4b506d;
+    background: ${(props) => (props.loggedIn ? "#F7F8FC" : "#4b5069")};
   }
   @font-face {
   font-family: "Mulish", sans-serif;

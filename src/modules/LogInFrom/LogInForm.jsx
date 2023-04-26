@@ -3,7 +3,7 @@ import { Formik } from "formik";
 import { initialValues, validationSchema } from "./formConfig";
 import { useNavigate } from "react-router-dom";
 
-export const LogInForm = () => {
+export const LogInForm = ({ updateLoggedIn }) => {
   const navigate = useNavigate();
 
   const onSubmit = async (values, actions) => {
@@ -16,7 +16,8 @@ export const LogInForm = () => {
     );
 
     if (user) {
-      navigate("/dashboard");
+      updateLoggedIn(true);
+      navigate("/dashboard/Overview");
     } else {
       actions.setFieldError("email", "Wrong email or password");
       actions.setFieldError("password", "Wrong email or password");

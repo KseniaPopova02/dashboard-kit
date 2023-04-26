@@ -1,7 +1,7 @@
 import React from "react";
 import { useField } from "formik";
 import { StyledWrapper } from "./style";
-import { Label, Input, Error } from "../../components";
+import { Label, Input, Error } from "..";
 
 export const CustomInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
