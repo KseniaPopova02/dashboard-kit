@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import { NavLink as Link } from "react-router-dom";
 import { BarsOutlined } from "@ant-design/icons";
+import { Input } from "antd";
+import { SearchOutlined } from "@ant-design/icons";
+const { Search } = Input;
 
 export const StyledSidebar = styled.div`
   background: #363740;
@@ -8,6 +11,7 @@ export const StyledSidebar = styled.div`
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
+  min-height: 100%;
   height: 100vh;
 `;
 
@@ -106,4 +110,45 @@ export const StyledBarsOutlined = styled(BarsOutlined)`
 export const StyledSvgWrapper = styled.div`
   line-height: 0;
   margin-right: 24px;
+`;
+
+export const StyledInputWrapper = styled.div`
+  padding: 20px 15px;
+  display: none;
+  @media (max-width: 650px) {
+    opacity: ${(props) => (props.isOpen ? "1" : "0")};
+    display: ${(props) => (props.isOpen ? "block" : "none")};
+  }
+`;
+
+export const StyledSearch = styled(Search)`
+  && {
+    box-sizing: border-box;
+    background-color: transparent;
+    .ant-btn-primary {
+      background-color: transparent;
+      border-color: #fff;
+      box-shadow: none;
+    }
+    .ant-input-search-button {
+      height: 31px;
+    }
+  }
+`;
+
+export const StyledSearchBtn = styled(SearchOutlined)`
+  transition: all 0.2s;
+  color: #a4a6b3;
+  opacity: 0.4;
+  display: none;
+  padding: 20px 30px;
+  position: relative;
+  &:hover {
+    opacity: 1;
+    color: #dde2ff;
+  }
+  @media (max-width: 650px) {
+    font-size: 30px;
+    display: ${(props) => (props.isOpen ? "none" : "block")};
+  }
 `;

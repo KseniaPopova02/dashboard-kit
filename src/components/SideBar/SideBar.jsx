@@ -9,8 +9,12 @@ import {
   StyledBarsOutlined,
   StyledSvgWrapper,
   StyledSideBarContainer,
+  StyledInputWrapper,
+  StyledSearch,
+  StyledSearchBtn,
 } from "./style";
 import { menuItemsArr } from "./menuItems";
+import { SearchOutlined } from "@ant-design/icons";
 
 export const SideBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,12 +66,17 @@ export const SideBar = () => {
           <StyledLogoText>DashBoard</StyledLogoText>
           <StyledBarsOutlined onClick={toggleSidebar} />
         </StyledTopWrapper>
+
         {menuItems.map((item, index) => (
           <StyledLink to={item.path} key={index}>
             <StyledSvgWrapper>{item.icon}</StyledSvgWrapper>
             <StyledText isOpen={isOpen}>{item.name}</StyledText>
           </StyledLink>
         ))}
+        <StyledSearchBtn onClick={toggleSidebar} isOpen={isOpen} />
+        <StyledInputWrapper isOpen={isOpen}>
+          <StyledSearch placeholder="Search" enterButton={<SearchOutlined />} />
+        </StyledInputWrapper>
       </StyledSidebar>
     </StyledSideBarContainer>
   );
