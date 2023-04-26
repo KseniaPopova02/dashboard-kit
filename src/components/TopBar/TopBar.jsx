@@ -44,6 +44,7 @@ export const TopBar = () => {
       <StyledToolsWrapper>
         <StyledSvgWrapper>
           <StyledSvg
+            className="search"
             width="1em"
             height="1em"
             viewBox="0 0 16 16"
@@ -72,6 +73,7 @@ export const TopBar = () => {
             </defs>
           </StyledSvg>
           <StyledSvg
+            className="bell"
             width="1em"
             height="1em"
             viewBox="0 0 14 16"
