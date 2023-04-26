@@ -1,1 +1,2 @@
-export const TopBar = () => <>top bar</>;
+import React from "react";
+export const TopBar = () => <>TopBar</>;
