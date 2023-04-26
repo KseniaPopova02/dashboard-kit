@@ -7,6 +7,9 @@ export const StyledPageContainer = styled.div`
   grid-template-areas:
     "sidebar topbar"
     "sidebar outlet";
+  @media (max-width: 800px) {
+    grid-template-columns: 80px 1fr;
+  }
 `;
 
 export const StyledTopbarWrapper = styled.div`

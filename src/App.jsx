@@ -1,8 +1,8 @@
+import { useState } from "react";
 import { GlobalStyle } from "./styles/globalStyles";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
   Forgot,
-  ForgotSuccess,
   LogIn,
   Reset,
   SignUp,
@@ -19,14 +19,19 @@ import {
 import { FormLayout, MainLayout } from "./modules";
 
 const App = () => {
-  const loggedIn = true;
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  const updateLoggedIn = (value) => {
+    setLoggedIn(value);
+  };
+
   return (
     <BrowserRouter>
       <GlobalStyle loggedIn={loggedIn} />
       <Routes>
         {loggedIn ? (
-          <Route path="/" element={<MainLayout />}>
-            <Route index element={<View />} />
+          <Route path="/dashboard" element={<MainLayout />}>
+            <Route path="Overview" element={<View />} />
             <Route path="Tickets" element={<Tickets />} />
             <Route path="Ideas" element={<Ideas />} />
             <Route path="Contacts" element={<Contacts />} />
@@ -38,11 +43,13 @@ const App = () => {
           </Route>
         ) : (
           <Route path="/" element={<FormLayout />}>
-            <Route index element={<LogIn />} />
+            <Route index element={<LogIn updateLoggedIn={updateLoggedIn} />} />
             <Route path="forgot" element={<Forgot />} />
-            <Route path="forgotSuccess" element={<ForgotSuccess />} />
             <Route path="reset" element={<Reset />} />
-            <Route path="signUp" element={<SignUp />} />
+            <Route
+              path="sign-up"
+              element={<SignUp updateLoggedIn={updateLoggedIn} />}
+            />
             <Route path="*" element={<NotFound />} />
           </Route>
         )}
