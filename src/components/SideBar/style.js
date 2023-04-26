@@ -11,6 +11,23 @@ export const StyledSidebar = styled.div`
   height: 100vh;
 `;
 
+export const StyledSideBarContainer = styled.div`
+  @media (max-width: 800px) {
+    transition: width 0.3s ease;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: ${(props) => (props.isOpen ? "255px" : "80px")};
+  }
+`;
+export const StyledText = styled.div`
+  @media (max-width: 800px) {
+    opacity: ${(props) => (props.isOpen ? "1" : "0")};
+    transition: opacity 0.3s ease;
+    visibility: ${(props) => (props.isOpen ? "visible" : "hidden")};
+  }
+`;
+
 export const StyledLink = styled(Link)`
   color: #a4a6b3;
   font-weight: 400;
@@ -36,19 +53,6 @@ export const StyledLink = styled(Link)`
       height: 100%;
     }
   }
-  /* &:hover {
-    background-color: rgba(159, 162, 180, 0.08);
-    opacity: 1;
-    color: #dde2ff;
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      background-color: #dde2ff;
-      width: 3px;
-      height: 100%;
-    }
-  } */
 `;
 
 export const StyledSvg = styled.svg`
@@ -58,10 +62,16 @@ export const StyledSvg = styled.svg`
     fill: #dde2ff;
     opacity: 1;
   }
+  @media (max-width: 800px) {
+    font-size: 30px;
+  }
 `;
 
 export const StyledLogoSvg = styled.svg`
   font-size: 32px;
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;
 
 export const StyledTopWrapper = styled.div`
@@ -75,6 +85,9 @@ export const StyledLogoText = styled.div`
   font-weight: 700;
   font-size: 19px;
   line-height: 24px;
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;
 
 export const StyledLogoWrapper = styled.div`
@@ -83,6 +96,11 @@ export const StyledLogoWrapper = styled.div`
 
 export const StyledBarsOutlined = styled(BarsOutlined)`
   font-size: 24px;
+  display: none;
+  @media (max-width: 800px) {
+    font-size: 30px;
+    display: block;
+  }
 `;
 
 export const StyledSvgWrapper = styled.div`
