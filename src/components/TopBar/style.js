@@ -42,11 +42,23 @@ export const StyledSvg = styled.svg`
 export const StyledInput = styled(Input)`
   position: absolute;
   right: 35px;
-  width: ${({ isInputShown }) => (isInputShown ? "240px" : "0")};
-  padding: ${({ isInputShown }) => (isInputShown ? "8px 16px" : "0")};
-  border: ${({ isInputShown }) =>
-    isInputShown ? "1px solid #d9d9d9" : "none"};
+  width: ${({ isInputDisplayed }) => (isInputDisplayed ? "240px" : "0")};
+  padding: ${({ isInputDisplayed }) => (isInputDisplayed ? "8px 16px" : "0")};
+  border: ${({ isInputDisplayed }) =>
+    isInputDisplayed ? "1px solid #d9d9d9" : "none"};
   transition: width 0.3s ease-in-out, padding 0.3s ease-in-out;
+  @media (max-width: 912px) {
+    width: ${({ isInputDisplayed }) => (isInputDisplayed ? "200px" : "0")};
+  }
+  @media (max-width: 871px) {
+    width: ${({ isInputDisplayed }) => (isInputDisplayed ? "120px" : "0")};
+  }
+  @media (max-width: 800px) {
+    width: ${({ isInputDisplayed }) => (isInputDisplayed ? "150px" : "0")};
+  }
+  @media (max-width: 650px) {
+    display: none;
+  }
 `;
 
 export const StyledLineSvg = styled.svg`

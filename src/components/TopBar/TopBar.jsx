@@ -16,10 +16,10 @@ import profilePhoto from "../../images/profile-photo.png";
 
 export const TopBar = () => {
   const location = useLocation();
-  const [isInputShown, setIsInputShown] = useState(false);
+  const [isInputDisplayed, setIsInputDisplayed] = useState(false);
 
   const handleSearchClick = () => {
-    setIsInputShown(!isInputShown);
+    setIsInputDisplayed(!isInputDisplayed);
   };
 
   const getTitle = () => {
@@ -49,7 +49,7 @@ export const TopBar = () => {
       <StyledTitle>{getTitle()}</StyledTitle>
       <StyledToolsWrapper>
         <StyledSvgWrapper>
-          <StyledInput isInputShown={isInputShown} />
+          <StyledInput isInputDisplayed={isInputDisplayed} />
           <StyledSvg
             onClick={handleSearchClick}
             className="search"
