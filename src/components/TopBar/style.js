@@ -27,6 +27,7 @@ export const StyledSvg = styled.svg`
   font-size: 16px;
   z-index: 100;
   &.search {
+    cursor: pointer;
     @media (max-width: 650px) {
       display: none;
     }
