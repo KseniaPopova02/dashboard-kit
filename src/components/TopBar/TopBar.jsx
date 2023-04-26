@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import {
   StyledTopBarWrapper,
   StyledTitle,
@@ -9,12 +9,18 @@ import {
   StyledName,
   StyledImgBorder,
   StyledImg,
+  StyledInput,
 } from "./style";
 import { useLocation } from "react-router-dom";
 import profilePhoto from "../../images/profile-photo.png";
 
 export const TopBar = () => {
   const location = useLocation();
+  const [isInputShown, setIsInputShown] = useState(false);
+
+  const handleSearchClick = () => {
+    setIsInputShown(!isInputShown);
+  };
 
   const getTitle = () => {
     switch (location.pathname) {
@@ -43,7 +49,9 @@ export const TopBar = () => {
       <StyledTitle>{getTitle()}</StyledTitle>
       <StyledToolsWrapper>
         <StyledSvgWrapper>
+          <StyledInput isInputShown={isInputShown} />
           <StyledSvg
+            onClick={handleSearchClick}
             className="search"
             width="1em"
             height="1em"

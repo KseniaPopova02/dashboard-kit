@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Input } from "antd";
 
 export const StyledTopBarWrapper = styled.div`
   color: #252733;
@@ -24,6 +25,7 @@ export const StyledToolsWrapper = styled.div`
 
 export const StyledSvg = styled.svg`
   font-size: 16px;
+  z-index: 100;
   &.search {
     @media (max-width: 650px) {
       display: none;
@@ -37,13 +39,25 @@ export const StyledSvg = styled.svg`
   }
 `;
 
+export const StyledInput = styled(Input)`
+  position: absolute;
+  right: 35px;
+  width: ${({ isInputShown }) => (isInputShown ? "240px" : "0")};
+  padding: ${({ isInputShown }) => (isInputShown ? "8px 16px" : "0")};
+  border: ${({ isInputShown }) =>
+    isInputShown ? "1px solid #d9d9d9" : "none"};
+  transition: width 0.3s ease-in-out, padding 0.3s ease-in-out;
+`;
+
 export const StyledLineSvg = styled.svg`
   font-size: 32px;
 `;
 
 export const StyledSvgWrapper = styled.div`
   display: flex;
+  align-items: center;
   gap: 28px;
+  position: relative;
 `;
 
 export const StyledName = styled.div`
@@ -62,9 +76,6 @@ export const StyledImgBorder = styled.div`
   border-radius: 50%;
   border: 1.5px solid #dfe0eb;
   position: relative;
-  /* @media (max-width: 650px) {
-    display: none;
-  } */
 `;
 
 export const StyledImg = styled.img`
