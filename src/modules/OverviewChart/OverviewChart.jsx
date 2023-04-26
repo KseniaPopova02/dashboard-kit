@@ -1,3 +1,4 @@
+import React from "react";
 import {
   LineChart,
   Line,
@@ -6,38 +7,49 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
+  ResponsiveContainer,
 } from "recharts";
-import React from "react";
-import { StyledLineChart } from "./style";
+import { CustomDot } from "./CustomDot";
+
+const data = [];
+
+for (let i = 0; i <= 22; i++) {
+  data.push({
+    name: i.toString(),
+    yesterday: Math.floor(Math.random() * 5000),
+    today: Math.floor(Math.random() * 5000),
+  });
+}
 
 export const OverviewChart = () => {
-  const data = Array.from({ length: 23 }, (_, i) => ({
-    id: i,
-    uv: 4000,
-    pv: i,
-    amt: 2400,
-  }));
-
   return (
-    <StyledLineChart width={576} height={336} data={data}>
-      <XAxis dataKey="id" interval={0} tickCount={23} domain={[0, 22]} />
-      <YAxis
-        dataKey="id"
-        interval={10}
-        tickCount={5}
-        domain={[0, 50]}
-        orientation="right"
-      />
-      <CartesianGrid strokeDasharray="3 3" />
-      <Tooltip />
-      <Legend />
-      <Line
-        type="monotone"
-        dataKey="pv"
-        stroke="#8884d8"
-        activeDot={{ r: 8 }}
-      />
-      <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-    </StyledLineChart>
+    <div style={{ maxWidth: "686px", height: "350px" }}>
+      <ResponsiveContainer width="100%" height="100%" aspect={3}>
+        <LineChart
+          width={500}
+          height={300}
+          data={data}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
+          <CartesianGrid horizontal="true" vertical="" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Line
+            type="monotone"
+            dataKey="yesterday"
+            stroke="#3751FF"
+            activeDot={<CustomDot />}
+          />
+          <Line type="monotone" dataKey="today" stroke="#DFE0EB" />
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
   );
 };
