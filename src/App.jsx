@@ -21,7 +21,7 @@ import {
 import { FormLayout, MainLayout } from "./modules";
 
 const App = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
 
   const updateLoggedIn = (value) => {
     setLoggedIn(value);
