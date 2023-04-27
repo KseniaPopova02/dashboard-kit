@@ -7,3 +7,8 @@ export const StyledWrapper = styled.div`
   padding: 32px;
   margin-bottom: 30px;
 `;
+
+export const StyledChartWrapper = styled.div`
+  display: flex;
+  gap: 62px;
+`;

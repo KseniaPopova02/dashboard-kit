@@ -1,12 +1,14 @@
 import { Chart } from "./Chart";
 import { Header } from "./Header";
-import { StyledWrapper } from "./style";
+import { Info } from "./Info";
+import { StyledWrapper, StyledChartWrapper } from "./style";
 
 export const OverviewChartBlock = () => (
   <StyledWrapper>
     <Header />
-    <div>
+    <StyledChartWrapper>
       <Chart />
-    </div>
+      <Info />
+    </StyledChartWrapper>
   </StyledWrapper>
 );
