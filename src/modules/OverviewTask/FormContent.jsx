@@ -8,8 +8,9 @@ import {
   StyledLabelUrgent,
   StyledLabelNew,
   StyledLabelDefault,
+  StyledBin,
+  StyledAdd,
 } from "./style";
-import { PlusOutlined, DeleteOutlined } from "@ant-design/icons";
 
 export const FormContent = ({ handleDeleteAllTasks }) => (
   <Form>
@@ -25,10 +26,10 @@ export const FormContent = ({ handleDeleteAllTasks }) => (
 
         <div>
           <StyledBtn type="submit">
-            <PlusOutlined />
+            <StyledAdd />
           </StyledBtn>
           <StyledBtn type="button" onClick={handleDeleteAllTasks}>
-            <DeleteOutlined />
+            <StyledBin />
           </StyledBtn>
         </div>
       </StyledInputWrapper>

@@ -1,7 +1,14 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Checkbox } from "antd";
+import { PlusOutlined, DeleteOutlined } from "@ant-design/icons";
 
+export const StyledBin = styled(DeleteOutlined)`
+  cursor: pointer;
+`;
+export const StyledAdd = styled(PlusOutlined)`
+  cursor: pointer;
+`;
 export const StyledTaskWrapper = styled.div`
   border: 1px solid #dfe0eb;
   border-radius: 8px;
@@ -34,6 +41,7 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;
+  height: 14px;
   line-height: 20px;
   color: #3751ff;
 `;
