@@ -5,4 +5,5 @@ export const StyledWrapper = styled.div`
   border-radius: 8px;
   background: #ffffff;
   padding: 32px;
+  margin-bottom: 30px;
 `;

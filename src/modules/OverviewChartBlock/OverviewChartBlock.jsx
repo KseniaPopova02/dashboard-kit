@@ -5,6 +5,8 @@ import { StyledWrapper } from "./style";
 export const OverviewChartBlock = () => (
   <StyledWrapper>
     <Header />
-    <Chart />
+    <div>
+      <Chart />
+    </div>
   </StyledWrapper>
 );

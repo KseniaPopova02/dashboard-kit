@@ -1,11 +1,12 @@
 import styled from "styled-components";
-import { LineChart } from "recharts";
-import { Tooltip } from "recharts";
+import { LineChart, Tooltip, ResponsiveContainer } from "recharts";
 
-export const StyledLineChart = styled(LineChart)`
-  .stroke-dasharray {
-    display: none;
-  }
+export const StyledLineChart = styled(LineChart)``;
+
+export const StyledRespContainer = styled(ResponsiveContainer)`
+  max-width: 688px !important;
+  height: 300px !important;
+  aspect-ratio: 3;
 `;
 
 export const StyledDot = styled.svg`
