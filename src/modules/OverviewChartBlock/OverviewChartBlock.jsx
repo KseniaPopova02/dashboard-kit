@@ -1,6 +1,6 @@
-import { OverviewChart } from "./OverviewChart";
+import { Chart } from "./Chart";
 export const OverviewChartBlock = () => (
   <>
-    <OverviewChart></OverviewChart>
+    <Chart></Chart>
   </>
 );

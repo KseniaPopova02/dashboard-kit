@@ -22,7 +22,7 @@ for (let i = 0; i <= 22; i++) {
   });
 }
 
-export const OverviewChart = () => {
+export const Chart = () => {
   return (
     <div style={{ maxWidth: "686px", height: "350px" }}>
       <ResponsiveContainer width="100%" height="100%" aspect={3}>
