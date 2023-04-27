@@ -3,14 +3,14 @@ import {
   OverviewInfo,
   OverviewTickets,
   OverviewTask,
-  OverviewChart,
+  OverviewChartBlock,
 } from "../../modules";
 import { StyledWrapper } from "./style";
 
 export const View = () => (
   <>
     <OverviewInfo />
-    <OverviewChart />
+    <OverviewChartBlock />
     <StyledWrapper>
       <OverviewTickets />
       <OverviewTask />

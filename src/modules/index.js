@@ -8,4 +8,4 @@ export * from "./ForgotSuccess";
 export * from "./OverviewInfo";
 export * from "./OverviewTickets";
 export * from "./OverviewTask";
-export * from "./OverviewChart";
+export * from "./OverviewChartBlock";
