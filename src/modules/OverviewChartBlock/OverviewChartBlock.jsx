@@ -5,10 +5,10 @@ import { StyledWrapper, StyledChartWrapper } from "./style";
 
 export const OverviewChartBlock = () => (
   <StyledWrapper>
-    <Header />
     <StyledChartWrapper>
+      <Header />
       <Chart />
-      <Info />
     </StyledChartWrapper>
+    <Info />
   </StyledWrapper>
 );

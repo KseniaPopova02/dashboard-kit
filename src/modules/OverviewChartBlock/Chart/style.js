@@ -7,6 +7,7 @@ export const StyledRespContainer = styled(ResponsiveContainer)`
   max-width: 688px !important;
   height: 300px !important;
   aspect-ratio: 3;
+  padding: 0 0 32px 32px;
 `;
 
 export const StyledDot = styled.svg`
