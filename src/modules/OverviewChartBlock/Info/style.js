@@ -1,18 +1,14 @@
 import styled from "styled-components";
 
 export const StyledWrapper = styled.div`
-  position: relative;
+  border-left: 1px solid #dfe0eb;
+`;
+
+export const StyledWrapperWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 24px;
   justify-content: center;
-  &::before {
-    position: absolute;
-    content: "";
-    width: 1px;
-    height: 100%;
-    background-color: #dfe0eb;
-  }
+  padding: 24px 0;
+  border-bottom: 1px solid #dfe0eb;
 `;
 
 export const StyledNumbers = styled.div`
@@ -22,6 +18,7 @@ export const StyledNumbers = styled.div`
 `;
 
 export const StyledText = styled.div`
+  padding: 0 32px;
   font-weight: 600;
   font-size: 16px;
   line-height: 22px;
@@ -31,7 +28,5 @@ export const StyledText = styled.div`
 export const StyledDataWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 6px;
-  padding: 0 32px;
+  align-items: center;
 `;

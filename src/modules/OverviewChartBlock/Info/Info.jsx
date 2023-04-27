@@ -5,6 +5,7 @@ import {
   StyledText,
   StyledNumbers,
   StyledDataWrapper,
+  StyledWrapperWrapper,
 } from "./style";
 
 const formatData = (dataChart) => {
@@ -41,10 +42,12 @@ export const Info = () => {
   return (
     <StyledWrapper>
       {formatData(dataChart).map(([key, value]) => (
-        <StyledDataWrapper key={key}>
-          <StyledText>{key}</StyledText>
-          <StyledNumbers>{value}</StyledNumbers>
-        </StyledDataWrapper>
+        <StyledWrapperWrapper key={key}>
+          <StyledDataWrapper>
+            <StyledText>{key}</StyledText>
+            <StyledNumbers>{value}</StyledNumbers>
+          </StyledDataWrapper>
+        </StyledWrapperWrapper>
       ))}
     </StyledWrapper>
   );

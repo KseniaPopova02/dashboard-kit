@@ -6,7 +6,7 @@ export const StyledWrapper = styled.div`
   background: #ffffff;
   margin-bottom: 30px;
   display: flex;
-  gap: 62px;
+  justify-content: space-between;
 `;
 
 export const StyledChartWrapper = styled.div`
