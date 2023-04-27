@@ -1,6 +1,6 @@
 import { StyledDot } from "./style";
 
-export const CustomDot = () => (
+export const CustomDot = (props) => (
   <StyledDot
     width="1em"
     height="1em"

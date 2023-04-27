@@ -10,7 +10,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { CustomDot } from "./CustomDot";
-import { StyledTooltip } from "./style";
+import { CustomTooltip } from "./CustomTooltip";
 
 const data = [];
 
@@ -38,17 +38,18 @@ export const OverviewChart = () => {
           }}
         >
           <CartesianGrid horizontal="true" vertical="" />
-          <XAxis dataKey="name" tick={{ fill: "#9FA2B4" }} />
-          <YAxis tick={{ fill: "#9FA2B4" }} />
-          <Tooltip content={<StyledTooltip />} />
+          <XAxis dataKey="name" tick={{ fill: "#9FA2B4" }} stroke="#DFE0EB" />
+          <YAxis tick={{ fill: "#9FA2B4" }} stroke="#DFE0EB" />
+          <Tooltip content={<CustomTooltip />} />
           <Legend />
+          <Line type="monotone" dataKey="today" stroke="#3751FF" dot="" />
           <Line
+            dot=""
             type="monotone"
             dataKey="yesterday"
-            stroke="#3751FF"
-            activeDot={<CustomDot color="#3751FF" />}
+            stroke="#DFE0EB"
+            activeDot={<CustomDot />}
           />
-          <Line type="monotone" dataKey="today" stroke="#DFE0EB" />
         </LineChart>
       </ResponsiveContainer>
     </div>
