@@ -10,6 +10,7 @@ import { StyledWrapper } from "./style";
 export const View = () => (
   <>
     <OverviewInfo />
+
     <OverviewChartBlock />
     <StyledWrapper>
       <OverviewTickets />

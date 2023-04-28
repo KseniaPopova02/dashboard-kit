@@ -8,10 +8,14 @@ export const StyledBox = styled.div`
   border: 1px solid #dfe0eb;
   border-radius: 8px;
   background: #ffffff;
-  width: 258px;
+  max-width: 258px;
+  width: 100%;
   height: 134px;
   cursor: pointer;
   position: relative;
+  & + div {
+    margin-left: 5px;
+  }
 
   &::before {
     content: "";
@@ -35,6 +39,14 @@ export const StyledBox = styled.div`
       color: #3751ff;
     }
   }
+  @media (max-width: 940px) {
+    height: 85px;
+    padding: 10px 5px;
+  }
+
+  @media (max-width: 550px) {
+    height: 55px;
+  }
 `;
 
 export const StyledContainer = styled.div`
@@ -53,6 +65,9 @@ export const StyledBtnText = styled.div`
   &::first-letter {
     text-transform: uppercase;
   }
+  @media (max-width: 550px) {
+    font-size: 15px;
+  }
 `;
 
 export const StyledBtnNum = styled.div`
@@ -60,4 +75,10 @@ export const StyledBtnNum = styled.div`
   font-weight: 700;
   font-size: 40px;
   line-height: 50px;
+  @media (max-width: 940px) {
+    font-size: 32px;
+  }
+  @media (max-width: 550px) {
+    font-size: 20px;
+  }
 `;
