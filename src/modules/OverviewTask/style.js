@@ -57,6 +57,7 @@ export const StyledLink = styled(Link)`
   height: 14px;
   line-height: 20px;
   color: #3751ff;
+  margin-bottom: 10px;
 `;
 
 export const StyledInput = styled.input`

@@ -81,7 +81,9 @@ export const OverviewTask = ({ showAllTasks = false }) => {
         >
           View all
         </StyledLink>
-        {showAllTasks ? <div></div> : null}
+        {showAllTasks ? (
+          <StyledLink to="/dashboard/overview">Back</StyledLink>
+        ) : null}
       </StyledHeaderWrapper>
 
       <Formik
