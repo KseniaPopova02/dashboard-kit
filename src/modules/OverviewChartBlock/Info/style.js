@@ -4,9 +4,7 @@ export const StyledWrapper = styled.div`
   border-left: 1px solid #dfe0eb;
   width: 342px;
   max-width: 100%;
-  > * {
-    flex-grow: 1;
-  }
+  flex-wrap: wrap;
   @media (max-width: 1338px) {
     display: flex;
     border-left: none;
@@ -15,13 +13,19 @@ export const StyledWrapper = styled.div`
 `;
 
 export const StyledWrapperWrapper = styled.div`
+  flex-grow: 1;
   display: flex;
   justify-content: center;
   padding: 24px 0;
-  border-bottom: 1px solid #dfe0eb;
+  &:not(:last-child) {
+    border-bottom: 1px solid #dfe0eb;
+  }
   @media (max-width: 1338px) {
-    border-bottom: none;
-    border: 1px solid #dfe0eb;
+    border-bottom: none !important;
+    border-top: 1px solid #dfe0eb;
+    &:not(:first-child) {
+      border-left: 1px solid #dfe0eb;
+    }
   }
 `;
 
@@ -29,7 +33,7 @@ export const StyledNumbers = styled.div`
   font-weight: 700;
   font-size: 24px;
   line-height: 30px;
-  @media (max-width: 1070px) {
+  @media (max-width: 1134px) {
     font-size: 17px;
   }
 `;

@@ -14,6 +14,13 @@ export const StyledTaskWrapper = styled.div`
   border-radius: 8px;
   background: #ffffff;
   width: 546px;
+  max-width: 100%;
+  @media (max-width: 1480px) {
+    width: 400px;
+  }
+  @media (max-width: 1140px) {
+    width: 100%;
+  }
 `;
 
 export const StyledTaskTitle = styled.div`
@@ -29,12 +36,18 @@ export const StyledSubTitle = styled.div`
   line-height: 16px;
   color: #9fa2b4;
   margin-bottom: 36px;
+  @media (max-width: 470px) {
+    margin-bottom: 10px;
+  }
 `;
 
 export const StyledHeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 32px 32px 0 32px;
+  @media (max-width: 470px) {
+    flex-direction: column;
+  }
 `;
 
 export const StyledLink = styled(Link)`
@@ -51,7 +64,7 @@ export const StyledInput = styled.input`
   font-size: 14px;
   line-height: 20px;
   border: transparent;
-
+  margin-bottom: 10px;
   ::placeholder {
     color: #c5c7cd;
   }
@@ -74,6 +87,12 @@ export const StyledInputWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 5px;
+  @media (max-width: 470px) {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 10px;
+  }
 `;
 
 export const StyledFormWrapper = styled.div`
@@ -84,6 +103,15 @@ export const StyledFormWrapper = styled.div`
 export const StyledRadioWrapper = styled.div`
   display: flex;
   gap: 10px;
+  @media (max-width: 470px) {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+  }
+`;
+
+export const StyledBtnWrapper = styled.div`
+  display: flex;
 `;
 
 export const StyledLabelUrgent = styled.label`

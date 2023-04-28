@@ -6,6 +6,7 @@ export const StyledContainer = styled.div`
   height: 100%;
   max-width: 100%;
   padding: 0 0 32px 32px;
+  display: none;
 `;
 
 export const StyledDot = styled.svg`

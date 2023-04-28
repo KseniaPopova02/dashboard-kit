@@ -10,6 +10,7 @@ import {
   StyledLabelDefault,
   StyledBin,
   StyledAdd,
+  StyledBtnWrapper,
 } from "./style";
 
 export const FormContent = ({ handleDeleteAllTasks }) => (
@@ -24,14 +25,14 @@ export const FormContent = ({ handleDeleteAllTasks }) => (
           />
         </div>
 
-        <div>
+        <StyledBtnWrapper>
           <StyledBtn type="submit">
             <StyledAdd />
           </StyledBtn>
           <StyledBtn type="button" onClick={handleDeleteAllTasks}>
             <StyledBin />
           </StyledBtn>
-        </div>
+        </StyledBtnWrapper>
       </StyledInputWrapper>
       <StyledRadioWrapper>
         <div>
