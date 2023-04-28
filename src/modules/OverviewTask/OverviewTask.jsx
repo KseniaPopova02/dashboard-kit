@@ -81,6 +81,7 @@ export const OverviewTask = ({ showAllTasks = false }) => {
         >
           View all
         </StyledLink>
+        {showAllTasks ? <div></div> : null}
       </StyledHeaderWrapper>
 
       <Formik
