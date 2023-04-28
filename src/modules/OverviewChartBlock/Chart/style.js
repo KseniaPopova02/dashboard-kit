@@ -1,12 +1,10 @@
 import styled from "styled-components";
-import { LineChart, Tooltip, ResponsiveContainer } from "recharts";
+import { Tooltip } from "recharts";
 
-export const StyledLineChart = styled(LineChart)``;
-
-export const StyledRespContainer = styled(ResponsiveContainer)`
-  max-width: 688px !important;
-  height: 300px !important;
-  aspect-ratio: 3;
+export const StyledContainer = styled.div`
+  max-height: 350px;
+  height: 100%;
+  max-width: 100%;
   padding: 0 0 32px 32px;
 `;
 
