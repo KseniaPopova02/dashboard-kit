@@ -11,6 +11,7 @@ import {
   StyledImg,
   StyledInput,
 } from "./style";
+import { getTitle } from "./helpers";
 import { useLocation } from "react-router-dom";
 import profilePhoto from "../../assets/images/profile-photo.png";
 import { ReactComponent as SearchSvg } from "../../assets/svg/search.svg";
@@ -25,31 +26,9 @@ export const TopBar = () => {
     setIsInputDisplayed(!isInputDisplayed);
   };
 
-  const getTitle = () => {
-    switch (location.pathname) {
-      case "/dashboard/Overview":
-        return "Overview";
-      case "/dashboard/Tickets":
-        return "Tickets";
-      case "/dashboard/Ideas":
-        return "Ideas";
-      case "/dashboard/Contacts":
-        return "Contacts";
-      case "/dashboard/Agents":
-        return "Agents";
-      case "/dashboard/Articles":
-        return "Articles";
-      case "/dashboard/Settings":
-        return "Settings";
-      case "/dashboard/Subscription":
-        return "Subscription";
-      default:
-        return "Error";
-    }
-  };
   return (
     <StyledTopBarWrapper>
-      <StyledTitle>{getTitle()}</StyledTitle>
+      <StyledTitle>{getTitle(location.pathname)}</StyledTitle>
       <StyledToolsWrapper>
         <StyledSvgHeaderWrapper>
           <StyledInput isInputDisplayed={isInputDisplayed} />
