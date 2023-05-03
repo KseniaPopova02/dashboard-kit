@@ -16,6 +16,7 @@ import {
   Settings,
   Subscription,
 } from "./pages";
+import { ROUTES } from "./Routes/routes";
 import { AuthFormLayout, MainLayout } from "./modules";
 
 const App = () => {
@@ -29,26 +30,29 @@ const App = () => {
     <BrowserRouter>
       <GlobalStyle loggedIn={loggedIn} />
       <Routes>
-        <Route path="/dashboard" element={<MainLayout loggedIn={loggedIn} />}>
-          <Route path="overview" element={<View />} />
-          <Route path="tickets" element={<Tickets />} />
-          <Route path="ideas" element={<Ideas />} />
-          <Route path="contacts" element={<Contacts />} />
-          <Route path="agents" element={<Agents />} />
-          <Route path="articles" element={<Articles />} />
-          <Route path="settings" element={<Settings />} />
-          <Route path="subscription" element={<Subscription />} />
-          <Route path="*" element={<NotFound />} />
+        <Route
+          path={ROUTES.DASHBOARD}
+          element={<MainLayout loggedIn={loggedIn} />}
+        >
+          <Route path={ROUTES.OVERVIEW} element={<View />} />
+          <Route path={ROUTES.TICKETS} element={<Tickets />} />
+          <Route path={ROUTES.IDEAS} element={<Ideas />} />
+          <Route path={ROUTES.CONTACTS} element={<Contacts />} />
+          <Route path={ROUTES.AGENTS} element={<Agents />} />
+          <Route path={ROUTES.ARTICLES} element={<Articles />} />
+          <Route path={ROUTES.SETTINGS} element={<Settings />} />
+          <Route path={ROUTES.SUBSCRIPTION} element={<Subscription />} />
+          <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
         </Route>
         <Route path="/" element={<AuthFormLayout />}>
           <Route index element={<LogIn updateLoggedIn={updateLoggedIn} />} />
-          <Route path="forgot" element={<Forgot />} />
-          <Route path="reset" element={<Reset />} />
+          <Route path={ROUTES.FORGOT} element={<Forgot />} />
+          <Route path={ROUTES.RESET} element={<Reset />} />
           <Route
-            path="sign-up"
+            path={ROUTES.SIGNUP}
             element={<SignUp updateLoggedIn={updateLoggedIn} />}
           />
-          <Route path="*" element={<NotFound />} />
+          <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
