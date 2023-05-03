@@ -1,4 +1,4 @@
-export * from "./FormLayout";
+export * from "./AuthFormLayout";
 export * from "./MainLayout";
 export * from "./LogInFrom";
 export * from "./ForgotForm";
