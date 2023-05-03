@@ -44,10 +44,12 @@ export const StyledLink = styled(Link)`
   transition: all 0.2s;
   opacity: 0.4;
   position: relative;
+
   &.active {
     background-color: rgba(159, 162, 180, 0.08);
     opacity: 1;
     color: #dde2ff;
+
     &::before {
       content: "";
       position: absolute;
@@ -62,10 +64,12 @@ export const StyledLink = styled(Link)`
 export const StyledSvg = styled.svg`
   font-size: 16px;
   fill: #9fa2b4;
+
   &:hover {
     fill: #dde2ff;
     opacity: 1;
   }
+
   @media (max-width: 800px) {
     font-size: 30px;
   }
@@ -73,6 +77,7 @@ export const StyledSvg = styled.svg`
 
 export const StyledLogoSvg = styled.svg`
   font-size: 32px;
+
   @media (max-width: 800px) {
     display: none;
   }
@@ -89,6 +94,7 @@ export const StyledLogoText = styled.div`
   font-weight: 700;
   font-size: 19px;
   line-height: 24px;
+
   @media (max-width: 800px) {
     display: none;
   }
@@ -101,6 +107,7 @@ export const StyledLogoWrapper = styled.div`
 export const StyledBarsOutlined = styled(BarsOutlined)`
   font-size: 24px;
   display: none;
+
   @media (max-width: 800px) {
     font-size: 30px;
     display: block;
@@ -115,6 +122,7 @@ export const StyledSvgWrapper = styled.div`
 export const StyledInputWrapper = styled.div`
   padding: 20px 15px;
   display: none;
+
   @media (max-width: 650px) {
     opacity: ${(props) => (props.isOpen ? "1" : "0")};
     display: ${(props) => (props.isOpen ? "block" : "none")};
@@ -130,6 +138,7 @@ export const StyledSearch = styled(Search)`
       border-color: #fff;
       box-shadow: none;
     }
+
     .ant-input-search-button {
       height: 31px;
     }
@@ -143,10 +152,12 @@ export const StyledSearchBtn = styled(SearchOutlined)`
   display: none;
   padding: 20px 30px;
   position: relative;
+
   &:hover {
     opacity: 1;
     color: #dde2ff;
   }
+
   @media (max-width: 650px) {
     font-size: 30px;
     display: ${(props) => (props.isOpen ? "none" : "block")};
