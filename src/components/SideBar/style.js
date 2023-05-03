@@ -75,8 +75,9 @@ export const StyledSvg = styled.svg`
   }
 `;
 
-export const StyledLogoSvg = styled.svg`
+export const StyledLogoSvgWrapper = styled.div`
   font-size: 32px;
+  line-height: 0;
 
   @media (max-width: 800px) {
     display: none;
