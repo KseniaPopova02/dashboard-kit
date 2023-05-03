@@ -23,7 +23,7 @@ export const StyledToolsWrapper = styled.div`
   align-items: center;
 `;
 
-export const StyledSvgHeaderWrapper = styled.div`
+export const StyledSvgWrapper = styled.div`
   font-size: 16px;
   z-index: 100;
   &.search {
@@ -66,7 +66,7 @@ export const StyledLineSvgWrapper = styled.div`
   font-size: 32px;
 `;
 
-export const StyledSvgWrapper = styled.div`
+export const StyledSvgHeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 28px;

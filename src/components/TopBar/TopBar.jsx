@@ -51,18 +51,15 @@ export const TopBar = () => {
     <StyledTopBarWrapper>
       <StyledTitle>{getTitle()}</StyledTitle>
       <StyledToolsWrapper>
-        <StyledSvgWrapper>
+        <StyledSvgHeaderWrapper>
           <StyledInput isInputDisplayed={isInputDisplayed} />
-          <StyledSvgHeaderWrapper
-            onClick={handleSearchClick}
-            className="search"
-          >
+          <StyledSvgWrapper onClick={handleSearchClick} className="search">
             <SearchSvg />
-          </StyledSvgHeaderWrapper>
-          <StyledSvgHeaderWrapper className="bell">
+          </StyledSvgWrapper>
+          <StyledSvgWrapper className="bell">
             <BellSvg />
-          </StyledSvgHeaderWrapper>
-        </StyledSvgWrapper>
+          </StyledSvgWrapper>
+        </StyledSvgHeaderWrapper>
         <StyledLineSvgWrapper>
           <LineSvg />
         </StyledLineSvgWrapper>
