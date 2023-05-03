@@ -61,20 +61,6 @@ export const StyledLink = styled(Link)`
   }
 `;
 
-export const StyledSvg = styled.svg`
-  font-size: 16px;
-  fill: #9fa2b4;
-
-  &:hover {
-    fill: #dde2ff;
-    opacity: 1;
-  }
-
-  @media (max-width: 800px) {
-    font-size: 30px;
-  }
-`;
-
 export const StyledLogoSvgWrapper = styled.div`
   font-size: 32px;
   line-height: 0;
@@ -118,6 +104,17 @@ export const StyledBarsOutlined = styled(BarsOutlined)`
 export const StyledSvgWrapper = styled.div`
   line-height: 0;
   margin-right: 24px;
+  font-size: 16px;
+  fill: #9fa2b4;
+
+  &:hover {
+    fill: #dde2ff;
+    opacity: 1;
+  }
+
+  @media (max-width: 800px) {
+    font-size: 30px;
+  }
 `;
 
 export const StyledInputWrapper = styled.div`

@@ -15,7 +15,7 @@ import {
 } from "./style";
 import { menuItems } from "./menuItems";
 import { SearchOutlined } from "@ant-design/icons";
-import { ReactComponent as LogoSvg } from "../../assets/logo.svg";
+import { ReactComponent as LogoSvg } from "../../assets/svg/logo.svg";
 
 export const SideBar = () => {
   const [isOpen, setIsOpen] = useState(false);
