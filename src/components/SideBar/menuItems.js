@@ -1,6 +1,6 @@
 import { StyledSvg } from "./style";
 
-export const menuItemsArr = [
+export const menuItems = [
   {
     path: "/dashboard/Overview",
     name: "Overview",

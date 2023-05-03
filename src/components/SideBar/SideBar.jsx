@@ -13,13 +13,12 @@ import {
   StyledSearch,
   StyledSearchBtn,
 } from "./style";
-import { menuItemsArr } from "./menuItems";
+import { menuItems } from "./menuItems";
 import { SearchOutlined } from "@ant-design/icons";
 
 export const SideBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleSidebar = () => setIsOpen(!isOpen);
-  const menuItems = menuItemsArr;
 
   const handleClickOutside = (event) => {
     if (!event.target.closest("#sidebar")) {
