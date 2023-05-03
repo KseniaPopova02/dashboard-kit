@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   StyledText,
   StyledSidebar,
@@ -20,21 +20,27 @@ export const SideBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleSidebar = () => setIsOpen(!isOpen);
   const menuItems = menuItemsArr;
-  const sidebarRef = useRef(null);
 
   const handleClickOutside = (event) => {
-    if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+    if (!event.target.closest("#sidebar")) {
+      event.stopPropagation();
       setIsOpen(false);
     }
   };
 
   useEffect(() => {
     document.addEventListener("click", handleClickOutside);
-    return () => document.removeEventListener("click", handleClickOutside);
-  }, []);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  });
 
   return (
-    <StyledSideBarContainer isOpen={isOpen} ref={sidebarRef}>
+    <StyledSideBarContainer
+      id="sidebar"
+      isOpen={isOpen}
+      onClick={handleClickOutside}
+    >
       <StyledSidebar>
         <StyledTopWrapper>
           <StyledLogoSvg
