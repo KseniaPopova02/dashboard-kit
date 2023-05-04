@@ -17,7 +17,7 @@ import { menuItems } from "./menuItems";
 import { SearchOutlined } from "@ant-design/icons";
 import { ReactComponent as LogoSvg } from "../../assets/svg/logo.svg";
 
-export const SideBar = () => {
+export const SideBar = ({ handleLogout }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleSidebar = () => setIsOpen(!isOpen);
 
@@ -60,6 +60,7 @@ export const SideBar = () => {
         <StyledInputWrapper isOpen={isOpen}>
           <StyledSearch placeholder="Search" enterButton={<SearchOutlined />} />
         </StyledInputWrapper>
+        <button onClick={handleLogout}>logout</button>
       </StyledSidebar>
     </StyledSideBarContainer>
   );
