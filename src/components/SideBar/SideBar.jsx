@@ -12,6 +12,8 @@ import {
   StyledInputWrapper,
   StyledSearch,
   StyledSearchBtn,
+  StyledLogoutOutlined,
+  StyledLogoutWrapper,
 } from "./style";
 import { menuItems } from "./menuItems";
 import { SearchOutlined } from "@ant-design/icons";
@@ -60,7 +62,10 @@ export const SideBar = ({ handleLogout }) => {
         <StyledInputWrapper isOpen={isOpen}>
           <StyledSearch placeholder="Search" enterButton={<SearchOutlined />} />
         </StyledInputWrapper>
-        <button onClick={handleLogout}>logout</button>
+        <StyledLogoutWrapper onClick={handleLogout}>
+          <StyledLogoutOutlined />
+          <StyledText isOpen={isOpen}>Log out</StyledText>
+        </StyledLogoutWrapper>
       </StyledSidebar>
     </StyledSideBarContainer>
   );

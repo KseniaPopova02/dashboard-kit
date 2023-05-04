@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { NavLink as Link } from "react-router-dom";
 import { BarsOutlined } from "@ant-design/icons";
 import { Input } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
+import { SearchOutlined, LogoutOutlined } from "@ant-design/icons";
 const { Search } = Input;
 
 export const StyledSidebar = styled.div`
@@ -25,6 +25,8 @@ export const StyledSideBarContainer = styled.div`
   }
 `;
 export const StyledText = styled.div`
+  text-align: center;
+
   @media (max-width: 800px) {
     opacity: ${(props) => (props.isOpen ? "1" : "0")};
     transition: opacity 0.3s ease;
@@ -159,5 +161,27 @@ export const StyledSearchBtn = styled(SearchOutlined)`
   @media (max-width: 650px) {
     font-size: 30px;
     display: ${(props) => (props.isOpen ? "none" : "block")};
+  }
+`;
+
+export const StyledLogoutOutlined = styled(LogoutOutlined)`
+  line-height: 0;
+  margin-right: 24px;
+  font-size: 16px;
+
+  @media (max-width: 800px) {
+    font-size: 30px;
+  }
+`;
+
+export const StyledLogoutWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 20px 30px;
+  cursor: pointer;
+  opacity: 0.4;
+  &:hover {
+    opacity: 1;
+    color: #dde2ff;
   }
 `;
