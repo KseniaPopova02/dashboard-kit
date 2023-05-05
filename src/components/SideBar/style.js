@@ -176,6 +176,7 @@ export const StyledLogoutOutlined = styled(LogoutOutlined)`
 
 export const StyledLogoutWrapper = styled.div`
   display: flex;
+  line-height: 0;
   align-items: center;
   padding: 20px 30px;
   cursor: pointer;

@@ -58,14 +58,15 @@ export const SideBar = ({ handleLogout }) => {
             <StyledText isOpen={isOpen}>{item.name}</StyledText>
           </StyledLink>
         ))}
-        <StyledSearchBtn onClick={toggleSidebar} isOpen={isOpen} />
-        <StyledInputWrapper isOpen={isOpen}>
-          <StyledSearch placeholder="Search" enterButton={<SearchOutlined />} />
-        </StyledInputWrapper>
+
         <StyledLogoutWrapper onClick={handleLogout}>
           <StyledLogoutOutlined />
           <StyledText isOpen={isOpen}>Log out</StyledText>
         </StyledLogoutWrapper>
+        <StyledSearchBtn onClick={toggleSidebar} isOpen={isOpen} />
+        <StyledInputWrapper isOpen={isOpen}>
+          <StyledSearch placeholder="Search" enterButton={<SearchOutlined />} />
+        </StyledInputWrapper>
       </StyledSidebar>
     </StyledSideBarContainer>
   );
