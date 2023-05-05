@@ -34,6 +34,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
+      {loggedIn ? <Navigate to="/dashboard/Overview" /> : null}
       <GlobalStyle loggedIn={loggedIn} />
       <Routes>
         <Route
