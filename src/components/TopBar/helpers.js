@@ -51,8 +51,6 @@ const routeTitles = {
 export const getTitle = (pathname) => {
   const { DASHBOARD } = ROUTES;
   const path = pathname.replace(`${DASHBOARD}/`, "").toLowerCase();
-  const title = routeTitles[`${path}`];
-  console.log(path);
-  console.log(title);
+  const title = routeTitles[`/${path}`];
   return title || "Error 404";
 };
