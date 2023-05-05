@@ -25,3 +25,8 @@ export const StyledOutletWrapper = styled.div`
   grid-area: outlet;
   padding: 30px;
 `;
+
+// export const StyledMainLayoutWrapper = styled.div`
+//   color: #252733;
+//   background: #fff;
+// `;

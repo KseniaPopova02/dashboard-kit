@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { GlobalStyle } from "./styles/globalStyles";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import {
   Forgot,
   LogIn,
@@ -16,10 +15,18 @@ import {
   Settings,
   Subscription,
 } from "./pages";
-import { FormLayout, MainLayout } from "./modules";
+import { ROUTES } from "./Routes/routes";
+import { AuthFormLayout, MainLayout } from "./modules";
+import { useLocalStorage } from "react-use";
 
 const App = () => {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useLocalStorage("loggedIn", false);
+
+  const handleLogout = () => {
+    localStorage.removeItem("loggedIn");
+    setLoggedIn(false);
+    <Navigate to="/" />;
+  };
 
   const updateLoggedIn = (value) => {
     setLoggedIn(value);
@@ -29,30 +36,59 @@ const App = () => {
     <BrowserRouter>
       <GlobalStyle loggedIn={loggedIn} />
       <Routes>
-        {loggedIn ? (
-          <Route path="/dashboard" element={<MainLayout />}>
-            <Route path="Overview" element={<View />} />
-            <Route path="Tickets" element={<Tickets />} />
-            <Route path="Ideas" element={<Ideas />} />
-            <Route path="Contacts" element={<Contacts />} />
-            <Route path="Agents" element={<Agents />} />
-            <Route path="Articles" element={<Articles />} />
-            <Route path="Settings" element={<Settings />} />
-            <Route path="Subscription" element={<Subscription />} />
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        ) : (
-          <Route path="/" element={<FormLayout />}>
-            <Route index element={<LogIn updateLoggedIn={updateLoggedIn} />} />
-            <Route path="forgot" element={<Forgot />} />
-            <Route path="reset" element={<Reset />} />
-            <Route
-              path="sign-up"
-              element={<SignUp updateLoggedIn={updateLoggedIn} />}
-            />
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        )}
+        <Route
+          path={ROUTES.DASHBOARD}
+          element={
+            <MainLayout loggedIn={loggedIn} handleLogout={handleLogout} />
+          }
+        >
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.OVERVIEW}`}
+            element={<View />}
+          />
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.TICKETS}`}
+            element={<Tickets />}
+          />
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.IDEAS}`}
+            element={<Ideas />}
+          />
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.CONTACTS}`}
+            element={<Contacts />}
+          />
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.AGENTS}`}
+            element={<Agents />}
+          />
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.ARTICLES}`}
+            element={<Articles />}
+          />
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.SETTINGS}`}
+            element={<Settings />}
+          />
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.SUBSCRIPTION}`}
+            element={<Subscription />}
+          />
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.NOT_FOUND}`}
+            element={<NotFound />}
+          />
+        </Route>
+        <Route path="/" element={<AuthFormLayout />}>
+          <Route index element={<LogIn updateLoggedIn={updateLoggedIn} />} />
+          <Route path={ROUTES.FORGOT} element={<Forgot />} />
+          <Route path={ROUTES.RESET} element={<Reset />} />
+          <Route
+            path={ROUTES.SIGNUP}
+            element={<SignUp updateLoggedIn={updateLoggedIn} />}
+          />
+          <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
