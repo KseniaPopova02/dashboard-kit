@@ -1,10 +1,12 @@
 import styled from "styled-components";
+import { XAxis, YAxis } from "recharts";
 import { Tooltip } from "recharts";
 
 export const StyledContainer = styled.div`
   max-height: 350px;
   height: 100%;
-  max-width: 100%;
+  width: 100%;
+  max-width: 686px;
   padding: 0 0 32px 32px;
 `;
 
@@ -32,7 +34,25 @@ export const StyledTooltip = styled(Tooltip)`
     border-top: 7px solid #888;
   }
 
-  .recharts-tooltip-label {
+  /* .recharts-tooltip-label {
     display: none;
-  }
+  } */
 `;
+
+// export const StyledXAxis = styled(XAxis)`
+//   .recharts-cartesian-axis-tick {
+//     display: block;
+//     font-family: "Mulish" !important;
+//     stroke: "#9FA2B4" !important;
+//     font-size: 10 !important;
+//   }
+// `;
+
+// export const StyledYAxis = styled(YAxis)`
+//   .recharts-cartesian-axis-tick {
+//     display: block;
+//     font-family: "Mulish" !important;
+//     stroke: "#9FA2B4" !important;
+//     font-size: 10 !important;
+//   }
+// `;

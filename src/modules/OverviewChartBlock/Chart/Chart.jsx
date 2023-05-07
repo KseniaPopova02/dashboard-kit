@@ -10,7 +10,7 @@ import {
 } from "recharts";
 import { CustomDot } from "./CustomDot";
 import { CustomTooltip } from "./CustomTooltip";
-import { StyledContainer } from "./style";
+import { StyledContainer, StyledXAxis, StyledYAxis } from "./style";
 
 const data = [];
 
@@ -25,7 +25,7 @@ for (let i = 0; i <= 22; i++) {
 export const Chart = () => {
   return (
     <StyledContainer>
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer minWidth={300} minHeight={300}>
         <LineChart
           data={data}
           margin={{
@@ -39,11 +39,13 @@ export const Chart = () => {
           <XAxis
             tickLine={false}
             dataKey="name"
+            // tick={<StyledXAxis />}
             tick={{ fill: "#9FA2B4", fontFamily: "Mulish", fontSize: 10 }}
             stroke="#DFE0EB"
           />
           <YAxis
             orientation="right"
+            // tick={<StyledYAxis />}
             tick={{ fill: "#9FA2B4", fontFamily: "Mulish", fontSize: 10 }}
             stroke="#DFE0EB"
             axisLine={{ strokeWidth: 0 }}
