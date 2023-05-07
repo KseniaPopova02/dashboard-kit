@@ -26,7 +26,18 @@ export const SideBar = ({ handleLogout }) => {
   const handleClickOutside = (event) => {
     event.stopPropagation();
     setIsOpen(false);
+    // if (!event.target.closest("#sidebar")) {
+    //   event.stopPropagation();
+    //   setIsOpen(false);
+    // }
   };
+
+  // useEffect(() => {
+  //   document.addEventListener("click", handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener("click", handleClickOutside);
+  //   };
+  // });
 
   return (
     <StyledSideBarContainer
@@ -43,8 +54,8 @@ export const SideBar = ({ handleLogout }) => {
           <StyledBarsOutlined onClick={toggleSidebar} />
         </StyledTopWrapper>
 
-        {menuItems.map((item, index) => (
-          <StyledLink to={item.path} key={index}>
+        {menuItems.map((item) => (
+          <StyledLink to={item.path} key={item.id}>
             <StyledSvgWrapper>{item.icon}</StyledSvgWrapper>
             <StyledText isOpen={isOpen}>{item.name}</StyledText>
           </StyledLink>
