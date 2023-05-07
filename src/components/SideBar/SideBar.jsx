@@ -24,8 +24,8 @@ export const SideBar = ({ handleLogout }) => {
   const toggleSidebar = () => setIsOpen(!isOpen);
 
   const handleClickOutside = (event) => {
-    event.stopPropagation();
     setIsOpen(false);
+    event.stopPropagation();
     // if (!event.target.closest("#sidebar")) {
     //   event.stopPropagation();
     //   setIsOpen(false);
