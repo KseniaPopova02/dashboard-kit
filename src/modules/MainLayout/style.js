@@ -26,7 +26,7 @@ export const StyledOutletWrapper = styled.div`
   padding: 30px;
 `;
 
-// export const StyledMainLayoutWrapper = styled.div`
-//   color: #252733;
-//   background: #fff;
-// `;
+export const StyledMainLayoutWrapper = styled.div`
+  color: #252733;
+  background: #fff;
+`;

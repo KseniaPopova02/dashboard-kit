@@ -10,5 +10,5 @@ export const StyledContainer = styled.div`
   background-color: #fff;
   border: 1px solid #dfe0eb;
   border-radius: 8px;
-  padding: 40px 20px;
+  padding: 40px 50px;
 `;

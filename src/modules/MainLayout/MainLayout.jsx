@@ -4,7 +4,7 @@ import {
   StyledOutletWrapper,
   StyledSidebarWrapper,
   StyledTopbarWrapper,
-  // StyledMainLayoutWrapper,
+  StyledMainLayoutWrapper,
 } from "./style";
 import { TopBar, SideBar } from "../../components";
 import { Outlet, Navigate } from "react-router-dom";
@@ -14,17 +14,19 @@ export const MainLayout = ({ loggedIn, handleLogout }) => {
     return <Navigate to="/" />;
   } else {
     return (
-      <StyledPageContainer>
-        <StyledTopbarWrapper>
-          <TopBar />
-        </StyledTopbarWrapper>
-        <StyledSidebarWrapper>
-          <SideBar handleLogout={handleLogout} />
-        </StyledSidebarWrapper>
-        <StyledOutletWrapper>
-          <Outlet />
-        </StyledOutletWrapper>
-      </StyledPageContainer>
+      <StyledMainLayoutWrapper>
+        <StyledPageContainer>
+          <StyledTopbarWrapper>
+            <TopBar />
+          </StyledTopbarWrapper>
+          <StyledSidebarWrapper>
+            <SideBar handleLogout={handleLogout} />
+          </StyledSidebarWrapper>
+          <StyledOutletWrapper>
+            <Outlet />
+          </StyledOutletWrapper>
+        </StyledPageContainer>
+      </StyledMainLayoutWrapper>
     );
   }
 };
