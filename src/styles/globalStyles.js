@@ -12,6 +12,7 @@ body {
     /* color:${(props) => (props.loggedIn ? "#252733" : "#4b506d")}; */
     font-size: 14px;
     line-height: 20px;
+    min-height: 100vh;
     /* background: ${(props) => (props.loggedIn ? "#fff" : "#4b5069")}; */
   }
   @font-face {
