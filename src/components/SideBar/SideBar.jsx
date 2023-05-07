@@ -24,18 +24,9 @@ export const SideBar = ({ handleLogout }) => {
   const toggleSidebar = () => setIsOpen(!isOpen);
 
   const handleClickOutside = (event) => {
-    if (!event.target.closest("#sidebar")) {
-      event.stopPropagation();
-      setIsOpen(false);
-    }
+    event.stopPropagation();
+    setIsOpen(false);
   };
-
-  useEffect(() => {
-    document.addEventListener("click", handleClickOutside);
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  });
 
   return (
     <StyledSideBarContainer
