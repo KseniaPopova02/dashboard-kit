@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet, Navigate } from "react-router-dom";
-// import { StyledAuthFormLayoutWrapper } from "./style";
+import { StyledAuthFormLayoutWrapper } from "./style";
 import { StyledContainer } from "../../components";
 import { ROUTES } from "../../Routes/routes";
 
@@ -9,9 +9,11 @@ export const AuthFormLayout = ({ loggedIn }) => {
     return <Navigate to={`${ROUTES.DASHBOARD}${ROUTES.OVERVIEW}`} />;
   } else {
     return (
-      <StyledContainer>
-        <Outlet />
-      </StyledContainer>
+      <StyledAuthFormLayoutWrapper>
+        <StyledContainer>
+          <Outlet />
+        </StyledContainer>
+      </StyledAuthFormLayoutWrapper>
     );
   }
 };
