@@ -25,7 +25,7 @@ for (let i = 0; i <= 22; i++) {
 export const Chart = () => {
   return (
     <StyledContainer>
-      <ResponsiveContainer minWidth={300} minHeight={300}>
+      <ResponsiveContainer minWidth={200} minHeight={200}>
         <LineChart
           data={data}
           margin={{
