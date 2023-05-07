@@ -35,7 +35,6 @@ const App = () => {
   return (
     <BrowserRouter>
       <GlobalStyle loggedIn={loggedIn} />
-      {loggedIn ? <Navigate to="/dashboard/Overview" /> : null}
       <Routes>
         <Route
           path={ROUTES.DASHBOARD}
@@ -80,7 +79,7 @@ const App = () => {
             element={<NotFound />}
           />
         </Route>
-        <Route path="/" element={<AuthFormLayout />}>
+        <Route path="/" element={<AuthFormLayout loggedIn={loggedIn} />}>
           <Route index element={<LogIn updateLoggedIn={updateLoggedIn} />} />
           <Route path={ROUTES.FORGOT} element={<Forgot />} />
           <Route path={ROUTES.RESET} element={<Reset />} />

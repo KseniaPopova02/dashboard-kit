@@ -1,10 +1,17 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom";
 // import { StyledAuthFormLayoutWrapper } from "./style";
 import { StyledContainer } from "../../components";
+import { ROUTES } from "../../Routes/routes";
 
-export const AuthFormLayout = () => (
-  <StyledContainer>
-    <Outlet />
-  </StyledContainer>
-);
+export const AuthFormLayout = ({ loggedIn }) => {
+  if (loggedIn) {
+    return <Navigate to={`${ROUTES.DASHBOARD}${ROUTES.OVERVIEW}`} />;
+  } else {
+    return (
+      <StyledContainer>
+        <Outlet />
+      </StyledContainer>
+    );
+  }
+};
