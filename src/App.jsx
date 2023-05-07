@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { GlobalStyle } from "./styles/globalStyles";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import {
   Forgot,
   LogIn,
@@ -20,9 +19,16 @@ import {
 } from "./pages";
 import { ROUTES } from "./Routes/routes";
 import { AuthFormLayout, MainLayout } from "./modules";
+import { useLocalStorage } from "react-use";
 
 const App = () => {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useLocalStorage("loggedIn", false);
+
+  const handleLogout = () => {
+    localStorage.removeItem("loggedIn");
+    setLoggedIn(false);
+    <Navigate to="/" />;
+  };
 
   const updateLoggedIn = (value) => {
     setLoggedIn(value);
@@ -33,25 +39,53 @@ const App = () => {
       <GlobalStyle loggedIn={loggedIn} />
       <Routes>
         <Route
-          path={ROUTES.DASHBOARD}
-          element={<MainLayout loggedIn={loggedIn} />}
+          element={
+            <MainLayout loggedIn={loggedIn} handleLogout={handleLogout} />
+          }
         >
-          <Route path={ROUTES.OVERVIEW} element={<View />} />
-          <Route path={ROUTES.TICKETS} element={<Tickets />} />
-          <Route path={ROUTES.IDEAS} element={<Ideas />} />
-          <Route path={ROUTES.CONTACTS} element={<Contacts />} />
-          <Route path={ROUTES.AGENTS} element={<Agents />} />
-          <Route path={ROUTES.ARTICLES} element={<Articles />} />
-          <Route path={ROUTES.SETTINGS} element={<Settings />} />
-          <Route path={ROUTES.SUBSCRIPTION} element={<Subscription />} />
           <Route
-            path="overview-tickets-details"
+            path={`${ROUTES.DASHBOARD}${ROUTES.OVERVIEW}`}
+            element={<View />}
+          />
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.TICKETS}`}
+            element={<Tickets />}
+          />
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.IDEAS}`}
+            element={<Ideas />}
+          />
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.CONTACTS}`}
+            element={<Contacts />}
+          />
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.AGENTS}`}
+            element={<Agents />}
+          />
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.ARTICLES}`}
+            element={<Articles />}
+          />
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.SETTINGS}`}
+            element={<Settings />}
+          />
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.SUBSCRIPTION}`}
+            element={<Subscription />}
+          />
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.OVERVIEW_TICKETS_DETAILS}`}
             element={<OverviewTicketsDetails />}
           />
-          <Route path="overview-tasks" element={<OverviewTasksPage />} />
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.OVERVIEW_TASKS}`}
+            element={<OverviewTasksPage />}
+          />
           <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
         </Route>
-        <Route path="/" element={<AuthFormLayout />}>
+        <Route element={<AuthFormLayout loggedIn={loggedIn} />}>
           <Route index element={<LogIn updateLoggedIn={updateLoggedIn} />} />
           <Route path={ROUTES.FORGOT} element={<Forgot />} />
           <Route path={ROUTES.RESET} element={<Reset />} />
