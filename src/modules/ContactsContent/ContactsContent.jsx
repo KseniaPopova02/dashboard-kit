@@ -22,6 +22,7 @@ export const ContactsContent = () => {
   }, [contacts]);
 
   const handleAddContact = (values, { resetForm }) => {
+    const now = new Date();
     const newContact = {
       id: Date.now(),
       photo: values.photo,
@@ -29,6 +30,11 @@ export const ContactsContent = () => {
       lastName: values.lastName,
       email: values.email,
       address: values.address,
+      date: new Date().toLocaleDateString("en-US", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      }),
     };
     setContacts((prevContacts) => [newContact, ...prevContacts]);
     setOriginalContacts((prevContacts) => [newContact, ...prevContacts]);
@@ -120,6 +126,7 @@ export const ContactsContent = () => {
                 </div>
                 <div>{contact.email}</div>
                 <div>{contact.address}</div>
+                <div> {contact.date}</div>
               </div>
             </li>
           ))}
