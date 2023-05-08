@@ -6,7 +6,6 @@ import { contactSchema, initialValues, FormContent } from "./Form";
 export const ContactsContent = () => {
   const [contacts, setContacts] = useState([]);
   const [showForm, setShowForm] = useState(false);
-  const [displayContacts, setDisplayContacts] = useState(8);
 
   useEffect(() => {
     const storedContacts = JSON.parse(localStorage.getItem("contacts"));
@@ -34,9 +33,15 @@ export const ContactsContent = () => {
     console.log("Submitted");
   };
 
+  const handleDeleteAllContacts = () => {
+    setContacts([]);
+    localStorage.removeItem("contacts");
+  };
+
   return (
     <div>
       <div>
+        <button onClick={handleDeleteAllContacts}>Delete all</button>
         <button onClick={() => setShowForm(true)}>Add contact</button>
       </div>
       {showForm && (
