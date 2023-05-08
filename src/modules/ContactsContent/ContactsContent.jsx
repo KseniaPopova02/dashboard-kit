@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { Formik, Form, Field } from "formik";
-import { contactSchema, initialValues } from "./Form";
+import { Formik } from "formik";
+
+import { contactSchema, initialValues, FormContent } from "./Form";
 
 export const ContactsContent = () => {
   const [contacts, setContacts] = useState([]);
   const [sortType, setSortType] = useState("asc");
   const [showForm, setShowForm] = useState(false);
-  const [filter, setFilter] = useState("");
+  const [filterBy, setFilterBy] = useState("");
+  const [filterValue, setFilterValue] = useState("");
 
   const handleAddContact = (values, { resetForm }) => {
     const newContact = {
@@ -34,48 +36,46 @@ export const ContactsContent = () => {
     setSortType(sortType === "asc" ? "desc" : "asc");
   };
 
-  const handleFilterClick = () => {
-    const input = document.getElementById("filterInput");
-    setFilter(input.value);
+  const handleFilterBy = (param) => {
+    setFilterBy(param);
+    setFilterValue("");
+  };
+
+  const handleFilterChange = (event) => {
+    setFilterValue(event.target.value);
   };
 
   const filteredContacts = contacts
     .filter((contact) =>
-      contact.firstName.toLowerCase().includes(filter.toLowerCase())
+      filterBy
+        ? contact[filterBy].toLowerCase().includes(filterValue.toLowerCase())
+        : true
     )
-    .sort((a, b) => a.firstName.localeCompare(b.firstName));
+    .sort((a, b) => a[filterBy].localeCompare(b[filterBy]));
 
   return (
     <div>
-      <button onClick={handleFilterClick}>Filter</button>
-      <button onClick={handleSortContacts}>Sort</button>
-      <button onClick={() => setShowForm(true)}>Add contact</button>
+      <div>
+        {filterBy ? (
+          <input
+            type="text"
+            value={filterValue}
+            onChange={handleFilterChange}
+          />
+        ) : (
+          <button onClick={() => handleFilterBy("firstName")}>Filter</button>
+        )}
+        <button onClick={() => handleFilterBy("")}>Clear filter</button>
+        <button onClick={handleSortContacts}>Sort</button>
+        <button onClick={() => setShowForm(true)}>Add contact</button>
+      </div>
       {showForm && (
         <Formik
           initialValues={initialValues}
           onSubmit={handleAddContact}
           validationSchema={contactSchema}
         >
-          {({ errors, touched }) => (
-            <Form>
-              <Field type="text" name="photo" placeholder="Photo" />
-              <Field type="text" name="firstName" placeholder="First name" />
-              {errors.firstName && touched.firstName && (
-                <div>{errors.firstName}</div>
-              )}
-              <Field type="text" name="lastName" placeholder="Last name" />
-              {errors.lastName && touched.lastName && (
-                <div>{errors.lastName}</div>
-              )}
-              <Field type="email" name="email" placeholder="Email" />
-              {errors.email && touched.email && <div>{errors.email}</div>}
-              <Field type="text" name="address" placeholder="Address" />
-              <button type="submit">Add</button>
-              <button type="button" onClick={() => setShowForm(false)}>
-                Cancel
-              </button>
-            </Form>
-          )}
+          {() => <FormContent setShowForm={setShowForm} />}
         </Formik>
       )}
       <ul>
