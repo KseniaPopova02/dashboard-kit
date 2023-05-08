@@ -1,3 +1,7 @@
-import React from "react";
+import { ContactsContent } from "../../modules";
 
-export const Contacts = () => <>Contacts Page content</>;
+export const Contacts = () => (
+  <>
+    <ContactsContent />
+  </>
+);
