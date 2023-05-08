@@ -1,16 +1,6 @@
 import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
-import * as Yup from "yup";
-
-const contactSchema = Yup.object().shape({
-  photo: Yup.string(),
-  firstName: Yup.string().required("First name is required"),
-  lastName: Yup.string().required("Last name is required"),
-  email: Yup.string()
-    .email("Invalid email format")
-    .required("Email is required"),
-  address: Yup.string(),
-});
+import { contactSchema, initialValues } from "./Form";
 
 export const ContactsContent = () => {
   const [contacts, setContacts] = useState([]);
@@ -62,13 +52,7 @@ export const ContactsContent = () => {
       <button onClick={() => setShowForm(true)}>Add contact</button>
       {showForm && (
         <Formik
-          initialValues={{
-            photo: "",
-            firstName: "",
-            lastName: "",
-            email: "",
-            address: "",
-          }}
+          initialValues={initialValues}
           onSubmit={handleAddContact}
           validationSchema={contactSchema}
         >

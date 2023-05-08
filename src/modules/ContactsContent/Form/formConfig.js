@@ -15,3 +15,11 @@ export const contactSchema = Yup.object().shape({
     .required("Email is required"),
   address: Yup.string(),
 });
+
+export const initialValues = {
+  photo: "",
+  firstName: "",
+  lastName: "",
+  email: "",
+  address: "",
+};
