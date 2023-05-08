@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Formik } from "formik";
-
 import { contactSchema, initialValues, FormContent } from "./Form";
 
 export const ContactsContent = () => {
   const [contacts, setContacts] = useState([]);
   const [showForm, setShowForm] = useState(false);
+  const [originalContacts, setOriginalContacts] = useState([]);
 
   useEffect(() => {
     const storedContacts = JSON.parse(localStorage.getItem("contacts"));
     if (storedContacts) {
       setContacts(storedContacts);
+      setOriginalContacts(storedContacts);
     }
   }, []);
 
@@ -28,6 +29,7 @@ export const ContactsContent = () => {
       address: values.address,
     };
     setContacts((prevContacts) => [newContact, ...prevContacts]);
+    setOriginalContacts((prevContacts) => [newContact, ...prevContacts]);
     setShowForm(false);
     resetForm();
     console.log("Submitted");
@@ -35,14 +37,27 @@ export const ContactsContent = () => {
 
   const handleDeleteAllContacts = () => {
     setContacts([]);
+    setOriginalContacts([]);
     localStorage.removeItem("contacts");
+  };
+
+  const handleSortContacts = () => {
+    setContacts(
+      [...contacts].sort((a, b) => a.firstName.localeCompare(b.firstName))
+    );
+  };
+
+  const handleResetContacts = () => {
+    setContacts(originalContacts);
   };
 
   return (
     <div>
       <div>
+        <button onClick={handleSortContacts}>Sort</button>
         <button onClick={handleDeleteAllContacts}>Delete all</button>
         <button onClick={() => setShowForm(true)}>Add contact</button>
+        <button onClick={handleResetContacts}>Reset</button>
       </div>
       {showForm && (
         <Formik
