@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Formik } from "formik";
 import { contactSchema, initialValues, FormContent } from "./Form";
+import { StyledHeaderWrapper, StyledBtnWrapper } from "./style";
 
 export const ContactsContent = () => {
   const [contacts, setContacts] = useState([]);
@@ -22,7 +23,6 @@ export const ContactsContent = () => {
   }, [contacts]);
 
   const handleAddContact = (values, { resetForm }) => {
-    const now = new Date();
     const newContact = {
       id: Date.now(),
       photo: values.photo,
@@ -84,26 +84,31 @@ export const ContactsContent = () => {
 
   return (
     <div>
-      <div>
-        {isInputActive ? (
-          <input
-            type="text"
-            placeholder="Filter contacts by name"
-            onBlur={handleFilterInputBlur}
-            onChange={(e) => handleFilterContacts(e.target.value)}
-            autoFocus
-            value={filterText}
-          />
-        ) : (
-          <button onClick={handleFilterInputClick}>
-            Filter contacts by name
-          </button>
-        )}
-        <button onClick={handleSortContacts}>Sort</button>
-        <button onClick={handleDeleteAllContacts}>Delete all</button>
-        <button onClick={() => setShowForm(true)}>Add contact</button>
-        <button onClick={handleResetContacts}>Reset</button>
-      </div>
+      <StyledHeaderWrapper>
+        <StyledBtnWrapper>
+          <div onClick={handleSortContacts}>
+            {" "}
+            <div></div> <div>Sort</div>{" "}
+          </div>
+          {isInputActive ? (
+            <input
+              type="text"
+              placeholder="Filter contacts by name"
+              onBlur={handleFilterInputBlur}
+              onChange={(e) => handleFilterContacts(e.target.value)}
+              autoFocus
+              value={filterText}
+            />
+          ) : (
+            <div onClick={handleFilterInputClick}>Filter contacts by name</div>
+          )}
+        </StyledBtnWrapper>
+        <StyledBtnWrapper>
+          <div onClick={handleDeleteAllContacts}>Delete all</div>
+          <div onClick={() => setShowForm(true)}>Add contact</div>
+          <div onClick={handleResetContacts}>Reset</div>
+        </StyledBtnWrapper>
+      </StyledHeaderWrapper>
       {showForm && (
         <Formik
           initialValues={initialValues}
