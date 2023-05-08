@@ -6,6 +6,8 @@ export const ContactsContent = () => {
   const [contacts, setContacts] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [originalContacts, setOriginalContacts] = useState([]);
+  const [isInputActive, setIsInputActive] = useState(false);
+  const [filterText, setFilterText] = useState("");
 
   useEffect(() => {
     const storedContacts = JSON.parse(localStorage.getItem("contacts"));
@@ -49,11 +51,48 @@ export const ContactsContent = () => {
 
   const handleResetContacts = () => {
     setContacts(originalContacts);
+    setFilterText("");
+  };
+
+  const handleFilterInputClick = () => {
+    setIsInputActive(true);
+  };
+
+  const handleFilterInputBlur = (e) => {
+    if (!e.target.value) {
+      setIsInputActive(false);
+    }
+  };
+
+  const handleFilterContacts = (filterText) => {
+    setFilterText(filterText);
+    if (!filterText) {
+      setContacts(originalContacts);
+    } else {
+      const filteredContacts = originalContacts.filter((contact) =>
+        contact.firstName.toLowerCase().includes(filterText.toLowerCase())
+      );
+      setContacts(filteredContacts);
+    }
   };
 
   return (
     <div>
       <div>
+        {isInputActive ? (
+          <input
+            type="text"
+            placeholder="Filter contacts by name"
+            onBlur={handleFilterInputBlur}
+            onChange={(e) => handleFilterContacts(e.target.value)}
+            autoFocus
+            value={filterText}
+          />
+        ) : (
+          <button onClick={handleFilterInputClick}>
+            Filter contacts by name
+          </button>
+        )}
         <button onClick={handleSortContacts}>Sort</button>
         <button onClick={handleDeleteAllContacts}>Delete all</button>
         <button onClick={() => setShowForm(true)}>Add contact</button>
