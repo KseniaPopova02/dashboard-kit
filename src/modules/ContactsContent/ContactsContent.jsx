@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Formik } from "formik";
 import { contactSchema, initialValues, FormContent } from "./Form";
 import { StyledHeaderWrapper, StyledBtnWrapper } from "./style";
+import { ReactComponent as SortSvg } from "../../assets/svg/sort.svg";
+import { ReactComponent as FilterSvg } from "../../assets/svg/filter.svg";
 
 export const ContactsContent = () => {
   const [contacts, setContacts] = useState([]);
@@ -87,8 +89,10 @@ export const ContactsContent = () => {
       <StyledHeaderWrapper>
         <StyledBtnWrapper>
           <div onClick={handleSortContacts}>
-            {" "}
-            <div></div> <div>Sort</div>{" "}
+            <div>
+              <SortSvg />
+            </div>
+            <div>Sort</div>
           </div>
           {isInputActive ? (
             <input
@@ -100,7 +104,12 @@ export const ContactsContent = () => {
               value={filterText}
             />
           ) : (
-            <div onClick={handleFilterInputClick}>Filter contacts by name</div>
+            <div onClick={handleFilterInputClick}>
+              <div>
+                <FilterSvg />
+              </div>
+              <div>Filter contacts by name</div>
+            </div>
           )}
         </StyledBtnWrapper>
         <StyledBtnWrapper>
