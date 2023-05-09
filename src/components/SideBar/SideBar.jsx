@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import {
   StyledText,
   StyledSidebar,
@@ -17,7 +17,7 @@ import {
 } from "./style";
 import { menuItems } from "./menuItems";
 import { SearchOutlined } from "@ant-design/icons";
-import { ReactComponent as LogoSvg } from "../../assets/svg/logo.svg";
+import { LogoSvgLazy } from "../../assets/LogoSvgLazy";
 
 export const SideBar = ({ handleLogout }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,7 +48,9 @@ export const SideBar = ({ handleLogout }) => {
       <StyledSidebar>
         <StyledTopWrapper>
           <StyledLogoSvgWrapper>
-            <LogoSvg />
+            <Suspense fallback={<div>Loading...</div>}>
+              <LogoSvgLazy />
+            </Suspense>
           </StyledLogoSvgWrapper>
           <StyledLogoText>DashBoard</StyledLogoText>
           <StyledBarsOutlined onClick={toggleSidebar} />
