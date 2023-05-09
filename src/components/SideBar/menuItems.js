@@ -9,12 +9,23 @@ import {
   SettingsSvgLazy,
   SubscriptionSvgLazy,
 } from "../../assets/LogoSvgLazy";
+import {
+  DASHBOARD,
+  OVERVIEW,
+  TICKETS,
+  IDEAS,
+  CONTACTS,
+  AGENTS,
+  ARTICLES,
+  SETTINGS,
+  SUBSCRIPTION,
+} from "../../Routes/routes";
 import { nanoid } from "nanoid";
 
 export const menuItems = [
   {
     id: nanoid(),
-    path: "/dashboard/Overview",
+    path: `${DASHBOARD}${OVERVIEW}`,
     name: "Overview",
     icon: (
       <Suspense fallback={<div>Loading...</div>}>
@@ -24,7 +35,7 @@ export const menuItems = [
   },
   {
     id: nanoid(),
-    path: "/dashboard/Tickets",
+    path: `${DASHBOARD}${TICKETS}`,
     name: "Tickets",
     icon: (
       <Suspense fallback={<div>Loading...</div>}>
@@ -34,7 +45,7 @@ export const menuItems = [
   },
   {
     id: nanoid(),
-    path: "/dashboard/Ideas",
+    path: `${DASHBOARD}${IDEAS}`,
     name: "Ideas",
     icon: (
       <Suspense fallback={<div>Loading...</div>}>
@@ -44,7 +55,7 @@ export const menuItems = [
   },
   {
     id: nanoid(),
-    path: "/dashboard/Contacts",
+    path: `${DASHBOARD}${CONTACTS}`,
     name: "Contacts",
     icon: (
       <Suspense fallback={<div>Loading...</div>}>
@@ -54,7 +65,7 @@ export const menuItems = [
   },
   {
     id: nanoid(),
-    path: "/dashboard/Agents",
+    path: `${DASHBOARD}${AGENTS}`,
     name: "Agents",
     icon: (
       <Suspense fallback={<div>Loading...</div>}>
@@ -64,7 +75,7 @@ export const menuItems = [
   },
   {
     id: nanoid(),
-    path: "/dashboard/Articles",
+    path: `${DASHBOARD}${ARTICLES}`,
     name: "Articles",
     icon: (
       <Suspense fallback={<div>Loading...</div>}>
@@ -74,7 +85,7 @@ export const menuItems = [
   },
   {
     id: nanoid(),
-    path: "/dashboard/Settings",
+    path: `${DASHBOARD}${SETTINGS}`,
     name: "Settings",
     icon: (
       <Suspense fallback={<div>Loading...</div>}>
@@ -84,7 +95,7 @@ export const menuItems = [
   },
   {
     id: nanoid(),
-    path: "/dashboard/Subscription",
+    path: `${DASHBOARD}${SUBSCRIPTION}`,
     name: "Subscription",
     icon: (
       <Suspense fallback={<div>Loading...</div>}>
