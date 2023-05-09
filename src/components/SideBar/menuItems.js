@@ -9,7 +9,10 @@ import {
   SettingsSvgLazy,
   SubscriptionSvgLazy,
 } from "../../assets/LogoSvgLazy";
-import {
+import { ROUTES } from "../../Routes/routes";
+import { nanoid } from "nanoid";
+
+const {
   DASHBOARD,
   OVERVIEW,
   TICKETS,
@@ -19,8 +22,7 @@ import {
   ARTICLES,
   SETTINGS,
   SUBSCRIPTION,
-} from "../../Routes/routes";
-import { nanoid } from "nanoid";
+} = ROUTES;
 
 export const menuItems = [
   {
