@@ -9,9 +9,6 @@ import {
   SettingsSvgLazy,
   SubscriptionSvgLazy,
 } from "../../assets/LogoSvgLazy";
-import { ReactComponent as ArticlesSvg } from "../../assets/svg/articles.svg";
-import { ReactComponent as SettingsSvg } from "../../assets/svg/setting.svg";
-import { ReactComponent as SubscriptionSvg } from "../../assets/svg/subscription.svg";
 import { nanoid } from "nanoid";
 
 export const menuItems = [
