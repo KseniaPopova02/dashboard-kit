@@ -1,8 +1,7 @@
 import { lazy } from "react";
 
 function createLazySvgComponent(svg) {
-  const Component = svg;
-  return lazy(() => Promise.resolve({ default: Component }));
+  return lazy(() => Promise.resolve({ default: svg }));
 }
 
 export const LogoSvgLazy = createLazySvgComponent(
