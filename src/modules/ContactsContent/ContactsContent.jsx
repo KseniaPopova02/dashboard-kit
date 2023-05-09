@@ -1,7 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Formik } from "formik";
 import { contactSchema, initialValues, FormContent } from "./Form";
-import { StyledHeaderWrapper, StyledBtnWrapper } from "./style";
+import {
+  StyledHeaderWrapper,
+  StyledBtnWrapper,
+  StyledBtnRight,
+  StyledHeaderSvg,
+  StyledInput,
+  StyledBtnLeft,
+  StyledPlusOutlined,
+  StyledBtnText,
+  StyledSpan,
+} from "./style";
+import { ReloadOutlined, DeleteOutlined } from "@ant-design/icons";
 import { ReactComponent as SortSvg } from "../../assets/svg/sort.svg";
 import { ReactComponent as FilterSvg } from "../../assets/svg/filter.svg";
 
@@ -60,6 +71,7 @@ export const ContactsContent = () => {
   const handleResetContacts = () => {
     setContacts(originalContacts);
     setFilterText("");
+    setIsInputActive(false);
   };
 
   const handleFilterInputClick = () => {
@@ -87,15 +99,15 @@ export const ContactsContent = () => {
   return (
     <div>
       <StyledHeaderWrapper>
-        <StyledBtnWrapper>
-          <div onClick={handleSortContacts}>
-            <div>
+        <StyledBtnWrapper className="left">
+          <StyledBtnRight onClick={handleSortContacts}>
+            <StyledHeaderSvg>
               <SortSvg />
-            </div>
+            </StyledHeaderSvg>
             <div>Sort</div>
-          </div>
+          </StyledBtnRight>
           {isInputActive ? (
-            <input
+            <StyledInput
               type="text"
               placeholder="Filter contacts by name"
               onBlur={handleFilterInputBlur}
@@ -104,18 +116,28 @@ export const ContactsContent = () => {
               value={filterText}
             />
           ) : (
-            <div onClick={handleFilterInputClick}>
-              <div>
+            <StyledBtnRight onClick={handleFilterInputClick}>
+              <StyledHeaderSvg>
                 <FilterSvg />
+              </StyledHeaderSvg>
+              <div>
+                Filter <StyledSpan>contacts by name</StyledSpan>
               </div>
-              <div>Filter contacts by name</div>
-            </div>
+            </StyledBtnRight>
           )}
         </StyledBtnWrapper>
         <StyledBtnWrapper>
-          <div onClick={handleDeleteAllContacts}>Delete all</div>
-          <div onClick={() => setShowForm(true)}>Add contact</div>
-          <div onClick={handleResetContacts}>Reset</div>
+          <StyledBtnLeft onClick={() => setShowForm(true)}>
+            <StyledPlusOutlined />
+            <StyledBtnText>Add contact</StyledBtnText>
+          </StyledBtnLeft>
+          <StyledBtnLeft onClick={handleDeleteAllContacts}>
+            <DeleteOutlined />
+          </StyledBtnLeft>
+
+          <StyledBtnLeft onClick={handleResetContacts}>
+            <ReloadOutlined />
+          </StyledBtnLeft>
         </StyledBtnWrapper>
       </StyledHeaderWrapper>
       {showForm && (
