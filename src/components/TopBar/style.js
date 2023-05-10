@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Input } from "antd";
 
 export const StyledTopBarWrapper = styled.div`
@@ -40,36 +40,29 @@ export const StyledSvgWrapper = styled.div`
   }
 `;
 
-const inputWidths = {
-  desktop: "240px",
-  tablet: "200px",
-  mobileLandscape: "150px",
-  mobilePortrait: "120px",
-};
-
-export const StyledInput = styled(Input)`
-  position: absolute;
-  right: 35px;
-  width: ${({ isInputDisplayed }) =>
-    isInputDisplayed ? inputWidths.desktop : "0"};
+const inputWidthMixin = () => css`
+  width: ${({ isInputDisplayed }) => (isInputDisplayed ? "240px" : "0")};
   padding: ${({ isInputDisplayed }) => (isInputDisplayed ? "8px 16px" : "0")};
   border: ${({ isInputDisplayed }) =>
     isInputDisplayed ? "1px solid #d9d9d9" : "none"};
   transition: width 0.3s ease-in-out, padding 0.3s ease-in-out;
 
   @media (max-width: 912px) {
-    width: ${({ isInputDisplayed }) =>
-      isInputDisplayed ? inputWidths.tablet : "0"};
+    width: ${({ isInputDisplayed }) => (isInputDisplayed ? "200px" : "0")};
   }
   @media (max-width: 871px) {
-    width: ${({ isInputDisplayed }) =>
-      isInputDisplayed ? inputWidths.mobileLandscape : "0"};
+    width: ${({ isInputDisplayed }) => (isInputDisplayed ? "150px" : "0")};
   }
   @media (max-width: 650px) {
-    width: ${({ isInputDisplayed }) =>
-      isInputDisplayed ? inputWidths.mobilePortrait : "0"};
+    width: ${({ isInputDisplayed }) => (isInputDisplayed ? "120px" : "0")};
     display: none;
   }
+`;
+
+export const StyledInput = styled(Input)`
+  position: absolute;
+  right: 35px;
+  ${(props) => inputWidthMixin(props)};
 `;
 
 export const StyledLineSvgWrapper = styled.div`
