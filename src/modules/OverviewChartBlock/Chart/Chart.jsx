@@ -1,31 +1,44 @@
 import React from "react";
-import { Line } from "@ant-design/charts";
 
+import { StyledLine } from "./style";
 export const Chart = () => {
-  const data = [
-    { year: "1991", value: 3 },
-    { year: "1992", value: 4 },
-    { year: "1993", value: 3.5 },
-    { year: "1994", value: 5 },
-    { year: "1995", value: 4.9 },
-    { year: "1996", value: 6 },
-    { year: "1997", value: 7 },
-    { year: "1998", value: 9 },
-    { year: "1999", value: 13 },
-  ];
+  const dataArray = [];
+  for (let x = 0; x <= 22; x++) {
+    for (let y = 0; y <= 60; y += 10) {
+      dataArray.push({ x, y });
+    }
+  }
 
   const config = {
-    data: data,
+    data: dataArray,
     height: 400,
-    xField: "year",
-    yField: "value",
-    seriesField: {
-      point: {
-        size: 5,
-        shape: "diamond",
+    xField: "x",
+    yField: "y",
+    point: {
+      style: {
+        cursor: "pointer",
+      },
+      state: {
+        hover: {
+          visible: true,
+        },
+        active: {
+          visible: false,
+        },
+        selected: {
+          visible: true,
+        },
       },
     },
+    yAxis: {
+      min: 0,
+      max: 60,
+      tickInterval: 10,
+      position: "right",
+    },
     xAxis: {
+      min: 0,
+      max: 22,
       tickInterval: 1,
     },
     tooltip: {
@@ -34,7 +47,11 @@ export const Chart = () => {
         value: datum.value,
       }),
     },
+    lineStyle: {
+      stroke: "#3751FF",
+      lineWidth: 2,
+    },
   };
 
-  return <Line {...config} />;
+  return <StyledLine {...config} />;
 };

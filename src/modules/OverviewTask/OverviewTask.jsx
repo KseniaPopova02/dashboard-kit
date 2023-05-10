@@ -16,6 +16,7 @@ import {
   StyledCheckbox,
   StyledTaskNameWrapper,
 } from "./style";
+import { ROUTES } from "../../Routes/routes";
 
 export const OverviewTask = ({ showAllTasks = false }) => {
   const [tasks, setTasks] = useState([]);
@@ -76,13 +77,15 @@ export const OverviewTask = ({ showAllTasks = false }) => {
         </div>
 
         <StyledLink
-          to="/dashboard/overview-tasks"
+          to={`${ROUTES.DASHBOARD}${ROUTES.OVERVIEW_TASKS}`}
           onClick={() => handleShowAllTasks()}
         >
           View all
         </StyledLink>
         {showAllTasks ? (
-          <StyledLink to="/dashboard/overview">Back</StyledLink>
+          <StyledLink to={`${ROUTES.DASHBOARD}${ROUTES.OVERVIEW}`}>
+            Back
+          </StyledLink>
         ) : null}
       </StyledHeaderWrapper>
 

@@ -1,13 +1,13 @@
 import styled from "styled-components";
+import { Line } from "@ant-design/charts";
 // import { XAxis, YAxis } from "recharts";
 // import { Tooltip } from "recharts";
 
-export const StyledContainer = styled.div`
-  max-height: 350px;
-  height: 100%;
+export const StyledLine = styled(Line)`
+  height: 300px !important;
   width: 100%;
   max-width: 686px;
-  padding: 0 0 32px 32px;
+  padding: 0 32px 32px 32px !important;
 `;
 
 export const StyledDot = styled.svg`

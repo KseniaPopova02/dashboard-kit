@@ -11,6 +11,7 @@ import {
   StyledLink,
 } from "./style";
 import data from "../../Data/TicketsOverview.json";
+import { ROUTES } from "../../Routes/routes";
 
 export const OverviewTickets = () => {
   const [ticketsData, setTicketsData] = useState([]);
@@ -26,7 +27,11 @@ export const OverviewTickets = () => {
             <StyledSpan>Group:</StyledSpan> Support
           </StyledSubtitle>
         </div>
-        <StyledLink to="overview-tickets-details">View details</StyledLink>
+        <StyledLink
+          to={`${ROUTES.DASHBOARD}${ROUTES.OVERVIEW_TICKETS_DETAILS}`}
+        >
+          View details
+        </StyledLink>
       </StyledHeaderWrapper>
       <div>
         {Object.entries(ticketsData).map(([key, value]) => (
