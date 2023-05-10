@@ -1,4 +1,4 @@
-import { useState, useEffect, Suspense } from "react";
+import { useState, Suspense } from "react";
 import {
   StyledText,
   StyledSidebar,
@@ -25,19 +25,9 @@ export const SideBar = ({ handleLogout }) => {
 
   const handleClickOutside = (event) => {
     setIsOpen(false);
+    console.log("CLICK");
     event.stopPropagation();
-    // if (!event.target.closest("#sidebar")) {
-    //   event.stopPropagation();
-    //   setIsOpen(false);
-    // }
   };
-
-  // useEffect(() => {
-  //   document.addEventListener("click", handleClickOutside);
-  //   return () => {
-  //     document.removeEventListener("click", handleClickOutside);
-  //   };
-  // });
 
   return (
     <StyledSideBarContainer
@@ -45,7 +35,7 @@ export const SideBar = ({ handleLogout }) => {
       isOpen={isOpen}
       onClick={handleClickOutside}
     >
-      <StyledSidebar>
+      <StyledSidebar onClick={(event) => event.stopPropagation()}>
         <StyledTopWrapper>
           <StyledLogoSvgWrapper>
             <Suspense fallback={<div>Loading...</div>}>
