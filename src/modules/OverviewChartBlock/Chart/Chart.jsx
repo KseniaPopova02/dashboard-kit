@@ -1,68 +1,40 @@
 import React from "react";
-import {
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  LineChart,
-} from "recharts";
-import { CustomDot } from "./CustomDot";
-import { CustomTooltip } from "./CustomTooltip";
-import { StyledContainer, StyledXAxis, StyledYAxis } from "./style";
-
-const data = [];
-
-for (let i = 0; i <= 22; i++) {
-  data.push({
-    name: i.toString(),
-    yesterday: Math.floor(Math.random() * 5000),
-    today: Math.floor(Math.random() * 5000),
-  });
-}
+import { Line } from "@ant-design/charts";
 
 export const Chart = () => {
-  return (
-    <StyledContainer>
-      <ResponsiveContainer minWidth={200} minHeight={200}>
-        <LineChart
-          data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid horizontal="true" vertical="" />
-          <XAxis
-            tickLine={false}
-            dataKey="name"
-            // tick={<StyledXAxis />}
-            tick={{ fill: "#9FA2B4", fontFamily: "Mulish", fontSize: 10 }}
-            stroke="#DFE0EB"
-          />
-          <YAxis
-            orientation="right"
-            // tick={<StyledYAxis />}
-            tick={{ fill: "#9FA2B4", fontFamily: "Mulish", fontSize: 10 }}
-            stroke="#DFE0EB"
-            axisLine={{ strokeWidth: 0 }}
-            tickLine={false}
-          />
-          <Tooltip content={<CustomTooltip />} />
+  const data = [
+    { year: "1991", value: 3 },
+    { year: "1992", value: 4 },
+    { year: "1993", value: 3.5 },
+    { year: "1994", value: 5 },
+    { year: "1995", value: 4.9 },
+    { year: "1996", value: 6 },
+    { year: "1997", value: 7 },
+    { year: "1998", value: 9 },
+    { year: "1999", value: 13 },
+  ];
 
-          <Line type="monotone" dataKey="today" stroke="#3751FF" dot={false} />
-          <Line
-            dot={false}
-            type="monotone"
-            dataKey="yesterday"
-            stroke="#DFE0EB"
-            activeDot={<CustomDot />}
-          />
-        </LineChart>
-      </ResponsiveContainer>
-    </StyledContainer>
-  );
+  const config = {
+    data: data,
+    height: 400,
+    xField: "year",
+    yField: "value",
+    seriesField: {
+      point: {
+        size: 5,
+        shape: "diamond",
+      },
+    },
+    xAxis: {
+      tickInterval: 1,
+    },
+    tooltip: {
+      formatter: (datum) => ({
+        name: "Value",
+        value: datum.value,
+      }),
+    },
+  };
+
+  return <Line {...config} />;
 };

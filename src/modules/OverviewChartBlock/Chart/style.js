@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { XAxis, YAxis } from "recharts";
-import { Tooltip } from "recharts";
+// import { XAxis, YAxis } from "recharts";
+// import { Tooltip } from "recharts";
 
 export const StyledContainer = styled.div`
   max-height: 350px;
@@ -14,30 +14,30 @@ export const StyledDot = styled.svg`
   font-size: 28px;
 `;
 
-export const StyledTooltip = styled(Tooltip)`
-  width: 64px;
-  height: 30px;
-  padding: 7px 12px;
-  text-align: center;
-  position: relative;
+// export const StyledTooltip = styled(Tooltip)`
+//   width: 64px;
+//   height: 30px;
+//   padding: 7px 12px;
+//   text-align: center;
+//   position: relative;
 
-  &:before {
-    content: "";
-    position: absolute;
-    bottom: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-top: 7px solid #888;
-  }
+//   &:before {
+//     content: "";
+//     position: absolute;
+//     bottom: -6px;
+//     left: 50%;
+//     transform: translateX(-50%);
+//     width: 0;
+//     height: 0;
+//     border-left: 7px solid transparent;
+//     border-right: 7px solid transparent;
+//     border-top: 7px solid #888;
+//   }
 
-  /* .recharts-tooltip-label {
-    display: none;
-  } */
-`;
+//   /* .recharts-tooltip-label {
+//     display: none;
+//   } */
+// `;
 
 // export const StyledXAxis = styled(XAxis)`
 //   .recharts-cartesian-axis-tick {
