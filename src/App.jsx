@@ -34,7 +34,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <GlobalStyle loggedIn={loggedIn} />
+      <GlobalStyle />
       <Routes>
         <Route
           element={
