@@ -14,6 +14,7 @@ import {
   StyledSearchBtn,
   StyledLogoutOutlined,
   StyledLogoutWrapper,
+  StyledSidebarWrapper,
 } from "./style";
 import { menuItems } from "./menuItems";
 import { SearchOutlined } from "@ant-design/icons";
@@ -25,8 +26,6 @@ export const SideBar = ({ handleLogout }) => {
 
   const handleClickOutside = (event) => {
     setIsOpen(false);
-    console.log("CLICK");
-    event.stopPropagation();
   };
 
   return (
@@ -35,33 +34,38 @@ export const SideBar = ({ handleLogout }) => {
       isOpen={isOpen}
       onClick={handleClickOutside}
     >
-      <StyledSidebar onClick={(event) => event.stopPropagation()}>
-        <StyledTopWrapper>
-          <StyledLogoSvgWrapper>
-            <Suspense fallback={<div>Loading...</div>}>
-              <LogoSvgLazy />
-            </Suspense>
-          </StyledLogoSvgWrapper>
-          <StyledLogoText>DashBoard</StyledLogoText>
-          <StyledBarsOutlined onClick={toggleSidebar} />
-        </StyledTopWrapper>
+      <StyledSidebarWrapper isOpen={isOpen}>
+        <StyledSidebar onClick={(event) => event.stopPropagation()}>
+          <StyledTopWrapper>
+            <StyledLogoSvgWrapper>
+              <Suspense fallback={<div>Loading...</div>}>
+                <LogoSvgLazy />
+              </Suspense>
+            </StyledLogoSvgWrapper>
+            <StyledLogoText>DashBoard</StyledLogoText>
+            <StyledBarsOutlined onClick={toggleSidebar} />
+          </StyledTopWrapper>
 
-        {menuItems.map((item) => (
-          <StyledLink to={item.path} key={item.id}>
-            <StyledSvgWrapper>{item.icon}</StyledSvgWrapper>
-            <StyledText isOpen={isOpen}>{item.name}</StyledText>
-          </StyledLink>
-        ))}
+          {menuItems.map((item) => (
+            <StyledLink to={item.path} key={item.id}>
+              <StyledSvgWrapper>{item.icon}</StyledSvgWrapper>
+              <StyledText isOpen={isOpen}>{item.name}</StyledText>
+            </StyledLink>
+          ))}
 
-        <StyledLogoutWrapper onClick={handleLogout}>
-          <StyledLogoutOutlined />
-          <StyledText isOpen={isOpen}>Log out</StyledText>
-        </StyledLogoutWrapper>
-        <StyledSearchBtn onClick={toggleSidebar} isOpen={isOpen} />
-        <StyledInputWrapper isOpen={isOpen}>
-          <StyledSearch placeholder="Search" enterButton={<SearchOutlined />} />
-        </StyledInputWrapper>
-      </StyledSidebar>
+          <StyledLogoutWrapper onClick={handleLogout}>
+            <StyledLogoutOutlined />
+            <StyledText isOpen={isOpen}>Log out</StyledText>
+          </StyledLogoutWrapper>
+          <StyledSearchBtn onClick={toggleSidebar} isOpen={isOpen} />
+          <StyledInputWrapper isOpen={isOpen}>
+            <StyledSearch
+              placeholder="Search"
+              enterButton={<SearchOutlined />}
+            />
+          </StyledInputWrapper>
+        </StyledSidebar>
+      </StyledSidebarWrapper>
     </StyledSideBarContainer>
   );
 };

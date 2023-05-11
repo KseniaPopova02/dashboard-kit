@@ -11,17 +11,22 @@ export const StyledSidebar = styled.div`
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
-  min-height: 100%;
-  height: 100vh;
+  min-height: 100vh;
+`;
+
+export const StyledSidebarWrapper = styled.div`
+  @media (max-width: 800px) {
+    width: ${(props) => (props.isOpen ? "255px" : "80px")};
+    transition: width 0.3s ease;
+  }
 `;
 
 export const StyledSideBarContainer = styled.div`
   @media (max-width: 800px) {
-    transition: width 0.3s ease;
     top: 0;
     left: 0;
     position: absolute;
-    width: ${(props) => (props.isOpen ? "255px" : "80px")};
+    width: ${(props) => (props.isOpen ? "100%" : "auto")};
   }
 `;
 export const StyledText = styled.div`
