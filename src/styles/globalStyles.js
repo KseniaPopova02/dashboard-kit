@@ -9,10 +9,9 @@ body {
     padding: 0;
     font-family: "Mulish", sans-serif;
     font-weight: 700;
-    color:${(props) => (props.loggedIn ? "#252733" : "#4b506d")};
     font-size: 14px;
     line-height: 20px;
-    background: ${(props) => (props.loggedIn ? "#F7F8FC" : "#4b5069")};
+    min-height: 100vh;
   }
   @font-face {
   font-family: "Mulish", sans-serif;

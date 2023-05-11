@@ -34,10 +34,9 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <GlobalStyle loggedIn={loggedIn} />
+      <GlobalStyle />
       <Routes>
         <Route
-          path={ROUTES.DASHBOARD}
           element={
             <MainLayout loggedIn={loggedIn} handleLogout={handleLogout} />
           }
@@ -74,12 +73,9 @@ const App = () => {
             path={`${ROUTES.DASHBOARD}${ROUTES.SUBSCRIPTION}`}
             element={<Subscription />}
           />
-          <Route
-            path={`${ROUTES.DASHBOARD}${ROUTES.NOT_FOUND}`}
-            element={<NotFound />}
-          />
+          <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
         </Route>
-        <Route path="/" element={<AuthFormLayout />}>
+        <Route element={<AuthFormLayout loggedIn={loggedIn} />}>
           <Route index element={<LogIn updateLoggedIn={updateLoggedIn} />} />
           <Route path={ROUTES.FORGOT} element={<Forgot />} />
           <Route path={ROUTES.RESET} element={<Reset />} />
