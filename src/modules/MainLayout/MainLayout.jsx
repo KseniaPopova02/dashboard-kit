@@ -4,12 +4,11 @@ import {
   StyledOutletWrapper,
   StyledSidebarWrapper,
   StyledTopbarWrapper,
-  // StyledMainLayoutWrapper,
 } from "./style";
 import { TopBar, SideBar } from "../../components";
 import { Outlet, Navigate } from "react-router-dom";
 
-export const MainLayout = ({ loggedIn, handleLogout }) => {
+export const MainLayout = ({ loggedIn, handleLogout, language }) => {
   if (!loggedIn) {
     return <Navigate to="/" />;
   }
