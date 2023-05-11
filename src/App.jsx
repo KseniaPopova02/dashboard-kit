@@ -18,9 +18,11 @@ import {
 import { ROUTES } from "./Routes/routes";
 import { AuthFormLayout, MainLayout } from "./modules";
 import { useLocalStorage } from "react-use";
+import { useState } from "react";
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useLocalStorage("loggedIn", false);
+  const [language, setLanguage] = useState("en");
 
   const handleLogout = () => {
     localStorage.removeItem("loggedIn");
@@ -30,6 +32,14 @@ const App = () => {
 
   const updateLoggedIn = (value) => {
     setLoggedIn(value);
+  };
+
+  const handleLanguageChange = () => {
+    if (language === "en") {
+      setLanguage("ru");
+    } else {
+      setLanguage("en");
+    }
   };
 
   return (
