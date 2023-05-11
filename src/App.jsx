@@ -14,6 +14,7 @@ import {
   Articles,
   Settings,
   Subscription,
+  Language,
 } from "./pages";
 import { ROUTES } from "./Routes/routes";
 import { AuthFormLayout, MainLayout } from "./modules";
@@ -53,7 +54,10 @@ const App = () => {
           }
         >
           {language === "ru" ? (
-            <div>bletgorog meme</div>
+            <Route
+              path={`${ROUTES.DASHBOARD}${ROUTES.LANGUAGE}`}
+              element={<Language />}
+            />
           ) : (
             <>
               <Route

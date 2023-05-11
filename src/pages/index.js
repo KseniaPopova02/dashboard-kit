@@ -11,3 +11,4 @@ export * from "./Agents";
 export * from "./Articles";
 export * from "./Settings";
 export * from "./Subscription";
+export * from "./Language";
