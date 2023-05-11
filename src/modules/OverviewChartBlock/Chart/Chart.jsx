@@ -2,15 +2,24 @@ import React from "react";
 
 import { StyledLine } from "./style";
 export const Chart = () => {
-  const dataArray = [];
-  for (let x = 0; x <= 22; x++) {
-    for (let y = 0; y <= 60; y += 10) {
-      dataArray.push({ x, y });
-    }
-  }
+  const data = [
+    { x: 0, y: 13 },
+    { x: 3, y: 31 },
+    { x: 5, y: 29 },
+    { x: 8, y: 51 },
+    { x: 12, y: 18 },
+    { x: 16, y: 48 },
+    { x: 19, y: 39 },
+  ];
+  // const dataArray = [];
+  // for (let x = 0; x <= 22; x++) {
+  //   for (let y = 0; y <= 70; y += 10) {
+  //     dataArray.push({ x, y });
+  //   }
+  // }
 
   const config = {
-    data: dataArray,
+    data: data,
     height: 400,
     xField: "x",
     yField: "y",
