@@ -12,6 +12,21 @@ import {
 import { ROUTES } from "../../Routes/routes";
 import { nanoid } from "nanoid";
 
+class Icon {
+  constructor(props) {
+    this.props = props;
+  }
+
+  render() {
+    const { fallback, Svg } = this.props;
+    return (
+      <Suspense fallback={fallback}>
+        <Svg />
+      </Suspense>
+    );
+  }
+}
+
 const {
   DASHBOARD,
   OVERVIEW,
@@ -29,80 +44,72 @@ export const menuItems = [
     id: nanoid(),
     path: `${DASHBOARD}${OVERVIEW}`,
     name: "Overview",
-    icon: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <OverviewSvgLazy />
-      </Suspense>
-    ),
+    icon: new Icon({
+      fallback: <div>Loading...</div>,
+      Svg: OverviewSvgLazy,
+    }),
   },
   {
     id: nanoid(),
     path: `${DASHBOARD}${TICKETS}`,
     name: "Tickets",
-    icon: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <TicketsSvgLazy />
-      </Suspense>
-    ),
+    icon: new Icon({
+      fallback: <div>Loading...</div>,
+      Svg: TicketsSvgLazy,
+    }),
   },
   {
     id: nanoid(),
     path: `${DASHBOARD}${IDEAS}`,
     name: "Ideas",
-    icon: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <IdeasSvgLazy />
-      </Suspense>
-    ),
+    icon: new Icon({
+      fallback: <div>Loading...</div>,
+      Svg: IdeasSvgLazy,
+    }),
   },
   {
     id: nanoid(),
     path: `${DASHBOARD}${CONTACTS}`,
     name: "Contacts",
-    icon: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <ContactsSvgLazy />
-      </Suspense>
-    ),
+    icon: new Icon({
+      fallback: <div>Loading...</div>,
+      Svg: ContactsSvgLazy,
+    }),
   },
   {
     id: nanoid(),
     path: `${DASHBOARD}${AGENTS}`,
     name: "Agents",
-    icon: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <AgentsSvgLazy />
-      </Suspense>
-    ),
+    icon: new Icon({
+      fallback: <div>Loading...</div>,
+      Svg: AgentsSvgLazy,
+    }),
   },
   {
     id: nanoid(),
     path: `${DASHBOARD}${ARTICLES}`,
     name: "Articles",
-    icon: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <ArticlesSvgLazy />
-      </Suspense>
-    ),
+    icon: new Icon({
+      fallback: <div>Loading...</div>,
+      Svg: ArticlesSvgLazy,
+    }),
   },
   {
     id: nanoid(),
     path: `${DASHBOARD}${SETTINGS}`,
     name: "Settings",
-    icon: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <SettingsSvgLazy />
-      </Suspense>
-    ),
+    icon: new Icon({
+      fallback: <div>Loading...</div>,
+      Svg: SettingsSvgLazy,
+    }),
   },
   {
     id: nanoid(),
     path: `${DASHBOARD}${SUBSCRIPTION}`,
     name: "Subscription",
-    icon: (
-      <Suspense fallback={<div>Loading...</div>}>
-        <SubscriptionSvgLazy />
-      </Suspense>
-    ),
+    icon: new Icon({
+      fallback: <div>Loading...</div>,
+      Svg: SubscriptionSvgLazy,
+    }),
   },
 ];

@@ -48,7 +48,7 @@ export const SideBar = ({ handleLogout }) => {
 
           {menuItems.map((item) => (
             <StyledLink to={item.path} key={item.id}>
-              <StyledSvgWrapper>{item.icon}</StyledSvgWrapper>
+              <StyledSvgWrapper>{item.icon.render()}</StyledSvgWrapper>
               <StyledText isOpen={isOpen}>{item.name}</StyledText>
             </StyledLink>
           ))}
