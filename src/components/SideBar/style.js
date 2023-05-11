@@ -191,3 +191,15 @@ export const StyledLogoutWrapper = styled.div`
     color: #dde2ff;
   }
 `;
+
+export const StyledLanguage = styled.div`
+  font-size: 12px;
+  padding: 20px 0 20px 30px;
+  color: #9fa2b4;
+  opacity: 0.4;
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+    color: #dde2ff;
+  }
+`;

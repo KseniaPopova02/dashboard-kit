@@ -24,7 +24,7 @@ export const SideBar = ({ handleLogout }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleSidebar = () => setIsOpen(!isOpen);
 
-  const handleClickOutside = (event) => {
+  const handleClickOutside = () => {
     setIsOpen(false);
   };
 
@@ -57,6 +57,7 @@ export const SideBar = ({ handleLogout }) => {
             <StyledLogoutOutlined />
             <StyledText isOpen={isOpen}>Log out</StyledText>
           </StyledLogoutWrapper>
+
           <StyledSearchBtn onClick={toggleSidebar} isOpen={isOpen} />
           <StyledInputWrapper isOpen={isOpen}>
             <StyledSearch

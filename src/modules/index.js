@@ -6,4 +6,3 @@ export * from "./ResetForm";
 export * from "./SignUpForm";
 export * from "./ForgotSuccess";
 export * from "./Container";
-export * from "./LanguagePage";
