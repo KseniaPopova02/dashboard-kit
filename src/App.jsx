@@ -18,11 +18,9 @@ import {
 import { ROUTES } from "./Routes/routes";
 import { AuthFormLayout, MainLayout } from "./modules";
 import { useLocalStorage } from "react-use";
-import { useState } from "react";
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useLocalStorage("loggedIn", false);
-  const [language, setLanguage] = useState("en");
 
   const handleLogout = () => {
     localStorage.removeItem("loggedIn");
@@ -32,14 +30,6 @@ const App = () => {
 
   const updateLoggedIn = (value) => {
     setLoggedIn(value);
-  };
-
-  const handleLanguageChange = () => {
-    if (language === "en") {
-      setLanguage("ru");
-    } else {
-      setLanguage("en");
-    }
   };
 
   return (
@@ -52,48 +42,42 @@ const App = () => {
             <MainLayout loggedIn={loggedIn} handleLogout={handleLogout} />
           }
         >
-          {language === "ru" ? (
-            <div>bletgorog meme</div>
-          ) : (
-            <>
-              <Route
-                path={`${ROUTES.DASHBOARD}${ROUTES.OVERVIEW}`}
-                element={<View />}
-              />
-              <Route
-                path={`${ROUTES.DASHBOARD}${ROUTES.TICKETS}`}
-                element={<Tickets />}
-              />
-              <Route
-                path={`${ROUTES.DASHBOARD}${ROUTES.IDEAS}`}
-                element={<Ideas />}
-              />
-              <Route
-                path={`${ROUTES.DASHBOARD}${ROUTES.CONTACTS}`}
-                element={<Contacts />}
-              />
-              <Route
-                path={`${ROUTES.DASHBOARD}${ROUTES.AGENTS}`}
-                element={<Agents />}
-              />
-              <Route
-                path={`${ROUTES.DASHBOARD}${ROUTES.ARTICLES}`}
-                element={<Articles />}
-              />
-              <Route
-                path={`${ROUTES.DASHBOARD}${ROUTES.SETTINGS}`}
-                element={<Settings />}
-              />
-              <Route
-                path={`${ROUTES.DASHBOARD}${ROUTES.SUBSCRIPTION}`}
-                element={<Subscription />}
-              />
-              <Route
-                path={`${ROUTES.DASHBOARD}${ROUTES.NOT_FOUND}`}
-                element={<NotFound />}
-              />
-            </>
-          )}
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.OVERVIEW}`}
+            element={<View />}
+          />
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.TICKETS}`}
+            element={<Tickets />}
+          />
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.IDEAS}`}
+            element={<Ideas />}
+          />
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.CONTACTS}`}
+            element={<Contacts />}
+          />
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.AGENTS}`}
+            element={<Agents />}
+          />
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.ARTICLES}`}
+            element={<Articles />}
+          />
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.SETTINGS}`}
+            element={<Settings />}
+          />
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.SUBSCRIPTION}`}
+            element={<Subscription />}
+          />
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.NOT_FOUND}`}
+            element={<NotFound />}
+          />
         </Route>
         <Route path="/" element={<AuthFormLayout />}>
           <Route index element={<LogIn updateLoggedIn={updateLoggedIn} />} />

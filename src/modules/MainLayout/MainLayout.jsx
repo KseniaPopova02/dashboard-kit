@@ -8,7 +8,7 @@ import {
 import { TopBar, SideBar } from "../../components";
 import { Outlet, Navigate } from "react-router-dom";
 
-export const MainLayout = ({ loggedIn, handleLogout, language }) => {
+export const MainLayout = ({ loggedIn, handleLogout }) => {
   if (!loggedIn) {
     return <Navigate to="/" />;
   }
