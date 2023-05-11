@@ -1,6 +1,12 @@
 import styled from "styled-components";
 import { PlusOutlined } from "@ant-design/icons";
 
+export const StyledContactsWrapper = styled.div`
+  border: 1px solid #dfe0eb;
+  border-radius: 8px;
+  padding: 33px;
+`;
+
 export const StyledHeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -56,6 +62,7 @@ export const StyledBtnRight = styled.button`
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
+  color: #4b506d;
   cursor: pointer;
 `;
 
@@ -120,4 +127,21 @@ export const StyledSpan = styled.div`
   @media (max-width: 342px) {
     display: none;
   }
+`;
+
+export const StyledTable = styled.table`
+  border-collapse: collapse;
+  width: 100%;
+`;
+
+export const StyledTH = styled.th`
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+`;
+
+export const StyledTD = styled.td`
+  border: 1px solid #ddd;
+  padding: 8px;
 `;

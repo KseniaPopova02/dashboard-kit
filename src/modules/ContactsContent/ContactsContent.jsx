@@ -11,6 +11,10 @@ import {
   StyledPlusOutlined,
   StyledBtnText,
   StyledSpan,
+  StyledContactsWrapper,
+  StyledTable,
+  StyledTH,
+  StyledTD,
 } from "./style";
 import { ReloadOutlined, DeleteOutlined } from "@ant-design/icons";
 import { ReactComponent as SortSvg } from "../../assets/svg/sort.svg";
@@ -97,7 +101,7 @@ export const ContactsContent = () => {
   };
 
   return (
-    <div>
+    <StyledContactsWrapper>
       <StyledHeaderWrapper>
         <StyledBtnWrapper className="left">
           <StyledBtnRight onClick={handleSortContacts}>
@@ -152,24 +156,36 @@ export const ContactsContent = () => {
         </Formik>
       )}
       {contacts.length > 0 ? (
-        <ul>
-          {contacts.map((contact) => (
-            <li key={contact.id}>
-              <div>
-                <img src={contact.photo} alt={contact.firstName} />
-                <div>
-                  {contact.firstName} {contact.lastName}
-                </div>
-                <div>{contact.email}</div>
-                <div>{contact.address}</div>
-                <div> {contact.date}</div>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <div>
+          <StyledTable>
+            <thead>
+              <tr>
+                <StyledTH>Name</StyledTH>
+                <StyledTH>Email</StyledTH>
+                <StyledTH>Address</StyledTH>
+                <StyledTH>Created at</StyledTH>
+              </tr>
+            </thead>
+            <tbody>
+              {contacts.map((contact) => (
+                <tr key={contact.id}>
+                  <StyledTD>
+                    <img src={contact.photo} alt={contact.firstName} />
+                    <div>
+                      {contact.firstName} {contact.lastName}
+                    </div>
+                  </StyledTD>
+                  <StyledTD>{contact.email}</StyledTD>
+                  <StyledTD>{contact.address}</StyledTD>
+                  <StyledTD>{contact.date}</StyledTD>
+                </tr>
+              ))}
+            </tbody>
+          </StyledTable>
+        </div>
       ) : (
         <div>No contacts yet</div>
       )}
-    </div>
+    </StyledContactsWrapper>
   );
 };
