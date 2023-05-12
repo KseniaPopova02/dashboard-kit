@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Formik } from "formik";
 import { contactSchema, initialValues, FormContent } from "./Form";
+import { nanoid } from "nanoid";
+
 import {
   StyledHeaderWrapper,
   StyledBtnWrapper,
@@ -41,7 +43,7 @@ export const ContactsContent = () => {
 
   const handleAddContact = (values, { resetForm }) => {
     const newContact = {
-      id: Date.now(),
+      id: nanoid(),
       photo: values.photo,
       firstName: values.firstName,
       lastName: values.lastName,
@@ -177,6 +179,7 @@ export const ContactsContent = () => {
                 <StyledTD>{contact.email}</StyledTD>
                 <StyledTD>{contact.address}</StyledTD>
                 <StyledTD>{contact.date}</StyledTD>
+                <StyledTD></StyledTD>
               </tr>
             ))}
           </tbody>
@@ -184,6 +187,7 @@ export const ContactsContent = () => {
       ) : (
         <div>No contacts yet</div>
       )}
+      <div>pages info</div>
     </StyledContactsWrapper>
   );
 };

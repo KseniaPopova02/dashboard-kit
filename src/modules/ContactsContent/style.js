@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { PlusOutlined } from "@ant-design/icons";
+import { EllipsisOutlined } from "@ant-design/icons";
 
 export const StyledContactsWrapper = styled.div`
   border: 1px solid #dfe0eb;
@@ -136,7 +137,6 @@ export const StyledTable = styled.table`
 
 export const StyledTH = styled.th`
   background-color: none;
-  border-bottom: 1px solid #dfe0eb;
   padding: 10px;
   text-align: left;
   color: #9fa2b4;
@@ -150,6 +150,7 @@ export const StyledTH = styled.th`
 `;
 
 export const StyledTD = styled.td`
+  border-top: 1px solid #dfe0eb;
   border-bottom: 1px solid #dfe0eb;
   padding: 36px 10px;
   &:first-child {
