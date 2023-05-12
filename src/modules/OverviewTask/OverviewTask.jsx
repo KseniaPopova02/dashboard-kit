@@ -55,8 +55,6 @@ export const OverviewTask = ({ showAllTasks = false }) => {
     localStorage.removeItem("tasks");
   };
 
-  console.log(tasks);
-
   const handleCheckboxChange = (taskId) => {
     setTasks((prevTasks) =>
       prevTasks.map((task) => {
