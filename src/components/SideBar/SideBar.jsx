@@ -46,12 +46,19 @@ export const SideBar = ({ handleLogout }) => {
             <StyledBarsOutlined onClick={toggleSidebar} />
           </StyledTopWrapper>
 
-          {menuItems.map((item) => (
-            <StyledLink to={item.path} key={item.id}>
-              <StyledSvgWrapper>{item.icon.render()}</StyledSvgWrapper>
-              <StyledText isOpen={isOpen}>{item.name}</StyledText>
-            </StyledLink>
-          ))}
+          {menuItems.map((item) => {
+            const Icon = item.icon;
+            return (
+              <StyledLink to={item.path} key={item.id}>
+                <StyledSvgWrapper>
+                  <Suspense fallback="Loading...">
+                    <Icon />
+                  </Suspense>
+                </StyledSvgWrapper>
+                <StyledText isOpen={isOpen}>{item.name}</StyledText>
+              </StyledLink>
+            );
+          })}
 
           <StyledLogoutWrapper onClick={handleLogout}>
             <StyledLogoutOutlined />
