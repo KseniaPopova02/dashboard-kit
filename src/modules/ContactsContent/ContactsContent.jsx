@@ -156,33 +156,31 @@ export const ContactsContent = () => {
         </Formik>
       )}
       {contacts.length > 0 ? (
-        <div>
-          <StyledTable>
-            <thead>
-              <tr>
-                <StyledTH>Name</StyledTH>
-                <StyledTH>Email</StyledTH>
-                <StyledTH>Address</StyledTH>
-                <StyledTH>Created at</StyledTH>
+        <StyledTable>
+          <thead>
+            <tr>
+              <StyledTH>Name</StyledTH>
+              <StyledTH>Email</StyledTH>
+              <StyledTH>Address</StyledTH>
+              <StyledTH>Created at</StyledTH>
+            </tr>
+          </thead>
+          <tbody>
+            {contacts.map((contact) => (
+              <tr key={contact.id}>
+                <StyledTD>
+                  <img src={contact.photo} alt={contact.firstName} />
+                  <div>
+                    {contact.firstName} {contact.lastName}
+                  </div>
+                </StyledTD>
+                <StyledTD>{contact.email}</StyledTD>
+                <StyledTD>{contact.address}</StyledTD>
+                <StyledTD>{contact.date}</StyledTD>
               </tr>
-            </thead>
-            <tbody>
-              {contacts.map((contact) => (
-                <tr key={contact.id}>
-                  <StyledTD>
-                    <img src={contact.photo} alt={contact.firstName} />
-                    <div>
-                      {contact.firstName} {contact.lastName}
-                    </div>
-                  </StyledTD>
-                  <StyledTD>{contact.email}</StyledTD>
-                  <StyledTD>{contact.address}</StyledTD>
-                  <StyledTD>{contact.date}</StyledTD>
-                </tr>
-              ))}
-            </tbody>
-          </StyledTable>
-        </div>
+            ))}
+          </tbody>
+        </StyledTable>
       ) : (
         <div>No contacts yet</div>
       )}

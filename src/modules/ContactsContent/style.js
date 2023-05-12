@@ -4,13 +4,13 @@ import { PlusOutlined } from "@ant-design/icons";
 export const StyledContactsWrapper = styled.div`
   border: 1px solid #dfe0eb;
   border-radius: 8px;
-  padding: 33px;
 `;
 
 export const StyledHeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 52px;
+  padding: 33px 33px 0 33px;
   @media (max-width: 800px) {
     margin-bottom: 20px;
   }
@@ -135,13 +135,35 @@ export const StyledTable = styled.table`
 `;
 
 export const StyledTH = styled.th`
-  background-color: #f2f2f2;
-  border: 1px solid #ddd;
-  padding: 8px;
+  background-color: none;
+  border-bottom: 1px solid #dfe0eb;
+  padding: 10px;
   text-align: left;
+  color: #9fa2b4;
+  &:first-child {
+    padding-left: 33px;
+  }
+
+  &:last-child {
+    padding-right: 33px;
+  }
 `;
 
 export const StyledTD = styled.td`
-  border: 1px solid #ddd;
-  padding: 8px;
+  border-bottom: 1px solid #dfe0eb;
+  padding: 36px 10px;
+  &:first-child {
+    padding-left: 33px;
+    & > div {
+      display: inline;
+      margin-left: 24px;
+    }
+  }
+
+  &:last-child {
+    padding-right: 33px;
+  }
+  &:nth-child(3) {
+    max-width: 208px;
+  }
 `;
