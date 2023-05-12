@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Formik } from "formik";
 import { contactSchema, initialValues, FormContent } from "./Form";
 import { nanoid } from "nanoid";
-
+import { DropDownMenu } from "./DropDownMenu";
+import { EllipsisOutlined } from "@ant-design/icons";
 import {
   StyledHeaderWrapper,
   StyledBtnWrapper,
@@ -102,6 +103,15 @@ export const ContactsContent = () => {
     }
   };
 
+  const handleDelete = (id) => {
+    setContacts((prevContacts) =>
+      prevContacts.filter((contact) => contact.id !== id)
+    );
+    setOriginalContacts((prevContacts) =>
+      prevContacts.filter((contact) => contact.id !== id)
+    );
+  };
+
   return (
     <StyledContactsWrapper>
       <StyledHeaderWrapper>
@@ -179,7 +189,9 @@ export const ContactsContent = () => {
                 <StyledTD>{contact.email}</StyledTD>
                 <StyledTD>{contact.address}</StyledTD>
                 <StyledTD>{contact.date}</StyledTD>
-                <StyledTD></StyledTD>
+                <StyledTD>
+                  <DropDownMenu />
+                </StyledTD>
               </tr>
             ))}
           </tbody>

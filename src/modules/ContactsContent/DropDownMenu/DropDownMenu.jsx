@@ -1,47 +1,68 @@
+// import { Dropdown, Menu, Button } from "antd";
+// import { StyledEllipsisOutlined } from "./style";
+
+// import { useState } from "react";
+
+// export const DropDownMenu = ({ handleDelete, contact }) => {
+//   const [dropdownVisible, setDropdownVisible] = useState(false);
+//   const [dropdownMenu, setDropdownMenu] = useState(null);
+//   const handleEllipsisClick = () => {
+//     const menu = (
+//       <Menu>
+//         <div>
+//           <Menu.Item>
+//             <Button type="text" onClick={() => handleDelete(contact.id)}>
+//               Delete
+//             </Button>
+//           </Menu.Item>
+//           <Menu.Item>
+//             <Button type="text">Edit</Button>
+//           </Menu.Item>
+//         </div>
+//       </Menu>
+//     );
+//     setDropdownMenu(menu);
+//     setDropdownVisible(true);
+//   };
+//   const handleBlur = () => {
+//     setDropdownVisible(false);
+//     setDropdownMenu(null);
+//   };
+//   return (
+//     <Dropdown
+//       open={dropdownVisible}
+//       onOpenChange={setDropdownVisible}
+//       menu={dropdownMenu}
+//       trigger={["click"]}
+//       onBlur={handleBlur}
+//     >
+//       <StyledEllipsisOutlined
+//         onClick={(event) => handleEllipsisClick(event, contact)}
+//       />
+//     </Dropdown>
+//   );
+// };
+
 import { Dropdown, Menu, Button } from "antd";
 import { StyledEllipsisOutlined } from "./style";
+
 import { useState } from "react";
 
-export const DropDownMenu = ({ contact }) => {
-  const [dropdownVisible, setDropdownVisible] = useState(false);
-  const [dropdownMenu, setDropdownMenu] = useState(null);
+const menu = (
+  <Menu>
+    <Menu.Item key="edit">Edit</Menu.Item>
+    <Menu.Item key="delete">Delete</Menu.Item>
+  </Menu>
+);
 
-  const handleEllipsisClick = (event) => {
-    event.preventDefault();
-    const menu = (
-      <Menu>
-        <Menu.Item>
-          <Button type="text" onClick={() => handleEdit(contact)}>
-            Edite
-          </Button>
-        </Menu.Item>
-        <Menu.Item>
-          <Button type="text" onClick={() => handleDelete(contact.id)}>
-            Delete
-          </Button>
-        </Menu.Item>
-      </Menu>
-    );
-    setDropdownMenu(menu);
-    setDropdownVisible(true);
-  };
-
-  const handleBlur = () => {
-    setDropdownVisible(false);
-    setDropdownMenu(null);
-  };
-
+export const DropDownMenu = ({ handleDelete, contact }) => {
   return (
-    <Dropdown
-      visible={dropdownVisible}
-      onVisibleChange={setDropdownVisible}
-      overlay={dropdownMenu}
-      trigger={["click"]}
-      onBlur={handleBlur}
-    >
-      <StyledEllipsisOutlined
-        onClick={(event) => handleEllipsisClick(event, contact)}
-      />
-    </Dropdown>
+    <div>
+      <Dropdown overlay={menu}>
+        <span>
+          <StyledEllipsisOutlined />
+        </span>
+      </Dropdown>
+    </div>
   );
 };
