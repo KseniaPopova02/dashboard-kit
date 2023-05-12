@@ -57,12 +57,14 @@ export const OverviewTask = ({ showAllTasks = false }) => {
 
   const handleCheckboxChange = (taskId) => {
     setTasks((prevTasks) =>
-      prevTasks.map((task) => {
-        if (task.id === taskId) {
-          return { ...task, isChecked: !task.isChecked };
-        }
-        return task;
-      })
+      prevTasks
+        .map((task) => {
+          if (task.id === taskId) {
+            return { ...task, isChecked: !task.isChecked };
+          }
+          return task;
+        })
+        .filter((task) => !task.isChecked)
     );
   };
 
