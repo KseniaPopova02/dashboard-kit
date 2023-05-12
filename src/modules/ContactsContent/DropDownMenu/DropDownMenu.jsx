@@ -9,16 +9,14 @@
 //   const handleEllipsisClick = () => {
 //     const menu = (
 //       <Menu>
-//         <div>
-//           <Menu.Item>
-//             <Button type="text" onClick={() => handleDelete(contact.id)}>
-//               Delete
-//             </Button>
-//           </Menu.Item>
-//           <Menu.Item>
-//             <Button type="text">Edit</Button>
-//           </Menu.Item>
-//         </div>
+//         <Menu.Item>
+//           <Button type="text" onClick={() => handleDelete(contact.id)}>
+//             Delete
+//           </Button>
+//         </Menu.Item>
+//         <Menu.Item>
+//           <Button type="text">Edit</Button>
+//         </Menu.Item>
 //       </Menu>
 //     );
 //     setDropdownMenu(menu);
@@ -36,9 +34,11 @@
 //       trigger={["click"]}
 //       onBlur={handleBlur}
 //     >
-//       <StyledEllipsisOutlined
-//         onClick={(event) => handleEllipsisClick(event, contact)}
-//       />
+//       <span>
+//         <StyledEllipsisOutlined
+//           onClick={(event) => handleEllipsisClick(event, contact)}
+//         />
+//       </span>
 //     </Dropdown>
 //   );
 // };
@@ -58,10 +58,14 @@ const menu = (
 export const DropDownMenu = ({ handleDelete, contact }) => {
   return (
     <div>
-      <Dropdown overlay={menu}>
-        <span>
+      <Dropdown menu={{ menu }}>
+        <div>
+          <button>add</button>
+        </div>
+
+        {/* <span>
           <StyledEllipsisOutlined />
-        </span>
+        </span> */}
       </Dropdown>
     </div>
   );
