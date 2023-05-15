@@ -29,4 +29,5 @@ export const StyledOutletWrapper = styled.div`
 export const StyledMainLayoutWrapper = styled.div`
   color: #252733;
   background: #fff;
+  height: 100vh;
 `;
