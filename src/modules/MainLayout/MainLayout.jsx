@@ -6,7 +6,8 @@ import {
   StyledTopbarWrapper,
   StyledMainLayoutWrapper,
 } from "./style";
-import { TopBar, SideBar } from "../../components";
+import { TopBar } from "../TopBar";
+import { SideBar } from "../SideBar";
 import { Outlet, Navigate } from "react-router-dom";
 
 export const MainLayout = ({ loggedIn, handleLogout }) => {
