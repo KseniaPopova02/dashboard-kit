@@ -9,10 +9,14 @@ body {
     padding: 0;
     font-family: "Mulish", sans-serif;
     font-weight: 700;
-    /* color:${(props) => (props.loggedIn ? "#252733" : "#4b506d")}; */
     font-size: 14px;
     line-height: 20px;
+<<<<<<< HEAD
     /* background: ${(props) => (props.loggedIn ? "#fff" : "#4b5069")}; */
+=======
+    min-height: 100vh;
+   
+>>>>>>> c6b85366db278d9713ea42354fc115bd9b544592
   }
   @font-face {
   font-family: "Mulish", sans-serif;

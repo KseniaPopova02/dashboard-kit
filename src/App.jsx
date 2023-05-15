@@ -19,11 +19,23 @@ import {
 } from "./pages";
 import { ROUTES } from "./Routes/routes";
 import { AuthFormLayout, MainLayout } from "./modules";
-import { useLocalStorage } from "react-use";
+import { useState } from "react";
+
+const useCustomLocalStorage = (key, initialValue) => {
+  const [value, setValue] = useState(() => {
+    const storedValue = localStorage.getItem(key);
+    return storedValue ? JSON.parse(storedValue) : initialValue;
+  });
+
+  const setStoredValue = (newValue) => {
+    setValue(newValue);
+    localStorage.setItem(key, JSON.stringify(newValue));
+  };
+  return [value, setStoredValue];
+};
 
 const App = () => {
-  const [loggedIn, setLoggedIn] = useLocalStorage("loggedIn", false);
-
+  const [loggedIn, setLoggedIn] = useCustomLocalStorage("loggedIn", false);
   const handleLogout = () => {
     localStorage.removeItem("loggedIn");
     setLoggedIn(false);
@@ -36,7 +48,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <GlobalStyle loggedIn={loggedIn} />
+      <GlobalStyle />
       <Routes>
         <Route
           element={
