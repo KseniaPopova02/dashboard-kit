@@ -1,0 +1,114 @@
+{
+  "chartData": [
+    {
+      "x": "1",
+      "y": 0,
+      "category": "today"
+    },
+    {
+      "x": "2",
+      "y": 10,
+      "category": "yesterday"
+    },
+    {
+      "x": "3",
+      "y": 20,
+      "category": "today"
+    },
+    {
+      "x": "4",
+      "y": 30,
+      "category": "yesterday"
+    },
+    {
+      "x": "5",
+      "y": 40,
+      "category": "today"
+    },
+    {
+      "x": "6",
+      "y": 50,
+      "category": "yesterday"
+    },
+    {
+      "x": "7",
+      "y": 60,
+      "category": "today"
+    },
+    {
+      "x": "8",
+      "y": 0,
+      "category": "yesterday"
+    },
+    {
+      "x": "9",
+      "y": 10,
+      "category": "today"
+    },
+    {
+      "x": "10",
+      "y": 20,
+      "category": "yesterday"
+    },
+    {
+      "x": "11",
+      "y": 30,
+      "category": "today"
+    },
+    {
+      "x": "12",
+      "y": 40,
+      "category": "yesterday"
+    },
+    {
+      "x": "13",
+      "y": 50,
+      "category": "today"
+    },
+    {
+      "x": "14",
+      "y": 60,
+      "category": "yesterday"
+    },
+    {
+      "x": "15",
+      "y": 0,
+      "category": "today"
+    },
+    {
+      "x": "16",
+      "y": 10,
+      "category": "yesterday"
+    },
+    {
+      "x": "17",
+      "y": 20,
+      "category": "today"
+    },
+    {
+      "x": "18",
+      "y": 30,
+      "category": "yesterday"
+    },
+    {
+      "x": "19",
+      "y": 40,
+      "category": "today"
+    },
+    {
+      "x": "20",
+      "y": 50,
+      "category": "yesterday"
+    },
+    {
+      "x": "21",
+      "y": 60,
+      "category": "today"
+    },
+    {
+      "x": "22",
+      "y": 0,
+      "category": "yesterday"
+    }
+  ]
+}
