@@ -18,6 +18,25 @@ import { ReactComponent as SearchSvg } from "../../assets/svg/search.svg";
 import { ReactComponent as BellSvg } from "../../assets/svg/bell.svg";
 import { ReactComponent as LineSvg } from "../../assets/svg/vertical.svg";
 
+const getValueFromLocalStorage = (key) => {
+  try {
+    const data = localStorage.getItem(key);
+    if (data !== null) {
+      const parsedData = JSON.parse(data);
+      if (Array.isArray(parsedData) && parsedData.length > 0) {
+        const lastItem = parsedData[parsedData.length - 1];
+        return lastItem[key];
+      }
+    }
+  } catch (error) {
+    console.log("Error retrieving value from localStorage:", error);
+  }
+  return undefined;
+};
+
+const name = getValueFromLocalStorage("name");
+console.log(localStorage.getItem("name"));
+
 export const TopBar = () => {
   const location = useLocation();
   const [isInputDisplayed, setIsInputDisplayed] = useState(false);
@@ -42,7 +61,7 @@ export const TopBar = () => {
         <StyledLineSvgWrapper>
           <LineSvg />
         </StyledLineSvgWrapper>
-        <StyledName>Jones Ferdinand</StyledName>
+        <StyledName>{name}</StyledName>
         <StyledImgBorder>
           <StyledImg src={profilePhoto} alt="profile" />
         </StyledImgBorder>
