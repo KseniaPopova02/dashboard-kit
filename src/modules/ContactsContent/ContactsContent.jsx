@@ -190,7 +190,7 @@ export const ContactsContent = () => {
                 <StyledTD>{contact.address}</StyledTD>
                 <StyledTD>{contact.date}</StyledTD>
                 <StyledTD>
-                  <DropDownMenu />
+                  <DropDownMenu handleDelete={handleDelete} />
                 </StyledTD>
               </tr>
             ))}
