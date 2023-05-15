@@ -40,29 +40,30 @@ export const StyledSvgWrapper = styled.div`
   }
 `;
 
-const inputWidthMixin = () => css`
-  width: ${({ isInputDisplayed }) => (isInputDisplayed ? "240px" : "0")};
-  padding: ${({ isInputDisplayed }) => (isInputDisplayed ? "8px 16px" : "0")};
-  border: ${({ isInputDisplayed }) =>
-    isInputDisplayed ? "1px solid #d9d9d9" : "none"};
+const desktopStyles = css`
+  width: 240px;
+  padding: 8px 16px;
+  border: 1px solid #d9d9d9;
   transition: width 0.3s ease-in-out, padding 0.3s ease-in-out;
-
   @media (max-width: 912px) {
-    width: ${({ isInputDisplayed }) => (isInputDisplayed ? "200px" : "0")};
+    width: 200px;
   }
   @media (max-width: 871px) {
-    width: ${({ isInputDisplayed }) => (isInputDisplayed ? "150px" : "0")};
+    width: 120px;
   }
   @media (max-width: 650px) {
-    width: ${({ isInputDisplayed }) => (isInputDisplayed ? "120px" : "0")};
     display: none;
   }
+`;
+const mobileStyles = css`
+  width: 0px;
+  border: none;
 `;
 
 export const StyledInput = styled(Input)`
   position: absolute;
   right: 35px;
-  ${(props) => inputWidthMixin(props)};
+  ${({ isInputDisplayed }) => (isInputDisplayed ? desktopStyles : mobileStyles)}
 `;
 
 export const StyledLineSvgWrapper = styled.div`
