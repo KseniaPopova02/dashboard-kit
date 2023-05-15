@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useMemo } from "react";
 import {
   StyledTopBarWrapper,
   StyledTitle,
@@ -11,26 +11,20 @@ import {
   StyledImg,
   StyledInput,
 } from "./style";
-import { getTitle } from "./helpers";
+import { getTitle, getValueFromLocalStorage } from "./helpers";
 import { useLocation } from "react-router-dom";
 import profilePhoto from "../../assets/images/profile-photo.png";
 import { ReactComponent as SearchSvg } from "../../assets/svg/search.svg";
 import { ReactComponent as BellSvg } from "../../assets/svg/bell.svg";
 import { ReactComponent as LineSvg } from "../../assets/svg/vertical.svg";
-import { getValueFromLocalStorage } from "./helper";
 
 export const TopBar = () => {
   const location = useLocation();
   const [isInputDisplayed, setIsInputDisplayed] = useState(false);
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
-
-  useEffect(() => {
+  const [name, surname] = useMemo(() => {
     const nameValue = getValueFromLocalStorage("name");
     const surnameValue = getValueFromLocalStorage("surname");
-
-    setName(nameValue);
-    setSurname(surnameValue);
+    return [nameValue, surnameValue];
   }, []);
 
   const handleSearchClick = () => {
