@@ -18,8 +18,6 @@ export const StyledSubtitle = styled.div`
 `;
 
 export const StyledHeaderWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 32px 32px 0 32px;
   margin-bottom: 75px;
@@ -31,41 +29,4 @@ export const StyledHeaderWrapper = styled.div`
     align-items: center;
     justify-content: center;
   }
-`;
-
-export const StyledToday = styled.div`
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 15px;
-  color: #9fa2b4;
-  &::before {
-    content: "";
-    display: inline-block;
-    width: 16px;
-    border: 2px solid #3751ff;
-    margin-right: 8px;
-    border-radius: 8px;
-    transform: translateY(-50%);
-  }
-`;
-
-export const StyledYesterday = styled.div`
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 15px;
-  color: #9fa2b4;
-  &::before {
-    content: "";
-    display: inline-block;
-    width: 16px;
-    border: 2px solid #dfe0eb;
-    border-radius: 8px;
-    margin-right: 8px;
-    transform: translateY(-50%);
-  }
-`;
-
-export const StyledDaysWrapper = styled.div`
-  display: flex;
-  gap: 32px;
 `;
