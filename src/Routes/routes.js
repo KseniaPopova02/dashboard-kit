@@ -11,5 +11,6 @@ export const ROUTES = {
   FORGOT: "/forgot",
   RESET: "/reset",
   SIGNUP: "/sign-up",
+  LANGUAGE: "/ru",
   NOT_FOUND: "*",
 };

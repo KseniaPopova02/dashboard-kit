@@ -10,7 +10,22 @@ module.exports = {
               svgo: false,
             },
           },
-          "url-loader",
+          {
+            loader: "babel-loader",
+            options: {
+              presets: ["@babel/preset-react"],
+            },
+          },
+          {
+            loader: "react-svg-loader",
+            options: {
+              svgo: {
+                plugins: [{ removeViewBox: false }],
+                floatPrecision: 2,
+                esModule: false,
+              },
+            },
+          },
         ],
       },
     ],
