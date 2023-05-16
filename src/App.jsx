@@ -51,6 +51,7 @@ const App = () => {
       <GlobalStyle />
       <Routes>
         <Route
+          path={ROUTES.DASHBOARD}
           element={
             <MainLayout loggedIn={loggedIn} handleLogout={handleLogout} />
           }
@@ -97,7 +98,7 @@ const App = () => {
           />
           <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
         </Route>
-        <Route element={<AuthFormLayout loggedIn={loggedIn} />}>
+        <Route path="/" element={<AuthFormLayout />}>
           <Route index element={<LogIn updateLoggedIn={updateLoggedIn} />} />
           <Route path={ROUTES.FORGOT} element={<Forgot />} />
           <Route path={ROUTES.RESET} element={<Reset />} />
