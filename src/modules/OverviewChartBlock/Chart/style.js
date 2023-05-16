@@ -7,7 +7,6 @@ export const StyledLine = styled(Line)`
   height: 300px !important;
   width: 100%;
   max-width: 686px;
-  padding: 0 32px 32px 32px !important;
 `;
 
 export const StyledDot = styled.svg`

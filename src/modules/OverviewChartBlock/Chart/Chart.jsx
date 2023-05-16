@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Line } from "@ant-design/plots";
+import { StyledLine } from "./style";
 import { Header } from "../Header";
 
 export const Chart = () => {
@@ -21,7 +21,6 @@ export const Chart = () => {
         y: 54,
         category: "today",
       },
-      // Добавьте остальные данные для "today" здесь
     ];
 
     const yesterdayData = [
@@ -35,7 +34,6 @@ export const Chart = () => {
         y: 32,
         category: "yesterday",
       },
-      // Добавьте остальные данные для "yesterday" здесь
     ];
 
     setData([...todayData, ...yesterdayData]);
@@ -47,15 +45,22 @@ export const Chart = () => {
     yField: "y",
     seriesField: "category",
     xAxis: {
-      tickCount: 23,
+      lines: false,
       type: "linear",
       tickInterval: 1,
+      min: 0,
+      max: 22,
+      tickLine: null,
+      margin: {
+        bottom: 12,
+      },
     },
     yAxis: {
       position: "right",
-      tickCount: 61,
       type: "linear",
       tickInterval: 10,
+      min: 0,
+      max: 60,
     },
     color: ["#3751FF", "#DFE0EB"],
     legend: {
@@ -66,7 +71,9 @@ export const Chart = () => {
   return (
     <div style={{ padding: "30px" }}>
       <Header />
-      <Line {...config} />
+      <div style={{ maxHeight: "336px" }}>
+        <StyledLine {...config} />
+      </div>
     </div>
   );
 };
