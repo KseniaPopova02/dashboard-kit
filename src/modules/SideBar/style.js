@@ -12,9 +12,11 @@ export const StyledSidebar = styled.div`
   font-size: 16px;
   line-height: 20px;
   min-height: 100vh;
+  height: 100%;
 `;
 
 export const StyledSidebarWrapper = styled.div`
+  height: 100%;
   @media (max-width: 800px) {
     width: ${(props) => (props.isOpen ? "255px" : "80px")};
     transition: width 0.3s ease;
@@ -22,6 +24,8 @@ export const StyledSidebarWrapper = styled.div`
 `;
 
 export const StyledSideBarContainer = styled.div`
+  z-index: 10000;
+  height: 100%;
   @media (max-width: 800px) {
     top: 0;
     left: 0;
@@ -31,7 +35,6 @@ export const StyledSideBarContainer = styled.div`
 `;
 export const StyledText = styled.div`
   text-align: center;
-
   @media (max-width: 800px) {
     opacity: ${(props) => (props.isOpen ? "1" : "0")};
     transition: opacity 0.3s ease;

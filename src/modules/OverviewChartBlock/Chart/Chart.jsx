@@ -3,33 +3,34 @@ import { Line } from "@ant-design/plots";
 import chartData from "../../../Data/Chart.json";
 
 export const Chart = () => {
-  const [data, setData] = useState([]);
+  return <>chart</>;
+  // const [data, setData] = useState([]);
 
-  useEffect(() => {
-    asyncFetch();
-  }, []);
+  // useEffect(() => {
+  //   asyncFetch();
+  // }, []);
 
-  const asyncFetch = () => {
-    setData(chartData);
-  };
+  // const asyncFetch = () => {
+  //   setData(chartData);
+  // };
 
-  const config = {
-    data,
-    xField: "x",
-    yField: "y",
-    seriesField: "category",
-    xAxis: {
-      type: "time",
-    },
-    yAxis: {
-      label: {
-        formatter: (v) =>
-          `${v}`.replace(/\d{1,3}(?=(\d{3})+$)/g, (s) => `${s},`),
-      },
-    },
-  };
+  // const config = {
+  //   data,
+  //   xField: "x",
+  //   yField: "y",
+  //   seriesField: "category",
+  //   xAxis: {
+  //     type: "time",
+  //   },
+  //   yAxis: {
+  //     label: {
+  //       formatter: (v) =>
+  //         `${v}`.replace(/\d{1,3}(?=(\d{3})+$)/g, (s) => `${s},`),
+  //     },
+  //   },
+  // };
 
-  return <Line {...config} />;
+  // return <Line {...config} />;
 };
 
 // import React from "react";
