@@ -6,17 +6,19 @@ import { SearchOutlined, LogoutOutlined } from "@ant-design/icons";
 const { Search } = Input;
 
 export const StyledSidebar = styled.div`
+  height: 100%;
   background: #363740;
   color: #a4a6b3;
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
   min-height: 100vh;
-  height: 100%;
 `;
 
 export const StyledSidebarWrapper = styled.div`
   height: 100%;
+  position: fixed;
+  z-index: 1000;
   @media (max-width: 800px) {
     width: ${(props) => (props.isOpen ? "255px" : "80px")};
     transition: width 0.3s ease;
@@ -24,7 +26,6 @@ export const StyledSidebarWrapper = styled.div`
 `;
 
 export const StyledSideBarContainer = styled.div`
-  z-index: 10000;
   height: 100%;
   @media (max-width: 800px) {
     top: 0;
@@ -33,6 +34,7 @@ export const StyledSideBarContainer = styled.div`
     width: ${(props) => (props.isOpen ? "100%" : "auto")};
   }
 `;
+
 export const StyledText = styled.div`
   text-align: center;
   @media (max-width: 800px) {
