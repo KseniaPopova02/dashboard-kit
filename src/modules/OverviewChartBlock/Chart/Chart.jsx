@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import { StyledLine } from "./style";
 import { Header } from "../Header";
+
+export const LegendContext = createContext();
 
 export const Chart = () => {
   const [data, setData] = useState([]);
@@ -11,29 +13,21 @@ export const Chart = () => {
 
   const asyncFetch = () => {
     const todayData = [
-      {
-        x: "1850",
-        y: 0,
-        category: "today",
-      },
-      {
-        x: "1850",
-        y: 54,
-        category: "today",
-      },
+      { x: 0, y: 10, category: "today" },
+      { x: 1, y: 22, category: "today" },
+      { x: 5, y: 28, category: "today" },
+      { x: 8, y: 50, category: "today" },
+      { x: 12, y: 19, category: "today" },
+      { x: 17, y: 39, category: "today" },
     ];
 
     const yesterdayData = [
-      {
-        x: "1850",
-        y: 0,
-        category: "yesterday",
-      },
-      {
-        x: "1850",
-        y: 32,
-        category: "yesterday",
-      },
+      { x: 0, y: 35, category: "yesterday" },
+      { x: 5, y: 25, category: "yesterday" },
+      { x: 8, y: 32, category: "yesterday" },
+      { x: 13, y: 18, category: "yesterday" },
+      { x: 16, y: 48, category: "yesterday" },
+      { x: 19, y: 38, category: "yesterday" },
     ];
 
     setData([...todayData, ...yesterdayData]);
@@ -66,14 +60,25 @@ export const Chart = () => {
     legend: {
       position: "top-right",
     },
+    smooth: true,
+    tooltip: {
+      position: "top",
+    },
+    series: [
+      {
+        type: "line",
+        name: "today",
+        areaStyle: {
+          fill: "l(270) 0:#ffffff 0.5:#7ec2f3 1:#1890ff",
+        },
+      },
+    ],
   };
 
   return (
     <div style={{ padding: "30px" }}>
       <Header />
-      <div style={{ maxHeight: "336px" }}>
-        <StyledLine {...config} />
-      </div>
+      <StyledLine {...config} />
     </div>
   );
 };

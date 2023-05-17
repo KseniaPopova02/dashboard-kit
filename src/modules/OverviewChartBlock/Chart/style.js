@@ -4,9 +4,8 @@ import { Line } from "@ant-design/charts";
 // import { Tooltip } from "recharts";
 
 export const StyledLine = styled(Line)`
-  height: 300px !important;
+  max-height: 336px;
   width: 100%;
-  max-width: 686px;
 `;
 
 export const StyledDot = styled.svg`
