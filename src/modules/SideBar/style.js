@@ -17,8 +17,6 @@ export const StyledSidebar = styled.div`
 
 export const StyledSidebarWrapper = styled.div`
   height: 100%;
-  position: fixed;
-  z-index: 1000;
   @media (max-width: 800px) {
     width: ${(props) => (props.isOpen ? "255px" : "80px")};
     transition: width 0.3s ease;
@@ -27,10 +25,11 @@ export const StyledSidebarWrapper = styled.div`
 
 export const StyledSideBarContainer = styled.div`
   height: 100%;
+  z-index: 1000;
+  position: fixed;
   @media (max-width: 800px) {
     top: 0;
     left: 0;
-    position: absolute;
     width: ${(props) => (props.isOpen ? "100%" : "auto")};
   }
 `;
