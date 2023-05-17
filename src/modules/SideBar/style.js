@@ -13,6 +13,8 @@ export const StyledSidebar = styled.div`
   font-size: 16px;
   line-height: 20px;
   min-height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
 `;
 
 export const StyledSidebarWrapper = styled.div`
@@ -131,7 +133,6 @@ export const StyledSvgWrapper = styled.div`
 export const StyledInputWrapper = styled.div`
   padding: 20px 15px;
   display: none;
-
   @media (max-width: 650px) {
     opacity: ${(props) => (props.isOpen ? "1" : "0")};
     display: ${(props) => (props.isOpen ? "block" : "none")};

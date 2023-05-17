@@ -78,7 +78,9 @@ export const Chart = () => {
   return (
     <div style={{ padding: "30px" }}>
       <Header />
-      <StyledLine {...config} />
+      <div style={{ maxHeight: "336px" }}>
+        <StyledLine {...config} />
+      </div>
     </div>
   );
 };
