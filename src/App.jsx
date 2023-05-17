@@ -35,6 +35,10 @@ const useCustomLocalStorage = (key, initialValue) => {
 };
 
 const App = () => {
+  const [currentUser, setCurrentUser] = useCustomLocalStorage(
+    "currentUser",
+    null
+  );
   const [loggedIn, setLoggedIn] = useCustomLocalStorage("loggedIn", false);
   const handleLogout = () => {
     localStorage.removeItem("loggedIn");
@@ -42,8 +46,9 @@ const App = () => {
     <Navigate to="/" />;
   };
 
-  const updateLoggedIn = (value) => {
+  const updateLoggedIn = (value, user) => {
     setLoggedIn(value);
+    setCurrentUser(user);
   };
 
   return (
@@ -53,7 +58,11 @@ const App = () => {
         <Route
           path={ROUTES.DASHBOARD}
           element={
-            <MainLayout loggedIn={loggedIn} handleLogout={handleLogout} />
+            <MainLayout
+              currentUser={currentUser}
+              loggedIn={loggedIn}
+              handleLogout={handleLogout}
+            />
           }
         >
           <Route
@@ -98,7 +107,7 @@ const App = () => {
           />
           <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
         </Route>
-        <Route path="/" element={<AuthFormLayout />}>
+        <Route element={<AuthFormLayout loggedIn={loggedIn} />}>
           <Route index element={<LogIn updateLoggedIn={updateLoggedIn} />} />
           <Route path={ROUTES.FORGOT} element={<Forgot />} />
           <Route path={ROUTES.RESET} element={<Reset />} />
