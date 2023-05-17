@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import { Line } from "@ant-design/charts";
-// import { XAxis, YAxis } from "recharts";
-// import { Tooltip } from "recharts";
 
 export const StyledLine = styled(Line)`
   max-height: 336px;

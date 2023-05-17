@@ -13,8 +13,10 @@ export const StyledSidebar = styled.div`
   font-size: 16px;
   line-height: 20px;
   min-height: 100vh;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  @media (max-width: 800px) {
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
 `;
 
 export const StyledSidebarWrapper = styled.div`
