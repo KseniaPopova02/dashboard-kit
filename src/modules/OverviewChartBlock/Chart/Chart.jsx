@@ -39,7 +39,6 @@ export const Chart = () => {
     seriesField: "category",
     point: {
       visible: false,
-
       shape: {
         customContent: (title, items) => {
           return (
