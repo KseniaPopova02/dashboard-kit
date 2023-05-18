@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { StyledLine } from "./style";
 import { Header } from "../Header";
 import { CustomDot } from "./CustomDot";
+import chartData from "../../../Data/Chart.json";
 
 export const Chart = () => {
   const [data, setData] = useState([]);
@@ -11,25 +12,7 @@ export const Chart = () => {
   }, []);
 
   const asyncFetch = () => {
-    const todayData = [
-      { x: 0, y: 10, category: "today" },
-      { x: 1, y: 22, category: "today" },
-      { x: 5, y: 28, category: "today" },
-      { x: 8, y: 50, category: "today" },
-      { x: 12, y: 19, category: "today" },
-      { x: 17, y: 39, category: "today" },
-    ];
-
-    const yesterdayData = [
-      { x: 0, y: 35, category: "yesterday" },
-      { x: 5, y: 25, category: "yesterday" },
-      { x: 8, y: 32, category: "yesterday" },
-      { x: 13, y: 18, category: "yesterday" },
-      { x: 16, y: 48, category: "yesterday" },
-      { x: 19, y: 38, category: "yesterday" },
-    ];
-
-    setData([...todayData, ...yesterdayData]);
+    setData(chartData);
   };
 
   const config = {
