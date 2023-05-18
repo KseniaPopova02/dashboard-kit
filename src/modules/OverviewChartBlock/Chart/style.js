@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import { Line } from "@ant-design/charts";
 
-export const StyledLine = styled(Line)`
-  max-height: 336px;
+export const StyledLineWrapper = styled.div`
+  height: 336px;
   width: 100%;
 `;
 

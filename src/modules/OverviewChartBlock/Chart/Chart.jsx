@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { StyledLine } from "./style";
+import { StyledLineWrapper } from "./style";
 import { Header } from "../Header";
 import { configChart } from "./config";
 import chartData from "../../../Data/Chart.json";
+import { Line } from "@ant-design/charts";
 
 export const Chart = () => {
   const [data, setData] = useState([]);
@@ -23,9 +24,9 @@ export const Chart = () => {
   return (
     <div style={{ padding: "30px" }}>
       <Header />
-      <div style={{ maxHeight: "336px" }}>
-        <StyledLine {...config} />
-      </div>
+      <StyledLineWrapper>
+        <Line {...config} />
+      </StyledLineWrapper>
     </div>
   );
 };
