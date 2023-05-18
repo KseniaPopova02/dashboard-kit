@@ -64,6 +64,9 @@ export const StyledInput = styled(Input)`
   position: absolute;
   right: 35px;
   ${({ isInputDisplayed }) => (isInputDisplayed ? desktopStyles : mobileStyles)}
+  @media (max-width: 650px) {
+    display: none;
+  }
 `;
 
 export const StyledLineSvgWrapper = styled.div`
