@@ -7,13 +7,13 @@ import chartData from "../../../Data/Chart.json";
 export const Chart = () => {
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    asyncFetch();
-  }, []);
-
   const asyncFetch = () => {
     setData(chartData);
   };
+
+  useEffect(() => {
+    asyncFetch();
+  }, []);
 
   const config = {
     data,
