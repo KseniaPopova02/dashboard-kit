@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import { ReactComponent as CircleChart } from "../../../assets/svg/circleChart.svg";
 
 export const StyledLineWrapper = styled.div`
   height: 336px;
   width: 100%;
 `;
 
-export const StyledDot = styled.svg`
+export const StyledCircleChart = styled(CircleChart)`
   font-size: 28px;
 `;
 

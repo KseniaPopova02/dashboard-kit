@@ -1,4 +1,4 @@
-import { CustomDot } from "./CustomDot";
+import { StyledCircleChart } from "./style";
 
 export const configChart = {
   xField: "x",
@@ -12,7 +12,7 @@ export const configChart = {
           <div>
             {title && <div>{title}</div>}
             {items.map((item, index) => (
-              <CustomDot
+              <StyledCircleChart
                 key={index}
                 x={item.x}
                 y={item.y}

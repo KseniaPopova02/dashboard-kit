@@ -1,7 +1,4 @@
-import { StyledDot } from "./style";
-
-export const CustomDot = () => (
-  <StyledDot
+ <svg
     width="1em"
     height="1em"
     viewBox="0 0 28 28"
@@ -56,5 +53,4 @@ export const CustomDot = () => (
         />
       </filter>
     </defs>
-  </StyledDot>
-);
+  </svg>
