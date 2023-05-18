@@ -11,8 +11,8 @@ export const SignUpForm = ({ updateLoggedIn }) => {
     const users = JSON.parse(localStorage.getItem("users")) || [];
     users.push(values);
     localStorage.setItem("users", JSON.stringify(users));
-    updateLoggedIn(true);
     navigate("/dashboard/Overview");
+    updateLoggedIn(true, values);
     actions.setSubmitting(false);
   };
 

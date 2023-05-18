@@ -12,7 +12,6 @@ body {
     font-size: 14px;
     line-height: 20px;
     min-height: 100vh;
-   
   }
   @font-face {
   font-family: "Mulish", sans-serif;
