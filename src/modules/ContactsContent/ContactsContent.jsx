@@ -3,7 +3,6 @@ import { Formik } from "formik";
 import { contactSchema, initialValues, FormContent } from "./Form";
 import { nanoid } from "nanoid";
 import { DropDownMenu } from "./DropDownMenu";
-import { EllipsisOutlined } from "@ant-design/icons";
 import {
   StyledHeaderWrapper,
   StyledBtnWrapper,
@@ -18,6 +17,7 @@ import {
   StyledTable,
   StyledTH,
   StyledTD,
+  StyledTableWrapper,
 } from "./style";
 import { ReloadOutlined, DeleteOutlined } from "@ant-design/icons";
 import { ReactComponent as SortSvg } from "../../assets/svg/sort.svg";
@@ -168,34 +168,38 @@ export const ContactsContent = () => {
         </Formik>
       )}
       {contacts.length > 0 ? (
-        <StyledTable>
-          <thead>
-            <tr>
-              <StyledTH>Name</StyledTH>
-              <StyledTH>Email</StyledTH>
-              <StyledTH>Address</StyledTH>
-              <StyledTH>Created at</StyledTH>
-            </tr>
-          </thead>
-          <tbody>
-            {contacts.map((contact) => (
-              <tr key={contact.id}>
-                <StyledTD>
-                  <img src={contact.photo} alt={contact.firstName} />
-                  <div>
-                    {contact.firstName} {contact.lastName}
-                  </div>
-                </StyledTD>
-                <StyledTD>{contact.email}</StyledTD>
-                <StyledTD>{contact.address}</StyledTD>
-                <StyledTD>{contact.date}</StyledTD>
-                <StyledTD>
-                  <DropDownMenu handleDelete={handleDelete} />
-                </StyledTD>
+        <StyledTableWrapper>
+          <StyledTable>
+            <thead>
+              <tr>
+                <StyledTH>Name</StyledTH>
+                <StyledTH>Email</StyledTH>
+                <StyledTH>Address</StyledTH>
+                <StyledTH>Created at</StyledTH>
               </tr>
-            ))}
-          </tbody>
-        </StyledTable>
+            </thead>
+            <tbody>
+              {contacts.map((contact) => (
+                <tr key={contact.id}>
+                  <StyledTD>
+                    <div>
+                      <img src={contact.photo} alt={contact.firstName} />
+                      <div>
+                        {contact.firstName} {contact.lastName}
+                      </div>
+                    </div>
+                  </StyledTD>
+                  <StyledTD>{contact.email}</StyledTD>
+                  <StyledTD>{contact.address}</StyledTD>
+                  <StyledTD>{contact.date}</StyledTD>
+                  <StyledTD>
+                    <DropDownMenu handleDelete={handleDelete} />
+                  </StyledTD>
+                </tr>
+              ))}
+            </tbody>
+          </StyledTable>
+        </StyledTableWrapper>
       ) : (
         <div>No contacts yet</div>
       )}
