@@ -125,7 +125,7 @@ export const StyledBtnText = styled.div`
 
 export const StyledSpan = styled.div`
   display: inline;
-  @media (max-width: 342px) {
+  @media (max-width: 405px) {
     display: none;
   }
 `;
