@@ -1,8 +1,8 @@
 import { StyledHeaderWrapper, StyledSubtitle, StyledTitle } from "./style";
 import { formatDate } from "./helpers";
 
-export const Header = ({ children }) => {
-  const currentDate = new Date();
+const currentDate = new Date();
+export const Header = () => {
   const formattedDate = formatDate(currentDate);
   return (
     <StyledHeaderWrapper>

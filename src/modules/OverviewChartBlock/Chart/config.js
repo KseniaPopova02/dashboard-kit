@@ -1,6 +1,6 @@
 import { StyledCircleChart } from "./style";
 
-const customContent = (title, items) => {
+const customDot = (title, items) => {
   return (
     <div>
       {title && <div>{title}</div>}
@@ -23,7 +23,7 @@ export const configChart = {
   point: {
     visible: false,
     shape: {
-      customContent: customContent,
+      customContent: customDot,
     },
   },
   xAxis: {
