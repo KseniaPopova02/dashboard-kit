@@ -7,32 +7,7 @@ import {
   StyledDataWrapper,
   StyledWrapperWrapper,
 } from "./style";
-
-const formatData = (dataChart) => {
-  return Object.entries(dataChart).map(([key, value]) => {
-    let formattedValue = value;
-    if (key === "Average response time") {
-      formattedValue = Math.floor(value / 60) + "h " + (value % 60) + "m";
-      return [key, formattedValue];
-    }
-
-    if (key === "Average first response time") {
-      if (value >= 60) {
-        formattedValue = Math.floor(value / 60) + "h " + (value % 60) + "m";
-        return [key, formattedValue];
-      } else {
-        formattedValue = `${value}m`;
-        return [key, formattedValue];
-      }
-    }
-    if (key === "Resolution within SLA") {
-      formattedValue = `${value}%`;
-      return [key, formattedValue];
-    } else {
-      return [key, value];
-    }
-  });
-};
+import { formatData } from "./helpers";
 
 export const Info = () => {
   const [dataChart, setDataChart] = useState([]);
