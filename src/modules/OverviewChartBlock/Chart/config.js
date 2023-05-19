@@ -1,5 +1,21 @@
 import { StyledCircleChart } from "./style";
 
+const customContent = (title, items) => {
+  return (
+    <div>
+      {title && <div>{title}</div>}
+      {items.map((item, index) => (
+        <StyledCircleChart
+          key={index}
+          x={item.x}
+          y={item.y}
+          category={item.category}
+        />
+      ))}
+    </div>
+  );
+};
+
 export const configChart = {
   xField: "x",
   yField: "y",
@@ -7,21 +23,7 @@ export const configChart = {
   point: {
     visible: false,
     shape: {
-      customContent: (title, items) => {
-        return (
-          <div>
-            {title && <div>{title}</div>}
-            {items.map((item, index) => (
-              <StyledCircleChart
-                key={index}
-                x={item.x}
-                y={item.y}
-                category={item.category}
-              />
-            ))}
-          </div>
-        );
-      },
+      customContent: customContent,
     },
   },
   xAxis: {
