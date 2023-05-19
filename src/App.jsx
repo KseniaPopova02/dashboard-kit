@@ -15,7 +15,7 @@ import {
   Settings,
   Subscription,
 } from "./pages";
-import { ROUTES } from "./Routes/routes";
+import { ROUTES } from "./Routes";
 import { AuthFormLayout, MainLayout } from "./modules";
 import { useState } from "react";
 
