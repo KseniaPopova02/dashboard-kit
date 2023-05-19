@@ -16,7 +16,7 @@ import {
   StyledCheckbox,
   StyledTaskNameWrapper,
 } from "./style";
-import { ROUTES } from "../../Routes/routes";
+import { ROUTES } from "../../Routes";
 
 export const OverviewTask = ({ showAllTasks = false }) => {
   const [tasks, setTasks] = useState([]);
