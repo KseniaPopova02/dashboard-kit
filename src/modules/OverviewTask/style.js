@@ -115,7 +115,6 @@ export const StyledRadioWrapper = styled.div`
 export const StyledRadioGroup = styled(Radio.Group)`
   &.ant-radio-group {
     display: flex;
-    padding: 10px 10px 10px 32px;
     gap: 10px;
     @media (max-width: 470px) {
       display: flex;
@@ -178,7 +177,7 @@ export const StyledTaskTextWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 38px;
+  padding: 18px 32px;
   &:not(:last-child) {
     border-bottom: 1px solid #dfe0eb;
   }

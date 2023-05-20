@@ -94,13 +94,12 @@ export const FormContent = ({ handleDeleteAllTasks, onSubmit }) => {
             </StyledBtn>
           </StyledBtnWrapper>
         </StyledInputWrapper>
+        <RadioGroup
+          options={options}
+          selectedValue={selectedValue}
+          onChange={handleRadioChange}
+        />
       </StyledFormWrapper>
-
-      <RadioGroup
-        options={options}
-        selectedValue={selectedValue}
-        onChange={handleRadioChange}
-      />
     </form>
   );
 };
