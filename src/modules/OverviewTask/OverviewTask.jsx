@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Formik } from "formik";
 import { initialValues } from "./FormConfig";
 import { FormContent } from "./FormContent";
@@ -56,16 +56,16 @@ export const OverviewTask = ({ showAllTasks = false }) => {
   };
 
   const handleCheckboxChange = (taskId) => {
-    setTasks((prevTasks) =>
-      prevTasks
-        .map((task) => {
-          if (task.id === taskId) {
-            return { ...task, isChecked: !task.isChecked };
-          }
-          return task;
-        })
-        .filter((task) => !task.isChecked)
-    );
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === taskId) {
+        return { ...task, isChecked: !task.isChecked };
+      }
+      return task;
+    });
+
+    const filtredTasks = updatedTasks.filter((task) => !task.isChecked);
+
+    setTasks(filtredTasks);
   };
 
   return (
