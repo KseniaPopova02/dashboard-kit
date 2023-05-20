@@ -1,6 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
-import { Formik } from "formik";
-import { initialValues } from "./FormConfig";
+import { useState, useEffect } from "react";
 import { FormContent } from "./FormContent";
 import {
   StyledTaskWrapper,
@@ -88,10 +86,7 @@ export const OverviewTask = ({ showAllTasks = false }) => {
           </StyledLink>
         ) : null}
       </StyledHeaderWrapper>
-
-      <Formik initialValues={initialValues} onSubmit={onSubmit}>
-        {() => <FormContent handleDeleteAllTasks={handleDeleteAllTasks} />}
-      </Formik>
+      <FormContent handleDeleteAllTasks={handleDeleteAllTasks} />
       {tasks.length > 0 ? (
         <div>
           {tasks

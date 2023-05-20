@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { Checkbox } from "antd";
+import { Checkbox, Radio } from "antd";
 import { PlusOutlined, DeleteOutlined } from "@ant-design/icons";
 
 export const StyledBin = styled(DeleteOutlined)`
@@ -103,11 +103,24 @@ export const StyledFormWrapper = styled.div`
 
 export const StyledRadioWrapper = styled.div`
   display: flex;
+  flex-direction: column;
+  padding: 10px 0 0 32px;
   gap: 10px;
   @media (max-width: 470px) {
     display: flex;
-    justify-content: start;
     flex-direction: column;
+  }
+`;
+
+export const StyledRadioGroup = styled(Radio.Group)`
+  &.ant-radio-group {
+    display: flex;
+    padding: 10px 10px 10px 32px;
+    gap: 10px;
+    @media (max-width: 470px) {
+      display: flex;
+      flex-direction: column;
+    }
   }
 `;
 

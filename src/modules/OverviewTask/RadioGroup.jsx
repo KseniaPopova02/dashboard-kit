@@ -1,18 +1,15 @@
 import React from "react";
+import { Radio } from "antd";
+import { StyledRadioGroup } from "./style";
 
-export const RadioGroup = ({ options, value, onChange, id }) => {
+export const RadioGroup = ({ options, selectedValue, onChange }) => {
   return (
-    <div>
+    <StyledRadioGroup onChange={onChange} value={selectedValue}>
       {options.map((option) => (
-        <label key={option.id}>
-          <input
-            type="radio"
-            value={option.value}
-            checked={option.value === value}
-            onChange={onChange}
-          />
-        </label>
+        <Radio key={option.id} value={option.value}>
+          {option.label}
+        </Radio>
       ))}
-    </div>
+    </StyledRadioGroup>
   );
 };
