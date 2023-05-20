@@ -31,7 +31,7 @@ export const OverviewTask = ({ showAllTasks = false }) => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
-  const onSubmit = (values, actions) => {
+  const onSubmit = (values) => {
     const newTask = {
       id: Date.now(),
       taskName: values.taskName,
@@ -40,8 +40,6 @@ export const OverviewTask = ({ showAllTasks = false }) => {
     };
 
     setTasks((prevTasks) => [newTask, ...prevTasks]);
-
-    actions.resetForm();
   };
 
   const handleShowAllTasks = () => {
@@ -86,7 +84,10 @@ export const OverviewTask = ({ showAllTasks = false }) => {
           </StyledLink>
         ) : null}
       </StyledHeaderWrapper>
-      <FormContent handleDeleteAllTasks={handleDeleteAllTasks} />
+      <FormContent
+        onSubmit={onSubmit}
+        handleDeleteAllTasks={handleDeleteAllTasks}
+      />
       {tasks.length > 0 ? (
         <div>
           {tasks
