@@ -60,6 +60,23 @@ export const FormContent = ({ handleDeleteAllTasks }) => {
     //     </StyledRadioWrapper>
     //   </StyledFormWrapper>
     // </Form>
-    <>new form without formik</>
+
+    <form action="#">
+      <StyledFormWrapper>
+        <StyledInputWrapper>
+          <div>
+            <StyledInput type="text" placeholder="Create new task" />
+          </div>
+          <StyledBtnWrapper>
+            <StyledBtn type="submit">
+              <StyledAdd />
+            </StyledBtn>
+            <StyledBtn type="button" onClick={handleDeleteAllTasks}>
+              <StyledBin />
+            </StyledBtn>
+          </StyledBtnWrapper>
+        </StyledInputWrapper>
+      </StyledFormWrapper>
+    </form>
   );
 };
