@@ -89,7 +89,7 @@ export const OverviewTask = ({ showAllTasks = false }) => {
         onSubmit={onSubmit}
         handleDeleteAllTasks={handleDeleteAllTasks}
       />
-      {tasks.length > 0 ? (
+      {tasks.length ? (
         <div>
           {tasks
             .slice(0, showAllTasks ? tasks.length : displayTasks)
