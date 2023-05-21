@@ -30,7 +30,7 @@ const options = [
 ];
 
 export const FormContent = ({ handleDeleteAllTasks, onSubmit }) => {
-  const [selectedValue, setSelectedValue] = useState("");
+  const [selectedValue, setSelectedValue] = useState("default");
 
   const handleRadioChange = (event) => {
     setSelectedValue(event.target.value);
