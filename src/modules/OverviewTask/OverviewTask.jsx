@@ -15,6 +15,7 @@ import {
   StyledTaskNameWrapper,
 } from "./style";
 import { ROUTES } from "../../Routes";
+import { nanoid } from "nanoid";
 
 export const OverviewTask = ({ showAllTasks = false }) => {
   const [tasks, setTasks] = useState([]);
@@ -33,7 +34,7 @@ export const OverviewTask = ({ showAllTasks = false }) => {
 
   const onSubmit = (values) => {
     const newTask = {
-      id: Date.now(),
+      id: nanoid(),
       taskName: values.taskName,
       flags: values.flags,
       isChecked: false,

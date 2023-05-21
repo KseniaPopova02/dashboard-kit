@@ -7,14 +7,26 @@ import {
   StyledAdd,
   StyledBtnWrapper,
   StyledInput,
-  StyledRadioWrapper,
+  StyledLabelUrgent,
+  StyledLabelNew,
+  StyledLabelDefault,
 } from "./style";
 import { RadioGroup } from "./RadioGroup";
 
 const options = [
-  { id: 1, value: "option1", label: "Option 1" },
-  { id: 2, value: "option2", label: "Option 2" },
-  { id: 3, value: "option3", label: "Option 3" },
+  {
+    id: 1,
+    value: "urgent",
+    label: "Urgent",
+    styledLabel: StyledLabelUrgent,
+  },
+  { id: 2, value: "new", label: "New", styledLabel: StyledLabelNew },
+  {
+    id: 3,
+    value: "default",
+    label: "Default",
+    styledLabel: StyledLabelDefault,
+  },
 ];
 
 export const FormContent = ({ handleDeleteAllTasks, onSubmit }) => {
@@ -36,45 +48,6 @@ export const FormContent = ({ handleDeleteAllTasks, onSubmit }) => {
   };
 
   return (
-    // <Form>
-    //   <StyledFormWrapper>
-    //     <StyledInputWrapper>
-    //       <div>
-    //         <StyledInput
-    //           name="taskName"
-    //           type="text"
-    //           placeholder="Create new task"
-    //           value={values.taskName}
-    //           onChange={handleChange}
-    //         />
-    //       </div>
-
-    //       <StyledBtnWrapper>
-    //         <StyledBtn type="submit">
-    //           <StyledAdd />
-    //         </StyledBtn>
-    //         <StyledBtn type="button" onClick={handleDeleteAllTasks}>
-    //           <StyledBin />
-    //         </StyledBtn>
-    //       </StyledBtnWrapper>
-    //     </StyledInputWrapper>
-    //     <StyledRadioWrapper>
-    //       <div>
-    //         <Field type="radio" id="urgent" name="flags" value="urgent" />
-    //         <StyledLabelUrgent htmlFor="urgent">Urgent</StyledLabelUrgent>
-    //       </div>
-    //       <div>
-    //         <Field type="radio" id="new" name="flags" value="new" />
-    //         <StyledLabelNew htmlFor="new">New</StyledLabelNew>
-    //       </div>
-    //       <div>
-    //         <Field type="radio" id="default" name="flags" value="default" />
-    //         <StyledLabelDefault htmlFor="default">Default</StyledLabelDefault>
-    //       </div>
-    //     </StyledRadioWrapper>
-    //   </StyledFormWrapper>
-    // </Form>
-
     <form onSubmit={handleSubmit}>
       <StyledFormWrapper>
         <StyledInputWrapper>
