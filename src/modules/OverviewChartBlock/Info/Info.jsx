@@ -9,26 +9,6 @@ import {
 } from "./style";
 import { formatData } from "./helpers";
 
-// export const Info = () => {
-//   const [dataChart, setDataChart] = useState([]);
-//   useEffect(() => {
-//     setDataChart(data);
-//   }, []);
-
-//   return (
-//     <StyledWrapper>
-//       {Object.entries(dataChart).map(([key, value]) => (
-//         <StyledWrapperWrapper key={key}>
-//           <StyledDataWrapper>
-//             <StyledText>{key}</StyledText>
-//             <StyledNumbers>{value}</StyledNumbers>
-//           </StyledDataWrapper>
-//         </StyledWrapperWrapper>
-//       ))}
-//     </StyledWrapper>
-//   );
-// };
-
 export const Info = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
