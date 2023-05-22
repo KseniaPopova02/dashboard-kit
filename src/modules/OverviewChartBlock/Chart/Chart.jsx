@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { StyledLineWrapper } from "./style";
 import { Header } from "../Header";
 import { configChart } from "./config";
-import chartData from "../../../Data/Chart.json";
+import chartData from "../../../MockedData/TodaysChart.json";
 import { Line } from "@ant-design/charts";
 
 export const Chart = () => {

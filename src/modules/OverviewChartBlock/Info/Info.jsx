@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import mockedData from "../../../Data/OverviewChart.json";
+import mockedData from "../../../MockedData/TodaysChartInfo.json";
 import {
   StyledWrapper,
   StyledText,

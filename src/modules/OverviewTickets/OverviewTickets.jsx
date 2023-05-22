@@ -10,13 +10,14 @@ import {
   StyledNum,
   StyledLink,
 } from "./style";
-import data from "../../Data/TicketsOverview.json";
+import data from "../../MockedData/TicketsOverview.json";
 import { ROUTES } from "../../Routes/routes";
+import { nanoid } from "nanoid";
 
 export const OverviewTickets = () => {
   const [ticketsData, setTicketsData] = useState([]);
   useEffect(() => {
-    setTicketsData(data.ticketsOverview[0]);
+    setTicketsData(data);
   }, []);
   return (
     <StyledWrapper>
@@ -34,10 +35,10 @@ export const OverviewTickets = () => {
         </StyledLink>
       </StyledHeaderWrapper>
       <div>
-        {Object.entries(ticketsData).map(([key, value]) => (
-          <StyledContentWrapper key={key}>
-            <StyledText>{key}</StyledText>
-            <StyledNum>{value}</StyledNum>
+        {ticketsData.map((item) => (
+          <StyledContentWrapper key={nanoid()}>
+            <StyledText>{item.label}</StyledText>
+            <StyledNum>{item.number}</StyledNum>
           </StyledContentWrapper>
         ))}
       </div>

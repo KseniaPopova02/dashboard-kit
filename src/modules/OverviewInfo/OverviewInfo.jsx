@@ -5,19 +5,20 @@ import {
   StyledBtnText,
   StyledBtnNum,
 } from "./style";
-import data from "../../Data/OverviewInfo.json";
+import data from "../../MockedData/InfoOverview.json";
+import { nanoid } from "nanoid";
 
 export const OverviewInfo = () => {
   const [overviewData, setOverviewData] = useState([]);
   useEffect(() => {
-    setOverviewData(data.overviewInfoData[0]);
+    setOverviewData(data);
   }, []);
   return (
     <StyledContainer>
-      {Object.entries(overviewData).map(([key, value]) => (
-        <StyledBox key={key}>
-          <StyledBtnText>{key}</StyledBtnText>
-          <StyledBtnNum>{value}</StyledBtnNum>
+      {overviewData.map((item) => (
+        <StyledBox key={nanoid()}>
+          <StyledBtnText>{item.label}</StyledBtnText>
+          <StyledBtnNum>{item.number}</StyledBtnNum>
         </StyledBox>
       ))}
     </StyledContainer>
