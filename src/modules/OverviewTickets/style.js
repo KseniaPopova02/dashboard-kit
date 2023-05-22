@@ -5,16 +5,7 @@ export const StyledWrapper = styled.div`
   border: 1px solid #dfe0eb;
   border-radius: 8px;
   background: #ffffff;
-  width: 546px;
-  max-width: 100%;
-
-  @media (max-width: 1480px) {
-    width: 400px;
-  }
-
-  @media (max-width: 1140px) {
-    width: 100%;
-  }
+  width: 100%;
 `;
 
 export const StyledHeaderWrapper = styled.div`
