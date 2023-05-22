@@ -8,13 +8,12 @@ export const StyledBox = styled.div`
   border: 1px solid #dfe0eb;
   border-radius: 8px;
   background: #ffffff;
-  max-width: 258px;
   width: 100%;
   height: 134px;
   cursor: pointer;
   position: relative;
   & + div {
-    margin-left: 5px;
+    margin-left: 30px;
   }
 
   &::before {
@@ -47,6 +46,9 @@ export const StyledBox = styled.div`
 
   @media (max-width: 550px) {
     height: 55px;
+    & + div {
+      margin-left: 10px;
+    }
   }
 `;
 
