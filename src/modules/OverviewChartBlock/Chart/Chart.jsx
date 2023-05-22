@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyledLineWrapper } from "./style";
+import { StyledLineWrapper, StyledChartWrapper } from "./style";
 import { Header } from "../Header";
 import { configChart } from "./config";
 import chartData from "../../../MockedData/TodaysChart.json";
@@ -22,11 +22,11 @@ export const Chart = () => {
   };
 
   return (
-    <div style={{ padding: "30px" }}>
+    <StyledChartWrapper>
       <Header />
       <StyledLineWrapper>
         <Line {...config} />
       </StyledLineWrapper>
-    </div>
+    </StyledChartWrapper>
   );
 };

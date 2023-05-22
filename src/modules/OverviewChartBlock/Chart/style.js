@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ToolbarPanel } from "@ant-design/charts";
 import { ReactComponent as CircleChart } from "../../../assets/svg/circleChart.svg";
 
 export const StyledLineWrapper = styled.div`
@@ -10,30 +11,34 @@ export const StyledCircleChart = styled(CircleChart)`
   font-size: 28px;
 `;
 
-// export const StyledTooltip = styled(Tooltip)`
-//   width: 64px;
-//   height: 30px;
-//   padding: 7px 12px;
-//   text-align: center;
-//   position: relative;
+export const StyledChartWrapper = styled.div`
+  padding: 30px;
+`;
 
-//   &:before {
-//     content: "";
-//     position: absolute;
-//     bottom: -6px;
-//     left: 50%;
-//     transform: translateX(-50%);
-//     width: 0;
-//     height: 0;
-//     border-left: 7px solid transparent;
-//     border-right: 7px solid transparent;
-//     border-top: 7px solid #888;
-//   }
+export const StyledToolbar = styled(ToolbarPanel)`
+  width: 64px;
+  height: 30px;
+  padding: 7px 12px;
+  text-align: center;
+  position: relative;
 
-//   /* .recharts-tooltip-label {
-//     display: none;
-//   } */
-// `;
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid #888;
+  }
+
+  /* .recharts-tooltip-label {
+    display: none;
+  } */
+`;
 
 // export const StyledXAxis = styled(XAxis)`
 //   .recharts-cartesian-axis-tick {

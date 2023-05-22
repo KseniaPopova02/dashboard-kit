@@ -1,19 +1,7 @@
-import { StyledCircleChart } from "./style";
+import { StyledCircleChart, StyledToolbar } from "./style";
 
-const customDot = (title, items) => {
-  return (
-    <div>
-      {title && <div>{title}</div>}
-      {items.map((item, index) => (
-        <StyledCircleChart
-          key={index}
-          x={item.x}
-          y={item.y}
-          category={item.category}
-        />
-      ))}
-    </div>
-  );
+const CustomPoint = ({ x, y, category }) => {
+  return <StyledCircleChart x={x} y={y} category={category} />;
 };
 
 export const configChart = {
@@ -22,9 +10,6 @@ export const configChart = {
   seriesField: "category",
   point: {
     visible: false,
-    shape: {
-      customContent: customDot,
-    },
   },
   xAxis: {
     lines: false,
@@ -70,7 +55,20 @@ export const configChart = {
   smooth: true,
   tooltip: {
     position: "top",
+    customContent: (name, data) =>
+      `<div>${data?.map((item) => {
+        return `<div class="tooltip-chart" >
+              <span class="tooltip-item-name">${item?.name}</span>
+              <span class="tooltip-item-value">${item?.value}</span>
+            </div>`;
+      })}</div>`,
   },
+  interactions: [
+    {
+      type: "element-highlight",
+      enable: true,
+    },
+  ],
   // series: [
   //   {
   //     type: "line",
