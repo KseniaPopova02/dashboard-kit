@@ -65,6 +65,18 @@ export const OverviewTask = ({ showAllTasks = false }) => {
     setTasks(filtredTasks);
   };
 
+  const renderFlag = (flag) => {
+    if (flag === "urgent") {
+      return <StyledSpanUrgent>Urgent</StyledSpanUrgent>;
+    }
+    if (flag === "new") {
+      return <StyledSpanNew>New</StyledSpanNew>;
+    }
+    if (flag === "default") {
+      return <StyledSpanDefault>Default</StyledSpanDefault>;
+    }
+  };
+
   return (
     <StyledTaskWrapper>
       <StyledHeaderWrapper>
@@ -102,14 +114,7 @@ export const OverviewTask = ({ showAllTasks = false }) => {
                   />
                   <div>{task.taskName}</div>
                 </StyledTaskNameWrapper>
-
-                {task.flags === "urgent" && (
-                  <StyledSpanUrgent>Urgent</StyledSpanUrgent>
-                )}
-                {task.flags === "new" && <StyledSpanNew>New</StyledSpanNew>}
-                {task.flags === "default" && (
-                  <StyledSpanDefault>Default</StyledSpanDefault>
-                )}
+                {renderFlag(task.flags)}
               </StyledTaskTextWrapper>
             ))}
         </div>
