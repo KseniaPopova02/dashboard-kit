@@ -7,9 +7,11 @@ export const StyledWrapper = styled.div`
   background: #ffffff;
   width: 546px;
   max-width: 100%;
+
   @media (max-width: 1480px) {
     width: 400px;
   }
+
   @media (max-width: 1140px) {
     width: 100%;
   }
@@ -20,6 +22,7 @@ export const StyledHeaderWrapper = styled.div`
   justify-content: space-between;
   margin-bottom: 36px;
   padding: 30px;
+
   @media (max-width: 470px) {
     flex-direction: column;
     margin-bottom: 17px;
@@ -49,12 +52,15 @@ export const StyledContentWrapper = styled.div`
   padding: 0 30px 18px 30px;
   display: flex;
   justify-content: space-between;
+
   &:not(:last-child) {
     border-bottom: 1px solid #dfe0eb;
   }
+
   &:last-child {
     margin-bottom: 0;
   }
+
   @media (max-width: 470px) {
     flex-direction: column;
   }

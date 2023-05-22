@@ -6,18 +6,22 @@ import { PlusOutlined, DeleteOutlined } from "@ant-design/icons";
 export const StyledBin = styled(DeleteOutlined)`
   cursor: pointer;
 `;
+
 export const StyledAdd = styled(PlusOutlined)`
   cursor: pointer;
 `;
+
 export const StyledTaskWrapper = styled.div`
   border: 1px solid #dfe0eb;
   border-radius: 8px;
   background: #ffffff;
   width: 546px;
   max-width: 100%;
+
   @media (max-width: 1480px) {
     width: 400px;
   }
+
   @media (max-width: 1140px) {
     width: 100%;
   }
@@ -36,6 +40,7 @@ export const StyledSubTitle = styled.div`
   line-height: 16px;
   color: #9fa2b4;
   margin-bottom: 36px;
+
   @media (max-width: 470px) {
     margin-bottom: 10px;
   }
@@ -45,6 +50,7 @@ export const StyledHeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 32px 32px 0 32px;
+
   @media (max-width: 470px) {
     flex-direction: column;
   }
@@ -66,6 +72,7 @@ export const StyledInput = styled.input`
   line-height: 20px;
   border: transparent;
   margin-bottom: 10px;
+
   ::placeholder {
     color: #c5c7cd;
   }
@@ -78,6 +85,7 @@ export const StyledBtn = styled.button`
   width: 24px;
   height: 24px;
   color: #9fa2b4;
+
   & + button {
     margin-left: 10px;
   }
@@ -88,6 +96,7 @@ export const StyledInputWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 5px;
+
   @media (max-width: 470px) {
     display: flex;
     flex-direction: column;
@@ -106,6 +115,7 @@ export const StyledRadioWrapper = styled.div`
   flex-direction: column;
   padding: 10px 0 0 32px;
   gap: 10px;
+
   @media (max-width: 470px) {
     display: flex;
     flex-direction: column;
@@ -116,6 +126,7 @@ export const StyledRadioGroup = styled(Radio.Group)`
   &.ant-radio-group {
     display: flex;
     gap: 10px;
+
     @media (max-width: 470px) {
       display: flex;
       flex-direction: column;
@@ -178,6 +189,7 @@ export const StyledTaskTextWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 18px 32px;
+
   &:not(:last-child) {
     border-bottom: 1px solid #dfe0eb;
   }

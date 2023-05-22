@@ -39,6 +39,7 @@ export const StyledBox = styled.div`
       color: #3751ff;
     }
   }
+
   @media (max-width: 940px) {
     height: 85px;
     padding: 10px 5px;
@@ -65,6 +66,7 @@ export const StyledBtnText = styled.div`
   &::first-letter {
     text-transform: uppercase;
   }
+
   @media (max-width: 550px) {
     font-size: 15px;
   }
@@ -75,9 +77,11 @@ export const StyledBtnNum = styled.div`
   font-weight: 700;
   font-size: 40px;
   line-height: 50px;
+
   @media (max-width: 940px) {
     font-size: 32px;
   }
+
   @media (max-width: 550px) {
     font-size: 20px;
   }

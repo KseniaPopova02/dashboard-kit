@@ -1,9 +1,11 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+
 html{
   box-sizing: border-box;
 }
+
 body {
     margin: 0;
     padding: 0;
@@ -14,6 +16,7 @@ body {
     min-height: 100vh;
    
   }
+  
   @font-face {
   font-family: "Mulish", sans-serif;
   src: url("./fonts/Mulish-Bold.ttf") format("ttf");
