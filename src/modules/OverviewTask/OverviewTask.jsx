@@ -84,13 +84,17 @@ export const OverviewTask = ({ showAllTasks = false }) => {
           <StyledTaskTitle>Tasks</StyledTaskTitle>
           <StyledSubTitle>Today</StyledSubTitle>
         </div>
+        {showAllTasks ? null : (
+          <StyledLink
+            showAllTasks={showAllTasks}
+            className="view_all"
+            to={`${ROUTES.DASHBOARD}${ROUTES.OVERVIEW_TASKS}`}
+            onClick={handleShowAllTasks}
+          >
+            View all
+          </StyledLink>
+        )}
 
-        <StyledLink
-          to={`${ROUTES.DASHBOARD}${ROUTES.OVERVIEW_TASKS}`}
-          onClick={handleShowAllTasks}
-        >
-          View all
-        </StyledLink>
         {showAllTasks ? (
           <StyledLink to={`${ROUTES.DASHBOARD}${ROUTES.OVERVIEW}`}>
             Back
