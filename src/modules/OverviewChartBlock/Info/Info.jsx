@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import data from "../../../Data/OverviewChart.json";
+import mockedData from "../../../Data/OverviewChart.json";
 import {
   StyledWrapper,
   StyledText,
@@ -9,18 +9,39 @@ import {
 } from "./style";
 import { formatData } from "./helpers";
 
+// export const Info = () => {
+//   const [dataChart, setDataChart] = useState([]);
+//   useEffect(() => {
+//     setDataChart(data);
+//   }, []);
+
+//   return (
+//     <StyledWrapper>
+//       {Object.entries(dataChart).map(([key, value]) => (
+//         <StyledWrapperWrapper key={key}>
+//           <StyledDataWrapper>
+//             <StyledText>{key}</StyledText>
+//             <StyledNumbers>{value}</StyledNumbers>
+//           </StyledDataWrapper>
+//         </StyledWrapperWrapper>
+//       ))}
+//     </StyledWrapper>
+//   );
+// };
+
 export const Info = () => {
-  const [dataChart, setDataChart] = useState([]);
+  const [data, setData] = useState([]);
   useEffect(() => {
-    setDataChart(data.overviewChart[0]);
+    setData(mockedData);
   }, []);
+
   return (
     <StyledWrapper>
-      {formatData(dataChart).map(([key, value]) => (
-        <StyledWrapperWrapper key={key}>
+      {formatData(data).map((item) => (
+        <StyledWrapperWrapper>
           <StyledDataWrapper>
-            <StyledText>{key}</StyledText>
-            <StyledNumbers>{value}</StyledNumbers>
+            <StyledText>{item.label}</StyledText>
+            <StyledNumbers>{item.number}</StyledNumbers>
           </StyledDataWrapper>
         </StyledWrapperWrapper>
       ))}

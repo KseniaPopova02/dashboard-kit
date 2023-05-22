@@ -1,11 +1,22 @@
-{
-  "overviewChart": [
-    {
-      "Resolved": "449",
-      "Received": "426",
-      "Average first response time": "33",
-      "Average response time": "188",
-      "Resolution within SLA": "94"
-    }
-  ]
-}
+[
+  {
+    "label": "Resolved",
+    "number": "449"
+  },
+  {
+    "label": "Received",
+    "number": "426"
+  },
+  {
+    "label": "Average first response time",
+    "number": "33"
+  },
+  {
+    "label": "Average response time",
+    "number": "188"
+  },
+  {
+    "label": "Resolution within SLA",
+    "number": "94"
+  }
+]
