@@ -3,7 +3,7 @@ import { StyledPoint, StyledTooltip } from "./style";
 const renderCustomTooltip = (name, data) => (
   <StyledTooltip>
     {data?.map((item) => (
-      <div className="tooltip-chart">
+      <div>
         <div>
           <div>{item?.value}</div>
         </div>
