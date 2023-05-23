@@ -8,7 +8,7 @@ export * from "./ForgotSuccess";
 export * from "./Container";
 export * from "./OverviewInfo";
 export * from "./OverviewTickets";
-export * from "./OverviewTask";
+export * from "./OverviewTask/OverviewTask";
 export * from "./OverviewChartBlock";
 export * from "./TopBar";
 export * from "./SideBar";
