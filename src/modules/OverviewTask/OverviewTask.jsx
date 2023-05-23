@@ -19,7 +19,6 @@ import { nanoid } from "nanoid";
 
 export const OverviewTask = ({ showAllTasks = false }) => {
   const [tasks, setTasks] = useState([]);
-  const [displayTasks, setDisplayTasks] = useState(3);
 
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem("tasks"));
@@ -44,7 +43,7 @@ export const OverviewTask = ({ showAllTasks = false }) => {
   };
 
   const handleShowAllTasks = () => {
-    setDisplayTasks(tasks.length);
+    setTasks(tasks);
   };
 
   const handleDeleteAllTasks = () => {
@@ -107,20 +106,18 @@ export const OverviewTask = ({ showAllTasks = false }) => {
       />
       {tasks.length ? (
         <div>
-          {tasks
-            .slice(0, showAllTasks ? tasks.length : displayTasks)
-            .map((task) => (
-              <StyledTaskTextWrapper key={task.id}>
-                <StyledTaskNameWrapper>
-                  <StyledCheckbox
-                    checked={task.isChecked}
-                    onChange={() => handleCheckboxChange(task.id)}
-                  />
-                  <div>{task.taskName}</div>
-                </StyledTaskNameWrapper>
-                {renderFlag(task.flags)}
-              </StyledTaskTextWrapper>
-            ))}
+          {tasks.slice(0, showAllTasks ? tasks.length : 3).map((task) => (
+            <StyledTaskTextWrapper key={task.id}>
+              <StyledTaskNameWrapper>
+                <StyledCheckbox
+                  checked={task.isChecked}
+                  onChange={() => handleCheckboxChange(task.id)}
+                />
+                <div>{task.taskName}</div>
+              </StyledTaskNameWrapper>
+              {renderFlag(task.flags)}
+            </StyledTaskTextWrapper>
+          ))}
         </div>
       ) : (
         <StyledNoTasks>No tasks yet</StyledNoTasks>
