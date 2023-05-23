@@ -192,20 +192,14 @@ export const StyledTaskNameWrapper = styled.div`
 `;
 
 export const StyledCheckbox = styled(Checkbox)`
-  .ant-checkbox-inner {
-    border-radius: 50%;
-  }
-
   &:hover .ant-checkbox-inner,
   .ant-checkbox-input:focus + .ant-checkbox-inner {
     border-color: #1890ff !important;
     box-shadow: 0 0 0 2px #1890ff20;
-    border-radius: 50%;
   }
 
   .ant-checkbox-checked .ant-checkbox-inner {
     background-color: #1890ff !important;
     border-color: #1890ff !important;
-    border-radius: 50% !important;
   }
 `;
