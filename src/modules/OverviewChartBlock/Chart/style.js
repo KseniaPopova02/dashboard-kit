@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ToolbarPanel } from "@ant-design/charts";
 import { ReactComponent as CircleChart } from "../../../assets/svg/circleChart.svg";
 
 export const StyledLineWrapper = styled.div`
@@ -7,7 +6,7 @@ export const StyledLineWrapper = styled.div`
   width: 100%;
 `;
 
-export const StyledCircleChart = styled(CircleChart)`
+export const StyledPoint = styled(CircleChart)`
   font-size: 28px;
 `;
 
@@ -15,12 +14,12 @@ export const StyledChartWrapper = styled.div`
   padding: 30px;
 `;
 
-export const StyledToolbar = styled(ToolbarPanel)`
-  width: 64px;
-  height: 30px;
+export const StyledTooltip = styled.div`
+  position: relative;
+  opacity: 1;
+  color: #252733;
   padding: 7px 12px;
   text-align: center;
-  position: relative;
 
   &:before {
     content: "";
@@ -32,28 +31,6 @@ export const StyledToolbar = styled(ToolbarPanel)`
     height: 0;
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
-    border-top: 7px solid #888;
+    border-top: 7px solid #fff;
   }
-
-  /* .recharts-tooltip-label {
-    display: none;
-  } */
 `;
-
-// export const StyledXAxis = styled(XAxis)`
-//   .recharts-cartesian-axis-tick {
-//     display: block;
-//     font-family: "Mulish" !important;
-//     stroke: "#9FA2B4" !important;
-//     font-size: 10 !important;
-//   }
-// `;
-
-// export const StyledYAxis = styled(YAxis)`
-//   .recharts-cartesian-axis-tick {
-//     display: block;
-//     font-family: "Mulish" !important;
-//     stroke: "#9FA2B4" !important;
-//     font-size: 10 !important;
-//   }
-// `;

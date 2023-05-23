@@ -1,15 +1,28 @@
-import { StyledCircleChart, StyledToolbar } from "./style";
+import { StyledPoint, StyledTooltip } from "./style";
 
-const CustomPoint = ({ x, y, category }) => {
-  return <StyledCircleChart x={x} y={y} category={category} />;
-};
+const renderCustomTooltip = (name, data) => (
+  <StyledTooltip>
+    {data?.map((item) => (
+      <div className="tooltip-chart">
+        <div>
+          <div>{item?.value}</div>
+        </div>
+      </div>
+    ))}
+  </StyledTooltip>
+);
+
+const renderCustomPoint = ({ x, y, category }) => (
+  <StyledPoint x={x} y={y} category={category} />
+);
 
 export const configChart = {
   xField: "x",
   yField: "y",
   seriesField: "category",
   point: {
-    visible: false,
+    visible: true,
+    customContent: renderCustomPoint,
   },
   xAxis: {
     lines: false,
@@ -55,13 +68,7 @@ export const configChart = {
   smooth: true,
   tooltip: {
     position: "top",
-    customContent: (name, data) =>
-      `<div>${data?.map((item) => {
-        return `<div class="tooltip-chart" >
-              <span class="tooltip-item-name">${item?.name}</span>
-              <span class="tooltip-item-value">${item?.value}</span>
-            </div>`;
-      })}</div>`,
+    customContent: renderCustomTooltip,
   },
   interactions: [
     {
@@ -69,13 +76,4 @@ export const configChart = {
       enable: true,
     },
   ],
-  // series: [
-  //   {
-  //     type: "line",
-  //     name: "today",
-  //     areaStyle: {
-  //       fill: "l(270) 0:#ffffff 0.5:#7ec2f3 1:#1890ff",
-  //     },
-  //   },
-  // ],
 };
