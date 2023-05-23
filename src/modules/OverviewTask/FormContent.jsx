@@ -31,6 +31,12 @@ const options = [
 
 export const FormContent = ({ handleDeleteAllTasks, onSubmit }) => {
   const [selectedValue, setSelectedValue] = useState("default");
+  const [isInputEmpty, setIsInputEmpty] = useState(true);
+
+  const handleInputChange = (event) => {
+    const inputValue = event.target.value.trim();
+    setIsInputEmpty(inputValue === "");
+  };
 
   const handleRadioChange = (event) => {
     setSelectedValue(event.target.value);
@@ -39,8 +45,12 @@ export const FormContent = ({ handleDeleteAllTasks, onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const taskName = e.target.taskName.value;
+    const taskName = e.target.taskName.value.trim();
     const flags = selectedValue;
+
+    if (!taskName) {
+      return;
+    }
 
     onSubmit({ taskName, flags });
 
@@ -53,13 +63,14 @@ export const FormContent = ({ handleDeleteAllTasks, onSubmit }) => {
         <StyledInputWrapper>
           <div>
             <StyledInput
+              onChange={handleInputChange}
               name="taskName"
               type="text"
               placeholder="Create new task"
             />
           </div>
           <StyledBtnWrapper>
-            <StyledBtn type="submit">
+            <StyledBtn type="submit" disabled={isInputEmpty}>
               <StyledAdd />
             </StyledBtn>
             <StyledBtn type="button" onClick={handleDeleteAllTasks}>
