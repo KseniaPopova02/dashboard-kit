@@ -59,9 +59,17 @@ export const OverviewTask = ({ showAllTasks = false }) => {
       return task;
     });
 
-    const filtredTasks = updatedTasks.filter((task) => !task.isChecked);
+    const sortedTasks = [...updatedTasks].sort((a, b) => {
+      if (a.isChecked && !b.isChecked) {
+        return 1;
+      }
+      if (!a.isChecked && b.isChecked) {
+        return -1;
+      }
+      return 0;
+    });
 
-    setTasks(filtredTasks);
+    setTasks(sortedTasks);
   };
 
   const renderFlag = (flag) => {
