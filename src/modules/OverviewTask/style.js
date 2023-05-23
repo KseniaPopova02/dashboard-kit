@@ -203,3 +203,9 @@ export const StyledCheckbox = styled(Checkbox)`
     border-color: #1890ff !important;
   }
 `;
+
+export const StyledTaskBtnWrapper = styled.div`
+  display: flex;
+  gap: 10px;
+  align-items: center;
+`;

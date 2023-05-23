@@ -13,6 +13,9 @@ import {
   StyledSpanNew,
   StyledCheckbox,
   StyledTaskNameWrapper,
+  StyledBtn,
+  StyledBin,
+  StyledTaskBtnWrapper,
 } from "./style";
 import { ROUTES } from "../../Routes";
 import { nanoid } from "nanoid";
@@ -49,6 +52,11 @@ export const OverviewTask = ({ showAllTasks = false }) => {
   const handleDeleteAllTasks = () => {
     setTasks([]);
     localStorage.removeItem("tasks");
+  };
+
+  const handleDeleteTask = (taskId) => {
+    const updatedTasks = tasks.filter((task) => task.id !== taskId);
+    setTasks(updatedTasks);
   };
 
   const handleCheckboxChange = (taskId) => {
@@ -121,7 +129,15 @@ export const OverviewTask = ({ showAllTasks = false }) => {
                 />
                 <div>{task.taskName}</div>
               </StyledTaskNameWrapper>
-              {renderFlag(task.flags)}
+              <StyledTaskBtnWrapper>
+                {renderFlag(task.flags)}
+                <StyledBtn
+                  type="button"
+                  onClick={() => handleDeleteTask(task.id)}
+                >
+                  <StyledBin />
+                </StyledBtn>
+              </StyledTaskBtnWrapper>
             </StyledTaskTextWrapper>
           ))}
         </div>
