@@ -85,8 +85,6 @@ export const OverviewTask = ({ showAllTasks = false }) => {
         </div>
         {showAllTasks ? null : (
           <StyledLink
-            showAllTasks={showAllTasks}
-            className="view_all"
             to={`${ROUTES.DASHBOARD}${ROUTES.OVERVIEW_TASKS}`}
             onClick={handleShowAllTasks}
           >
