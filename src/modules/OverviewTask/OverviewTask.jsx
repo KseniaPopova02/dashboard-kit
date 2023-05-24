@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { OverviewTaskRepresentation } from "./OverviewTaskRepresentation";
 import { nanoid } from "nanoid";
 
@@ -41,26 +41,29 @@ export const OverviewTask = ({ showAllTasks = false }) => {
     setTasks(updatedTasks);
   };
 
-  const handleCheckboxChange = (taskId) => {
-    const updatedTasks = tasks.map((task) => {
-      if (task.id === taskId) {
-        return { ...task, isChecked: !task.isChecked };
-      }
-      return task;
-    });
+  const handleCheckboxChange = useCallback(
+    (taskId) => {
+      const updatedTasks = tasks.map((task) => {
+        if (task.id === taskId) {
+          return { ...task, isChecked: !task.isChecked };
+        }
+        return task;
+      });
 
-    const sortedTasks = [...updatedTasks].sort((a, b) => {
-      if (a.isChecked && !b.isChecked) {
-        return 1;
-      }
-      if (!a.isChecked && b.isChecked) {
-        return -1;
-      }
-      return 0;
-    });
+      const sortedTasks = [...updatedTasks].sort((a, b) => {
+        if (a.isChecked && !b.isChecked) {
+          return 1;
+        }
+        if (!a.isChecked && b.isChecked) {
+          return -1;
+        }
+        return 0;
+      });
 
-    setTasks(sortedTasks);
-  };
+      setTasks(sortedTasks);
+    },
+    [tasks]
+  );
 
   return (
     <OverviewTaskRepresentation
