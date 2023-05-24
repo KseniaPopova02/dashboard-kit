@@ -16,7 +16,7 @@ export const OverviewTask = ({ showAllTasks = false }) => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
-  const onSubmit = (values) => {
+  const onSubmit = useCallback((values) => {
     const newTask = {
       id: nanoid(),
       taskName: values.taskName,
@@ -25,11 +25,11 @@ export const OverviewTask = ({ showAllTasks = false }) => {
     };
 
     setTasks((prevTasks) => [newTask, ...prevTasks]);
-  };
+  }, []);
 
-  const handleShowAllTasks = () => {
+  const handleShowAllTasks = useCallback(() => {
     setTasks(tasks);
-  };
+  }, [tasks]);
 
   const handleDeleteAllTasks = () => {
     setTasks([]);
