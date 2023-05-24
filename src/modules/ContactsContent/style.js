@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { PlusOutlined } from "@ant-design/icons";
-import { Table } from "antd";
-
+import { Avatar, Table } from "antd";
 export const StyledContactsWrapper = styled.div`
   border: 1px solid #dfe0eb;
   border-radius: 8px;
@@ -191,12 +190,6 @@ export const StyledTD = styled.td`
   } */
 `;
 
-export const LastTdWrapper = styled.div`
-  display: flex;
-  gap: 30px;
-  max-width: 208px;
-`;
-
 //стили для таблицы из ант
 
 export const StyledTable = styled(Table)`
@@ -217,4 +210,19 @@ export const StyledTable = styled(Table)`
     font-size: 14px;
     line-height: 20px;
   }
+`;
+
+export const StyledLastTdWrapper = styled.div`
+  display: flex;
+  gap: 30px;
+  max-width: 208px;
+`;
+
+export const StyledNameWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const StyledAvatar = styled(Avatar)`
+  margin-right: 24px;
 `;

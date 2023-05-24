@@ -3,7 +3,7 @@ import { Formik } from "formik";
 import { contactSchema, initialValues, FormContent } from "./Form";
 import { nanoid } from "nanoid";
 import { DropDownMenu } from "./DropDownMenu";
-import { Avatar, Table } from "antd";
+
 import {
   StyledHeaderWrapper,
   StyledBtnWrapper,
@@ -19,9 +19,15 @@ import {
   StyledTH,
   StyledTD,
   StyledTableWrapper,
-  LastTdWrapper,
+  StyledLastTdWrapper,
+  StyledNameWrapper,
+  StyledAvatar,
 } from "./style";
-import { ReloadOutlined, DeleteOutlined } from "@ant-design/icons";
+import {
+  ReloadOutlined,
+  DeleteOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
 import { ReactComponent as SortSvg } from "../../assets/svg/sort.svg";
 import { ReactComponent as FilterSvg } from "../../assets/svg/filter.svg";
 
@@ -121,10 +127,10 @@ export const ContactsContent = () => {
       key: "name",
       // width: 200,
       render: (_, record) => (
-        <span>
-          <Avatar src={record.photo} />
+        <StyledNameWrapper>
+          <StyledAvatar icon={<UserOutlined />} src={record.photo} />
           {record.firstName} {record.lastName}
-        </span>
+        </StyledNameWrapper>
       ),
     },
     {
@@ -145,10 +151,10 @@ export const ContactsContent = () => {
       key: "date",
       // width: 200,
       render: (_, record) => (
-        <LastTdWrapper>
+        <StyledLastTdWrapper>
           <span>{record.date}</span>
           <DropDownMenu handleDelete={handleDelete} contactId={record.id} />
-        </LastTdWrapper>
+        </StyledLastTdWrapper>
       ),
     },
   ];
