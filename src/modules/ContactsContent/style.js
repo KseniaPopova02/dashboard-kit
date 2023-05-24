@@ -11,9 +11,11 @@ export const StyledHeaderWrapper = styled.div`
   justify-content: space-between;
   margin-bottom: 52px;
   padding: 33px 33px 0 33px;
+
   @media (max-width: 800px) {
     margin-bottom: 20px;
   }
+
   @media (max-width: 442px) {
     flex-direction: column;
     & > div + div {
@@ -28,13 +30,15 @@ export const StyledBtnWrapper = styled.div`
   & > button + button {
     margin-left: 10px;
   }
-  @media (max-width: 844px) {
+
+  @media (max-width: 855px) {
     flex-direction: column;
     & > button + button {
       margin-left: 0px;
       margin-top: 10px;
     }
   }
+
   @media (max-width: 442px) {
     flex-direction: row;
     justify-content: flex-start;
@@ -43,6 +47,7 @@ export const StyledBtnWrapper = styled.div`
       margin-top: 0px;
     }
   }
+
   &.left {
     @media (max-width: 420px) {
       flex-direction: column;
@@ -81,10 +86,12 @@ export const StyledInput = styled.input`
     border-color: #3751ff;
     box-shadow: none;
   }
-  @media (max-width: 844px) {
+
+  @media (max-width: 855px) {
     margin-left: 0px;
     margin-top: 8px;
   }
+
   @media (max-width: 442px) {
     margin-left: 18px;
     margin-top: 0px;
@@ -110,6 +117,7 @@ export const StyledBtnLeft = styled.button`
 
 export const StyledPlusOutlined = styled(PlusOutlined)`
   margin-right: 8px;
+
   @media (max-width: 844px) {
     margin-right: 0px;
   }
@@ -117,14 +125,16 @@ export const StyledPlusOutlined = styled(PlusOutlined)`
 
 export const StyledBtnText = styled.div`
   display: block;
-  @media (max-width: 844px) {
+
+  @media (max-width: 855px) {
     display: none;
   }
 `;
 
 export const StyledSpan = styled.div`
   display: inline;
-  @media (max-width: 405px) {
+
+  @media (max-width: 440px) {
     display: none;
   }
 `;
@@ -146,6 +156,7 @@ export const StyledTH = styled.th`
   padding: 10px;
   text-align: left;
   color: #9fa2b4;
+
   &:first-child {
     padding-left: 33px;
   }
@@ -160,8 +171,10 @@ export const StyledTD = styled.td`
   border-bottom: 1px solid #dfe0eb;
   white-space: nowrap;
   padding: 36px 10px;
+
   &:first-child {
     padding-left: 33px;
+
     & > div {
       display: inline;
       margin-left: 24px;
@@ -171,6 +184,7 @@ export const StyledTD = styled.td`
   &:last-child {
     padding-right: 33px;
   }
+
   &:nth-child(3) {
     max-width: 208px;
   }
