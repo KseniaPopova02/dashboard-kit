@@ -1,11 +1,11 @@
 import { React } from "react";
 import { OverviewTask } from "../../modules";
 
-export const OverviewTasksPage = ({ tasks }) => {
+export const OverviewTasksPage = () => {
   return (
     <div>
       <h1>Tasks</h1>
-      <OverviewTask tasks={tasks} showAllTasks={true} />
+      <OverviewTask showAllTasks />
     </div>
   );
 };

@@ -65,9 +65,11 @@ export const OverviewTask = ({ showAllTasks = false }) => {
     [tasks]
   );
 
+  const tasksToShow = showAllTasks ? tasks : tasks.slice(0, 3);
+
   return (
     <OverviewTaskRepresentation
-      tasks={tasks}
+      tasks={tasksToShow}
       showAllTasks={showAllTasks}
       onSubmit={onSubmit}
       handleShowAllTasks={handleShowAllTasks}

@@ -67,7 +67,7 @@ export const OverviewTaskRepresentation = ({
       />
       {tasks.length ? (
         <div>
-          {tasks.slice(0, showAllTasks ? tasks.length : 3).map((task) => (
+          {tasks.map((task) => (
             <StyledTaskTextWrapper key={task.id}>
               <StyledTaskNameWrapper>
                 <StyledCheckbox
