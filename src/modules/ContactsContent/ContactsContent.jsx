@@ -191,10 +191,18 @@ export const ContactsContent = () => {
                   </StyledTD>
                   <StyledTD>{contact.email}</StyledTD>
                   <StyledTD>{contact.address}</StyledTD>
-                  <StyledTD>{contact.date}</StyledTD>
                   <StyledTD>
-                    <DropDownMenu handleDelete={handleDelete} />
+                    <div>
+                      {contact.date}
+                      <DropDownMenu
+                        handleDelete={handleDelete}
+                        contactId={contact.id}
+                      />
+                    </div>
                   </StyledTD>
+                  {/* <StyledTD>
+                    
+                  </StyledTD> */}
                 </tr>
               ))}
             </tbody>
