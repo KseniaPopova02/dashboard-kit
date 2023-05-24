@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { PlusOutlined } from "@ant-design/icons";
+import { Table } from "antd";
 
 export const StyledContactsWrapper = styled.div`
   border: 1px solid #dfe0eb;
@@ -140,31 +141,31 @@ export const StyledSpan = styled.div`
 `;
 
 export const StyledTableWrapper = styled.div`
-  @media (max-width: 1080px) {
+  /* @media (max-width: 1080px) {
     overflow-x: scroll;
-  }
+  } */
 `;
 
-export const StyledTable = styled.table`
-  border-collapse: collapse;
-  width: 100%;
-`;
+// export const StyledTable = styled.table`
+//   border-collapse: collapse;
+//   width: 100%;
+// `;
 
-export const StyledTH = styled.th`
-  white-space: nowrap;
-  background-color: none;
-  padding: 10px;
-  text-align: left;
-  color: #9fa2b4;
+// export const StyledTH = styled.th`
+//   white-space: nowrap;
+//   background-color: none;
+//   padding: 10px;
+//   text-align: left;
+//   color: #9fa2b4;
 
-  &:first-child {
-    padding-left: 33px;
-  }
+//   &:first-child {
+//     padding-left: 33px;
+//   }
 
-  &:last-child {
-    padding-right: 33px;
-  }
-`;
+//   &:last-child {
+//     padding-right: 33px;
+//   }
+// `;
 
 export const StyledTD = styled.td`
   border-top: 1px solid #dfe0eb;
@@ -184,8 +185,36 @@ export const StyledTD = styled.td`
   &:last-child {
     padding-right: 33px;
   }
-
+  /* 
   &:nth-child(3) {
     max-width: 208px;
+  } */
+`;
+
+export const LastTdWrapper = styled.div`
+  display: flex;
+  gap: 30px;
+  max-width: 208px;
+`;
+
+//стили для таблицы из ант
+
+export const StyledTable = styled(Table)`
+  &&& .ant-table-thead > tr > th {
+    background-color: white;
+    color: #9fa2b4;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    &::before {
+      display: none;
+    }
+  }
+
+  .ant-table-content {
+    color: #252733;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
   }
 `;

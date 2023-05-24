@@ -3,6 +3,7 @@ import { Formik } from "formik";
 import { contactSchema, initialValues, FormContent } from "./Form";
 import { nanoid } from "nanoid";
 import { DropDownMenu } from "./DropDownMenu";
+import { Avatar, Table } from "antd";
 import {
   StyledHeaderWrapper,
   StyledBtnWrapper,
@@ -18,6 +19,7 @@ import {
   StyledTH,
   StyledTD,
   StyledTableWrapper,
+  LastTdWrapper,
 } from "./style";
 import { ReloadOutlined, DeleteOutlined } from "@ant-design/icons";
 import { ReactComponent as SortSvg } from "../../assets/svg/sort.svg";
@@ -112,6 +114,45 @@ export const ContactsContent = () => {
     );
   };
 
+  const columns = [
+    {
+      title: "Name",
+      dataIndex: "name",
+      key: "name",
+      // width: 200,
+      render: (_, record) => (
+        <span>
+          <Avatar src={record.photo} />
+          {record.firstName} {record.lastName}
+        </span>
+      ),
+    },
+    {
+      title: "Email",
+      dataIndex: "email",
+      key: "email",
+      // width: 200,
+    },
+    {
+      title: "Address",
+      dataIndex: "address",
+      key: "address",
+      // width: 200,
+    },
+    {
+      title: "Created at",
+      dataIndex: "date",
+      key: "date",
+      // width: 200,
+      render: (_, record) => (
+        <LastTdWrapper>
+          <span>{record.date}</span>
+          <DropDownMenu handleDelete={handleDelete} contactId={record.id} />
+        </LastTdWrapper>
+      ),
+    },
+  ];
+
   return (
     <StyledContactsWrapper>
       <StyledHeaderWrapper>
@@ -167,10 +208,14 @@ export const ContactsContent = () => {
           )}
         </Formik>
       )}
-      {contacts.length > 0 ? (
-        <StyledTableWrapper>
-          <StyledTable>
-            <thead>
+      {/* {contacts.length ? ( */}
+      <StyledTableWrapper>
+        <StyledTable
+          scroll={{ x: 800 }}
+          dataSource={contacts}
+          columns={columns}
+        />
+        {/* <thead>
               <tr>
                 <StyledTH>Name</StyledTH>
                 <StyledTH>Email</StyledTH>
@@ -192,22 +237,20 @@ export const ContactsContent = () => {
                   <StyledTD>{contact.email}</StyledTD>
                   <StyledTD>{contact.address}</StyledTD>
                   <StyledTD>
-                    <div>
+                    <LastTdWrapper>
                       {contact.date}
                       <DropDownMenu
                         handleDelete={handleDelete}
                         contactId={contact.id}
                       />
-                    </div>
+                    </LastTdWrapper>
                   </StyledTD>
                 </tr>
               ))}
-            </tbody>
-          </StyledTable>
-        </StyledTableWrapper>
-      ) : (
-        <div>No contacts yet</div>
-      )}
+            </tbody> */}
+      </StyledTableWrapper>
+      {/* // ) : ( // <div>No contacts yet</div>
+      // )} */}
       <div>pages info</div>
     </StyledContactsWrapper>
   );
