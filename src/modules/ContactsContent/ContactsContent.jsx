@@ -200,9 +200,6 @@ export const ContactsContent = () => {
                       />
                     </div>
                   </StyledTD>
-                  {/* <StyledTD>
-                    
-                  </StyledTD> */}
                 </tr>
               ))}
             </tbody>
