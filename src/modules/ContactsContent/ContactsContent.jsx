@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Formik } from "formik";
 import { contactSchema, initialValues, FormContent } from "./Form";
 import { Table } from "./Table/";
@@ -52,17 +52,17 @@ export const ContactsContent = () => {
     localStorage.removeItem("contacts");
   };
 
-  const handleSort = () => {
+  const handleSort = useCallback(() => {
     setContacts(
       [...contacts].sort((a, b) => a.firstName.localeCompare(b.firstName))
     );
-  };
+  }, [contacts]);
 
-  const handleReset = () => {
+  const handleReset = useCallback(() => {
     setContacts(originalContacts);
     setFilterText("");
     setIsInputActive(false);
-  };
+  }, [originalContacts]);
 
   const handleFilterInputClick = () => {
     setIsInputActive(true);
@@ -74,17 +74,20 @@ export const ContactsContent = () => {
     }
   };
 
-  const handleFilter = (filterText) => {
-    setFilterText(filterText);
-    if (!filterText) {
-      setContacts(originalContacts);
-    } else {
-      const filteredContacts = originalContacts.filter((contact) =>
-        contact.firstName.toLowerCase().includes(filterText.toLowerCase())
-      );
-      setContacts(filteredContacts);
-    }
-  };
+  const handleFilter = useCallback(
+    (filterText) => {
+      setFilterText(filterText);
+      if (!filterText) {
+        setContacts(originalContacts);
+      } else {
+        const filteredContacts = originalContacts.filter((contact) =>
+          contact.firstName.toLowerCase().includes(filterText.toLowerCase())
+        );
+        setContacts(filteredContacts);
+      }
+    },
+    [originalContacts]
+  );
 
   const handleDelete = (id) => {
     setContacts((prevContacts) =>
