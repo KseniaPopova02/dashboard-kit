@@ -1,17 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Formik } from "formik";
 import { contactSchema, initialValues, FormContent } from "./Form";
+import { Table } from "./Table/";
 import { nanoid } from "nanoid";
-import { DropDownMenu } from "./DropDownMenu";
-import {
-  StyledContactsWrapper,
-  StyledTable,
-  StyledTableWrapper,
-  StyledLastTdWrapper,
-  StyledNameWrapper,
-  StyledAvatar,
-} from "./style";
-import { UserOutlined } from "@ant-design/icons";
+import { StyledContactsWrapper } from "./style";
 import { TableHeader } from "../../components";
 
 export const ContactsContent = () => {
@@ -103,43 +95,6 @@ export const ContactsContent = () => {
     );
   };
 
-  const columns = [
-    {
-      title: "Name",
-      dataIndex: "name",
-      key: "name",
-
-      render: (_, record) => (
-        <StyledNameWrapper>
-          <StyledAvatar icon={<UserOutlined />} src={record.photo} />
-          {record.firstName} {record.lastName}
-        </StyledNameWrapper>
-      ),
-    },
-    {
-      title: "Email",
-      dataIndex: "email",
-      key: "email",
-    },
-    {
-      title: "Address",
-      dataIndex: "address",
-      key: "address",
-    },
-    {
-      title: "Created at",
-      dataIndex: "date",
-      key: "date",
-
-      render: (_, record) => (
-        <StyledLastTdWrapper>
-          <span>{record.date}</span>
-          <DropDownMenu handleDelete={handleDelete} contactId={record.id} />
-        </StyledLastTdWrapper>
-      ),
-    },
-  ];
-
   return (
     <StyledContactsWrapper>
       <TableHeader
@@ -164,13 +119,7 @@ export const ContactsContent = () => {
           )}
         </Formik>
       )}
-      <StyledTableWrapper>
-        <StyledTable
-          pagination={false}
-          dataSource={contacts}
-          columns={columns}
-        />
-      </StyledTableWrapper>
+      <Table handleDelete={handleDelete} contacts={contacts} />
       <div>pages info</div>
     </StyledContactsWrapper>
   );
