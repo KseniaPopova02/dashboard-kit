@@ -3,33 +3,16 @@ import { Formik } from "formik";
 import { contactSchema, initialValues, FormContent } from "./Form";
 import { nanoid } from "nanoid";
 import { DropDownMenu } from "./DropDownMenu";
-
 import {
-  StyledHeaderWrapper,
-  StyledBtnWrapper,
-  StyledBtnRight,
-  StyledHeaderSvg,
-  StyledInput,
-  StyledBtnLeft,
-  StyledPlusOutlined,
-  StyledBtnText,
-  StyledSpan,
   StyledContactsWrapper,
   StyledTable,
-  StyledTH,
-  StyledTD,
   StyledTableWrapper,
   StyledLastTdWrapper,
   StyledNameWrapper,
   StyledAvatar,
 } from "./style";
-import {
-  ReloadOutlined,
-  DeleteOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
-import { ReactComponent as SortSvg } from "../../assets/svg/sort.svg";
-import { ReactComponent as FilterSvg } from "../../assets/svg/filter.svg";
+import { UserOutlined } from "@ant-design/icons";
+import { TableHeader } from "../../components";
 
 export const ContactsContent = () => {
   const [contacts, setContacts] = useState([]);
@@ -71,19 +54,19 @@ export const ContactsContent = () => {
     console.log("Submitted");
   };
 
-  const handleDeleteAllContacts = () => {
+  const handleDeleteAll = () => {
     setContacts([]);
     setOriginalContacts([]);
     localStorage.removeItem("contacts");
   };
 
-  const handleSortContacts = () => {
+  const handleSort = () => {
     setContacts(
       [...contacts].sort((a, b) => a.firstName.localeCompare(b.firstName))
     );
   };
 
-  const handleResetContacts = () => {
+  const handleReset = () => {
     setContacts(originalContacts);
     setFilterText("");
     setIsInputActive(false);
@@ -99,7 +82,7 @@ export const ContactsContent = () => {
     }
   };
 
-  const handleFilterContacts = (filterText) => {
+  const handleFilter = (filterText) => {
     setFilterText(filterText);
     if (!filterText) {
       setContacts(originalContacts);
@@ -159,48 +142,17 @@ export const ContactsContent = () => {
 
   return (
     <StyledContactsWrapper>
-      <StyledHeaderWrapper>
-        <StyledBtnWrapper className="left">
-          <StyledBtnRight onClick={handleSortContacts}>
-            <StyledHeaderSvg>
-              <SortSvg />
-            </StyledHeaderSvg>
-            <div>Sort</div>
-          </StyledBtnRight>
-          {isInputActive ? (
-            <StyledInput
-              type="text"
-              placeholder="Filter contacts by name"
-              onBlur={handleFilterInputBlur}
-              onChange={(e) => handleFilterContacts(e.target.value)}
-              autoFocus
-              value={filterText}
-            />
-          ) : (
-            <StyledBtnRight onClick={handleFilterInputClick}>
-              <StyledHeaderSvg>
-                <FilterSvg />
-              </StyledHeaderSvg>
-              <div>
-                Filter <StyledSpan>contacts by name</StyledSpan>
-              </div>
-            </StyledBtnRight>
-          )}
-        </StyledBtnWrapper>
-        <StyledBtnWrapper>
-          <StyledBtnLeft onClick={() => setShowForm(true)}>
-            <StyledPlusOutlined />
-            <StyledBtnText>Add contact</StyledBtnText>
-          </StyledBtnLeft>
-          <StyledBtnLeft onClick={handleDeleteAllContacts}>
-            <DeleteOutlined />
-          </StyledBtnLeft>
-
-          <StyledBtnLeft onClick={handleResetContacts}>
-            <ReloadOutlined />
-          </StyledBtnLeft>
-        </StyledBtnWrapper>
-      </StyledHeaderWrapper>
+      <TableHeader
+        handleSort={handleSort}
+        isInputActive={isInputActive}
+        handleFilterInputBlur={handleFilterInputBlur}
+        handleFilter={handleFilter}
+        filterText={filterText}
+        handleFilterInputClick={handleFilterInputClick}
+        setShowForm={setShowForm}
+        handleDeleteAll={handleDeleteAll}
+        handleReset={handleReset}
+      />
       {showForm && (
         <Formik
           initialValues={initialValues}
