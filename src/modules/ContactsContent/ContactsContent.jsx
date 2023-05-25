@@ -125,7 +125,7 @@ export const ContactsContent = () => {
       title: "Name",
       dataIndex: "name",
       key: "name",
-      // width: 200,
+
       render: (_, record) => (
         <StyledNameWrapper>
           <StyledAvatar icon={<UserOutlined />} src={record.photo} />
@@ -137,19 +137,17 @@ export const ContactsContent = () => {
       title: "Email",
       dataIndex: "email",
       key: "email",
-      // width: 200,
     },
     {
       title: "Address",
       dataIndex: "address",
       key: "address",
-      // width: 200,
     },
     {
       title: "Created at",
       dataIndex: "date",
       key: "date",
-      // width: 200,
+
       render: (_, record) => (
         <StyledLastTdWrapper>
           <span>{record.date}</span>
@@ -214,49 +212,13 @@ export const ContactsContent = () => {
           )}
         </Formik>
       )}
-      {/* {contacts.length ? ( */}
       <StyledTableWrapper>
         <StyledTable
-          scroll={{ x: 800 }}
+          pagination={false}
           dataSource={contacts}
           columns={columns}
         />
-        {/* <thead>
-              <tr>
-                <StyledTH>Name</StyledTH>
-                <StyledTH>Email</StyledTH>
-                <StyledTH>Address</StyledTH>
-                <StyledTH>Created at</StyledTH>
-              </tr>
-            </thead>
-            <tbody>
-              {contacts.map((contact) => (
-                <tr key={contact.id}>
-                  <StyledTD>
-                    <div>
-                      <img src={contact.photo} alt={contact.firstName} />
-                      <div>
-                        {contact.firstName} {contact.lastName}
-                      </div>
-                    </div>
-                  </StyledTD>
-                  <StyledTD>{contact.email}</StyledTD>
-                  <StyledTD>{contact.address}</StyledTD>
-                  <StyledTD>
-                    <LastTdWrapper>
-                      {contact.date}
-                      <DropDownMenu
-                        handleDelete={handleDelete}
-                        contactId={contact.id}
-                      />
-                    </LastTdWrapper>
-                  </StyledTD>
-                </tr>
-              ))}
-            </tbody> */}
       </StyledTableWrapper>
-      {/* // ) : ( // <div>No contacts yet</div>
-      // )} */}
       <div>pages info</div>
     </StyledContactsWrapper>
   );

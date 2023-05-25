@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { PlusOutlined } from "@ant-design/icons";
 import { Avatar, Table } from "antd";
+
 export const StyledContactsWrapper = styled.div`
   border: 1px solid #dfe0eb;
   border-radius: 8px;
@@ -140,59 +141,12 @@ export const StyledSpan = styled.div`
 `;
 
 export const StyledTableWrapper = styled.div`
-  /* @media (max-width: 1080px) {
-    overflow-x: scroll;
-  } */
+  width: 100%;
+  overflow-x: auto;
 `;
-
-// export const StyledTable = styled.table`
-//   border-collapse: collapse;
-//   width: 100%;
-// `;
-
-// export const StyledTH = styled.th`
-//   white-space: nowrap;
-//   background-color: none;
-//   padding: 10px;
-//   text-align: left;
-//   color: #9fa2b4;
-
-//   &:first-child {
-//     padding-left: 33px;
-//   }
-
-//   &:last-child {
-//     padding-right: 33px;
-//   }
-// `;
-
-export const StyledTD = styled.td`
-  border-top: 1px solid #dfe0eb;
-  border-bottom: 1px solid #dfe0eb;
-  white-space: nowrap;
-  padding: 36px 10px;
-
-  &:first-child {
-    padding-left: 33px;
-
-    & > div {
-      display: inline;
-      margin-left: 24px;
-    }
-  }
-
-  &:last-child {
-    padding-right: 33px;
-  }
-  /* 
-  &:nth-child(3) {
-    max-width: 208px;
-  } */
-`;
-
-//стили для таблицы из ант
 
 export const StyledTable = styled(Table)`
+  min-width: 750px;
   &&& .ant-table-thead > tr > th {
     background-color: white;
     color: #9fa2b4;
