@@ -48,7 +48,7 @@ export const StyledTable = styled(Table)`
   }
 
   .ant-pagination-prev.ant-pagination-disabled,
-  .ant-pagination-prev.ant-pagination-disabled button {
+  .ant-pagination-prev {
     order: 3 !important;
   }
 
