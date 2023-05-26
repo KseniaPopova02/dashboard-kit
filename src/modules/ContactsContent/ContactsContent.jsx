@@ -3,10 +3,19 @@ import { Formik } from "formik";
 import { contactSchema, initialValues, FormContent } from "./Form";
 import { Table } from "./Table/";
 import { nanoid } from "nanoid";
-import { StyledContactsWrapper } from "./style";
+import {
+  StyledContactsWrapper,
+  StyledPageInfo,
+  StyledSelect,
+  StyledPerPage,
+} from "./style";
 import { StyledAvatar } from "./Table/style";
 import { TableHeader } from "../../components";
 import { UserOutlined } from "@ant-design/icons";
+
+const handleChange = (value) => {
+  console.log(`selected ${value}`);
+};
 
 export const ContactsContent = () => {
   const [contacts, setContacts] = useState([]);
@@ -129,7 +138,38 @@ export const ContactsContent = () => {
         </Formik>
       )}
       <Table handleDelete={handleDelete} contacts={contacts} />
-      <div>pages info</div>
+      <StyledPageInfo>
+        <div>
+          Rows per page:
+          <StyledSelect
+            defaultValue="8"
+            style={{
+              width: 60,
+            }}
+            onChange={handleChange}
+            options={[
+              {
+                value: "8",
+                label: "8",
+              },
+              {
+                value: "16",
+                label: "16",
+              },
+              {
+                value: "24",
+                label: "24",
+              },
+              {
+                value: "32",
+                label: "32",
+              },
+            ]}
+          />
+        </div>
+        <div>1-8 of 1240</div>
+        <div>next prev</div>
+      </StyledPageInfo>
     </StyledContactsWrapper>
   );
 };
