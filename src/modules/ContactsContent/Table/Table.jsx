@@ -17,7 +17,11 @@ export const Table = ({ handleDelete, contacts }) => {
 
       render: (_, record) => (
         <StyledNameWrapper>
-          <StyledAvatar icon={<UserOutlined />} src={record.photo} />
+          {record.photo ? (
+            <StyledAvatar src={record.photo} />
+          ) : (
+            <StyledAvatar icon={<UserOutlined />} />
+          )}
           {record.firstName} {record.lastName}
         </StyledNameWrapper>
       ),

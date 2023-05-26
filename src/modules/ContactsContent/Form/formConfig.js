@@ -1,7 +1,7 @@
 import * as Yup from "yup";
 
 export const contactSchema = Yup.object().shape({
-  photo: Yup.string(),
+  photo: Yup.mixed(),
   firstName: Yup.string()
     .matches(/^[A-Za-z ]*$/, "Please enter valid first name")
     .min(3)

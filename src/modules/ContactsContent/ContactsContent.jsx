@@ -4,7 +4,9 @@ import { contactSchema, initialValues, FormContent } from "./Form";
 import { Table } from "./Table/";
 import { nanoid } from "nanoid";
 import { StyledContactsWrapper } from "./style";
+import { StyledAvatar } from "./Table/style";
 import { TableHeader } from "../../components";
+import { UserOutlined } from "@ant-design/icons";
 
 export const ContactsContent = () => {
   const [contacts, setContacts] = useState([]);
@@ -28,7 +30,11 @@ export const ContactsContent = () => {
   const handleAddContact = (values, { resetForm }) => {
     const newContact = {
       id: nanoid(),
-      photo: values.photo,
+      photo: values.photo ? (
+        URL.createObjectURL(values.photo)
+      ) : (
+        <StyledAvatar icon={<UserOutlined />} />
+      ),
       firstName: values.firstName,
       lastName: values.lastName,
       email: values.email,
