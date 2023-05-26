@@ -3,19 +3,10 @@ import { Formik } from "formik";
 import { contactSchema, initialValues, FormContent } from "./Form";
 import { Table } from "./Table/";
 import { nanoid } from "nanoid";
-import {
-  StyledContactsWrapper,
-  StyledPageInfo,
-  StyledSelect,
-  StyledPerPage,
-} from "./style";
+import { StyledContactsWrapper } from "./style";
 import { StyledAvatar } from "./Table/style";
 import { TableHeader } from "../../components";
 import { UserOutlined } from "@ant-design/icons";
-
-const handleChange = (value) => {
-  console.log(`selected ${value}`);
-};
 
 export const ContactsContent = () => {
   const [contacts, setContacts] = useState([]);
@@ -23,7 +14,6 @@ export const ContactsContent = () => {
   const [originalContacts, setOriginalContacts] = useState([]);
   const [isInputActive, setIsInputActive] = useState(false);
   const [filterText, setFilterText] = useState("");
-  const [perPage, setPerPage] = useState(8);
 
   useEffect(() => {
     const storedContacts = JSON.parse(localStorage.getItem("contacts"));
