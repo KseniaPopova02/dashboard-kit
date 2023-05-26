@@ -23,6 +23,7 @@ export const ContactsContent = () => {
   const [originalContacts, setOriginalContacts] = useState([]);
   const [isInputActive, setIsInputActive] = useState(false);
   const [filterText, setFilterText] = useState("");
+  const [perPage, setPerPage] = useState(8);
 
   useEffect(() => {
     const storedContacts = JSON.parse(localStorage.getItem("contacts"));
@@ -138,38 +139,6 @@ export const ContactsContent = () => {
         </Formik>
       )}
       <Table handleDelete={handleDelete} contacts={contacts} />
-      <StyledPageInfo>
-        <div>
-          Rows per page:
-          <StyledSelect
-            defaultValue="8"
-            style={{
-              width: 60,
-            }}
-            onChange={handleChange}
-            options={[
-              {
-                value: "8",
-                label: "8",
-              },
-              {
-                value: "16",
-                label: "16",
-              },
-              {
-                value: "24",
-                label: "24",
-              },
-              {
-                value: "32",
-                label: "32",
-              },
-            ]}
-          />
-        </div>
-        <div>1-8 of 1240</div>
-        <div>next prev</div>
-      </StyledPageInfo>
     </StyledContactsWrapper>
   );
 };

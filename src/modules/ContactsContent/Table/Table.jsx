@@ -7,6 +7,17 @@ import {
 } from "./style";
 import { DropDownMenu } from "../DropDownMenu";
 import { UserOutlined } from "@ant-design/icons";
+import { Pagination } from "antd";
+
+const CustomPagination = ({ pageSizeOptions, defaultPageSize, showTotal }) => {
+  return (
+    <div>
+      <div>{pageSizeOptions}</div>
+      <div>{defaultPageSize}</div>
+      <div>{showTotal}</div>
+    </div>
+  );
+};
 
 export const Table = ({ handleDelete, contacts }) => {
   const columns = [
@@ -51,7 +62,17 @@ export const Table = ({ handleDelete, contacts }) => {
   ];
   return (
     <StyledTableWrapper>
-      <StyledTable pagination={false} dataSource={contacts} columns={columns} />
+      <StyledTable
+        pagination={{
+          pageSizeOptions: ["8", "16", "24", "32"],
+          defaultPageSize: 8,
+          showSizeChanger: true,
+          showTotal: (total, range) => `${range[0]}-${range[1]} of ${total}`,
+          paginationComponent: CustomPagination,
+        }}
+        dataSource={contacts}
+        columns={columns}
+      />
     </StyledTableWrapper>
   );
 };

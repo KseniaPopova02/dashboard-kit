@@ -30,6 +30,36 @@ export const StyledTable = styled(Table)`
     font-size: 14px;
     line-height: 20px;
   }
+
+  .ant-pagination-item.ant-pagination-item-active {
+    display: none !important;
+  }
+
+  .ant-pagination-item {
+    display: none !important;
+  }
+
+  .ant-pagination-total-text {
+    order: 2 !important;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    color: #9fa2b4 !important;
+    margin-left: 50px !important;
+  }
+
+  .ant-pagination-prev.ant-pagination-disabled,
+  .ant-pagination-prev.ant-pagination-disabled button {
+    order: 3 !important;
+  }
+
+  .ant-pagination-next,
+  .ant-pagination-next button {
+    order: 4 !important;
+  }
+
+  .pagination-wrapper .ant-pagination-options-quick-jumper {
+    order: 2 !important;
+  }
 `;
 
 export const StyledLastTdWrapper = styled.div`
