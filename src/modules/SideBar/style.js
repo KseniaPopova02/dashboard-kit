@@ -6,15 +6,23 @@ import { SearchOutlined, LogoutOutlined } from "@ant-design/icons";
 const { Search } = Input;
 
 export const StyledSidebar = styled.div`
+  height: 100%;
   background: #363740;
   color: #a4a6b3;
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
   min-height: 100vh;
+
+  @media (max-width: 800px) {
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
 `;
 
 export const StyledSidebarWrapper = styled.div`
+  height: 100%;
+
   @media (max-width: 800px) {
     width: ${(props) => (props.isOpen ? "255px" : "80px")};
     transition: width 0.3s ease;
@@ -22,13 +30,17 @@ export const StyledSidebarWrapper = styled.div`
 `;
 
 export const StyledSideBarContainer = styled.div`
+  height: 100%;
+  z-index: 1000;
+  position: fixed;
+
   @media (max-width: 800px) {
     top: 0;
     left: 0;
-    position: absolute;
     width: ${(props) => (props.isOpen ? "100%" : "auto")};
   }
 `;
+
 export const StyledText = styled.div`
   text-align: center;
 
@@ -138,6 +150,7 @@ export const StyledSearch = styled(Search)`
   && {
     box-sizing: border-box;
     background-color: transparent;
+
     .ant-btn-primary {
       background-color: transparent;
       border-color: #fff;
@@ -186,6 +199,7 @@ export const StyledLogoutWrapper = styled.div`
   padding: 20px 30px;
   cursor: pointer;
   opacity: 0.4;
+
   &:hover {
     opacity: 1;
     color: #dde2ff;
@@ -198,6 +212,7 @@ export const StyledLanguage = styled.div`
   color: #9fa2b4;
   opacity: 0.4;
   cursor: pointer;
+
   &:hover {
     opacity: 1;
     color: #dde2ff;
