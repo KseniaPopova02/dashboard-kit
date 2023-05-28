@@ -19,6 +19,10 @@ export const StyledNameWrapper = styled.div`
 
 export const StyledAvatar = styled(Avatar)`
   margin-right: 24px;
+  &&& {
+    border: none;
+    overflow: visible;
+  }
 `;
 
 export const StyledTable = styled(Table)`
