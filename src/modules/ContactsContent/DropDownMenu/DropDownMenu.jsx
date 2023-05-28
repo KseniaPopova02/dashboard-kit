@@ -1,7 +1,7 @@
 import { Dropdown, Space } from "antd";
 import { StyledEllipsisOutlined } from "./style";
 
-export const DropDownMenu = ({ handleDelete, contactId }) => {
+export const DropDownMenu = ({ handleDelete, handleEdit, contactId }) => {
   const items = [
     {
       key: "1",
@@ -9,7 +9,7 @@ export const DropDownMenu = ({ handleDelete, contactId }) => {
     },
     {
       key: "2",
-      label: <div>edit</div>,
+      label: <div onClick={() => handleEdit(contactId)}>edit</div>,
     },
   ];
   return (

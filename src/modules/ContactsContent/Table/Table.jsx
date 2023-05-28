@@ -9,7 +9,7 @@ import { DropDownMenu } from "../DropDownMenu";
 import { UserOutlined } from "@ant-design/icons";
 import { pagination } from "./pagination";
 
-export const Table = ({ handleDelete, contacts }) => {
+export const Table = ({ handleDelete, handleEdit, contacts }) => {
   const columns = [
     {
       title: "Name",
@@ -45,7 +45,11 @@ export const Table = ({ handleDelete, contacts }) => {
       render: (_, record) => (
         <StyledLastTdWrapper>
           <span>{record.date}</span>
-          <DropDownMenu handleDelete={handleDelete} contactId={record.id} />
+          <DropDownMenu
+            handleDelete={handleDelete}
+            handleEdit={handleEdit}
+            contactId={record.id}
+          />
         </StyledLastTdWrapper>
       ),
     },

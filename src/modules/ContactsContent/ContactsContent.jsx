@@ -14,6 +14,9 @@ export const ContactsContent = () => {
   const [originalContacts, setOriginalContacts] = useState([]);
   const [isInputActive, setIsInputActive] = useState(false);
   const [filterText, setFilterText] = useState("");
+  const [editContact, setEditContact] = useState(null);
+  const [editMode, setEditMode] = useState(false);
+  const [editContactForForm, setEditContactForForm] = useState(null);
 
   useEffect(() => {
     const storedContacts = JSON.parse(localStorage.getItem("contacts"));
@@ -45,11 +48,29 @@ export const ContactsContent = () => {
         year: "numeric",
       }),
     };
-    setContacts((prevContacts) => [newContact, ...prevContacts]);
-    setOriginalContacts((prevContacts) => [newContact, ...prevContacts]);
-    setShowForm(false);
+
+    if (editMode) {
+      setContacts((prevContacts) =>
+        prevContacts.map((contact) =>
+          contact.id === editContact ? newContact : contact
+        )
+      );
+      setOriginalContacts((prevContacts) =>
+        prevContacts.map((contact) =>
+          contact.id === editContact ? newContact : contact
+        )
+      );
+    } else {
+      setContacts((prevContacts) => [newContact, ...prevContacts]);
+      setOriginalContacts((prevContacts) => [newContact, ...prevContacts]);
+    }
+
+    setShowForm(() => {
+      setEditMode(false);
+      return false;
+    });
+
     resetForm();
-    console.log("Submitted");
   };
 
   const handleDeleteAll = () => {
@@ -104,6 +125,14 @@ export const ContactsContent = () => {
     );
   };
 
+  const handleEdit = (id) => {
+    const contact = contacts.find((contact) => contact.id === id);
+    setEditContactForForm(contact);
+    setEditContact(id);
+    setEditMode(true);
+    setShowForm(true);
+  };
+
   return (
     <StyledContactsWrapper>
       <TableHeader
@@ -124,11 +153,19 @@ export const ContactsContent = () => {
           onSubmit={handleAddContact}
         >
           {({ handleSubmit }) => (
-            <FormContent onSubmit={handleSubmit} setShowForm={setShowForm} />
+            <FormContent
+              onSubmit={handleSubmit}
+              setShowForm={setShowForm}
+              editMode={editMode}
+            />
           )}
         </Formik>
       )}
-      <Table handleDelete={handleDelete} contacts={contacts} />
+      <Table
+        handleDelete={handleDelete}
+        handleEdit={handleEdit}
+        contacts={contacts}
+      />
     </StyledContactsWrapper>
   );
 };
