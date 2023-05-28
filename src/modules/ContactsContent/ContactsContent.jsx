@@ -14,9 +14,8 @@ export const ContactsContent = () => {
   const [originalContacts, setOriginalContacts] = useState([]);
   const [isInputActive, setIsInputActive] = useState(false);
   const [filterText, setFilterText] = useState("");
-  const [editContact, setEditContact] = useState(null);
   const [editMode, setEditMode] = useState(false);
-  const [editContactForForm, setEditContactForForm] = useState(null);
+  const [editContact, setEditContact] = useState(null);
 
   useEffect(() => {
     const storedContacts = JSON.parse(localStorage.getItem("contacts"));
@@ -52,12 +51,12 @@ export const ContactsContent = () => {
     if (editMode) {
       setContacts((prevContacts) =>
         prevContacts.map((contact) =>
-          contact.id === editContact ? newContact : contact
+          contact.id === editContact.id ? newContact : contact
         )
       );
       setOriginalContacts((prevContacts) =>
         prevContacts.map((contact) =>
-          contact.id === editContact ? newContact : contact
+          contact.id === editContact.id ? newContact : contact
         )
       );
     } else {
@@ -124,8 +123,7 @@ export const ContactsContent = () => {
 
   const handleEdit = (id) => {
     const contact = contacts.find((contact) => contact.id === id);
-    setEditContactForForm(contact);
-    setEditContact(id);
+    setEditContact(contact);
     setEditMode(true);
     setShowForm(true);
   };
@@ -149,7 +147,7 @@ export const ContactsContent = () => {
       />
       {showForm && (
         <Formik
-          initialValues={initialValues}
+          initialValues={initialValues(editMode, editContact)}
           validationSchema={contactSchema}
           onSubmit={handleAddContact}
         >

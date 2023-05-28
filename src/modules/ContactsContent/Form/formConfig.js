@@ -16,10 +16,12 @@ export const contactSchema = Yup.object().shape({
   address: Yup.string(),
 });
 
-export const initialValues = {
-  photo: "",
-  firstName: "",
-  lastName: "",
-  email: "",
-  address: "",
+export const initialValues = (editMode, editContact) => {
+  return {
+    photo: "",
+    firstName: editMode ? editContact.firstName : "",
+    lastName: editMode ? editContact.lastName : "",
+    email: editMode ? editContact.email : "",
+    address: editMode ? editContact.address : "",
+  };
 };
