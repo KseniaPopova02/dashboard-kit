@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Table } from "antd";
-import { ReactComponent as Avatar } from "../../../assets/svg/avatar.svg";
 
 export const StyledTableWrapper = styled.div`
   overflow-x: auto;
@@ -18,9 +17,20 @@ export const StyledNameWrapper = styled.div`
   align-items: center;
 `;
 
-export const StyledAvatar = styled(Avatar)`
+export const StyledAvatar = styled.div`
   margin-right: 24px;
-  font-size: 20px;
+  font-size: 34px;
+  line-height: 0;
+  svg {
+    fill: #9fa2b4;
+  }
+`;
+
+export const StyledUserAvatar = styled.img`
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  margin-right: 24px;
 `;
 
 export const StyledTable = styled(Table)`

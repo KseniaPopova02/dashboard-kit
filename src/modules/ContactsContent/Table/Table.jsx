@@ -4,9 +4,11 @@ import {
   StyledLastTdWrapper,
   StyledNameWrapper,
   StyledAvatar,
+  StyledUserAvatar,
 } from "./style";
 import { DropDownMenu } from "../DropDownMenu";
 import { pagination } from "./pagination";
+import { ReactComponent as Avatar } from "../../../assets/svg/avatar.svg";
 
 export const Table = ({ handleDelete, handleEdit, contacts }) => {
   const columns = [
@@ -18,9 +20,11 @@ export const Table = ({ handleDelete, handleEdit, contacts }) => {
       render: (_, record) => (
         <StyledNameWrapper>
           {record.photo ? (
-            <StyledAvatar src={record.photo} />
+            <StyledUserAvatar src={record.photo} />
           ) : (
-            <StyledAvatar />
+            <StyledAvatar>
+              <Avatar />
+            </StyledAvatar>
           )}
           {record.firstName} {record.lastName}
         </StyledNameWrapper>

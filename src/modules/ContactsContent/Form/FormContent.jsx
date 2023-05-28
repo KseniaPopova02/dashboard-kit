@@ -30,6 +30,7 @@ export const FormContent = ({
                   <input
                     id="photo"
                     type="file"
+                    accept="image/*"
                     onChange={(event) =>
                       form.setFieldValue(field.name, event.target.files[0])
                     }
@@ -50,21 +51,18 @@ export const FormContent = ({
               name="lastName"
               type="text"
               placeholder="Last name"
-              // value={editContactForForm ? editContactForForm.lastName : ""}
             />
             <CustomInput
               label="Email"
               name="email"
               type="text"
               placeholder="Email"
-              // value={editContactForForm ? editContactForForm.email : ""}
             />
             <CustomInput
               label="Address"
               name="address"
               type="text"
               placeholder="address"
-              // value={editContactForForm ? editContactForForm.address : ""}
             />
             <Button type="submit">Save</Button>
             <StyledBtn
