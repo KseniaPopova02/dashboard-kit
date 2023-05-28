@@ -65,11 +65,8 @@ export const ContactsContent = () => {
       setOriginalContacts((prevContacts) => [newContact, ...prevContacts]);
     }
 
-    setShowForm(() => {
-      setEditMode(false);
-      return false;
-    });
-
+    setShowForm(false);
+    setEditMode(false);
     resetForm();
   };
 
@@ -133,6 +130,10 @@ export const ContactsContent = () => {
     setShowForm(true);
   };
 
+  const handleCancelEditModeClick = () => {
+    setEditMode(false);
+  };
+
   return (
     <StyledContactsWrapper>
       <TableHeader
@@ -157,6 +158,7 @@ export const ContactsContent = () => {
               onSubmit={handleSubmit}
               setShowForm={setShowForm}
               editMode={editMode}
+              handleCancelEditModeClick={handleCancelEditModeClick}
             />
           )}
         </Formik>

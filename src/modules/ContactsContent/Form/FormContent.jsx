@@ -12,7 +12,7 @@ export const FormContent = ({
   setShowForm,
   onSubmit,
   editMode,
-  editContactForForm,
+  handleCancelEditModeClick,
 }) => {
   return (
     <>
@@ -67,7 +67,13 @@ export const FormContent = ({
               // value={editContactForForm ? editContactForForm.address : ""}
             />
             <Button type="submit">Save</Button>
-            <StyledBtn type="button" onClick={() => setShowForm(false)}>
+            <StyledBtn
+              type="button"
+              onClick={() => {
+                setShowForm(false);
+                handleCancelEditModeClick();
+              }}
+            >
               Cancel
             </StyledBtn>
           </StyledFormWrapper>
