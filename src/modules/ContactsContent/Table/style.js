@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { Avatar, Table } from "antd";
+import { Table } from "antd";
+import { ReactComponent as Avatar } from "../../../assets/svg/avatar.svg";
 
 export const StyledTableWrapper = styled.div`
   overflow-x: auto;
@@ -19,10 +20,7 @@ export const StyledNameWrapper = styled.div`
 
 export const StyledAvatar = styled(Avatar)`
   margin-right: 24px;
-  &&& {
-    border: none;
-    overflow: visible;
-  }
+  font-size: 20px;
 `;
 
 export const StyledTable = styled(Table)`

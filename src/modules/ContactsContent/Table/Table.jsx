@@ -6,7 +6,6 @@ import {
   StyledAvatar,
 } from "./style";
 import { DropDownMenu } from "../DropDownMenu";
-import { UserOutlined } from "@ant-design/icons";
 import { pagination } from "./pagination";
 
 export const Table = ({ handleDelete, handleEdit, contacts }) => {
@@ -21,7 +20,7 @@ export const Table = ({ handleDelete, handleEdit, contacts }) => {
           {record.photo ? (
             <StyledAvatar src={record.photo} />
           ) : (
-            <StyledAvatar icon={<UserOutlined />} />
+            <StyledAvatar />
           )}
           {record.firstName} {record.lastName}
         </StyledNameWrapper>

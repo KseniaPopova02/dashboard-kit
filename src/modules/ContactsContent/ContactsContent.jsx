@@ -6,7 +6,7 @@ import { nanoid } from "nanoid";
 import { StyledContactsWrapper } from "./style";
 import { StyledAvatar } from "./Table/style";
 import { TableHeader } from "../../components";
-import { UserOutlined } from "@ant-design/icons";
+// import { UserOutlined } from "@ant-design/icons";
 
 export const ContactsContent = () => {
   const [contacts, setContacts] = useState([]);
@@ -35,7 +35,7 @@ export const ContactsContent = () => {
       photo: values.photo ? (
         URL.createObjectURL(values.photo)
       ) : (
-        <StyledAvatar icon={<UserOutlined />} />
+        <StyledAvatar />
       ),
       firstName: values.firstName,
       lastName: values.lastName,
