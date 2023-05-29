@@ -23,7 +23,7 @@ export const FormContent = ({
               {editMode ? "Edit contact" : "Add new contact"}
             </LogoTitle>
 
-            <CustomPhotoInput />
+            <CustomPhotoInput label="Add photo" name="photo" />
 
             <CustomInput
               label="First name"
