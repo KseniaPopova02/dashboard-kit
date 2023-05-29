@@ -40,5 +40,3 @@ export const StyledBtn = styled.button`
     color: #3148e5;
   }
 `;
-
-//input

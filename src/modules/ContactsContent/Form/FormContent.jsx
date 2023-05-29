@@ -1,12 +1,12 @@
-import { Field, ErrorMessage } from "formik";
-import { CustomPhotoInput } from "./CustomPhotoInput";
+// import { Field, ErrorMessage } from "formik";
+// import { CustomPhotoInput } from "./CustomPhotoInput";
 import {
   CustomInput,
   Button,
   StyledFormWrapper,
   LogoTitle,
 } from "../../../components";
-
+import { CustomPhotoInput } from "./CustomPhotoInput";
 import { ModalWrapper, ModalOverlay, StyledForm, StyledBtn } from "./style";
 
 export const FormContent = ({
@@ -24,6 +24,8 @@ export const FormContent = ({
             <LogoTitle>
               {editMode ? "Edit contact" : "Add new contact"}
             </LogoTitle>
+
+            <CustomPhotoInput />
 
             {/* <Field name="photo">
               {({ field, form }) => (
@@ -47,7 +49,9 @@ export const FormContent = ({
               label="add photo"
             /> */}
 
-            <Field name="photo" component={CustomPhotoInput} />
+            {/* <Field name="photo" component={CustomPhotoInput} /> */}
+
+            {/* <CustomPhotoInput /> */}
 
             {/* <CustomPhotoInput label="add photo" name="photo" type="file" /> */}
 
