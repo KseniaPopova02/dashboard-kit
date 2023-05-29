@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Form } from "formik";
+import { Input as AntdInput } from "antd";
 
 export const ModalWrapper = styled.div`
   position: fixed;
@@ -39,3 +40,5 @@ export const StyledBtn = styled.button`
     color: #3148e5;
   }
 `;
+
+//input

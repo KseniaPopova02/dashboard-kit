@@ -1,4 +1,5 @@
 import { Field, ErrorMessage } from "formik";
+import { CustomPhotoInput } from "./CustomPhotoInput";
 import {
   CustomInput,
   Button,
@@ -24,11 +25,11 @@ export const FormContent = ({
               {editMode ? "Edit contact" : "Add new contact"}
             </LogoTitle>
 
-            <Field name="photo">
+            {/* <Field name="photo">
               {({ field, form }) => (
                 <div>
                   <input
-                    id="photo"
+                    name="photo"
                     type="file"
                     accept="image/*"
                     onChange={(event) =>
@@ -38,7 +39,17 @@ export const FormContent = ({
                   <ErrorMessage name="photo" component="div" />
                 </div>
               )}
-            </Field>
+            </Field> */}
+            {/* <CustomPhotoInput
+              type="file"
+              accept="image/*"
+              name="photo"
+              label="add photo"
+            /> */}
+
+            <Field name="photo" component={CustomPhotoInput} />
+
+            {/* <CustomPhotoInput label="add photo" name="photo" type="file" /> */}
 
             <CustomInput
               label="First name"
