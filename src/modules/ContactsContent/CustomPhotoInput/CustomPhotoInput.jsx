@@ -3,15 +3,15 @@ import { Field, ErrorMessage } from "formik";
 import { PlusOutlined } from "@ant-design/icons";
 import { Upload } from "antd";
 
-import { beforeUpload, handleChange } from "./helper"; // Импортируйте функции из внешнего модуля
+import { beforeUpload, handleChange } from "./helper";
 
 export const CustomPhotoInput = () => {
   return (
     <Field name="photo">
       {({ field, form }) => {
-        const { value, name } = field; // Деструктурируйте field
+        const { value, name } = field;
 
-        const isFileObject = value instanceof File || value instanceof Blob; // Проверка, является ли value файловым объектом
+        const isFileObject = value instanceof File || value instanceof Blob;
 
         return (
           <div>
@@ -21,8 +21,8 @@ export const CustomPhotoInput = () => {
               className="avatar-uploader"
               showUploadList={false}
               action={null}
-              beforeUpload={(file) => beforeUpload(file, form, name)} // Используйте вынесенную функцию beforeUpload
-              onChange={handleChange} // Используйте вынесенную функцию handleChange
+              beforeUpload={(file) => beforeUpload(file, form, name)}
+              onChange={handleChange}
             >
               {isFileObject ? (
                 <img
