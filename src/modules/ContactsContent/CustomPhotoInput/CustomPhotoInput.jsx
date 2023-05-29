@@ -1,7 +1,13 @@
 import React from "react";
 import { useField, ErrorMessage } from "formik";
-import { PlusOutlined } from "@ant-design/icons";
-import { Upload, message } from "antd";
+
+import { message } from "antd";
+import {
+  StyledUpload,
+  StyledPlusOutlined,
+  StyledUploadWrapper,
+  StyledAvatar,
+} from "./style";
 
 export const CustomPhotoInput = ({ label }) => {
   const [field, , helpers] = useField("photo");
@@ -38,8 +44,8 @@ export const CustomPhotoInput = ({ label }) => {
   };
 
   return (
-    <div>
-      <Upload
+    <StyledUploadWrapper>
+      <StyledUpload
         name={name}
         listType="picture-card"
         className="avatar-uploader"
@@ -49,17 +55,17 @@ export const CustomPhotoInput = ({ label }) => {
         onChange={handleChange}
       >
         {isFileObject ? (
-          <img
+          <StyledAvatar
             src={URL.createObjectURL(value)}
             alt="avatar"
             style={{ width: "100%", height: "100%" }}
           />
         ) : (
-          <PlusOutlined />
+          <StyledPlusOutlined />
         )}
-      </Upload>
+      </StyledUpload>
       <div>{label}</div>
       <ErrorMessage name="photo" component="div" />
-    </div>
+    </StyledUploadWrapper>
   );
 };
