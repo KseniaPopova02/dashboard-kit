@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Formik } from "formik";
-import { contactSchema, initialValues, FormContent } from "./Form";
 import { Table } from "./Table/";
 import { nanoid } from "nanoid";
 import { StyledContactsWrapper } from "./style";
 import { TableHeader } from "../../components";
+import { Form } from "./Form";
 
 export const ContactsContent = () => {
   const [contacts, setContacts] = useState([]);
@@ -144,20 +143,13 @@ export const ContactsContent = () => {
         handleReset={handleReset}
       />
       {showForm && (
-        <Formik
-          initialValues={initialValues(editMode, editContact)}
-          validationSchema={contactSchema}
-          onSubmit={handleAddContact}
-        >
-          {({ handleSubmit }) => (
-            <FormContent
-              onSubmit={handleSubmit}
-              setShowForm={setShowForm}
-              editMode={editMode}
-              handleCancelEditModeClick={handleCancelEditModeClick}
-            />
-          )}
-        </Formik>
+        <Form
+          editMode={editMode}
+          editContact={editContact}
+          handleAddContact={handleAddContact}
+          setShowForm={setShowForm}
+          handleCancelEditModeClick={handleCancelEditModeClick}
+        />
       )}
       <Table
         handleDelete={handleDelete}
