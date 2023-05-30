@@ -1,21 +1,10 @@
-import { StyledPoint, StyledTooltip } from "./style";
-
-const renderCustomTooltip = (name, data) => (
-  <StyledTooltip>
-    {data?.map((item) => (
-      <div>
-        <div>
-          <div>{item?.value}</div>
-        </div>
-      </div>
-    ))}
-  </StyledTooltip>
-);
+const isSmallScreen = window.innerWidth <= 650;
 
 export const configChart = {
   xField: "x",
   yField: "y",
   seriesField: "category",
+  padding: isSmallScreen ? [40, 30, 40, 10] : [80, 30, 40, 10],
   xAxis: {
     lines: false,
     type: "linear",
@@ -55,12 +44,12 @@ export const configChart = {
   },
   color: ["#3751FF", "#DFE0EB"],
   legend: {
-    position: "top-right",
+    position: isSmallScreen ? "top" : "top-right",
+    align: isSmallScreen ? "center" : null,
     offsetY: -10,
   },
   smooth: true,
   tooltip: {
     position: "top",
-    customContent: renderCustomTooltip,
   },
 };

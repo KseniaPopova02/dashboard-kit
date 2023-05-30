@@ -5,6 +5,9 @@ export const StyledTitle = styled.div`
   font-size: 19px;
   line-height: 24px;
   margin-bottom: 8px;
+  @media (max-width: 650px) {
+    text-align: center;
+  }
 `;
 
 export const StyledSubtitle = styled.div`
@@ -13,8 +16,9 @@ export const StyledSubtitle = styled.div`
   line-height: 16px;
   color: #9fa2b4;
 
-  @media (max-width: 565px) {
+  @media (max-width: 650px) {
     margin-bottom: 10px;
+    text-align: center;
   }
 `;
 
