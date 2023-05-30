@@ -45,12 +45,16 @@ export const ContactsContent = () => {
     if (editMode) {
       setContacts((prevContacts) =>
         prevContacts.map((contact) =>
-          contact.id === editContact.id ? newContact : contact
+          contact.id === editContact.id
+            ? { ...newContact, date: contact.date }
+            : contact
         )
       );
       setOriginalContacts((prevContacts) =>
         prevContacts.map((contact) =>
-          contact.id === editContact.id ? newContact : contact
+          contact.id === editContact.id
+            ? { ...newContact, date: contact.date }
+            : contact
         )
       );
     } else {
