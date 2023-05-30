@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const StyledPageContainer = styled.div`
+  height: 100vh;
   display: grid;
   grid-template-columns: 255px 1fr;
   grid-template-rows: auto 1fr;

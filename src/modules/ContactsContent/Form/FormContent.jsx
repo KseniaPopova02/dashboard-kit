@@ -13,9 +13,12 @@ export const FormContent = ({
   editMode,
   handleCancelEditModeClick,
 }) => {
+  const handleOverlayClick = (event) => {
+    event.stopPropagation();
+  };
   return (
     <>
-      <ModalOverlay />
+      <ModalOverlay onClick={handleOverlayClick} />
       <ModalWrapper>
         <StyledForm onSubmit={onSubmit}>
           <StyledFormWrapper>
