@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Table } from "./Table/";
-import { Form } from "./Form";
-import { TableHeader } from "../../components";
 import { nanoid } from "nanoid";
-import { StyledContactsWrapper } from "./style";
+import { ContactsContentRep } from "./ContactsContentRep";
 
 export const ContactsContent = () => {
   const [contacts, setContacts] = useState([]);
@@ -133,32 +130,24 @@ export const ContactsContent = () => {
   }, []);
 
   return (
-    <StyledContactsWrapper>
-      <TableHeader
-        handleSort={handleSort}
-        isInputActive={isInputActive}
-        handleFilterInputBlur={handleFilterInputBlur}
-        handleFilter={handleFilter}
-        filterText={filterText}
-        handleFilterInputClick={handleFilterInputClick}
-        setShowForm={setShowForm}
-        handleDeleteAll={handleDeleteAll}
-        handleReset={handleReset}
-      />
-      {showForm && (
-        <Form
-          editMode={editMode}
-          editContact={editContact}
-          handleAddContact={handleAddContact}
-          setShowForm={setShowForm}
-          handleCancelEditModeClick={handleCancelEditModeClick}
-        />
-      )}
-      <Table
-        handleDelete={handleDelete}
-        handleEdit={handleEdit}
-        contacts={contacts}
-      />
-    </StyledContactsWrapper>
+    <ContactsContentRep
+      showForm={showForm}
+      handleSort={handleSort}
+      isInputActive={isInputActive}
+      handleFilterInputBlur={handleFilterInputBlur}
+      handleFilter={handleFilter}
+      filterText={filterText}
+      handleFilterInputClick={handleFilterInputClick}
+      setShowForm={setShowForm}
+      handleDeleteAll={handleDeleteAll}
+      handleReset={handleReset}
+      editMode={editMode}
+      editContact={editContact}
+      handleAddContact={handleAddContact}
+      handleCancelEditModeClick={handleCancelEditModeClick}
+      handleDelete={handleDelete}
+      handleEdit={handleEdit}
+      contacts={contacts}
+    />
   );
 };
