@@ -21,6 +21,7 @@ export const StyledAvatar = styled.div`
   margin-right: 24px;
   font-size: 34px;
   line-height: 0;
+
   svg {
     fill: #9fa2b4;
   }
@@ -39,12 +40,14 @@ export const StyledTable = styled(Table)`
     overflow-x: auto;
     white-space: nowrap;
   }
+
   &&& .ant-table-thead > tr > th {
     background-color: white;
     color: #9fa2b4;
     font-weight: 700;
     font-size: 14px;
     line-height: 18px;
+
     &::before {
       display: none;
     }
