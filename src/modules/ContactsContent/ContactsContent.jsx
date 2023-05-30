@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Table } from "./Table/";
+import { Form } from "./Form";
+import { TableHeader } from "../../components";
 import { nanoid } from "nanoid";
 import { StyledContactsWrapper } from "./style";
-import { TableHeader } from "../../components";
-import { Form } from "./Form";
 
 export const ContactsContent = () => {
   const [contacts, setContacts] = useState([]);
@@ -66,11 +66,11 @@ export const ContactsContent = () => {
     resetForm();
   };
 
-  const handleDeleteAll = () => {
+  const handleDeleteAll = useCallback(() => {
     setContacts([]);
     setOriginalContacts([]);
     localStorage.removeItem("contacts");
-  };
+  }, []);
 
   const handleSort = useCallback(() => {
     setContacts(
@@ -109,25 +109,28 @@ export const ContactsContent = () => {
     [originalContacts]
   );
 
-  const handleDelete = (id) => {
+  const handleDelete = useCallback((id) => {
     setContacts((prevContacts) =>
       prevContacts.filter((contact) => contact.id !== id)
     );
     setOriginalContacts((prevContacts) =>
       prevContacts.filter((contact) => contact.id !== id)
     );
-  };
+  }, []);
 
-  const handleEdit = (id) => {
-    const contact = contacts.find((contact) => contact.id === id);
-    setEditContact(contact);
-    setEditMode(true);
-    setShowForm(true);
-  };
+  const handleEdit = useCallback(
+    (id) => {
+      const contact = contacts.find((contact) => contact.id === id);
+      setEditContact(contact);
+      setEditMode(true);
+      setShowForm(true);
+    },
+    [contacts]
+  );
 
-  const handleCancelEditModeClick = () => {
+  const handleCancelEditModeClick = useCallback(() => {
     setEditMode(false);
-  };
+  }, []);
 
   return (
     <StyledContactsWrapper>
