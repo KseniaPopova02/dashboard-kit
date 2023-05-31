@@ -46,8 +46,14 @@ export const configChart = {
   legend: {
     position: isSmallScreen ? "top" : "top-right",
     align: isSmallScreen ? "center" : null,
-    offsetY: -10,
+    offsetY: -7,
+    itemName: {
+      formatter: (text) => {
+        return text.charAt(0).toUpperCase() + text.slice(1);
+      },
+    },
   },
+
   smooth: true,
   tooltip: {
     position: "top",
