@@ -1,49 +1,54 @@
-import { useState, useEffect, useCallback } from "react";
+import { useEffect, useCallback } from "react";
 import { OverviewTaskRepresentation } from "./OverviewTaskRepresentation";
 import { nanoid } from "nanoid";
 
-export const OverviewTask = ({ showAllTasks = false }) => {
-  const [tasks, setTasks] = useState([]);
-
+export const OverviewTask = ({
+  tasksToShow,
+  setTasksToShow,
+  showAllTasks = false,
+}) => {
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem("tasks"));
     if (storedTasks) {
-      setTasks(storedTasks);
+      setTasksToShow(storedTasks);
     }
-  }, []);
+  }, [setTasksToShow]);
 
   useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks]);
+    localStorage.setItem("tasks", JSON.stringify(tasksToShow));
+  }, [tasksToShow]);
 
-  const onSubmit = useCallback((values) => {
-    const newTask = {
-      id: nanoid(),
-      taskName: values.taskName,
-      flags: values.flags,
-      isChecked: false,
-    };
+  const onSubmit = useCallback(
+    (values) => {
+      const newTask = {
+        id: nanoid(),
+        taskName: values.taskName,
+        flags: values.flags,
+        isChecked: false,
+      };
 
-    setTasks((prevTasks) => [newTask, ...prevTasks]);
-  }, []);
+      setTasksToShow((prevTasks) => [newTask, ...prevTasks]);
+    },
+    [setTasksToShow]
+  );
 
   const handleShowAllTasks = useCallback(() => {
-    setTasks(tasks);
-  }, [tasks]);
+    setTasksToShow(tasksToShow);
+  }, [tasksToShow, setTasksToShow]);
 
   const handleDeleteAllTasks = () => {
-    setTasks([]);
+    setTasksToShow([]);
     localStorage.removeItem("tasks");
   };
 
   const handleDeleteTask = (taskId) => {
-    const updatedTasks = tasks.filter((task) => task.id !== taskId);
-    setTasks(updatedTasks);
+    const updatedTasks = tasksToShow.filter((task) => task.id !== taskId);
+    setTasksToShow(updatedTasks);
   };
 
   const handleCheckboxChange = useCallback(
     (taskId) => {
-      const updatedTasks = tasks.map((task) => {
+      const updatedTasks = tasksToShow.map((task) => {
         if (task.id === taskId) {
           return { ...task, isChecked: !task.isChecked };
         }
@@ -60,12 +65,10 @@ export const OverviewTask = ({ showAllTasks = false }) => {
         return 0;
       });
 
-      setTasks(sortedTasks);
+      setTasksToShow(sortedTasks);
     },
-    [tasks]
+    [tasksToShow, setTasksToShow]
   );
-
-  const tasksToShow = showAllTasks ? tasks : tasks.slice(0, 3);
 
   return (
     <OverviewTaskRepresentation
