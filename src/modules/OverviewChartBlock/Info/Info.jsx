@@ -12,9 +12,9 @@ import { formatData } from "./helpers";
 export const Info = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    setData(mockedData);
+    setData(mockedData[0].data);
   }, []);
-
+  console.log([mockedData[0]]);
   return (
     <StyledWrapper>
       {formatData(data).map((item) => (
