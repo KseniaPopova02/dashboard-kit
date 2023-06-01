@@ -6,9 +6,9 @@ import {
   OverviewChartBlock,
 } from "../../modules";
 import { StyledWrapper } from "./style";
-import ticketsData from "../../MockedData/TicketsOverview.json";
-import overviewInfoData from "../../MockedData/InfoOverview.json";
-import infoChartData from "../../MockedData/TodaysChartInfo.json";
+import ticketsData from "../../mockedData/ticketsOverview.json";
+import overviewInfoData from "../../mockedData/infoOverview.json";
+import infoChartData from "../../mockedData/todaysChartInfo.json";
 
 export const View = () => {
   const [tasksToShow, setTasksToShow] = useState(() => {
