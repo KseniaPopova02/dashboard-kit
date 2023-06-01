@@ -1,5 +1,3 @@
-import { React, useState, useEffect } from "react";
-import mockedData from "../../../MockedData/TodaysChartInfo.json";
 import {
   StyledWrapper,
   StyledText,
@@ -8,23 +6,17 @@ import {
   StyledWrapperWrapper,
 } from "./style";
 import { formatData } from "./helpers";
+import { nanoid } from "nanoid";
 
-export const Info = () => {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    setData(mockedData[0].data);
-  }, []);
-  console.log([mockedData[0]]);
-  return (
-    <StyledWrapper>
-      {formatData(data).map((item) => (
-        <StyledWrapperWrapper>
-          <StyledDataWrapper>
-            <StyledText>{item.label}</StyledText>
-            <StyledNumbers>{item.number}</StyledNumbers>
-          </StyledDataWrapper>
-        </StyledWrapperWrapper>
-      ))}
-    </StyledWrapper>
-  );
-};
+export const Info = ({ infoChart }) => (
+  <StyledWrapper>
+    {formatData(infoChart).map((item) => (
+      <StyledWrapperWrapper key={nanoid()}>
+        <StyledDataWrapper>
+          <StyledText>{item.label}</StyledText>
+          <StyledNumbers>{item.number}</StyledNumbers>
+        </StyledDataWrapper>
+      </StyledWrapperWrapper>
+    ))}
+  </StyledWrapper>
+);
