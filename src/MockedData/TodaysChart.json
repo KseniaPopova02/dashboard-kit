@@ -1,146 +1,15 @@
 [
-  {
-    "x": 0,
-    "y": 10,
-    "category": "today",
-    "data": [
-      { "label": "Resolved", "number": "449" },
-      { "label": "Received", "number": "426" },
-      { "label": "Average first response time", "number": "33" },
-      { "label": "Average response time", "number": "188" },
-      { "label": "Resolution within SLA", "number": "94" }
-    ]
-  },
-  {
-    "x": 1,
-    "y": 22,
-    "category": "today",
-    "data": [
-      { "label": "Resolved", "number": "550" },
-      { "label": "Received", "number": "612" },
-      { "label": "Average first response time", "number": "45" },
-      { "label": "Average response time", "number": "210" },
-      { "label": "Resolution within SLA", "number": "92" }
-    ]
-  },
-  {
-    "x": 5,
-    "y": 28,
-    "category": "today",
-    "data": [
-      { "label": "Resolved", "number": "321" },
-      { "label": "Received", "number": "405" },
-      { "label": "Average first response time", "number": "38" },
-      { "label": "Average response time", "number": "172" },
-      { "label": "Resolution within SLA", "number": "86" }
-    ]
-  },
-  {
-    "x": 8,
-    "y": 50,
-    "category": "today",
-    "data": [
-      { "label": "Resolved", "number": "600" },
-      { "label": "Received", "number": "720" },
-      { "label": "Average first response time", "number": "55" },
-      { "label": "Average response time", "number": "240" },
-      { "label": "Resolution within SLA", "number": "90" }
-    ]
-  },
-  {
-    "x": 12,
-    "y": 19,
-    "category": "today",
-    "data": [
-      { "label": "Resolved", "number": "400" },
-      { "label": "Received", "number": "500" },
-      { "label": "Average first response time", "number": "30" },
-      { "label": "Average response time", "number": "160" },
-      { "label": "Resolution within SLA", "number": "88" }
-    ]
-  },
-  {
-    "x": 17,
-    "y": 39,
-    "category": "today",
-    "data": [
-      { "label": "Resolved", "number": "700" },
-      { "label": "Received", "number": "800" },
-      { "label": "Average first response time", "number": "48" },
-      { "label": "Average response time", "number": "220" },
-      { "label": "Resolution within SLA", "number": "92" }
-    ]
-  },
-  {
-    "x": 0,
-    "y": 35,
-    "category": "yesterday",
-    "data": [
-      { "label": "Resolved", "number": "520" },
-      { "label": "Received", "number": "630" },
-      { "label": "Average first response time", "number": "42" },
-      { "label": "Average response time", "number": "200" },
-      { "label": "Resolution within SLA", "number": "90" }
-    ]
-  },
-  {
-    "x": 5,
-    "y": 25,
-    "category": "yesterday",
-    "data": [
-      { "label": "Resolved", "number": "420" },
-      { "label": "Received", "number": "510" },
-      { "label": "Average first response time", "number": "35" },
-      { "label": "Average response time", "number": "180" },
-      { "label": "Resolution within SLA", "number": "88" }
-    ]
-  },
-  {
-    "x": 8,
-    "y": 32,
-    "category": "yesterday",
-    "data": [
-      { "label": "Resolved", "number": "460" },
-      { "label": "Received", "number": "550" },
-      { "label": "Average first response time", "number": "40" },
-      { "label": "Average response time", "number": "190" },
-      { "label": "Resolution within SLA", "number": "89" }
-    ]
-  },
-  {
-    "x": 13,
-    "y": 18,
-    "category": "yesterday",
-    "data": [
-      { "label": "Resolved", "number": "380" },
-      { "label": "Received", "number": "470" },
-      { "label": "Average first response time", "number": "28" },
-      { "label": "Average response time", "number": "150" },
-      { "label": "Resolution within SLA", "number": "87" }
-    ]
-  },
-  {
-    "x": 16,
-    "y": 48,
-    "category": "yesterday",
-    "data": [
-      { "label": "Resolved", "number": "600" },
-      { "label": "Received", "number": "700" },
-      { "label": "Average first response time", "number": "50" },
-      { "label": "Average response time", "number": "220" },
-      { "label": "Resolution within SLA", "number": "91" }
-    ]
-  },
-  {
-    "x": 19,
-    "y": 38,
-    "category": "yesterday",
-    "data": [
-      { "label": "Resolved", "number": "550" },
-      { "label": "Received", "number": "650" },
-      { "label": "Average first response time", "number": "43" },
-      { "label": "Average response time", "number": "190" },
-      { "label": "Resolution within SLA", "number": "90" }
-    ]
-  }
+  { "x": 0, "y": 10, "category": "today" },
+  { "x": 1, "y": 22, "category": "today" },
+  { "x": 5, "y": 28, "category": "today" },
+  { "x": 8, "y": 50, "category": "today" },
+  { "x": 12, "y": 19, "category": "today" },
+  { "x": 17, "y": 39, "category": "today" },
+
+  { "x": 0, "y": 35, "category": "yesterday" },
+  { "x": 5, "y": 25, "category": "yesterday" },
+  { "x": 8, "y": 32, "category": "yesterday" },
+  { "x": 13, "y": 18, "category": "yesterday" },
+  { "x": 16, "y": 48, "category": "yesterday" },
+  { "x": 19, "y": 38, "category": "yesterday" }
 ]
