@@ -5,6 +5,9 @@ export const configChart = {
   yField: "y",
   seriesField: "category",
   padding: isSmallScreen ? [40, 30, 40, 10] : [80, 30, 40, 10],
+  events: {
+    click: true,
+  },
   xAxis: {
     lines: false,
     type: "linear",

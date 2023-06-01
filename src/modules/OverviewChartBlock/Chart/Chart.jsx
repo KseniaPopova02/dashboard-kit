@@ -1,20 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { StyledLineWrapper, StyledChartWrapper } from "./style";
 import { Header } from "../Header";
 import { configChart } from "./config";
-import chartData from "../../../MockedData/TodaysChart.json";
 import { Line } from "@ant-design/charts";
+import chartData from "../../../MockedData/TodaysChart.json";
 
 export const Chart = () => {
+  const chartRef = useRef(null); // Создаем ref для доступа к графику
   const [data, setData] = useState([]);
 
-  const asyncFetch = () => {
+  useEffect(() => {
     setData(chartData);
-  };
+  }, []);
 
   useEffect(() => {
-    asyncFetch();
-  }, []);
+    if (chartRef.current) {
+      // Привязываем обработчик события "element:click" к элементу графика
+      chartRef.current.on("element:click", (ev) => {
+        const dataIndex = ev.data.index; // Получаем индекс кликнутой точки
+        console.log("Index:", dataIndex);
+      });
+    }
+  }, [chartRef]);
 
   const config = {
     data,
@@ -25,7 +32,8 @@ export const Chart = () => {
     <StyledChartWrapper>
       <Header />
       <StyledLineWrapper>
-        <Line {...config} />
+        {/* Передаем ref объекту графика */}
+        <Line {...config} chartRef={chartRef} />
       </StyledLineWrapper>
     </StyledChartWrapper>
   );
