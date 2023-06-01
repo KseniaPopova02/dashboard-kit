@@ -1,8 +1,5 @@
 [
   {
-    "x": 0,
-    "y": 10,
-    "category": "today",
     "data": [
       { "label": "Resolved", "number": "449" },
       { "label": "Received", "number": "426" },
@@ -12,9 +9,6 @@
     ]
   },
   {
-    "x": 1,
-    "y": 22,
-    "category": "today",
     "data": [
       { "label": "Resolved", "number": "550" },
       { "label": "Received", "number": "612" },
@@ -24,9 +18,6 @@
     ]
   },
   {
-    "x": 5,
-    "y": 28,
-    "category": "today",
     "data": [
       { "label": "Resolved", "number": "321" },
       { "label": "Received", "number": "405" },
@@ -36,9 +27,6 @@
     ]
   },
   {
-    "x": 8,
-    "y": 50,
-    "category": "today",
     "data": [
       { "label": "Resolved", "number": "600" },
       { "label": "Received", "number": "720" },
@@ -48,9 +36,6 @@
     ]
   },
   {
-    "x": 12,
-    "y": 19,
-    "category": "today",
     "data": [
       { "label": "Resolved", "number": "400" },
       { "label": "Received", "number": "500" },
@@ -60,9 +45,6 @@
     ]
   },
   {
-    "x": 17,
-    "y": 39,
-    "category": "today",
     "data": [
       { "label": "Resolved", "number": "700" },
       { "label": "Received", "number": "800" },
@@ -72,9 +54,6 @@
     ]
   },
   {
-    "x": 0,
-    "y": 35,
-    "category": "yesterday",
     "data": [
       { "label": "Resolved", "number": "520" },
       { "label": "Received", "number": "630" },
@@ -84,9 +63,6 @@
     ]
   },
   {
-    "x": 5,
-    "y": 25,
-    "category": "yesterday",
     "data": [
       { "label": "Resolved", "number": "420" },
       { "label": "Received", "number": "510" },
@@ -96,9 +72,6 @@
     ]
   },
   {
-    "x": 8,
-    "y": 32,
-    "category": "yesterday",
     "data": [
       { "label": "Resolved", "number": "460" },
       { "label": "Received", "number": "550" },
@@ -108,9 +81,6 @@
     ]
   },
   {
-    "x": 13,
-    "y": 18,
-    "category": "yesterday",
     "data": [
       { "label": "Resolved", "number": "380" },
       { "label": "Received", "number": "470" },
@@ -120,9 +90,6 @@
     ]
   },
   {
-    "x": 16,
-    "y": 48,
-    "category": "yesterday",
     "data": [
       { "label": "Resolved", "number": "600" },
       { "label": "Received", "number": "700" },
@@ -132,9 +99,6 @@
     ]
   },
   {
-    "x": 19,
-    "y": 38,
-    "category": "yesterday",
     "data": [
       { "label": "Resolved", "number": "550" },
       { "label": "Received", "number": "650" },
