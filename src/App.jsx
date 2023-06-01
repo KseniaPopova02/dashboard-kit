@@ -17,7 +17,7 @@ import {
   OverviewTicketsDetails,
   OverviewTasksPage,
 } from "./pages";
-import { ROUTES } from "./Routes";
+import { ROUTES } from "./routes";
 import { AuthFormLayout, MainLayout } from "./modules";
 import { useState } from "react";
 

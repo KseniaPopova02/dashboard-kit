@@ -1,4 +1,4 @@
-import { ROUTES } from "../../Routes/routes";
+import { ROUTES } from "../../routes/routes";
 
 const routeTitles = {
   [ROUTES.OVERVIEW]: "Overview",

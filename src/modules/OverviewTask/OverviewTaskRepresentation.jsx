@@ -16,7 +16,7 @@ import {
   StyledBin,
   StyledTaskBtnWrapper,
 } from "./style";
-import { ROUTES } from "../../Routes";
+import { ROUTES } from "../../routes";
 
 export const OverviewTaskRepresentation = ({
   tasks,

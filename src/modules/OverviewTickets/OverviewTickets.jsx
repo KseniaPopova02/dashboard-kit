@@ -9,7 +9,7 @@ import {
   StyledNum,
   StyledLink,
 } from "./style";
-import { ROUTES } from "../../Routes/routes";
+import { ROUTES } from "../../routes/routes";
 import { nanoid } from "nanoid";
 
 export const OverviewTickets = ({ tickets }) => (
