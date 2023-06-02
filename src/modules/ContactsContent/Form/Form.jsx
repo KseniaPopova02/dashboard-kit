@@ -16,6 +16,7 @@ export const Form = ({
   >
     {({ handleSubmit }) => (
       <FormContent
+        editContact={editContact}
         onSubmit={handleSubmit}
         setShowForm={setShowForm}
         editMode={editMode}

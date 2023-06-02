@@ -8,10 +8,17 @@ import {
   StyledAvatar,
 } from "./style";
 
-export const CustomPhotoInput = ({ label }) => {
+export const CustomPhotoInput = ({ label, editMode, editContact }) => {
   const [field, , helpers] = useField("photo");
   const { value, name } = field;
   const isFileObject = value instanceof File || value instanceof Blob;
+
+  let src = null;
+  if (editMode) {
+    src = editContact.photo;
+  } else {
+    src = isFileObject ? URL.createObjectURL(value) : null;
+  }
 
   return (
     <StyledUploadWrapper>
@@ -24,11 +31,7 @@ export const CustomPhotoInput = ({ label }) => {
         beforeUpload={beforeUpload(helpers)}
         onChange={handleChange}
       >
-        {isFileObject ? (
-          <StyledAvatar src={URL.createObjectURL(value)} alt="avatar" />
-        ) : (
-          <StyledPlusOutlined />
-        )}
+        {src ? <StyledAvatar src={src} alt="avatar" /> : <StyledPlusOutlined />}
       </StyledUpload>
       <div>{label}</div>
       <ErrorMessage name="photo" component="div" />
