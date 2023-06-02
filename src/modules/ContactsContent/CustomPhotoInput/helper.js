@@ -16,14 +16,15 @@ export const beforeUpload = (helpers) => (file) => {
   return false;
 };
 
-export const handleChange = (info) => {
-  const {
-    file: { status, name },
-  } = info;
+// export const handleChange = (info) => {
+//   const {
+//     file: { status, name },
+//   } = info;
 
-  if (status === "done") {
-    message.success(`${name} file uploaded successfully`);
-  } else if (status === "error") {
-    message.error(`${name} file upload failed.`);
-  }
-};
+//   if (status === "done") {
+//     // message.success(`${name} file uploaded successfully`);
+//     console.log(`${name} file uploaded successfully`);
+//   } else if (status === "error") {
+//     message.error(`${name} file upload failed.`);
+//   }
+// };
