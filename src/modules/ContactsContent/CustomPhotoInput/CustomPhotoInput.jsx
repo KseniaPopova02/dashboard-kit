@@ -13,6 +13,7 @@ export const CustomPhotoInput = ({ label, editMode, editContact }) => {
   const { value, name } = field;
   const isFileObject = value instanceof File || value instanceof Blob;
   const [src, setSrc] = useState(null);
+  console.log(src);
 
   useEffect(() => {
     if (editMode && editContact && editContact.photo) {
@@ -35,7 +36,7 @@ export const CustomPhotoInput = ({ label, editMode, editContact }) => {
         className="avatar-uploader"
         showUploadList={false}
         action={null}
-        beforeUpload={beforeUpload(helpers)}
+        beforeUpload={beforeUpload(helpers, setSrc)}
         onChange={onChange}
       >
         {src ? <StyledAvatar src={src} alt="avatar" /> : <StyledPlusOutlined />}

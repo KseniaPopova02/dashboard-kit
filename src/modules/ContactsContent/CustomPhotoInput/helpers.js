@@ -1,14 +1,16 @@
 import { message } from "antd";
 
-export const beforeUpload = (helpers) => (file) => {
+export const beforeUpload = (helpers) => (file, setSrc) => {
   const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
   if (!isJpgOrPng) {
     message.error("You can only upload JPG/PNG file!");
+    setSrc(null);
     return false;
   }
   const isLt2M = file.size / 1024 / 1024 < 2;
   if (!isLt2M) {
     message.error("Image must be smaller than 2MB!");
+    setSrc(null);
     return false;
   }
   helpers.setValue(file);
