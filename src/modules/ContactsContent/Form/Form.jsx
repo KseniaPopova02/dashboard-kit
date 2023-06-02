@@ -8,6 +8,7 @@ export const Form = ({
   handleAddContact,
   setShowForm,
   handleCancelEditModeClick,
+  setEditMode,
 }) => (
   <Formik
     initialValues={initialValues(editMode, editContact)}
@@ -16,6 +17,7 @@ export const Form = ({
   >
     {({ handleSubmit }) => (
       <FormContent
+        setEditMode={setEditMode}
         editContact={editContact}
         onSubmit={handleSubmit}
         setShowForm={setShowForm}

@@ -13,10 +13,12 @@ export const FormContent = ({
   editMode,
   handleCancelEditModeClick,
   editContact,
+  setEditMode,
 }) => {
   const handleOverlayClick = (event) => {
     event.stopPropagation();
     setShowForm(false);
+    setEditMode(false);
   };
 
   const handleFormClick = (event) => {

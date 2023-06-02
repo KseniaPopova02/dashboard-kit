@@ -142,6 +142,7 @@ export const ContactsContent = () => {
       handleDeleteAll={handleDeleteAll}
       handleReset={handleReset}
       editMode={editMode}
+      setEditMode={setEditMode}
       editContact={editContact}
       handleAddContact={handleAddContact}
       handleCancelEditModeClick={handleCancelEditModeClick}

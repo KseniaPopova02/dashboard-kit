@@ -21,6 +21,7 @@ export const ContactsContentRep = ({
   handleDelete,
   handleEdit,
   contacts,
+  setEditMode,
 }) => (
   <StyledContactsWrapper>
     <TableHeader
@@ -36,6 +37,7 @@ export const ContactsContentRep = ({
     />
     {showForm && (
       <Form
+        setEditMode={setEditMode}
         editMode={editMode}
         editContact={editContact}
         handleAddContact={handleAddContact}
