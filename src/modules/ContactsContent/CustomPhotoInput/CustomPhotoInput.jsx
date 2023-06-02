@@ -25,11 +25,7 @@ export const CustomPhotoInput = ({ label }) => {
         onChange={handleChange}
       >
         {isFileObject ? (
-          <StyledAvatar
-            src={URL.createObjectURL(value)}
-            alt="avatar"
-            style={{ width: "100%", height: "100%" }}
-          />
+          <StyledAvatar src={URL.createObjectURL(value)} alt="avatar" />
         ) : (
           <StyledPlusOutlined />
         )}

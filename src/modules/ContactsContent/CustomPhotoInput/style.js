@@ -31,4 +31,6 @@ export const StyledUploadWrapper = styled.div`
 
 export const StyledAvatar = styled.img`
   border-radius: 50%;
+  height: 100%;
+  width: 100%;
 `;
