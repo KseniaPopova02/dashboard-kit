@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useField, ErrorMessage } from "formik";
-import { beforeUpload, handleChange } from "./helper";
+import { beforeUpload } from "./helpers";
 import {
   StyledUpload,
   StyledPlusOutlined,
