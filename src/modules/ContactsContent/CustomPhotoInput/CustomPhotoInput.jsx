@@ -13,7 +13,6 @@ export const CustomPhotoInput = ({ label, editMode, editContact }) => {
   const { value, name } = field;
   const isFileObject = value instanceof File || value instanceof Blob;
   const [src, setSrc] = useState(null);
-  console.log(src);
 
   useEffect(() => {
     if (editMode && editContact && editContact.photo) {
@@ -25,7 +24,14 @@ export const CustomPhotoInput = ({ label, editMode, editContact }) => {
 
   const onChange = (info) => {
     const { file } = info;
-    setSrc(URL.createObjectURL(file));
+    const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
+    const isLt2M = file.size / 1024 / 1024 < 2;
+
+    if (!isJpgOrPng || !isLt2M) {
+      return;
+    } else {
+      setSrc(URL.createObjectURL(file));
+    }
   };
 
   return (
