@@ -9,10 +9,10 @@ import {
 } from "./style";
 
 export const CustomPhotoInput = ({ label, editMode, editContact }) => {
-  const [field, , helpers] = useField("photo");
+  const [field, helpers] = useField("photo");
   const { value, name } = field;
-  const isFileObject = value instanceof File || value instanceof Blob;
   const [src, setSrc] = useState(null);
+  const isFileObject = value instanceof File || value instanceof Blob;
 
   useEffect(() => {
     if (editMode && editContact && editContact.photo) {
