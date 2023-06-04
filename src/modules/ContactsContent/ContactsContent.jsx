@@ -24,6 +24,7 @@ export const ContactsContent = () => {
   }, [contacts]);
 
   const handleAddContact = (values, { resetForm }) => {
+    console.log("values.photo:", URL.createObjectURL(values.photo));
     const newContact = {
       id: nanoid(),
       photo: values.photo ? URL.createObjectURL(values.photo) : null,

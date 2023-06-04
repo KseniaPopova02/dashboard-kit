@@ -17,6 +17,10 @@ export const contactSchema = Yup.object().shape({
 });
 
 export const initialValues = (editMode, editContact) => {
+  if (editMode) {
+    console.log("editContact.photo", editContact.photo);
+  }
+
   return {
     photo: editMode ? editContact.photo : "",
     firstName: editMode ? editContact.firstName : "",
