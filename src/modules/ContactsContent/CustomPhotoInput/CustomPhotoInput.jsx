@@ -9,7 +9,7 @@ import {
 } from "./style";
 
 export const CustomPhotoInput = ({ label, editMode, editContact }) => {
-  const [field, helpers] = useField("photo");
+  const [field, , helpers] = useField("photo");
   const { value, name } = field;
   const [src, setSrc] = useState(null);
   const isFileObject = value instanceof File || value instanceof Blob;
