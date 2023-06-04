@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useField, ErrorMessage } from "formik";
-import { beforeUpload } from "./helpers";
+import { beforeUpload, handleFileChange } from "./helpers";
 import {
   StyledUpload,
   StyledPlusOutlined,
@@ -22,18 +22,6 @@ export const CustomPhotoInput = ({ label, editMode, editContact }) => {
     }
   }, [editMode, editContact, isFileObject, value]);
 
-  const onChange = (info) => {
-    const { file } = info;
-    const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
-    const isLt2M = file.size / 1024 / 1024 < 2;
-
-    if (!isJpgOrPng || !isLt2M) {
-      return;
-    } else {
-      setSrc(URL.createObjectURL(file));
-    }
-  };
-
   return (
     <StyledUploadWrapper>
       <StyledUpload
@@ -43,7 +31,7 @@ export const CustomPhotoInput = ({ label, editMode, editContact }) => {
         showUploadList={false}
         action={null}
         beforeUpload={beforeUpload(helpers, setSrc)}
-        onChange={onChange}
+        onChange={handleFileChange(setSrc)}
       >
         {src ? <StyledAvatar src={src} alt="avatar" /> : <StyledPlusOutlined />}
       </StyledUpload>
