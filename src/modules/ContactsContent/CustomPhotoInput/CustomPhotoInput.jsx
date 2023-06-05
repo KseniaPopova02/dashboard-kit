@@ -30,7 +30,7 @@ export const CustomPhotoInput = ({ label, editMode, editContact }) => {
         className="avatar-uploader"
         showUploadList={false}
         action={null}
-        beforeUpload={beforeUpload(helpers, setSrc)}
+        beforeUpload={beforeUpload(helpers)}
         onChange={handleFileChange(setSrc)}
       >
         {src ? <StyledAvatar src={src} alt="avatar" /> : <StyledPlusOutlined />}

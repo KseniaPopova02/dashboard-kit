@@ -23,7 +23,6 @@ export const beforeUpload = (helpers) => (file) => {
     return false;
   }
   helpers.setValue(file);
-  console.log("Uploaded!");
   return false;
 };
 
