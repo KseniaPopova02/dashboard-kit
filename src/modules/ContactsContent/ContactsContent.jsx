@@ -24,10 +24,14 @@ export const ContactsContent = () => {
   }, [contacts]);
 
   const handleAddContact = (values, { resetForm }) => {
-    console.log("values.photo:", URL.createObjectURL(values.photo));
     const newContact = {
       id: nanoid(),
-      photo: values.photo ? URL.createObjectURL(values.photo) : null,
+      photo:
+        editMode && values.photo === editContact.photo
+          ? editContact.photo
+          : values.photo
+          ? URL.createObjectURL(values.photo)
+          : null,
       firstName: values.firstName,
       lastName: values.lastName,
       email: values.email,
