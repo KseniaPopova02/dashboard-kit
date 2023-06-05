@@ -18,12 +18,12 @@ export const StyledNameWrapper = styled.div`
 `;
 
 export const StyledAvatar = styled.div`
-  margin-right: 24px;
   font-size: 34px;
   line-height: 0;
 
   svg {
     fill: #9fa2b4;
+    margin-right: 34px;
   }
 `;
 
