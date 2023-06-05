@@ -21,6 +21,10 @@ export const initialValues = (editMode, editContact) => {
     console.log("editContact.photo", editContact.photo);
   }
 
+  if (editMode && editContact.photo === null) {
+    editContact.photo = "";
+  }
+
   return {
     photo: editMode ? editContact.photo : "",
     firstName: editMode ? editContact.firstName : "",
