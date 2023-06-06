@@ -20,7 +20,7 @@ export const TableHeader = ({
   handleFilter,
   filterText,
   handleFilterInputClick,
-  setShowForm,
+  setShowContactsForm,
   handleDeleteAll,
   handleReset,
   headerText,
@@ -54,7 +54,7 @@ export const TableHeader = ({
       )}
     </StyledBtnWrapper>
     <StyledBtnWrapper>
-      <StyledBtnLeft onClick={() => setShowForm(true)}>
+      <StyledBtnLeft onClick={() => setShowContactsForm(true)}>
         <StyledPlusOutlined />
         <StyledBtnText>{headerText.addContact}</StyledBtnText>
       </StyledBtnLeft>

@@ -6,7 +6,7 @@ export const Form = ({
   editMode,
   editContact,
   handleAddContact,
-  setShowForm,
+  setShowContactsForm,
   handleCancelEditModeClick,
   setEditMode,
 }) => (
@@ -20,7 +20,7 @@ export const Form = ({
         setEditMode={setEditMode}
         editContact={editContact}
         onSubmit={handleSubmit}
-        setShowForm={setShowForm}
+        setShowContactsForm={setShowContactsForm}
         editMode={editMode}
         handleCancelEditModeClick={handleCancelEditModeClick}
       />

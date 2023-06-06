@@ -6,7 +6,7 @@ import { nanoid } from "nanoid";
 
 export const Contacts = () => {
   const [contacts, setContacts] = useState([]);
-  const [showForm, setShowForm] = useState(false);
+  const [showContactsForm, setShowContactsForm] = useState(false);
   const [originalContacts, setOriginalContacts] = useState([]);
   const [isInputActive, setIsInputActive] = useState(false);
   const [filterText, setFilterText] = useState("");
@@ -63,7 +63,7 @@ export const Contacts = () => {
 
     setContacts(updatedContacts);
     setOriginalContacts(updatedOriginalContacts);
-    setShowForm(false);
+    setShowContactsForm(false);
     setEditMode(false);
     resetForm();
   };
@@ -125,7 +125,7 @@ export const Contacts = () => {
       const contact = contacts.find((contact) => contact.id === id);
       setEditContact(contact);
       setEditMode(true);
-      setShowForm(true);
+      setShowContactsForm(true);
     },
     [contacts]
   );
@@ -143,7 +143,7 @@ export const Contacts = () => {
         handleFilter={handleFilter}
         filterText={filterText}
         handleFilterInputClick={handleFilterInputClick}
-        setShowForm={setShowForm}
+        setShowContactsForm={setShowContactsForm}
         handleDeleteAll={handleDeleteAll}
         handleReset={handleReset}
         headerText={{
@@ -151,13 +151,13 @@ export const Contacts = () => {
           filterContacts: "contacts by name",
         }}
       />
-      {showForm && (
+      {showContactsForm && (
         <Form
           setEditMode={setEditMode}
           editMode={editMode}
           editContact={editContact}
           handleAddContact={handleAddContact}
-          setShowForm={setShowForm}
+          setShowContactsForm={setShowContactsForm}
           handleCancelEditModeClick={handleCancelEditModeClick}
         />
       )}

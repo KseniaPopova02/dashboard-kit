@@ -8,7 +8,7 @@ import { CustomPhotoInput } from "../CustomPhotoInput";
 import { ModalWrapper, ModalOverlay, StyledForm, StyledBtn } from "./style";
 
 export const FormContent = ({
-  setShowForm,
+  setShowContactsForm,
   onSubmit,
   editMode,
   handleCancelEditModeClick,
@@ -17,7 +17,7 @@ export const FormContent = ({
 }) => {
   const handleOverlayClick = (event) => {
     event.stopPropagation();
-    setShowForm(false);
+    setShowContactsForm(false);
     setEditMode(false);
   };
 
@@ -69,7 +69,7 @@ export const FormContent = ({
             <StyledBtn
               type="button"
               onClick={() => {
-                setShowForm(false);
+                setShowContactsForm(false);
                 handleCancelEditModeClick();
               }}
             >
