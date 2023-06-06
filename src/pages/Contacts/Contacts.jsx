@@ -111,14 +111,14 @@ export const Contacts = () => {
     [originalContacts]
   );
 
-  const handleDelete = useCallback((id) => {
+  const handleDelete = (id) => {
     setContacts((prevContacts) =>
       prevContacts.filter((contact) => contact.id !== id)
     );
     setOriginalContacts((prevContacts) =>
       prevContacts.filter((contact) => contact.id !== id)
     );
-  }, []);
+  };
 
   const handleEdit = useCallback(
     (id) => {
