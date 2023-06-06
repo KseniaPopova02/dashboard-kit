@@ -48,7 +48,7 @@ export const TableHeader = ({
             <FilterSvg />
           </StyledHeaderSvg>
           <div>
-            Filter <StyledSpan>contacts by name</StyledSpan>
+            Filter <StyledSpan>{headerText.filterContacts}</StyledSpan>
           </div>
         </StyledBtnRight>
       )}

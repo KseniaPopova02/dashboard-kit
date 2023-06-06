@@ -148,6 +148,7 @@ export const Contacts = () => {
         handleReset={handleReset}
         headerText={{
           addContact: "Add contact",
+          filterContacts: "contacts by name",
         }}
       />
       {showForm && (
