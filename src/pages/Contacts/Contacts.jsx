@@ -45,26 +45,24 @@ export const Contacts = () => {
       }),
     };
 
-    if (editMode) {
-      setContacts((prevContacts) =>
-        prevContacts.map((contact) =>
+    const updatedContacts = editMode
+      ? contacts.map((contact) =>
           contact.id === editContact.id
             ? { ...newContact, date: contact.date }
             : contact
         )
-      );
-      setOriginalContacts((prevContacts) =>
-        prevContacts.map((contact) =>
-          contact.id === editContact.id
-            ? { ...newContact, date: contact.date }
-            : contact
-        )
-      );
-    } else {
-      setContacts((prevContacts) => [newContact, ...prevContacts]);
-      setOriginalContacts((prevContacts) => [newContact, ...prevContacts]);
-    }
+      : [newContact, ...contacts];
 
+    const updatedOriginalContacts = editMode
+      ? originalContacts.map((contact) =>
+          contact.id === editContact.id
+            ? { ...newContact, date: contact.date }
+            : contact
+        )
+      : [newContact, ...originalContacts];
+
+    setContacts(updatedContacts);
+    setOriginalContacts(updatedOriginalContacts);
     setShowForm(false);
     setEditMode(false);
     resetForm();
