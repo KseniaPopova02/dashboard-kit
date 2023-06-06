@@ -6,7 +6,6 @@ import { nanoid } from "nanoid";
 
 export const Contacts = () => {
   const [contacts, setContacts] = useState([]);
-  // const [showContactsForm, setShowContactsForm] = useState(false);
   const [formState, setFormState] = useState({
     showContactsForm: false,
     editMode: false,
@@ -15,8 +14,6 @@ export const Contacts = () => {
   const [originalContacts, setOriginalContacts] = useState([]);
   const [isInputActive, setIsInputActive] = useState(false);
   const [filterText, setFilterText] = useState("");
-  // const [editMode, setEditMode] = useState(false);
-  // const [editContact, setEditContact] = useState(null);
 
   useEffect(() => {
     const storedContacts = JSON.parse(localStorage.getItem("contacts"));
@@ -133,6 +130,7 @@ export const Contacts = () => {
     setFormState({
       ...formState,
       editMode: false,
+      showContactsForm: false,
     });
   };
 
