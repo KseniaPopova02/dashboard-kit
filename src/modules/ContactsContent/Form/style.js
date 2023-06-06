@@ -1,26 +1,6 @@
 import styled from "styled-components";
 import { Form } from "formik";
-
-export const ModalWrapper = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-`;
-
-export const ModalOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(54, 55, 64, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-`;
+import { Modal } from "antd";
 
 export const StyledForm = styled(Form)`
   background-color: #fff;
@@ -37,5 +17,16 @@ export const StyledBtn = styled.button`
   cursor: pointer;
   &:hover {
     color: #3148e5;
+  }
+`;
+
+export const StyledModal = styled(Modal).attrs({
+  centered: true,
+})`
+  .ant-modal-content {
+    box-shadow: none;
+    width: 380px;
+    padding: 0;
+    margin: 0 auto;
   }
 `;

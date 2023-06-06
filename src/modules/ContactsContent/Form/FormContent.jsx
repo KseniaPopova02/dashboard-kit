@@ -5,7 +5,7 @@ import {
   LogoTitle,
 } from "../../../components";
 import { CustomPhotoInput } from "../CustomPhotoInput";
-import { ModalWrapper, ModalOverlay, StyledForm, StyledBtn } from "./style";
+import { StyledForm, StyledBtn, StyledModal } from "./style";
 
 export const FormContent = ({
   setShowContactsForm,
@@ -13,22 +13,20 @@ export const FormContent = ({
   editMode,
   handleCancelEditModeClick,
   editContact,
-  setEditMode,
 }) => {
-  const handleOverlayClick = (event) => {
-    event.stopPropagation();
+  const handleCancel = () => {
     setShowContactsForm(false);
-    setEditMode(false);
-  };
-
-  const handleFormClick = (event) => {
-    event.stopPropagation();
+    handleCancelEditModeClick();
   };
   return (
     <>
-      <ModalOverlay onClick={handleOverlayClick} />
-      <ModalWrapper>
-        <StyledForm onSubmit={onSubmit} onClick={handleFormClick}>
+      <StyledModal
+        visible={true}
+        onCancel={handleCancel}
+        closable={false}
+        footer={null}
+      >
+        <StyledForm onSubmit={onSubmit}>
           <StyledFormWrapper>
             <LogoTitle>
               {editMode ? "Edit contact" : "Add new contact"}
@@ -77,7 +75,7 @@ export const FormContent = ({
             </StyledBtn>
           </StyledFormWrapper>
         </StyledForm>
-      </ModalWrapper>
+      </StyledModal>
     </>
   );
 };
