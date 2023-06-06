@@ -16,55 +16,66 @@ import { ReloadOutlined, DeleteOutlined } from "@ant-design/icons";
 export const TableHeader = ({
   handleSort,
   isInputActive,
-  handleFilterInputBlur,
   handleFilter,
   filterText,
-  handleFilterInputClick,
   setShowContactsForm,
   handleDeleteAll,
   handleReset,
   headerText,
-}) => (
-  <StyledHeaderWrapper>
-    <StyledBtnWrapper className="left">
-      <StyledBtnRight onClick={handleSort}>
-        <StyledHeaderSvg>
-          <SortSvg />
-        </StyledHeaderSvg>
-        <div>Sort</div>
-      </StyledBtnRight>
-      {isInputActive ? (
-        <StyledInput
-          type="text"
-          placeholder="Filter contacts by name"
-          onBlur={handleFilterInputBlur}
-          onChange={(e) => handleFilter(e.target.value)}
-          autoFocus
-          value={filterText}
-        />
-      ) : (
-        <StyledBtnRight onClick={handleFilterInputClick}>
-          <StyledHeaderSvg>
-            <FilterSvg />
-          </StyledHeaderSvg>
-          <div>
-            Filter <StyledSpan>{headerText.filterContacts}</StyledSpan>
-          </div>
-        </StyledBtnRight>
-      )}
-    </StyledBtnWrapper>
-    <StyledBtnWrapper>
-      <StyledBtnLeft onClick={() => setShowContactsForm(true)}>
-        <StyledPlusOutlined />
-        <StyledBtnText>{headerText.addContact}</StyledBtnText>
-      </StyledBtnLeft>
-      <StyledBtnLeft onClick={handleDeleteAll}>
-        <DeleteOutlined />
-      </StyledBtnLeft>
+  setIsInputActive,
+}) => {
+  const handleFilterInputClick = () => {
+    setIsInputActive(true);
+  };
 
-      <StyledBtnLeft onClick={handleReset}>
-        <ReloadOutlined />
-      </StyledBtnLeft>
-    </StyledBtnWrapper>
-  </StyledHeaderWrapper>
-);
+  const handleFilterInputBlur = (e) => {
+    if (!e.target.value) {
+      setIsInputActive(false);
+    }
+  };
+
+  return (
+    <StyledHeaderWrapper>
+      <StyledBtnWrapper className="left">
+        <StyledBtnRight onClick={handleSort}>
+          <StyledHeaderSvg>
+            <SortSvg />
+          </StyledHeaderSvg>
+          <div>Sort</div>
+        </StyledBtnRight>
+        {isInputActive ? (
+          <StyledInput
+            type="text"
+            placeholder="Filter contacts by name"
+            onBlur={handleFilterInputBlur}
+            onChange={(e) => handleFilter(e.target.value)}
+            autoFocus
+            value={filterText}
+          />
+        ) : (
+          <StyledBtnRight onClick={handleFilterInputClick}>
+            <StyledHeaderSvg>
+              <FilterSvg />
+            </StyledHeaderSvg>
+            <div>
+              Filter <StyledSpan>{headerText.filterContacts}</StyledSpan>
+            </div>
+          </StyledBtnRight>
+        )}
+      </StyledBtnWrapper>
+      <StyledBtnWrapper>
+        <StyledBtnLeft onClick={() => setShowContactsForm(true)}>
+          <StyledPlusOutlined />
+          <StyledBtnText>{headerText.addContact}</StyledBtnText>
+        </StyledBtnLeft>
+        <StyledBtnLeft onClick={handleDeleteAll}>
+          <DeleteOutlined />
+        </StyledBtnLeft>
+
+        <StyledBtnLeft onClick={handleReset}>
+          <ReloadOutlined />
+        </StyledBtnLeft>
+      </StyledBtnWrapper>
+    </StyledHeaderWrapper>
+  );
+};

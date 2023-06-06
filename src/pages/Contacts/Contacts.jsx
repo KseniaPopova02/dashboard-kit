@@ -86,16 +86,6 @@ export const Contacts = () => {
     setIsInputActive(false);
   }, [originalContacts]);
 
-  const handleFilterInputClick = () => {
-    setIsInputActive(true);
-  };
-
-  const handleFilterInputBlur = (e) => {
-    if (!e.target.value) {
-      setIsInputActive(false);
-    }
-  };
-
   const handleFilter = useCallback(
     (filterText) => {
       setFilterText(filterText);
@@ -139,10 +129,9 @@ export const Contacts = () => {
       <TableHeader
         handleSort={handleSort}
         isInputActive={isInputActive}
-        handleFilterInputBlur={handleFilterInputBlur}
+        setIsInputActive={setIsInputActive}
         handleFilter={handleFilter}
         filterText={filterText}
-        handleFilterInputClick={handleFilterInputClick}
         setShowContactsForm={setShowContactsForm}
         handleDeleteAll={handleDeleteAll}
         handleReset={handleReset}
