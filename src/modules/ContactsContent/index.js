@@ -1,1 +1,2 @@
-export * from "./ContactsContent";
+export * from "./Form";
+export * from "./Table";
