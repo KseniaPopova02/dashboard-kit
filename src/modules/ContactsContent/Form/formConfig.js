@@ -1,7 +1,6 @@
 import * as Yup from "yup";
 
 export const contactSchema = Yup.object().shape({
-  photo: Yup.mixed(),
   firstName: Yup.string()
     .matches(/^[A-Za-z ]*$/, "Please enter valid first name")
     .min(3)
@@ -13,7 +12,7 @@ export const contactSchema = Yup.object().shape({
   email: Yup.string()
     .email("Please input a valid email")
     .required("Email is required"),
-  address: Yup.string(),
+  address: Yup.string().required("Address is required"),
 });
 
 export const initialValues = (editMode, editContact) => {
