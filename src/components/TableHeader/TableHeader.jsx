@@ -23,6 +23,7 @@ export const TableHeader = ({
   setShowForm,
   handleDeleteAll,
   handleReset,
+  headerText,
 }) => (
   <StyledHeaderWrapper>
     <StyledBtnWrapper className="left">
@@ -55,7 +56,7 @@ export const TableHeader = ({
     <StyledBtnWrapper>
       <StyledBtnLeft onClick={() => setShowForm(true)}>
         <StyledPlusOutlined />
-        <StyledBtnText>Add contact</StyledBtnText>
+        <StyledBtnText>{headerText.addContact}</StyledBtnText>
       </StyledBtnLeft>
       <StyledBtnLeft onClick={handleDeleteAll}>
         <DeleteOutlined />

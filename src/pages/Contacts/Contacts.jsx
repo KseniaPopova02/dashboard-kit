@@ -146,6 +146,9 @@ export const Contacts = () => {
         setShowForm={setShowForm}
         handleDeleteAll={handleDeleteAll}
         handleReset={handleReset}
+        headerText={{
+          addContact: "Add contact",
+        }}
       />
       {showForm && (
         <Form
