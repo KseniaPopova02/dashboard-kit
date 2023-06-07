@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useField, ErrorMessage } from "formik";
+import { useField } from "formik";
 import { beforeUpload, handleFileChange } from "./helpers";
-import {
-  StyledUpload,
-  StyledPlusOutlined,
-  StyledUploadWrapper,
-  StyledAvatar,
-} from "./style";
+import { CustomPhotoInputRep } from "./CustomPhotoInputRep";
 
 export const CustomPhotoInput = ({
   label,
@@ -28,20 +23,12 @@ export const CustomPhotoInput = ({
   }, [editMode, editContact, isFileObject, value]);
 
   return (
-    <StyledUploadWrapper>
-      <StyledUpload
-        name={name}
-        listType="picture-card"
-        className="avatar-uploader"
-        showUploadList={false}
-        action={null}
-        beforeUpload={beforeUpload(helpers)}
-        onChange={handleFileChange(setSrc)}
-      >
-        {src ? <StyledAvatar src={src} alt="avatar" /> : <StyledPlusOutlined />}
-      </StyledUpload>
-      <div>{label}</div>
-      <ErrorMessage name="photo" component="div" />
-    </StyledUploadWrapper>
+    <CustomPhotoInputRep
+      name={name}
+      label={label}
+      src={src}
+      beforeUpload={beforeUpload(helpers)}
+      onChange={handleFileChange(setSrc)}
+    />
   );
 };
