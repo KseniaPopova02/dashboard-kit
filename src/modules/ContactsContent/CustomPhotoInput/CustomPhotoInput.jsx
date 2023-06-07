@@ -8,8 +8,13 @@ import {
   StyledAvatar,
 } from "./style";
 
-export const CustomPhotoInput = ({ label, editMode, editContact }) => {
-  const [field, , helpers] = useField("photo");
+export const CustomPhotoInput = ({
+  label,
+  editMode,
+  editContact,
+  ...props
+}) => {
+  const [field, , helpers] = useField(props);
   const { value, name } = field;
   const [src, setSrc] = useState(null);
   const isFileObject = value instanceof File || value instanceof Blob;

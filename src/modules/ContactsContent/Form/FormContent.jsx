@@ -64,13 +64,7 @@ export const FormContent = ({
               placeholder="address"
             />
             <Button type="submit">Save</Button>
-            <StyledBtn
-              type="button"
-              onClick={() => {
-                setShowContactsForm(false);
-                handleCancelEditModeClick();
-              }}
-            >
+            <StyledBtn type="button" onClick={handleCancel}>
               Cancel
             </StyledBtn>
           </StyledFormWrapper>
