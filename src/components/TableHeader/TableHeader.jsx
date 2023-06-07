@@ -12,18 +12,23 @@ import {
 import { ReactComponent as SortSvg } from "../../assets/svg/sort.svg";
 import { ReactComponent as FilterSvg } from "../../assets/svg/filter.svg";
 import { ReloadOutlined, DeleteOutlined } from "@ant-design/icons";
+import React, { useState } from "react";
 
 export const TableHeader = ({
   handleSort,
-  isInputActive,
   handleFilter,
   filterText,
   setShowContactsForm,
   handleDeleteAll,
-  handleReset,
   headerText,
-  setIsInputActive,
 }) => {
+  const [isInputActive, setIsInputActive] = useState(false);
+
+  const handleReset = () => {
+    handleFilter("");
+    setIsInputActive(false);
+  };
+
   const handleFilterInputClick = () => {
     setIsInputActive(true);
   };

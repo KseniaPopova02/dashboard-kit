@@ -12,7 +12,6 @@ export const Contacts = () => {
     editContact: null,
   });
   const [originalContacts, setOriginalContacts] = useState([]);
-  const [isInputActive, setIsInputActive] = useState(false);
   const [filterText, setFilterText] = useState("");
 
   useEffect(() => {
@@ -86,12 +85,6 @@ export const Contacts = () => {
     );
   }, [contacts]);
 
-  const handleReset = useCallback(() => {
-    setContacts(originalContacts);
-    setFilterText("");
-    setIsInputActive(false);
-  }, [originalContacts]);
-
   const handleFilter = useCallback(
     (filterText) => {
       setFilterText(filterText);
@@ -138,15 +131,12 @@ export const Contacts = () => {
     <StyledContactsWrapper>
       <TableHeader
         handleSort={handleSort}
-        isInputActive={isInputActive}
-        setIsInputActive={setIsInputActive}
         handleFilter={handleFilter}
         filterText={filterText}
         setShowContactsForm={(value) =>
           setFormState({ ...formState, showContactsForm: value })
         }
         handleDeleteAll={handleDeleteAll}
-        handleReset={handleReset}
         headerText={{
           addContact: "Add contact",
           filterContacts: "contacts by name",
