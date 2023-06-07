@@ -10,7 +10,6 @@ import { Form } from "formik";
 
 export const FormContent = ({
   setShowContactsForm,
-  onSubmit,
   editMode,
   handleCancelEditModeClick,
   editContact,
@@ -27,7 +26,7 @@ export const FormContent = ({
         closable={false}
         footer={null}
       >
-        <Form onSubmit={onSubmit}>
+        <Form>
           <StyledFormWrapper>
             <LogoTitle>
               {editMode ? "Edit contact" : "Add new contact"}

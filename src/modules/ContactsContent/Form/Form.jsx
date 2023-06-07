@@ -15,11 +15,10 @@ export const Form = ({
     validationSchema={contactSchema}
     onSubmit={handleAddContact}
   >
-    {({ handleSubmit }) => (
+    {() => (
       <FormContent
         setEditMode={setEditMode}
         editContact={editContact}
-        onSubmit={handleSubmit}
         setShowContactsForm={setShowContactsForm}
         editMode={editMode}
         handleCancelEditModeClick={handleCancelEditModeClick}
