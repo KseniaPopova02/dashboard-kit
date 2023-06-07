@@ -5,7 +5,8 @@ import {
   LogoTitle,
 } from "../../../components";
 import { CustomPhotoInput } from "../CustomPhotoInput";
-import { StyledForm, StyledBtn, StyledModal } from "./style";
+import { StyledBtn, StyledModal } from "./style";
+import { Form } from "formik";
 
 export const FormContent = ({
   setShowContactsForm,
@@ -26,7 +27,7 @@ export const FormContent = ({
         closable={false}
         footer={null}
       >
-        <StyledForm onSubmit={onSubmit}>
+        <Form onSubmit={onSubmit}>
           <StyledFormWrapper>
             <LogoTitle>
               {editMode ? "Edit contact" : "Add new contact"}
@@ -74,7 +75,7 @@ export const FormContent = ({
               Cancel
             </StyledBtn>
           </StyledFormWrapper>
-        </StyledForm>
+        </Form>
       </StyledModal>
     </>
   );

@@ -1,11 +1,5 @@
 import styled from "styled-components";
-import { Form } from "formik";
 import { Modal } from "antd";
-
-export const StyledForm = styled(Form)`
-  background-color: #fff;
-  padding: 32px;
-`;
 
 export const StyledBtn = styled.button`
   border: none;
@@ -24,9 +18,11 @@ export const StyledModal = styled(Modal).attrs({
   centered: true,
 })`
   .ant-modal-content {
+    background-color: #fff;
+    padding: 32px;
     box-shadow: none;
     width: 380px;
-    padding: 0;
     margin: 0 auto;
+    border-radius: 0;
   }
 `;
