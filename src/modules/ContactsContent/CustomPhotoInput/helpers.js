@@ -18,17 +18,17 @@ export const checkFileSize = (file) => {
   return true;
 };
 
-export const beforeUpload = (helpers) => (file) => {
+export const beforeUpload = () => (file) => {
   if (!checkFileType(file) || !checkFileSize(file)) {
     return false;
   }
-  helpers.setValue(file);
   return false;
 };
 
-export const handleFileChange = (setSrc) => (info) => {
+export const handleFileChange = (setSrc, helpers) => (info) => {
   const { file } = info;
   if (file && checkFileType(file) && checkFileSize(file)) {
     setSrc(URL.createObjectURL(file));
+    helpers.setValue(file);
   }
 };

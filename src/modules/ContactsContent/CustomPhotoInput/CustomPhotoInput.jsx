@@ -27,8 +27,8 @@ export const CustomPhotoInput = ({
       name={name}
       label={label}
       src={src}
-      beforeUpload={beforeUpload(helpers)}
-      onChange={handleFileChange(setSrc)}
+      beforeUpload={beforeUpload()}
+      onChange={handleFileChange(setSrc, helpers)}
     />
   );
 };
