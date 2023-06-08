@@ -6,7 +6,7 @@ import { Line } from "@ant-design/charts";
 import chartData from "../../../mockedData/todaysChart.json";
 
 export const Chart = () => {
-  const chartRef = useRef(null); // Создаем ref для доступа к графику
+  const chartRef = useRef(null);
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -15,9 +15,8 @@ export const Chart = () => {
 
   useEffect(() => {
     if (chartRef.current) {
-      // Привязываем обработчик события "element:click" к элементу графика
       chartRef.current.on("element:click", (ev) => {
-        const dataIndex = ev.data.index; // Получаем индекс кликнутой точки
+        const dataIndex = ev.data.index;
         console.log("Index:", dataIndex);
       });
     }
