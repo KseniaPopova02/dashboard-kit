@@ -21,7 +21,7 @@ export const FormContent = ({
   return (
     <>
       <StyledModal
-        visible={true}
+        open={true}
         onCancel={handleCancel}
         closable={false}
         footer={null}
