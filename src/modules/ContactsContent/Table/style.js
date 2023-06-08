@@ -5,11 +5,8 @@ export const StyledTableWrapper = styled.div`
   overflow-x: auto;
 `;
 
-export const StyledLastTdWrapper = styled.div`
-  display: flex;
-  gap: 30px;
-  justify-content: space-around;
-  max-width: 208px;
+export const StyledLastTd = styled.span`
+  margin-right: 30px;
 `;
 
 export const StyledNameWrapper = styled.div`

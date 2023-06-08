@@ -1,5 +1,5 @@
 import {
-  StyledLastTdWrapper,
+  StyledLastTd,
   StyledNameWrapper,
   StyledAvatar,
   StyledUserAvatar,
@@ -42,14 +42,14 @@ export const tableColumns = (handleDelete, handleEdit) => [
     key: "date",
 
     render: (_, record) => (
-      <StyledLastTdWrapper>
-        <span>{record.date}</span>
+      <>
+        <StyledLastTd>{record.date}</StyledLastTd>
         <DropDownMenu
           handleDelete={handleDelete}
           handleEdit={handleEdit}
           contactId={record.id}
         />
-      </StyledLastTdWrapper>
+      </>
     ),
   },
 ];
