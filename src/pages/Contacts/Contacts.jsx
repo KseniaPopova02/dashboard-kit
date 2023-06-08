@@ -1,7 +1,7 @@
 import { Form, Table } from "../../modules/ContactsContent";
 import { StyledContactsWrapper } from "./style";
 import { TableHeader } from "../../components";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { nanoid } from "nanoid";
 
 export const Contacts = () => {
@@ -11,20 +11,22 @@ export const Contacts = () => {
     editMode: false,
     editContact: null,
   });
-  const [originalContacts, setOriginalContacts] = useState([]);
   const [filterText, setFilterText] = useState("");
 
   useEffect(() => {
     const storedContacts = JSON.parse(localStorage.getItem("contacts"));
     if (storedContacts) {
       setContacts(storedContacts);
-      setOriginalContacts(storedContacts);
     }
   }, []);
 
   useEffect(() => {
     localStorage.setItem("contacts", JSON.stringify(contacts));
   }, [contacts]);
+
+  const originalContacts = useMemo(() => {
+    return JSON.parse(localStorage.getItem("contacts")) || [];
+  }, []);
 
   const handleAddContact = (values, { resetForm }) => {
     const newContact = {
@@ -54,16 +56,7 @@ export const Contacts = () => {
         )
       : [newContact, ...contacts];
 
-    const updatedOriginalContacts = formState.editMode
-      ? originalContacts.map((contact) =>
-          contact.id === formState.editContact.id
-            ? { ...newContact, date: contact.date }
-            : contact
-        )
-      : [newContact, ...originalContacts];
-
     setContacts(updatedContacts);
-    setOriginalContacts(updatedOriginalContacts);
     setFormState({
       ...formState,
       showContactsForm: false,
@@ -75,7 +68,6 @@ export const Contacts = () => {
 
   const handleDeleteAll = useCallback(() => {
     setContacts([]);
-    setOriginalContacts([]);
     localStorage.removeItem("contacts");
   }, []);
 
@@ -102,9 +94,6 @@ export const Contacts = () => {
 
   const handleDelete = (id) => {
     setContacts((prevContacts) =>
-      prevContacts.filter((contact) => contact.id !== id)
-    );
-    setOriginalContacts((prevContacts) =>
       prevContacts.filter((contact) => contact.id !== id)
     );
   };
