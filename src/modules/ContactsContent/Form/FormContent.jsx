@@ -3,8 +3,8 @@ import {
   Button,
   StyledFormWrapper,
   LogoTitle,
+  CustomPhotoInput,
 } from "../../../components";
-import { CustomPhotoInput } from "../CustomPhotoInput";
 import { StyledBtn, StyledModal } from "./style";
 import { Form } from "formik";
 

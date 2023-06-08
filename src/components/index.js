@@ -11,3 +11,4 @@ export * from "./FormWrapper";
 export * from "./CustomInput";
 export * from "./CustomPasswordInput";
 export * from "./TableHeader";
+export * from "./CustomPhotoInput";
