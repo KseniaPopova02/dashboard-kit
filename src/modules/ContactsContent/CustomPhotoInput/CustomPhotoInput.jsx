@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useField } from "formik";
 import { beforeUpload, handleFileChange } from "./helpers";
-import { CustomPhotoInputRep } from "./CustomPhotoInputRep";
+import { CustomPhotoInputRep } from "../../../components";
 
 export const CustomPhotoInput = ({
   label,

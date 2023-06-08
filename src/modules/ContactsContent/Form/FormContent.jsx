@@ -3,10 +3,10 @@ import {
   Button,
   StyledFormWrapper,
   LogoTitle,
-  CustomPhotoInput,
 } from "../../../components";
 import { StyledBtn, StyledModal } from "./style";
 import { Form } from "formik";
+import { CustomPhotoInput } from "../CustomPhotoInput";
 
 export const FormContent = ({
   setShowContactsForm,
