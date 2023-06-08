@@ -18,7 +18,7 @@ export const checkFileSize = (file) => {
   return true;
 };
 
-export const beforeUpload = () => (file) => {
+export const beforeUpload = (file) => {
   if (!checkFileType(file) || !checkFileSize(file)) {
     return false;
   }
