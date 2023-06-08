@@ -26,8 +26,10 @@ export const StyledToolsWrapper = styled.div`
 export const StyledSvgWrapper = styled.div`
   font-size: 16px;
   z-index: 100;
+
   &.search {
     cursor: pointer;
+
     @media (max-width: 650px) {
       display: none;
     }
@@ -45,16 +47,20 @@ const desktopStyles = css`
   padding: 8px 16px;
   border: 1px solid #d9d9d9;
   transition: width 0.3s ease-in-out, padding 0.3s ease-in-out;
+
   @media (max-width: 912px) {
     width: 200px;
   }
+
   @media (max-width: 871px) {
     width: 120px;
   }
+
   @media (max-width: 650px) {
     display: none;
   }
 `;
+
 const mobileStyles = css`
   width: 0px;
   border: none;
@@ -64,6 +70,7 @@ export const StyledInput = styled(Input)`
   position: absolute;
   right: 35px;
   ${({ isInputDisplayed }) => (isInputDisplayed ? desktopStyles : mobileStyles)}
+
   @media (max-width: 650px) {
     display: none;
   }
@@ -85,6 +92,7 @@ export const StyledName = styled.div`
   font-size: 14px;
   line-height: 20px;
   margin-right: 14px;
+
   @media (max-width: 480px) {
     display: none;
   }

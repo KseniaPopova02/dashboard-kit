@@ -11,6 +11,7 @@ export const ROUTES = {
   FORGOT: "/forgot",
   RESET: "/reset",
   SIGNUP: "/sign-up",
-  LANGUAGE: "/ru",
+  OVERVIEW_TICKETS_DETAILS: "/overview-tickets-details",
+  OVERVIEW_TASKS: "/overview-tasks",
   NOT_FOUND: "*",
 };

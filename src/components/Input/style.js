@@ -14,6 +14,7 @@ export const StyledInputAnt = styled(Input)`
       width: 100%;
       outline: none;
       margin-bottom: 5px;
+
       &:hover {
         border-color: #3751ff;
       }
