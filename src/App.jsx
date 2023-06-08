@@ -14,8 +14,10 @@ import {
   Articles,
   Settings,
   Subscription,
+  OverviewTicketsDetails,
+  OverviewTasksPage,
 } from "./pages";
-import { ROUTES } from "./Routes";
+import { ROUTES } from "./routes";
 import { AuthFormLayout, MainLayout } from "./modules";
 import { useState } from "react";
 
@@ -96,9 +98,14 @@ const App = () => {
             element={<Subscription />}
           />
           <Route
-            path={`${ROUTES.DASHBOARD}${ROUTES.NOT_FOUND}`}
-            element={<NotFound />}
+            path={`${ROUTES.DASHBOARD}${ROUTES.OVERVIEW_TICKETS_DETAILS}`}
+            element={<OverviewTicketsDetails />}
           />
+          <Route
+            path={`${ROUTES.DASHBOARD}${ROUTES.OVERVIEW_TASKS}`}
+            element={<OverviewTasksPage />}
+          />
+          <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
         </Route>
         <Route element={<AuthFormLayout loggedIn={loggedIn} />}>
           <Route index element={<LogIn updateLoggedIn={updateLoggedIn} />} />

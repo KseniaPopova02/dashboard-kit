@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet, Navigate } from "react-router-dom";
 import { StyledAuthFormLayoutWrapper } from "./style";
 import { StyledContainer } from "../../modules";
-import { ROUTES } from "../../Routes/routes";
+import { ROUTES } from "../../routes/routes";
 
 export const AuthFormLayout = ({ loggedIn }) => {
   if (loggedIn) {

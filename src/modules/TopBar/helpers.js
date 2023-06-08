@@ -1,4 +1,4 @@
-import { ROUTES } from "../../Routes/routes";
+import { ROUTES } from "../../routes/routes";
 
 const routeTitles = {
   [ROUTES.OVERVIEW]: "Overview",
@@ -9,6 +9,8 @@ const routeTitles = {
   [ROUTES.ARTICLES]: "Articles",
   [ROUTES.SETTINGS]: "Settings",
   [ROUTES.SUBSCRIPTION]: "Subscription",
+  [ROUTES.OVERVIEW_TICKETS_DETAILS]: "Tickets details",
+  [ROUTES.OVERVIEW_TASKS]: "Tasks to do",
 };
 
 export const getTitle = (pathname) => {
