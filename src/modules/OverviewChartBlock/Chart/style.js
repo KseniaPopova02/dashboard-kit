@@ -4,7 +4,10 @@ import { ReactComponent as CircleChart } from "../../../assets/svg/circleChart.s
 export const StyledLineWrapper = styled.div`
   height: 336px;
   width: 100%;
-  margin-top: -50px;
+  margin-top: -100px;
+  @media (max-width: 1170px) {
+    margin-top: -50px;
+  }
   @media (max-width: 650px) {
     margin-top: 30px;
   }
