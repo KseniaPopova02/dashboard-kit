@@ -6,7 +6,7 @@ export const currentUserReducer = (
 ) => {
   switch (action.type) {
     case "SET_CURRENT_USER":
-      return action.payload;
+      return [...state, action.payload];
     default:
       return state;
   }
