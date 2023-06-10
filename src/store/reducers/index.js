@@ -1,2 +1,1 @@
-export * from "./currentUserReducer";
-export * from "./loggedInReducer";
+export * from "./rootReducer";

@@ -19,36 +19,25 @@ import {
 } from "./pages";
 import { ROUTES } from "./routes";
 import { AuthFormLayout, MainLayout } from "./modules";
-import { useState } from "react";
 
-const useCustomLocalStorage = (key, initialValue) => {
-  const [value, setValue] = useState(() => {
-    const storedValue = localStorage.getItem(key);
-    return storedValue ? JSON.parse(storedValue) : initialValue;
-  });
-
-  const setStoredValue = (newValue) => {
-    setValue(newValue);
-    localStorage.setItem(key, JSON.stringify(newValue));
-  };
-  return [value, setStoredValue];
-};
+import { store, setCurrentUser, setLoggedIn } from "./store";
+import { useDispatch, useSelector } from "react-redux";
 
 const App = () => {
-  const [currentUser, setCurrentUser] = useCustomLocalStorage(
-    "currentUser",
-    null
-  );
-  const [loggedIn, setLoggedIn] = useCustomLocalStorage("loggedIn", false);
+  const dispatch = useDispatch();
+  const currentUser = useSelector((state) => state.currentUser);
+  const loggedIn = useSelector((state) => state.loggedIn);
+  console.log(currentUser);
+
   const handleLogout = () => {
     localStorage.removeItem("loggedIn");
-    setLoggedIn(false);
+    dispatch(setLoggedIn(false));
     <Navigate to="/" />;
   };
 
   const updateLoggedIn = (value, user) => {
-    setLoggedIn(value);
-    setCurrentUser(user);
+    dispatch(setLoggedIn(value));
+    dispatch(setCurrentUser(user));
   };
 
   return (
