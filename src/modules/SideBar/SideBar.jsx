@@ -17,15 +17,24 @@ import {
   StyledSidebarWrapper,
 } from "./style";
 import { menuItems } from "./menuItems";
+import { Navigate } from "react-router-dom";
 import { SearchOutlined } from "@ant-design/icons";
 import { LogoSvgLazy } from "../../assets/LogoSvgLazy";
+import { setLoggedIn } from "../../store";
+import { useDispatch } from "react-redux";
 
-export const SideBar = ({ handleLogout }) => {
+export const SideBar = () => {
+  const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const toggleSidebar = () => setIsOpen(!isOpen);
 
   const handleClickOutside = () => {
     setIsOpen(false);
+  };
+
+  const handleLogout = () => {
+    dispatch(setLoggedIn(false));
+    <Navigate to="/" />;
   };
 
   return (

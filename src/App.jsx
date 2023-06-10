@@ -1,5 +1,5 @@
 import { GlobalStyle } from "./styles/globalStyles";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
   Forgot,
   LogIn,
@@ -19,20 +19,11 @@ import {
 } from "./pages";
 import { ROUTES } from "./routes";
 import { AuthFormLayout, MainLayout } from "./modules";
-import { setCurrentUser, setLoggedIn } from "./store";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const App = () => {
-  const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.currentUser);
   const loggedIn = useSelector((state) => state.loggedIn);
-  console.log(currentUser);
-  console.log(loggedIn);
-
-  const handleLogout = () => {
-    dispatch(setLoggedIn(false));
-    <Navigate to="/" />;
-  };
 
   return (
     <BrowserRouter>
@@ -40,13 +31,7 @@ const App = () => {
       <Routes>
         <Route
           path={ROUTES.DASHBOARD}
-          element={
-            <MainLayout
-              currentUser={currentUser}
-              loggedIn={loggedIn}
-              handleLogout={handleLogout}
-            />
-          }
+          element={<MainLayout currentUser={currentUser} loggedIn={loggedIn} />}
         >
           <Route
             path={`${ROUTES.DASHBOARD}${ROUTES.OVERVIEW}`}

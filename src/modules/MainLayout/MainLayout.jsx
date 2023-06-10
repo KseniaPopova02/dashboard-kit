@@ -10,7 +10,7 @@ import { TopBar } from "../TopBar";
 import { SideBar } from "../SideBar";
 import { Outlet, Navigate } from "react-router-dom";
 
-export const MainLayout = ({ loggedIn, handleLogout }) => {
+export const MainLayout = ({ loggedIn }) => {
   if (!loggedIn) {
     return <Navigate to="/" />;
   } else {
@@ -21,7 +21,7 @@ export const MainLayout = ({ loggedIn, handleLogout }) => {
             <TopBar />
           </StyledTopbarWrapper>
           <StyledSidebarWrapper>
-            <SideBar handleLogout={handleLogout} />
+            <SideBar />
           </StyledSidebarWrapper>
           <StyledOutletWrapper>
             <Outlet />
