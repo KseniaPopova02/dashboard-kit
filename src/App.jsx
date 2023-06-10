@@ -34,11 +34,6 @@ const App = () => {
     <Navigate to="/" />;
   };
 
-  // const updateLoggedIn = (value, user) => {
-  //   dispatch(setLoggedIn(value));
-  //   dispatch(setCurrentUser(user));
-  // };
-
   return (
     <BrowserRouter>
       <GlobalStyle />
