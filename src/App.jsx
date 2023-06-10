@@ -19,8 +19,7 @@ import {
 } from "./pages";
 import { ROUTES } from "./routes";
 import { AuthFormLayout, MainLayout } from "./modules";
-
-import { store, setCurrentUser, setLoggedIn } from "./store";
+import { setCurrentUser, setLoggedIn } from "./store";
 import { useDispatch, useSelector } from "react-redux";
 
 const App = () => {
@@ -28,6 +27,7 @@ const App = () => {
   const currentUser = useSelector((state) => state.currentUser);
   const loggedIn = useSelector((state) => state.loggedIn);
   console.log(currentUser);
+  console.log(loggedIn);
 
   const handleLogout = () => {
     localStorage.removeItem("loggedIn");

@@ -6,11 +6,20 @@ import { useNavigate } from "react-router-dom";
 export const SignUpForm = ({ updateLoggedIn }) => {
   const navigate = useNavigate();
 
-  const onSubmit = async (values, actions) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    users.push(values);
-    localStorage.setItem("users", JSON.stringify(users));
+  // const onSubmit = async (values, actions) => {
+  //   await new Promise((resolve) => setTimeout(resolve, 1000));
+  //   const users = JSON.parse(localStorage.getItem("users")) || [];
+  //   users.push(values);
+  //   localStorage.setItem("users", JSON.stringify(users));
+  //   navigate("/dashboard/Overview");
+  //   updateLoggedIn(true, values);
+  //   actions.setSubmitting(false);
+  // };
+
+  const onSubmit = (values, actions) => {
+    // const users = JSON.parse(localStorage.getItem("users")) || [];
+    // users.push(values);
+    // localStorage.setItem("users", JSON.stringify(users));
     navigate("/dashboard/Overview");
     updateLoggedIn(true, values);
     actions.setSubmitting(false);
