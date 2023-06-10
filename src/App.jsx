@@ -34,10 +34,10 @@ const App = () => {
     <Navigate to="/" />;
   };
 
-  const updateLoggedIn = (value, user) => {
-    dispatch(setLoggedIn(value));
-    dispatch(setCurrentUser(user));
-  };
+  // const updateLoggedIn = (value, user) => {
+  //   dispatch(setLoggedIn(value));
+  //   dispatch(setCurrentUser(user));
+  // };
 
   return (
     <BrowserRouter>
@@ -96,13 +96,10 @@ const App = () => {
           <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
         </Route>
         <Route element={<AuthFormLayout loggedIn={loggedIn} />}>
-          <Route index element={<LogIn updateLoggedIn={updateLoggedIn} />} />
+          <Route index element={<LogIn />} />
           <Route path={ROUTES.FORGOT} element={<Forgot />} />
           <Route path={ROUTES.RESET} element={<Reset />} />
-          <Route
-            path={ROUTES.SIGNUP}
-            element={<SignUp updateLoggedIn={updateLoggedIn} />}
-          />
+          <Route path={ROUTES.SIGNUP} element={<SignUp />} />
           <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
         </Route>
       </Routes>

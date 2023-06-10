@@ -2,14 +2,13 @@ import { Formik } from "formik";
 import { validationSchema, initialValues } from "./formConfig";
 import { FormContent } from "./FormContent";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { addUserAsync } from "../../store";
+import { useDispatch } from "react-redux";
+import { setCurrentUser, setLoggedIn } from "../../store";
+import { sendDataToServer } from "./api";
 
-export const SignUpForm = ({ updateLoggedIn }) => {
+export const SignUpForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const userConsole = useSelector((state) => state.users);
-  console.log(userConsole);
 
   const onSubmit = (values, actions) => {
     const user = {
@@ -18,11 +17,16 @@ export const SignUpForm = ({ updateLoggedIn }) => {
       surname: values.surname,
       password: values.password,
     };
-    console.log("this is values:", values);
-    dispatch(addUserAsync(user));
-    updateLoggedIn(true, values);
-    navigate("/dashboard/Overview");
-    actions.setSubmitting(false);
+    sendDataToServer(user)
+      .then(() => {
+        dispatch(setCurrentUser(values));
+        dispatch(setLoggedIn(true));
+        navigate("/dashboard/Overview");
+      })
+      .catch((error) => console.log(error))
+      .finally(() => {
+        actions.setSubmitting(false);
+      });
   };
 
   return (
