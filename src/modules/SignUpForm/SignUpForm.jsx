@@ -5,11 +5,11 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUserAsync } from "../../store";
 
-export const SignUpForm = () => {
+export const SignUpForm = ({ updateLoggedIn }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.users);
-  console.log(user);
+  const userConsole = useSelector((state) => state.users);
+  console.log(userConsole);
 
   const onSubmit = (values, actions) => {
     const user = {
@@ -18,7 +18,9 @@ export const SignUpForm = () => {
       surname: values.surname,
       password: values.password,
     };
+    console.log("this is values:", values);
     dispatch(addUserAsync(user));
+    updateLoggedIn(true, values);
     navigate("/dashboard/Overview");
     actions.setSubmitting(false);
   };

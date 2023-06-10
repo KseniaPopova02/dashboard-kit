@@ -30,7 +30,6 @@ const App = () => {
   console.log(loggedIn);
 
   const handleLogout = () => {
-    localStorage.removeItem("loggedIn");
     dispatch(setLoggedIn(false));
     <Navigate to="/" />;
   };
