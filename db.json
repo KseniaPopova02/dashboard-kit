@@ -6,6 +6,13 @@
       "surname": "Popova",
       "password": "Qwerty12345",
       "id": 1
+    },
+    {
+      "email": "Olya@gmail",
+      "name": "Olya",
+      "surname": "Rakova",
+      "password": "Qwerty12345",
+      "id": 2
     }
   ]
 }

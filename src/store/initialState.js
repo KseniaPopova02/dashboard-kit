@@ -1,4 +1,4 @@
 export const initialState = {
-  currentUser: null,
-  loggedIn: false,
+  currentUser: localStorage.getItem("currentUser") || [],
+  loggedIn: localStorage.getItem("loggedIn") === "true",
 };
