@@ -4,14 +4,14 @@ import { FormContent } from "./FormContent";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setCurrentUser, setLoggedIn } from "../../store";
+import { Api, USERS } from "../../API";
 
 export const LogInForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const onSubmit = async (values, actions) => {
-    const response = await fetch("http://localhost:3001/users");
-    const users = await response.json();
+    const users = await Api.get(USERS);
 
     const user = users.find(
       (user) => user.email === values.email && user.password === values.password

@@ -1,2 +1,2 @@
 export * from "./API";
-export * from "./path";
+export * from "./paths";

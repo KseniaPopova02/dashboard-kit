@@ -13,6 +13,13 @@
       "surname": "Rakova",
       "password": "Qwerty12345",
       "id": 2
+    },
+    {
+      "email": "andrey@gmail",
+      "name": "Andrey",
+      "surname": "Lykyanov",
+      "password": "Qwerty12345",
+      "id": 3
     }
   ]
 }
