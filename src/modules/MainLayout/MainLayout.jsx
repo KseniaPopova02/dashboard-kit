@@ -9,8 +9,10 @@ import {
 import { TopBar } from "../TopBar";
 import { SideBar } from "../SideBar";
 import { Outlet, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-export const MainLayout = ({ loggedIn }) => {
+export const MainLayout = () => {
+  const loggedIn = useSelector((state) => state.loggedIn);
   if (!loggedIn) {
     return <Navigate to="/" />;
   } else {
