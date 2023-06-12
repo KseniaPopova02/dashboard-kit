@@ -44,25 +44,88 @@
     }
   ],
   "todays-chart-axis": [
-    { "x": 0, "y": 10, "category": "today" },
-    { "x": 1, "y": 22, "category": "today" },
-    { "x": 5, "y": 28, "category": "today" },
-    { "x": 8, "y": 50, "category": "today" },
-    { "x": 12, "y": 19, "category": "today" },
-    { "x": 17, "y": 39, "category": "today" },
-    { "x": 0, "y": 35, "category": "yesterday" },
-    { "x": 5, "y": 25, "category": "yesterday" },
-    { "x": 8, "y": 32, "category": "yesterday" },
-    { "x": 13, "y": 18, "category": "yesterday" },
-    { "x": 16, "y": 48, "category": "yesterday" },
-    { "x": 19, "y": 38, "category": "yesterday" }
+    {
+      "x": 0,
+      "y": 10,
+      "category": "today"
+    },
+    {
+      "x": 1,
+      "y": 22,
+      "category": "today"
+    },
+    {
+      "x": 5,
+      "y": 28,
+      "category": "today"
+    },
+    {
+      "x": 8,
+      "y": 50,
+      "category": "today"
+    },
+    {
+      "x": 12,
+      "y": 19,
+      "category": "today"
+    },
+    {
+      "x": 17,
+      "y": 39,
+      "category": "today"
+    },
+    {
+      "x": 0,
+      "y": 35,
+      "category": "yesterday"
+    },
+    {
+      "x": 5,
+      "y": 25,
+      "category": "yesterday"
+    },
+    {
+      "x": 8,
+      "y": 32,
+      "category": "yesterday"
+    },
+    {
+      "x": 13,
+      "y": 18,
+      "category": "yesterday"
+    },
+    {
+      "x": 16,
+      "y": 48,
+      "category": "yesterday"
+    },
+    {
+      "x": 19,
+      "y": 38,
+      "category": "yesterday"
+    }
   ],
   "todays-chart-info": [
-    { "label": "Resolved", "number": "449" },
-    { "label": "Received", "number": "426" },
-    { "label": "Average first response time", "number": "33" },
-    { "label": "Average response time", "number": "188" },
-    { "label": "Resolution within SLA", "number": "94" }
+    {
+      "label": "Resolved",
+      "number": "449"
+    },
+    {
+      "label": "Received",
+      "number": "426"
+    },
+    {
+      "label": "Average first response time",
+      "number": "33"
+    },
+    {
+      "label": "Average response time",
+      "number": "188"
+    },
+    {
+      "label": "Resolution within SLA",
+      "number": "94"
+    }
   ],
   "overview-tickets": [
     {
@@ -99,5 +162,6 @@
       "label": "onHold",
       "number": "64"
     }
-  ]
+  ],
+  "tasks": []
 }

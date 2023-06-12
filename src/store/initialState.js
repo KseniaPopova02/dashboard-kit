@@ -5,4 +5,5 @@ export const initialState = {
   chartInfo: [],
   tickets: [],
   overviewInfo: [],
+  tasksToShow: [],
 };

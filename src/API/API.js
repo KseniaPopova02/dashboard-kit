@@ -34,4 +34,12 @@ export class Api {
       body: JSON.stringify(body),
     });
   }
+  static delete(path) {
+    return Api.request(path, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
 }
