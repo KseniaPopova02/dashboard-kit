@@ -42,5 +42,20 @@
       "password": "Qwer12345",
       "id": 10
     }
+  ],
+  "todays-chart-axis": [
+    { "x": 0, "y": 10, "category": "today" },
+    { "x": 1, "y": 22, "category": "today" },
+    { "x": 5, "y": 28, "category": "today" },
+    { "x": 8, "y": 50, "category": "today" },
+    { "x": 12, "y": 19, "category": "today" },
+    { "x": 17, "y": 39, "category": "today" },
+
+    { "x": 0, "y": 35, "category": "yesterday" },
+    { "x": 5, "y": 25, "category": "yesterday" },
+    { "x": 8, "y": 32, "category": "yesterday" },
+    { "x": 13, "y": 18, "category": "yesterday" },
+    { "x": 16, "y": 48, "category": "yesterday" },
+    { "x": 19, "y": 38, "category": "yesterday" }
   ]
 }
