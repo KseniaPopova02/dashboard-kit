@@ -26,13 +26,7 @@ export const View = () => {
 
   useEffect(() => {
     dispatch(setTickets());
-  }, [dispatch]);
-
-  useEffect(() => {
     dispatch(setOverviewInfo());
-  }, [dispatch]);
-
-  useEffect(() => {
     dispatch(setChartInfo());
   }, [dispatch]);
 
