@@ -4,6 +4,7 @@ import { FormContent } from "./FormContent";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setCurrentUser, setLoggedIn } from "../../store";
+import { Api, USERS } from "../../API";
 
 export const SignUpForm = () => {
   const navigate = useNavigate();
@@ -16,8 +17,9 @@ export const SignUpForm = () => {
       surname: values.surname,
       password: values.password,
     };
-    dispatch(setCurrentUser(user))
+    Api.post(USERS, user)
       .then(() => {
+        dispatch(setCurrentUser(values));
         dispatch(setLoggedIn(true));
         navigate("/dashboard/Overview");
       })

@@ -21,13 +21,26 @@
       "password": "Qwerty12345",
       "id": 3
     },
-
     {
       "email": "nikita@gmail",
       "name": "Nikita",
       "surname": "Soloviyev",
       "password": "Qwerty12345",
       "id": 5
+    },
+    {
+      "email": "kkk@kkk",
+      "name": "Katya",
+      "surname": "Skorik",
+      "password": "Qwer12345",
+      "id": 9
+    },
+    {
+      "email": "kolya@gmail",
+      "name": "Kolya",
+      "surname": "Trinev",
+      "password": "Qwer12345",
+      "id": 10
     }
   ]
 }
