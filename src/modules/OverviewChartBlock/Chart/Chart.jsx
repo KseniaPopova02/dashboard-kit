@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { StyledLineWrapper, StyledChartWrapper } from "./style";
+import { StyledLineWrapper, StyledChartWrapper, StyledSpin } from "./style";
 import { Header } from "../Header";
 import { configChart } from "./config";
 import { Line } from "@ant-design/charts";
@@ -15,7 +15,7 @@ export const Chart = () => {
   }, [dispatch]);
 
   if (!data || data.length === 0) {
-    return <div>Loading...</div>;
+    return <StyledSpin size="large" />;
   }
 
   const config = {
