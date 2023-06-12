@@ -63,5 +63,23 @@
     { "label": "Average first response time", "number": "33" },
     { "label": "Average response time", "number": "188" },
     { "label": "Resolution within SLA", "number": "94" }
+  ],
+  "overview-tickets": [
+    {
+      "label": "Waiting on Feature Request",
+      "number": "4238"
+    },
+    {
+      "label": "Awaiting Customer Response",
+      "number": "1005"
+    },
+    {
+      "label": "Awaiting Developer Fix",
+      "number": "914"
+    },
+    {
+      "label": "Pending",
+      "number": "281"
+    }
   ]
 }

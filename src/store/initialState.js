@@ -3,4 +3,5 @@ export const initialState = {
   loggedIn: localStorage.getItem("loggedIn") || false,
   chartAxisData: [],
   chartInfo: [],
+  tickets: [],
 };

@@ -6,19 +6,19 @@ import {
   OverviewChartBlock,
 } from "../../modules";
 import { StyledWrapper } from "./style";
-import ticketsData from "../../mockedData/ticketsOverview.json";
 import overviewInfoData from "../../mockedData/infoOverview.json";
 import { useDispatch, useSelector } from "react-redux";
-import { setChartInfo } from "../../store";
+import { setChartInfo, setTickets } from "../../store";
 
 export const View = () => {
   const dispatch = useDispatch();
   const infoChart = useSelector((state) => state.chartInfo);
+  const tickets = useSelector((state) => state.tickets);
+
   const [tasksToShow, setTasksToShow] = useState(() => {
     const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
     return storedTasks;
   });
-  const [tickets, setTicket] = useState([]);
   const [overviewInfo, setOverviewInfo] = useState([]);
 
   useEffect(() => {
@@ -26,8 +26,8 @@ export const View = () => {
   }, [tasksToShow]);
 
   useEffect(() => {
-    setTicket(ticketsData);
-  }, []);
+    dispatch(setTickets());
+  }, [dispatch]);
 
   useEffect(() => {
     setOverviewInfo(overviewInfoData);
