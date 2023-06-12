@@ -8,16 +8,18 @@ import {
 import { StyledWrapper } from "./style";
 import ticketsData from "../../mockedData/ticketsOverview.json";
 import overviewInfoData from "../../mockedData/infoOverview.json";
-import infoChartData from "../../mockedData/todaysChartInfo.json";
+import { useDispatch, useSelector } from "react-redux";
+import { setChartInfo } from "../../store";
 
 export const View = () => {
+  const dispatch = useDispatch();
+  const infoChart = useSelector((state) => state.chartInfo);
   const [tasksToShow, setTasksToShow] = useState(() => {
     const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
     return storedTasks;
   });
   const [tickets, setTicket] = useState([]);
   const [overviewInfo, setOverviewInfo] = useState([]);
-  const [infoChart, setInfoChart] = useState([]);
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasksToShow));
@@ -32,8 +34,8 @@ export const View = () => {
   }, []);
 
   useEffect(() => {
-    setInfoChart(infoChartData[0].data);
-  }, []);
+    dispatch(setChartInfo());
+  }, [dispatch]);
 
   return (
     <>
