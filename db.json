@@ -81,5 +81,23 @@
       "label": "Pending",
       "number": "281"
     }
+  ],
+  "overview-info": [
+    {
+      "label": "unresolved",
+      "number": "56"
+    },
+    {
+      "label": "overdue",
+      "number": "16"
+    },
+    {
+      "label": "open",
+      "number": "43"
+    },
+    {
+      "label": "onHold",
+      "number": "64"
+    }
   ]
 }

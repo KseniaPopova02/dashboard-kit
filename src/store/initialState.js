@@ -4,4 +4,5 @@ export const initialState = {
   chartAxisData: [],
   chartInfo: [],
   tickets: [],
+  overviewInfo: [],
 };
