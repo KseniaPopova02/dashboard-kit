@@ -1,4 +1,4 @@
-import { useEffect, useCallback } from "react";
+import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { nanoid } from "nanoid";
 import {
@@ -8,23 +8,12 @@ import {
   updateTaskCheckbox,
   deleteAllTasks,
 } from "../../store";
-
+import { Api, TASKS } from "../../API";
 import { OverviewTaskRepresentation } from "./OverviewTaskRepresentation";
 
-export const OverviewTask = ({ showAllTasks = false }) => {
+export const OverviewTask = ({ showAllTasks = false, tasksToShow }) => {
   const dispatch = useDispatch();
-  const tasksToShow = useSelector((state) => state.tasks.tasksToShow);
-
-  useEffect(() => {
-    const storedTasks = JSON.parse(localStorage.getItem("tasks"));
-    if (storedTasks) {
-      dispatch(setTasksToShow(storedTasks));
-    }
-  }, [dispatch]);
-
-  useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasksToShow));
-  }, [tasksToShow]);
+  const tasks = useSelector((state) => state.tasks.tasksToShow);
 
   const onSubmit = useCallback(
     (values) => {
@@ -34,15 +23,16 @@ export const OverviewTask = ({ showAllTasks = false }) => {
         flags: values.flags,
         isChecked: false,
       };
-
-      dispatch(addTask(newTask));
+      Api.post(TASKS, newTask).then(() => {
+        dispatch(addTask(newTask));
+      });
     },
     [dispatch]
   );
 
   const handleShowAllTasks = useCallback(() => {
-    dispatch(setTasksToShow(tasksToShow));
-  }, [dispatch, tasksToShow]);
+    dispatch(setTasksToShow(tasks));
+  }, [dispatch, tasks]);
 
   const handleDeleteAllTasks = () => {
     dispatch(deleteAllTasks());

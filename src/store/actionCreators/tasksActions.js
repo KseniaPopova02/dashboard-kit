@@ -1,7 +1,18 @@
-export const setTasksToShow = (tasks) => ({
-  type: "SET_TASKS_TO_SHOW",
-  payload: tasks,
-});
+import { Api, OVERVIEW_INFO } from "../../API";
+
+export const setTasksToShow = () => {
+  return async (dispatch) => {
+    try {
+      const response = await Api.get(OVERVIEW_INFO);
+      dispatch({
+        type: "SET_OVERVIEW_INFO",
+        payload: response,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 
 export const addTask = (task) => ({
   type: "ADD_TASK",
