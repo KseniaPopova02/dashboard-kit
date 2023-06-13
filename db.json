@@ -163,54 +163,5 @@
       "number": "64"
     }
   ],
-  "tasks": [
-    {
-      "id": "bqIulqHKAXUUNYEVCZZuS",
-      "taskName": "df",
-      "flags": "default",
-      "isChecked": false
-    },
-    {
-      "id": "qd_NpZS32e61st0SdvgGs",
-      "taskName": "ап",
-      "flags": "default",
-      "isChecked": false
-    },
-    {
-      "id": "0Ad0GACC2ZTJFckKp5lEG",
-      "taskName": "ыв",
-      "flags": "default",
-      "isChecked": false
-    },
-    {
-      "id": "xaM-kxaWCNveIVqQixoHv",
-      "taskName": "ыв",
-      "flags": "default",
-      "isChecked": false
-    },
-    {
-      "id": "D-2A0DW2ng61zs3qk9RLf",
-      "taskName": "ввв",
-      "flags": "default",
-      "isChecked": false
-    },
-    {
-      "id": "16RaL-u9tIXz2_QVPm41G",
-      "taskName": "в",
-      "flags": "default",
-      "isChecked": false
-    },
-    {
-      "id": "qcc-5xC8m7rL0OcyUjMep",
-      "taskName": "в",
-      "flags": "default",
-      "isChecked": false
-    },
-    {
-      "id": "Y6uUAHKXVotHKEugefem2",
-      "taskName": "в",
-      "flags": "default",
-      "isChecked": false
-    }
-  ]
+  "tasks": []
 }
