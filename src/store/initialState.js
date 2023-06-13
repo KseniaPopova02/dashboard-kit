@@ -1,6 +1,6 @@
 export const initialState = {
   currentUser: localStorage.getItem("currentUser") || [],
-  loggedIn: localStorage.getItem("loggedIn") || false,
+  loggedIn: JSON.parse(localStorage.getItem("loggedIn")) || false,
   chartAxisData: [],
   chartInfo: [],
   tickets: [],
