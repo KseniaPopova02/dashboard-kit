@@ -13,7 +13,7 @@ import { useSelector } from "react-redux";
 
 export const MainLayout = () => {
   const loggedIn = useSelector((state) => state.loggedIn);
-  console.log(loggedIn);
+
   if (!loggedIn) {
     return <Navigate to="/" />;
   } else {

@@ -1,4 +1,4 @@
-import { useState, Suspense } from "react";
+import { Suspense } from "react";
 import {
   StyledText,
   StyledSidebar,
@@ -20,16 +20,15 @@ import { menuItems } from "./menuItems";
 import { Navigate } from "react-router-dom";
 import { SearchOutlined } from "@ant-design/icons";
 import { LogoSvgLazy } from "../../assets/LogoSvgLazy";
-import { setCurrentUser, setLoggedIn } from "../../store";
-import { useDispatch } from "react-redux";
+import { setCurrentUser, setLoggedIn, toggleSidebar } from "../../store";
+import { useSelector, useDispatch } from "react-redux";
 
 export const SideBar = () => {
   const dispatch = useDispatch();
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleSidebar = () => setIsOpen(!isOpen);
+  const isOpen = useSelector((state) => state.isOpen);
 
   const handleClickOutside = () => {
-    setIsOpen(false);
+    dispatch(toggleSidebar());
   };
 
   const handleLogout = () => {
@@ -53,7 +52,7 @@ export const SideBar = () => {
               </Suspense>
             </StyledLogoSvgWrapper>
             <StyledLogoText>DashBoard</StyledLogoText>
-            <StyledBarsOutlined onClick={toggleSidebar} />
+            <StyledBarsOutlined onClick={() => dispatch(toggleSidebar())} />
           </StyledTopWrapper>
 
           {menuItems.map((item) => {
@@ -75,7 +74,10 @@ export const SideBar = () => {
             <StyledText isOpen={isOpen}>Log out</StyledText>
           </StyledLogoutWrapper>
 
-          <StyledSearchBtn onClick={toggleSidebar} isOpen={isOpen} />
+          <StyledSearchBtn
+            onClick={() => dispatch(toggleSidebar())}
+            isOpen={isOpen}
+          />
           <StyledInputWrapper isOpen={isOpen}>
             <StyledSearch
               placeholder="Search"

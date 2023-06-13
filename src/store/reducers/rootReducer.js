@@ -6,6 +6,7 @@ import { chartInfoReducer } from "./chartInfoReducer";
 import { ticketsReducer } from "./ticketsReducer";
 import { overviewInfoReducer } from "./overviewInfoReducer";
 import { taskReducer } from "./taskReducer";
+import { sidebarReducer } from "./sidebarReducer";
 
 export const rootReducer = combineReducers({
   currentUser: currentUserReducer,
@@ -15,4 +16,5 @@ export const rootReducer = combineReducers({
   tickets: ticketsReducer,
   overviewInfo: overviewInfoReducer,
   tasks: taskReducer,
+  isOpen: sidebarReducer,
 });

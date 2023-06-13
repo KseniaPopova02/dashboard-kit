@@ -6,4 +6,5 @@ export const initialState = {
   tickets: [],
   overviewInfo: [],
   tasksToShow: [],
+  isOpen: false,
 };
