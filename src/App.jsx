@@ -1,5 +1,5 @@
 import { GlobalStyle } from "./styles/globalStyles";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
   Forgot,
   LogIn,
@@ -19,52 +19,15 @@ import {
 } from "./pages";
 import { ROUTES } from "./routes";
 import { AuthFormLayout, MainLayout } from "./modules";
-import { useState } from "react";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
-const useCustomLocalStorage = (key, initialValue) => {
-  const [value, setValue] = useState(() => {
-    const storedValue = localStorage.getItem(key);
-    return storedValue ? JSON.parse(storedValue) : initialValue;
-  });
-
-  const setStoredValue = (newValue) => {
-    setValue(newValue);
-    localStorage.setItem(key, JSON.stringify(newValue));
-  };
-  return [value, setStoredValue];
-};
-
-const App = () => {
-  const [currentUser, setCurrentUser] = useCustomLocalStorage(
-    "currentUser",
-    null
-  );
-  const [loggedIn, setLoggedIn] = useCustomLocalStorage("loggedIn", false);
-  const handleLogout = () => {
-    localStorage.removeItem("loggedIn");
-    setLoggedIn(false);
-    <Navigate to="/" />;
-  };
-
-  const updateLoggedIn = (value, user) => {
-    setLoggedIn(value);
-    setCurrentUser(user);
-  };
-
-  return (
+const App = () => (
+  <Provider store={store}>
     <BrowserRouter>
       <GlobalStyle />
       <Routes>
-        <Route
-          path={ROUTES.DASHBOARD}
-          element={
-            <MainLayout
-              currentUser={currentUser}
-              loggedIn={loggedIn}
-              handleLogout={handleLogout}
-            />
-          }
-        >
+        <Route path={ROUTES.DASHBOARD} element={<MainLayout />}>
           <Route
             path={`${ROUTES.DASHBOARD}${ROUTES.OVERVIEW}`}
             element={<View />}
@@ -107,19 +70,16 @@ const App = () => {
           />
           <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
         </Route>
-        <Route element={<AuthFormLayout loggedIn={loggedIn} />}>
-          <Route index element={<LogIn updateLoggedIn={updateLoggedIn} />} />
+        <Route element={<AuthFormLayout />}>
+          <Route index element={<LogIn />} />
           <Route path={ROUTES.FORGOT} element={<Forgot />} />
           <Route path={ROUTES.RESET} element={<Reset />} />
-          <Route
-            path={ROUTES.SIGNUP}
-            element={<SignUp updateLoggedIn={updateLoggedIn} />}
-          />
+          <Route path={ROUTES.SIGNUP} element={<SignUp />} />
           <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
-  );
-};
+  </Provider>
+);
 
 export default App;

@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { OverviewTask } from "../../modules";
+import { setTasksToShow } from "../../store";
+import { useDispatch, useSelector } from "react-redux";
 
 export const OverviewTasksPage = () => {
-  const [tasksToShow, setTasksToShow] = useState(() => {
-    const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    return storedTasks;
-  });
+  const dispatch = useDispatch();
+  const tasksToShow = useSelector((state) => state.tasks.tasksToShow);
 
   useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasksToShow));
-  }, [tasksToShow]);
+    dispatch(setTasksToShow());
+  }, [dispatch]);
 
   return (
     <div>

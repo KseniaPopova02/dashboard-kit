@@ -1,26 +1,22 @@
-import React, { useState, useEffect, useRef } from "react";
-import { StyledLineWrapper, StyledChartWrapper } from "./style";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { StyledLineWrapper, StyledChartWrapper, StyledSpin } from "./style";
 import { Header } from "../Header";
 import { configChart } from "./config";
 import { Line } from "@ant-design/charts";
-import chartData from "../../../mockedData/todaysChart.json";
+import { setChartAxisData } from "../../../store";
 
 export const Chart = () => {
-  const chartRef = useRef(null);
-  const [data, setData] = useState([]);
+  const dispatch = useDispatch();
+  const data = useSelector((state) => state.chartAxisData);
 
   useEffect(() => {
-    setData(chartData);
-  }, []);
+    dispatch(setChartAxisData());
+  }, [dispatch]);
 
-  useEffect(() => {
-    if (chartRef.current) {
-      chartRef.current.on("element:click", (ev) => {
-        const dataIndex = ev.data.index;
-        console.log("Index:", dataIndex);
-      });
-    }
-  }, [chartRef]);
+  if (!data || data.length === 0) {
+    return <StyledSpin size="large" />;
+  }
 
   const config = {
     data,
@@ -31,8 +27,7 @@ export const Chart = () => {
     <StyledChartWrapper>
       <Header />
       <StyledLineWrapper>
-        {/* Передаем ref объекту графика */}
-        <Line {...config} chartRef={chartRef} />
+        <Line {...config} />
       </StyledLineWrapper>
     </StyledChartWrapper>
   );

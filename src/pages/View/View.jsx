@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import {
   OverviewInfo,
   OverviewTickets,
@@ -6,34 +6,27 @@ import {
   OverviewChartBlock,
 } from "../../modules";
 import { StyledWrapper } from "./style";
-import ticketsData from "../../mockedData/ticketsOverview.json";
-import overviewInfoData from "../../mockedData/infoOverview.json";
-import infoChartData from "../../mockedData/todaysChartInfo.json";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setChartInfo,
+  setTickets,
+  setOverviewInfo,
+  setTasksToShow,
+} from "../../store";
 
 export const View = () => {
-  const [tasksToShow, setTasksToShow] = useState(() => {
-    const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    return storedTasks;
-  });
-  const [tickets, setTicket] = useState([]);
-  const [overviewInfo, setOverviewInfo] = useState([]);
-  const [infoChart, setInfoChart] = useState([]);
+  const dispatch = useDispatch();
+  const infoChart = useSelector((state) => state.chartInfo);
+  const tickets = useSelector((state) => state.tickets);
+  const overviewInfo = useSelector((state) => state.overviewInfo);
+  const tasksToShow = useSelector((state) => state.tasks.tasksToShow);
 
   useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasksToShow));
-  }, [tasksToShow]);
-
-  useEffect(() => {
-    setTicket(ticketsData);
-  }, []);
-
-  useEffect(() => {
-    setOverviewInfo(overviewInfoData);
-  }, []);
-
-  useEffect(() => {
-    setInfoChart(infoChartData[0].data);
-  }, []);
+    dispatch(setTickets());
+    dispatch(setOverviewInfo());
+    dispatch(setChartInfo());
+    dispatch(setTasksToShow());
+  }, [dispatch]);
 
   return (
     <>

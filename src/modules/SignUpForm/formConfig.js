@@ -13,12 +13,17 @@ export const validationSchema = Yup.object().shape({
       "unique-email",
       "Email is already registered",
       async function (value) {
-        const users = JSON.parse(localStorage.getItem("users")) || [];
-        const existingUser = users.find((user) => user.email === value);
-        if (existingUser) {
-          return false;
+        try {
+          const response = await fetch("http://localhost:3001/users");
+          const users = await response.json();
+          const existingUser = users.find((user) => user.email === value);
+          if (existingUser) {
+            return false;
+          }
+          return true;
+        } catch (error) {
+          console.log(error);
         }
-        return true;
       }
     )
     .required("Email is required"),

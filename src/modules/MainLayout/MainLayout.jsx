@@ -9,8 +9,11 @@ import {
 import { TopBar } from "../TopBar";
 import { SideBar } from "../SideBar";
 import { Outlet, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-export const MainLayout = ({ loggedIn, handleLogout }) => {
+export const MainLayout = () => {
+  const loggedIn = useSelector((state) => state.loggedIn);
+
   if (!loggedIn) {
     return <Navigate to="/" />;
   } else {
@@ -21,7 +24,7 @@ export const MainLayout = ({ loggedIn, handleLogout }) => {
             <TopBar />
           </StyledTopbarWrapper>
           <StyledSidebarWrapper>
-            <SideBar handleLogout={handleLogout} />
+            <SideBar />
           </StyledSidebarWrapper>
           <StyledOutletWrapper>
             <Outlet />
