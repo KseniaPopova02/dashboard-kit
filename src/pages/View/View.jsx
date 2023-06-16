@@ -12,12 +12,11 @@ import { fetchInfoData } from "./redux";
 
 export const View = () => {
   const dispatch = useDispatch();
-  const infoChart = useSelector((state) => state.chartInfo.chartInfo);
+  const infoChart = useSelector((state) => state.chartInfo);
   const tickets = useSelector((state) => state.tickets);
   const overviewInfo = useSelector((state) => state.overviewInfo);
   const tasksToShow = useSelector((state) => state.tasks.tasksToShow);
 
-  console.log(infoChart);
   useEffect(() => {
     dispatch(setTickets());
     dispatch(setOverviewInfo());
