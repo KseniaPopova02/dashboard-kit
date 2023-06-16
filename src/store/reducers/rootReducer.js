@@ -4,7 +4,7 @@ import { loggedInReducer } from "./loggedInReducer";
 import { chartAxisReducer } from "./chartAxisReducer";
 import { chartInfoReducer } from "../../modules/OverviewChartBlock/Info/redux";
 import { ticketsReducer } from "./ticketsReducer";
-import { overviewInfoReducer } from "./overviewInfoReducer";
+import { overviewInfoReducer } from "../../modules/OverviewInfo/redux";
 import { taskReducer } from "./taskReducer";
 import { sidebarReducer } from "./sidebarReducer";
 
