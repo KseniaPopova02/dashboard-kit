@@ -1,1 +1,1 @@
-export * from "./infoThunk";
+export * from "./overviewInfoThunk";

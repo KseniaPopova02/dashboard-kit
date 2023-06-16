@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setTickets, setTasksToShow } from "../../store";
 import { fetchInfoData } from "../../modules/OverviewChartBlock/Info/redux";
 import { fetchOverviewInfo } from "../../modules/OverviewInfo/redux";
+import { fetchOverviewTickets } from "../../modules/OverviewTickets/redux";
 
 export const View = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ export const View = () => {
   const tasksToShow = useSelector((state) => state.tasks.tasksToShow);
 
   useEffect(() => {
-    dispatch(setTickets());
+    dispatch(fetchOverviewTickets());
     dispatch(fetchOverviewInfo());
     dispatch(fetchInfoData());
     dispatch(setTasksToShow());
