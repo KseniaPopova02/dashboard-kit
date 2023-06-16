@@ -1,4 +1,4 @@
-import { actionTypes } from "./actionsTypes";
+import { actionTypes } from "../actionTypes";
 
 export const setChartInfo = (payload) => {
   return {

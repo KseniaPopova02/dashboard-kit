@@ -1,4 +1,4 @@
-import { actionTypes } from "./actionsTypes";
+import { actionTypes } from "../actionTypes";
 
 const initialState = {
   chartInfo: [],
