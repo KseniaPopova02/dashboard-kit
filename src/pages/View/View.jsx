@@ -8,7 +8,7 @@ import {
 import { StyledWrapper } from "./style";
 import { useDispatch, useSelector } from "react-redux";
 import { setTickets, setOverviewInfo, setTasksToShow } from "../../store";
-import { fetchInfoData } from "./redux";
+import { fetchInfoData } from "../../modules/OverviewChartBlock/Info/redux";
 
 export const View = () => {
   const dispatch = useDispatch();
