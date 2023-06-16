@@ -1,5 +1,5 @@
 import { Api, OVERVIEW_INFO } from "../../../../API";
-import { setOverviewInfo } from "../actions";
+import { setOverviewInfo } from "../actionCreators";
 
 export const fetchOverviewInfo = () => {
   return async (dispatch) => {

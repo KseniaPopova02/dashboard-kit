@@ -1,5 +1,5 @@
 import { Api, CHART_INFO } from "../../../../../API";
-import { setChartInfo } from "../actions";
+import { setChartInfo } from "../actionCreators";
 
 export const fetchInfoData = () => {
   return async (dispatch) => {
