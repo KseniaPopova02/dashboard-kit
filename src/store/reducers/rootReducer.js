@@ -2,7 +2,8 @@ import { combineReducers } from "redux";
 import { currentUserReducer } from "./currentUserReducer";
 import { loggedInReducer } from "./loggedInReducer";
 import { chartAxisReducer } from "./chartAxisReducer";
-import { chartInfoReducer } from "./chartInfoReducer";
+// import { chartInfoReducer } from "./chartInfoReducer";
+import { chartInfoReducer } from "../../pages/View/redux";
 import { ticketsReducer } from "./ticketsReducer";
 import { overviewInfoReducer } from "./overviewInfoReducer";
 import { taskReducer } from "./taskReducer";
@@ -13,6 +14,7 @@ export const rootReducer = combineReducers({
   loggedIn: loggedInReducer,
   chartAxisData: chartAxisReducer,
   chartInfo: chartInfoReducer,
+  // chartInfo: chartInfoReducer,
   tickets: ticketsReducer,
   overviewInfo: overviewInfoReducer,
   tasks: taskReducer,
