@@ -1,2 +1,2 @@
 export * from "./reducers";
-export * from "./thunk";
+export * from "./thunks";
