@@ -11,6 +11,7 @@ import { setTickets, setTasksToShow } from "../../store";
 import { fetchInfoData } from "../../modules/OverviewChartBlock/Info/redux";
 import { fetchOverviewInfo } from "../../modules/OverviewInfo/redux";
 import { fetchOverviewTickets } from "../../modules/OverviewTickets/redux";
+import { fetchChartAxis } from "../../modules/OverviewChartBlock/Chart/redux";
 
 export const View = () => {
   const dispatch = useDispatch();
@@ -18,18 +19,22 @@ export const View = () => {
   const tickets = useSelector((state) => state.tickets);
   const overviewInfo = useSelector((state) => state.overviewInfo);
   const tasksToShow = useSelector((state) => state.tasks.tasksToShow);
+  const axis = useSelector((state) => state.axis);
+
+  console.log(axis);
 
   useEffect(() => {
     dispatch(fetchOverviewTickets());
     dispatch(fetchOverviewInfo());
     dispatch(fetchInfoData());
+    dispatch(fetchChartAxis());
     dispatch(setTasksToShow());
   }, [dispatch]);
 
   return (
     <>
       <OverviewInfo overviewInfo={overviewInfo} />
-      <OverviewChartBlock infoChart={infoChart} />
+      <OverviewChartBlock axis={axis} infoChart={infoChart} />
       <StyledWrapper>
         <OverviewTickets tickets={tickets} />
         <OverviewTask
