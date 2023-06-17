@@ -1,8 +1,10 @@
 import { actionTypes } from "../actionTypes";
 
+const { SET_OVERVIEW_INFO } = actionTypes;
+
 export const setOverviewInfo = (payload) => {
   return {
-    type: actionTypes.SET_OVERVIEW_INFO,
+    type: SET_OVERVIEW_INFO,
     payload,
   };
 };

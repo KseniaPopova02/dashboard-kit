@@ -1,8 +1,10 @@
 import { actionTypes } from "../actionTypes";
 
+const { SET_TICKETS_DATA } = actionTypes;
+
 export const setOverviewTickets = (payload) => {
   return {
-    type: actionTypes.SET_TICKETS_DATA,
+    type: SET_TICKETS_DATA,
     payload,
   };
 };

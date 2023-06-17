@@ -1,8 +1,10 @@
 import { actionTypes } from "../actionTypes";
 
+const { SET_CHART_INFO } = actionTypes;
+
 export const setChartInfo = (payload) => {
   return {
-    type: actionTypes.SET_CHART_INFO,
+    type: SET_CHART_INFO,
     payload,
   };
 };
