@@ -7,7 +7,7 @@ import {
 } from "../../modules";
 import { StyledWrapper } from "./style";
 import { useDispatch, useSelector } from "react-redux";
-import { setTickets, setTasksToShow } from "../../store";
+import { setTasksToShow } from "../../store";
 import { fetchInfoData } from "../../modules/OverviewChartBlock/Info/redux";
 import { fetchOverviewInfo } from "../../modules/OverviewInfo/redux";
 import { fetchOverviewTickets } from "../../modules/OverviewTickets/redux";
@@ -20,8 +20,6 @@ export const View = () => {
   const overviewInfo = useSelector((state) => state.overviewInfo);
   const tasksToShow = useSelector((state) => state.tasks.tasksToShow);
   const axis = useSelector((state) => state.axis);
-
-  console.log(axis);
 
   useEffect(() => {
     dispatch(fetchOverviewTickets());
