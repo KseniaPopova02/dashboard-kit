@@ -8,9 +8,26 @@ const {
   DELETE_ALL_TASKS,
 } = actionTypes;
 
-export const setTasks = (payload) => {
-  return {
-    type: SET_TASKS,
-    payload,
-  };
-};
+export const setTasks = (payload) => ({
+  type: SET_TASKS,
+  payload,
+});
+
+export const setTaskToAdd = (task) => ({
+  type: ADD_TASK,
+  payload: task,
+});
+
+export const setTaskToDelete = (id) => ({
+  type: DELETE_TASK,
+  payload: id,
+});
+
+export const updateTaskCheckbox = (id) => ({
+  type: UPDATE_TASK_CHECKBOX,
+  payload: id,
+});
+
+export const setAllTasksToDelete = () => ({
+  type: DELETE_ALL_TASKS,
+});

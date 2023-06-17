@@ -5,7 +5,7 @@ import { chartAxisReducer } from "../../modules/OverviewChartBlock/Chart/redux";
 import { chartInfoReducer } from "../../modules/OverviewChartBlock/Info/redux";
 import { overviewTicketsReducer } from "../../modules/OverviewTickets/redux";
 import { overviewInfoReducer } from "../../modules/OverviewInfo/redux";
-import { taskReducer } from "./taskReducer";
+import { tasksReducer } from "../../modules/OverviewTask/redux";
 import { sidebarReducer } from "./sidebarReducer";
 
 export const rootReducer = combineReducers({
@@ -15,6 +15,6 @@ export const rootReducer = combineReducers({
   chartInfo: chartInfoReducer,
   tickets: overviewTicketsReducer,
   overviewInfo: overviewInfoReducer,
-  tasks: taskReducer,
+  tasks: tasksReducer,
   isOpen: sidebarReducer,
 });

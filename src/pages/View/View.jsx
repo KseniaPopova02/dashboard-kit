@@ -7,7 +7,7 @@ import {
 } from "../../modules";
 import { StyledWrapper } from "./style";
 import { useDispatch, useSelector } from "react-redux";
-import { setTasksToShow } from "../../store";
+import { fetchTasks } from "../../modules/OverviewTask/redux";
 import { fetchInfoChartData } from "../../modules/OverviewChartBlock/Info/redux";
 import { fetchOverviewInfo } from "../../modules/OverviewInfo/redux";
 import { fetchOverviewTickets } from "../../modules/OverviewTickets/redux";
@@ -18,7 +18,7 @@ export const View = () => {
   const infoChart = useSelector((state) => state.chartInfo);
   const tickets = useSelector((state) => state.tickets);
   const overviewInfo = useSelector((state) => state.overviewInfo);
-  const tasksToShow = useSelector((state) => state.tasks.tasksToShow);
+  const tasks = useSelector((state) => state.tasks);
   const axis = useSelector((state) => state.axis);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export const View = () => {
     dispatch(fetchOverviewInfo());
     dispatch(fetchInfoChartData());
     dispatch(fetchChartAxis());
-    dispatch(setTasksToShow());
+    dispatch(fetchTasks());
   }, [dispatch]);
 
   return (
@@ -35,10 +35,7 @@ export const View = () => {
       <OverviewChartBlock axis={axis} infoChart={infoChart} />
       <StyledWrapper>
         <OverviewTickets tickets={tickets} />
-        <OverviewTask
-          tasksToShow={tasksToShow.slice(0, 3)}
-          setTasksToShow={setTasksToShow}
-        />
+        <OverviewTask tasks={tasks.slice(0, 3)} />
       </StyledWrapper>
     </>
   );

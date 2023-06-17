@@ -1,19 +1,18 @@
 import { useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { nanoid } from "nanoid";
-import {
-  setTasksToShow,
-  addTask,
-  deleteTask,
-  updateTaskCheckbox,
-  deleteAllTasks,
-} from "../../store";
 import { Api, TASKS } from "../../API";
+import {
+  fetchTasks,
+  setTaskToAdd,
+  deleteTask,
+  deleteAllTasks,
+  updateTaskCheckbox,
+} from "./redux";
 import { OverviewTaskRepresentation } from "./OverviewTaskRepresentation";
 
-export const OverviewTask = ({ showAllTasks = false, tasksToShow }) => {
+export const OverviewTask = ({ showAllTasks = false, tasks }) => {
   const dispatch = useDispatch();
-  const tasks = useSelector((state) => state.tasks.tasksToShow);
 
   const onSubmit = useCallback(
     (values) => {
@@ -24,19 +23,18 @@ export const OverviewTask = ({ showAllTasks = false, tasksToShow }) => {
         isChecked: false,
       };
       Api.post(TASKS, newTask).then(() => {
-        dispatch(addTask(newTask));
+        dispatch(setTaskToAdd(newTask));
       });
     },
     [dispatch]
   );
 
   const handleShowAllTasks = useCallback(() => {
-    dispatch(setTasksToShow(tasks));
-  }, [dispatch, tasks]);
+    dispatch(fetchTasks());
+  }, [dispatch]);
 
   const handleDeleteAllTasks = () => {
     dispatch(deleteAllTasks());
-    localStorage.removeItem("tasks");
   };
 
   const handleDeleteTask = (taskId) => {
@@ -52,7 +50,7 @@ export const OverviewTask = ({ showAllTasks = false, tasksToShow }) => {
 
   return (
     <OverviewTaskRepresentation
-      tasks={tasksToShow}
+      tasks={tasks}
       showAllTasks={showAllTasks}
       onSubmit={onSubmit}
       handleShowAllTasks={handleShowAllTasks}
