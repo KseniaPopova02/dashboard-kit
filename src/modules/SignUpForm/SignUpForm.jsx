@@ -3,7 +3,8 @@ import { validationSchema, initialValues } from "./formConfig";
 import { FormContent } from "./FormContent";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setCurrentUser, setLoggedIn } from "../../store";
+import { setLoggedIn } from "../../store";
+import { setCurrentUser } from "./redux";
 import { Api, USERS } from "../../API";
 
 export const SignUpForm = () => {

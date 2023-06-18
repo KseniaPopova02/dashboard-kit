@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { currentUserReducer } from "./currentUserReducer";
+import { currentUserReducer } from "../../modules/SignUpForm/redux";
 import { loggedInReducer } from "./loggedInReducer";
 import { chartAxisReducer } from "../../modules/OverviewChartBlock/Chart/redux";
 import { chartInfoReducer } from "../../modules/OverviewChartBlock/Info/redux";
