@@ -1,9 +1,4 @@
 export const initialState = {
-  currentUser: localStorage.getItem("currentUser") || [],
+  currentUser: null,
   loggedIn: JSON.parse(localStorage.getItem("loggedIn")) || false,
-  chartAxisData: [],
-  tickets: [],
-  overviewInfo: [],
-  tasksToShow: [],
-  isOpen: false,
 };
