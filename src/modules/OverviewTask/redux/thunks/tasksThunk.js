@@ -19,8 +19,8 @@ export const fetchTasks = () => {
 export const deleteTask = (id) => {
   return async (dispatch) => {
     try {
-      const response = await Api.delete(`${TASKS}/${id}`);
-      dispatch(setTaskToDelete(response));
+      await Api.delete(`${TASKS}/${id}`);
+      dispatch(setTaskToDelete(id));
     } catch (error) {
       console.log(error);
     }

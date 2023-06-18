@@ -1,24 +1,20 @@
 import React, { useEffect } from "react";
 import { OverviewTask } from "../../modules";
-import { setTasksToShow } from "../../store";
+import { fetchTasks } from "../../modules/OverviewTask/redux";
 import { useDispatch, useSelector } from "react-redux";
 
 export const OverviewTasksPage = () => {
   const dispatch = useDispatch();
-  const tasksToShow = useSelector((state) => state.tasks.tasksToShow);
+  const tasks = useSelector((state) => state.tasks);
 
   useEffect(() => {
-    dispatch(setTasksToShow());
+    dispatch(fetchTasks());
   }, [dispatch]);
 
   return (
     <div>
       <h1>Tasks</h1>
-      <OverviewTask
-        tasksToShow={tasksToShow}
-        setTasksToShow={setTasksToShow}
-        showAllTasks
-      />
+      <OverviewTask tasks={tasks} showAllTasks />
     </div>
   );
 };
