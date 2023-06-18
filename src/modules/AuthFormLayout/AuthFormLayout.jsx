@@ -6,9 +6,9 @@ import { ROUTES } from "../../routes";
 import { useSelector } from "react-redux";
 
 export const AuthFormLayout = () => {
-  const loggedIn = useSelector((state) => state.loggedIn);
+  const currentUser = useSelector((state) => state.currentUser);
 
-  if (loggedIn) {
+  if (currentUser) {
     return <Navigate to={`${ROUTES.DASHBOARD}${ROUTES.OVERVIEW}`} />;
   } else {
     return (

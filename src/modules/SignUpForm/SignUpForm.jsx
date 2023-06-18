@@ -20,7 +20,7 @@ export const SignUpForm = () => {
     };
     Api.post(USERS, user)
       .then(() => {
-        dispatch(setCurrentUser(values));
+        dispatch(setCurrentUser(user));
         dispatch(setLoggedIn(true));
         navigate("/dashboard/Overview");
       })

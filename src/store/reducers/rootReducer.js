@@ -1,6 +1,5 @@
 import { combineReducers } from "redux";
 import { currentUserReducer } from "../../modules/SignUpForm/redux";
-import { loggedInReducer } from "./loggedInReducer";
 import { chartAxisReducer } from "../../modules/OverviewChartBlock/Chart/redux";
 import { chartInfoReducer } from "../../modules/OverviewChartBlock/Info/redux";
 import { overviewTicketsReducer } from "../../modules/OverviewTickets/redux";
@@ -10,7 +9,6 @@ import { sidebarReducer } from "../../modules/SideBar/redux";
 
 export const rootReducer = combineReducers({
   currentUser: currentUserReducer,
-  loggedIn: loggedInReducer,
   axis: chartAxisReducer,
   chartInfo: chartInfoReducer,
   tickets: overviewTicketsReducer,

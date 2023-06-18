@@ -20,9 +20,10 @@ import { menuItems } from "./menuItems";
 import { Navigate } from "react-router-dom";
 import { SearchOutlined } from "@ant-design/icons";
 import { LogoSvgLazy } from "../../assets/LogoSvgLazy";
-import { setCurrentUser, setLoggedIn } from "../../store";
+import { setLoggedIn } from "../../store";
 import { toggleSidebar } from "./redux";
 import { useSelector, useDispatch } from "react-redux";
+import { setCurrentUser } from "../SignUpForm/redux";
 
 export const SideBar = () => {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ export const SideBar = () => {
 
   const handleLogout = () => {
     dispatch(setLoggedIn(false));
-    dispatch(setCurrentUser([]));
+    dispatch(setCurrentUser(null));
     <Navigate to="/" />;
   };
 

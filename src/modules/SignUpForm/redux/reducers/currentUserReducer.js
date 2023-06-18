@@ -1,6 +1,7 @@
 import { actionTypes } from "../actionTypes";
 
 const { SET_CURRENT_USER } = actionTypes;
+
 const initialState = {
   currentUser: null,
 };
