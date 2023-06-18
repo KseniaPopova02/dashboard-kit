@@ -1,5 +1,7 @@
 import { actionTypes } from "../actionTypes";
 
+const { SET_OVERVIEW_INFO } = actionTypes;
+
 const initialState = {
   overviewInfo: [],
 };
@@ -9,7 +11,7 @@ export const overviewInfoReducer = (
   action
 ) => {
   switch (action.type) {
-    case actionTypes.SET_OVERVIEW_INFO:
+    case SET_OVERVIEW_INFO:
       return action.payload;
     default:
       return state;
