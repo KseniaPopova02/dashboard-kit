@@ -3,7 +3,6 @@ import { validationSchema, initialValues } from "./formConfig";
 import { FormContent } from "./FormContent";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setLoggedIn } from "../../store";
 import { setCurrentUser } from "./redux";
 import { Api, USERS } from "../../API";
 
@@ -21,7 +20,6 @@ export const SignUpForm = () => {
     Api.post(USERS, user)
       .then(() => {
         dispatch(setCurrentUser(user));
-        dispatch(setLoggedIn(true));
         navigate("/dashboard/Overview");
       })
       .catch((error) => console.log(error))

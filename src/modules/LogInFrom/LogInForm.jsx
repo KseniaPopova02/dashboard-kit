@@ -3,7 +3,6 @@ import { validationSchema, initialValues } from "./formConfig";
 import { FormContent } from "./FormContent";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setLoggedIn } from "../../store";
 import { setCurrentUser } from "../SignUpForm/redux";
 import { Api, USERS } from "../../API";
 
@@ -20,7 +19,6 @@ export const LogInForm = () => {
 
     if (user) {
       dispatch(setCurrentUser(user));
-      dispatch(setLoggedIn(true));
       navigate("/dashboard/Overview");
     } else {
       actions.setFieldError("email", "Wrong email or password");
