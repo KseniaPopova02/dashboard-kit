@@ -163,12 +163,5 @@
       "number": "64"
     }
   ],
-  "tasks": [
-    {
-      "id": "NlDahB9CAF_5YBIw6686I",
-      "taskName": "sdf",
-      "flags": "default",
-      "isChecked": false
-    }
-  ]
+  "tasks": []
 }

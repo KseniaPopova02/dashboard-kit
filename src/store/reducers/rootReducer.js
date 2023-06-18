@@ -6,7 +6,7 @@ import { chartInfoReducer } from "../../modules/OverviewChartBlock/Info/redux";
 import { overviewTicketsReducer } from "../../modules/OverviewTickets/redux";
 import { overviewInfoReducer } from "../../modules/OverviewInfo/redux";
 import { tasksReducer } from "../../modules/OverviewTask/redux";
-import { sidebarReducer } from "./sidebarReducer";
+import { sidebarReducer } from "../../modules/SideBar/redux";
 
 export const rootReducer = combineReducers({
   currentUser: currentUserReducer,

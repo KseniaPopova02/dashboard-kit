@@ -20,7 +20,8 @@ import { menuItems } from "./menuItems";
 import { Navigate } from "react-router-dom";
 import { SearchOutlined } from "@ant-design/icons";
 import { LogoSvgLazy } from "../../assets/LogoSvgLazy";
-import { setCurrentUser, setLoggedIn, toggleSidebar } from "../../store";
+import { setCurrentUser, setLoggedIn } from "../../store";
+import { toggleSidebar } from "./redux";
 import { useSelector, useDispatch } from "react-redux";
 
 export const SideBar = () => {
