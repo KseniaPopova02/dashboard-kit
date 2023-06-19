@@ -26,7 +26,7 @@ import { setCurrentUser } from "../SignUpForm/redux";
 
 export const SideBar = () => {
   const dispatch = useDispatch();
-  const isOpen = useSelector((state) => state.isOpen);
+  const isOpen = useSelector((state) => state.isSidebarOpen);
 
   const handleClickOutside = () => {
     dispatch(toggleSidebar());

@@ -15,6 +15,6 @@ export const rootReducer = combineReducers({
   tickets: overviewTicketsReducer,
   overviewInfo: overviewInfoReducer,
   tasks: tasksReducer,
-  isOpen: sidebarReducer,
+  isSidebarOpen: sidebarReducer,
   isTopbarInputDisplayed: topbarInputReducer,
 });
