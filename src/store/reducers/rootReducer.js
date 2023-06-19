@@ -6,6 +6,7 @@ import { overviewTicketsReducer } from "../../modules/OverviewTickets/redux";
 import { overviewInfoReducer } from "../../modules/OverviewInfo/redux";
 import { tasksReducer } from "../../modules/OverviewTask/redux";
 import { sidebarReducer } from "../../modules/SideBar/redux";
+import { topbarInputReducer } from "../../modules/TopBar/redux";
 
 export const rootReducer = combineReducers({
   currentUser: currentUserReducer,
@@ -15,4 +16,5 @@ export const rootReducer = combineReducers({
   overviewInfo: overviewInfoReducer,
   tasks: tasksReducer,
   isOpen: sidebarReducer,
+  isTopbarInputDisplayed: topbarInputReducer,
 });

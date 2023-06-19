@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React } from "react";
 import {
   StyledTopBarWrapper,
   StyledTitle,
@@ -17,16 +17,18 @@ import profilePhoto from "../../assets/images/profile-photo.png";
 import { ReactComponent as SearchSvg } from "../../assets/svg/search.svg";
 import { ReactComponent as BellSvg } from "../../assets/svg/bell.svg";
 import { ReactComponent as LineSvg } from "../../assets/svg/vertical.svg";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleTopbarInput } from "./redux";
 
 export const TopBar = () => {
+  const dispatch = useDispatch();
   const location = useLocation();
-  const [isInputDisplayed, setIsInputDisplayed] = useState(false);
   const currentUser = useSelector((state) => state.currentUser);
+  const isInputDisplayed = useSelector((state) => state.isTopbarInputDisplayed);
   const { name, surname } = currentUser;
 
   const handleSearchClick = () => {
-    setIsInputDisplayed(!isInputDisplayed);
+    dispatch(toggleTopbarInput());
   };
 
   return (
