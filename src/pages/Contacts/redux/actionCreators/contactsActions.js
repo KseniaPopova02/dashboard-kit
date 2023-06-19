@@ -5,7 +5,9 @@ const {
   ADD_CONTACT,
   DELETE_CONTACT,
   UPDATE_CONTACT,
-  CLEAR_CONTACTS,
+  DELETE_CONTACTS,
+  FILTER_CONTACTS,
+  SORT_CONTACTS,
 } = actionTypes;
 
 export const setContacts = (contacts) => ({
@@ -23,11 +25,18 @@ export const deleteContact = (id) => ({
   payload: id,
 });
 
+export const deleteContacts = () => ({ type: DELETE_CONTACTS });
+
 export const updateContact = (contact) => ({
   type: UPDATE_CONTACT,
   payload: contact,
 });
 
-export const clearContacts = () => ({
-  type: CLEAR_CONTACTS,
+export const filterContacts = (filterText) => ({
+  type: FILTER_CONTACTS,
+  payload: filterText,
+});
+
+export const sortContacts = () => ({
+  type: SORT_CONTACTS,
 });

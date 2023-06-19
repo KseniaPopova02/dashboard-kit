@@ -8,6 +8,7 @@ import { tasksReducer } from "../../modules/OverviewTask/redux";
 import { sidebarReducer } from "../../modules/SideBar/redux";
 import { topbarInputReducer } from "../../modules/TopBar/redux";
 import { photoInputReducer } from "../../modules/ContactsContent/CustomPhotoInput/redux";
+import { contactsReducer } from "../../pages/Contacts/redux";
 
 export const rootReducer = combineReducers({
   currentUser: currentUserReducer,
@@ -19,4 +20,5 @@ export const rootReducer = combineReducers({
   isSidebarOpen: sidebarReducer,
   isTopbarInputDisplayed: topbarInputReducer,
   photoInputSrc: photoInputReducer,
+  contacts: contactsReducer,
 });
