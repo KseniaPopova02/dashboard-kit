@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useField } from "formik";
 import { beforeUpload, handleFileChange } from "./helpers";
 import { CustomPhotoInputRep } from "../../../components";
+import { useSelector, useDispatch } from "react-redux";
+import { setSrc } from "./redux";
 
 export const CustomPhotoInput = ({
   label,
@@ -9,18 +11,19 @@ export const CustomPhotoInput = ({
   editContact,
   ...props
 }) => {
+  const dispatch = useDispatch();
   const [field, , helpers] = useField(props);
   const { value, name } = field;
-  const [src, setSrc] = useState(null);
+  const src = useSelector((state) => state.photoInputSrc);
   const isFileObject = value instanceof File || value instanceof Blob;
 
   useEffect(() => {
     if (editMode && editContact && editContact.photo) {
-      setSrc(editContact.photo);
+      dispatch(setSrc(editContact.photo));
     } else {
-      setSrc(isFileObject ? URL.createObjectURL(value) : null);
+      dispatch(setSrc(isFileObject ? URL.createObjectURL(value) : null));
     }
-  }, [editMode, editContact, isFileObject, value]);
+  }, [dispatch, editMode, editContact, isFileObject, value]);
 
   return (
     <CustomPhotoInputRep
