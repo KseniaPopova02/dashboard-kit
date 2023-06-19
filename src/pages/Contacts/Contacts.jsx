@@ -3,30 +3,31 @@ import { StyledContactsWrapper } from "./style";
 import { TableHeader } from "../../components";
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { nanoid } from "nanoid";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchContacts,
+  addNewContact,
+  deleteContact,
+  deleteAllContact,
+  updateExistingContact,
+  filterContacts,
+  sortContacts,
+} from "./redux";
 
 export const Contacts = () => {
-  const [contacts, setContacts] = useState([]);
+  const dispatch = useDispatch();
+  const contacts = useSelector((state) => state.contacts);
   const [formState, setFormState] = useState({
     showContactsForm: false,
     editMode: false,
     editContact: null,
   });
   const [filterText, setFilterText] = useState("");
+  console.log(contacts);
 
   useEffect(() => {
-    const storedContacts = JSON.parse(localStorage.getItem("contacts"));
-    if (storedContacts) {
-      setContacts(storedContacts);
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("contacts", JSON.stringify(contacts));
-  }, [contacts]);
-
-  const originalContacts = useMemo(() => {
-    return JSON.parse(localStorage.getItem("contacts")) || [];
-  }, []);
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   const handleAddContact = (values, { resetForm }) => {
     const newContact = {
@@ -48,15 +49,12 @@ export const Contacts = () => {
       }),
     };
 
-    const updatedContacts = formState.editMode
-      ? contacts.map((contact) =>
-          contact.id === formState.editContact.id
-            ? { ...newContact, date: contact.date }
-            : contact
-        )
-      : [newContact, ...contacts];
+    if (formState.editMode) {
+      dispatch(updateExistingContact(newContact));
+    } else {
+      dispatch(addNewContact(newContact));
+    }
 
-    setContacts(updatedContacts);
     setFormState({
       ...formState,
       showContactsForm: false,
@@ -67,35 +65,23 @@ export const Contacts = () => {
   };
 
   const handleDeleteAll = useCallback(() => {
-    setContacts([]);
-    localStorage.removeItem("contacts");
-  }, []);
+    dispatch(deleteAllContact());
+  }, [dispatch]);
 
   const handleSort = useCallback(() => {
-    setContacts(
-      [...contacts].sort((a, b) => a.firstName.localeCompare(b.firstName))
-    );
-  }, [contacts]);
+    dispatch(sortContacts());
+  }, [dispatch]);
 
   const handleFilter = useCallback(
     (filterText) => {
       setFilterText(filterText);
-      if (!filterText) {
-        setContacts(originalContacts);
-      } else {
-        const filteredContacts = originalContacts.filter((contact) =>
-          contact.firstName.toLowerCase().includes(filterText.toLowerCase())
-        );
-        setContacts(filteredContacts);
-      }
+      dispatch(filterContacts(filterText));
     },
-    [originalContacts]
+    [dispatch]
   );
 
   const handleDelete = (id) => {
-    setContacts((prevContacts) =>
-      prevContacts.filter((contact) => contact.id !== id)
-    );
+    dispatch(deleteContact(id));
   };
 
   const handleEdit = (id) => {

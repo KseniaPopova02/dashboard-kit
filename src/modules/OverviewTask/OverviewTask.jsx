@@ -1,13 +1,12 @@
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { nanoid } from "nanoid";
-import { Api, TASKS } from "../../API";
 import {
   fetchTasks,
-  setTaskToAdd,
   deleteTask,
   deleteAllTasks,
   updateTaskCheckbox,
+  addNewTask,
 } from "./redux";
 import { OverviewTaskRepresentation } from "./OverviewTaskRepresentation";
 
@@ -22,9 +21,7 @@ export const OverviewTask = ({ showAllTasks = false, tasks }) => {
         flags: values.flags,
         isChecked: false,
       };
-      Api.post(TASKS, newTask).then(() => {
-        dispatch(setTaskToAdd(newTask));
-      });
+      dispatch(addNewTask(newTask));
     },
     [dispatch]
   );

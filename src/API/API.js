@@ -25,6 +25,16 @@ export class Api {
     });
   }
 
+  static put(path, id, body) {
+    return Api.request(`${path}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+  }
+
   static patch(path, id, body) {
     return Api.request(`${path}/${id}`, {
       method: "PATCH",

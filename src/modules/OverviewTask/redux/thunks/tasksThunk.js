@@ -1,6 +1,7 @@
 import { Api, TASKS } from "../../../../API";
 import {
   setTasks,
+  setTaskToAdd,
   setTaskToDelete,
   setAllTasksToDelete,
 } from "../actionCreators";
@@ -10,6 +11,18 @@ export const fetchTasks = () => {
     try {
       const response = await Api.get(TASKS);
       dispatch(setTasks(response));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const addNewTask = (newTask) => {
+  return async (dispatch) => {
+    try {
+      await Api.post(TASKS, newTask).then(() =>
+        dispatch(setTaskToAdd(newTask))
+      );
     } catch (error) {
       console.log(error);
     }

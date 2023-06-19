@@ -15,19 +15,19 @@ export const setContacts = (contacts) => ({
   payload: contacts,
 });
 
-export const addContact = (contact) => ({
+export const setContactToAdd = (contact) => ({
   type: ADD_CONTACT,
   payload: contact,
 });
 
-export const deleteContact = (id) => ({
+export const setContactToDelete = (id) => ({
   type: DELETE_CONTACT,
   payload: id,
 });
 
-export const deleteContacts = () => ({ type: DELETE_CONTACTS });
+export const setAllContactsToDelete = () => ({ type: DELETE_CONTACTS });
 
-export const updateContact = (contact) => ({
+export const setContactToUpdate = (contact) => ({
   type: UPDATE_CONTACT,
   payload: contact,
 });
