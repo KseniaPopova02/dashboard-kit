@@ -183,5 +183,15 @@
       "isChecked": false
     }
   ],
-  "contacts": []
+  "contacts": [
+    {
+      "id": "o8m66LjJqDXDyBrlkflBq",
+      "photo": null,
+      "firstName": "Ksusha",
+      "lastName": "Popova",
+      "email": "kseniapopova02@gmail.com",
+      "address": "Soerenseweg 38",
+      "date": "June 20, 2023"
+    }
+  ]
 }
