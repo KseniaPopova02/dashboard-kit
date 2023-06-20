@@ -1,5 +1,4 @@
 import { Api, CONTACTS } from "../../../../API";
-import { updateTaskCheckbox } from "../../../../modules/OverviewTask/redux";
 import {
   setContacts,
   setContactToAdd,
