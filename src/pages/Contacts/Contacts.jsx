@@ -1,7 +1,7 @@
 import { Form, Table } from "../../modules/ContactsContent";
 import { StyledContactsWrapper } from "./style";
 import { TableHeader } from "../../components";
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { nanoid } from "nanoid";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -10,9 +10,8 @@ import {
   deleteContact,
   deleteAllContact,
   updateExistingContact,
-  filterContacts,
-  sortContacts,
   sortContactsByFirstName,
+  filterContactsByFirstName,
 } from "./redux";
 
 export const Contacts = () => {
@@ -24,7 +23,6 @@ export const Contacts = () => {
     editContact: null,
   });
   const [filterText, setFilterText] = useState("");
-  console.log(contacts);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -73,13 +71,14 @@ export const Contacts = () => {
     dispatch(sortContactsByFirstName());
   }, [dispatch]);
 
-  const handleFilter = useCallback(
-    (filterText) => {
+  const handleFilterByFirstName = async (filterText) => {
+    try {
+      await dispatch(filterContactsByFirstName(filterText));
       setFilterText(filterText);
-      dispatch(filterContacts(filterText));
-    },
-    [dispatch]
-  );
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleDelete = (id) => {
     dispatch(deleteContact(id));
@@ -106,8 +105,9 @@ export const Contacts = () => {
   return (
     <StyledContactsWrapper>
       <TableHeader
+        setFilterText={setFilterText}
         handleSort={handleSort}
-        handleFilter={handleFilter}
+        handleFilter={handleFilterByFirstName}
         filterText={filterText}
         setShowContactsForm={(value) =>
           setFormState({ ...formState, showContactsForm: value })

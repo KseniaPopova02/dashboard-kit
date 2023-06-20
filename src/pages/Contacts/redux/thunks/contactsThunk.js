@@ -18,6 +18,19 @@ export const fetchContacts = () => {
   };
 };
 
+export const filterContactsByFirstName = (filterText) => {
+  return async (dispatch) => {
+    try {
+      const response = await Api.get(
+        `${CONTACTS}?firstName_like=${filterText}`
+      );
+      dispatch(setContacts(response));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
 export const sortContactsByFirstName = () => {
   return async (dispatch) => {
     try {
@@ -67,12 +80,12 @@ export const deleteAllContact = () => {
 };
 
 export const updateExistingContact = (updatedContact) => {
-  return async (dispatch, getState) => {
+  return async (dispatch, useSelector) => {
     try {
       await Api.put(`${CONTACTS}/${updatedContact.id}`, updatedContact);
       dispatch(setContactToUpdate(updatedContact));
 
-      const { contacts } = getState().contactsReducer;
+      const contacts = useSelector((state) => state.contacts);
       const updatedContacts = contacts.map((contact) =>
         contact.id === updatedContact.id ? updatedContact : contact
       );

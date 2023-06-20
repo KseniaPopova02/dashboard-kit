@@ -6,8 +6,6 @@ const {
   DELETE_CONTACT,
   UPDATE_CONTACT,
   DELETE_CONTACTS,
-  FILTER_CONTACTS,
-  SORT_CONTACTS,
 } = actionTypes;
 
 const initialState = {
@@ -32,15 +30,6 @@ export const contactsReducer = (state = initialState.contacts, action) => {
 
     case DELETE_CONTACTS:
       return [];
-
-    case FILTER_CONTACTS:
-      const filterText = action.payload.toLowerCase()();
-      return state.filter((contact) =>
-        contact.firstName.toLowerCase().includes(filterText)
-      );
-
-    case SORT_CONTACTS:
-      return [...state].sort((a, b) => a.firstName.localeCompare(b.firstName));
 
     default:
       return state;
