@@ -18,6 +18,17 @@ export const fetchContacts = () => {
   };
 };
 
+export const sortContactsByFirstName = () => {
+  return async (dispatch) => {
+    try {
+      const response = await Api.get(`${CONTACTS}?_sort=firstName`);
+      dispatch(setContacts(response));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
 export const addNewContact = (newContact) => {
   return async (dispatch) => {
     try {

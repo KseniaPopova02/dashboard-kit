@@ -36,7 +36,7 @@ export const contactsReducer = (state = initialState.contacts, action) => {
     case FILTER_CONTACTS:
       const filterText = action.payload.toLowerCase()();
       return state.filter((contact) =>
-        contact.firstName.toLowerCase()().includes(filterText)
+        contact.firstName.toLowerCase().includes(filterText)
       );
 
     case SORT_CONTACTS:

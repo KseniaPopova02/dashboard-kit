@@ -12,6 +12,7 @@ import {
   updateExistingContact,
   filterContacts,
   sortContacts,
+  sortContactsByFirstName,
 } from "./redux";
 
 export const Contacts = () => {
@@ -69,7 +70,7 @@ export const Contacts = () => {
   }, [dispatch]);
 
   const handleSort = useCallback(() => {
-    dispatch(sortContacts());
+    dispatch(sortContactsByFirstName());
   }, [dispatch]);
 
   const handleFilter = useCallback(
