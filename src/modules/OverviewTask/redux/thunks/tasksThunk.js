@@ -10,7 +10,7 @@ export const fetchTasks = () => {
   return async (dispatch) => {
     try {
       const response = await Api.get(TASKS);
-      dispatch(setTasks(response));
+      dispatch(setTasks(response.reverse()));
     } catch (error) {
       console.log(error);
     }

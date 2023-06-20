@@ -11,18 +11,18 @@ export const fetchContacts = () => {
   return async (dispatch) => {
     try {
       const response = await Api.get(CONTACTS);
-      dispatch(setContacts(response));
+      dispatch(setContacts(response.reverse()));
     } catch (error) {
       console.log(error);
     }
   };
 };
 
-export const addNewContact = (newTask) => {
+export const addNewContact = (newContact) => {
   return async (dispatch) => {
     try {
-      await Api.post(CONTACTS, newTask).then(() =>
-        dispatch(setContactToAdd(addNewContact))
+      await Api.post(CONTACTS, newContact).then(() =>
+        dispatch(setContactToAdd(newContact))
       );
     } catch (error) {
       console.log(error);
