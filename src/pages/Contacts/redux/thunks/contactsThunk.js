@@ -1,4 +1,5 @@
 import { Api, CONTACTS } from "../../../../API";
+import { updateTaskCheckbox } from "../../../../modules/OverviewTask/redux";
 import {
   setContacts,
   setContactToAdd,
@@ -79,17 +80,11 @@ export const deleteAllContact = () => {
   };
 };
 
-export const updateExistingContact = (updatedContact) => {
-  return async (dispatch, useSelector) => {
+export const updateExistingContact = (id, updatedContact) => {
+  return async (dispatch) => {
     try {
-      await Api.put(`${CONTACTS}/${updatedContact.id}`, updatedContact);
+      await Api.put(CONTACTS, id, updatedContact);
       dispatch(setContactToUpdate(updatedContact));
-
-      const contacts = useSelector((state) => state.contacts);
-      const updatedContacts = contacts.map((contact) =>
-        contact.id === updatedContact.id ? updatedContact : contact
-      );
-      dispatch(setContacts(updatedContacts));
     } catch (error) {
       console.log(error);
     }

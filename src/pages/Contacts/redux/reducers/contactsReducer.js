@@ -24,9 +24,12 @@ export const contactsReducer = (state = initialState.contacts, action) => {
       return state.filter((contact) => contact.id !== action.payload);
 
     case UPDATE_CONTACT:
-      return state.map((contact) =>
-        contact.id === action.payload.id ? action.payload : contact
-      );
+      return state.map((contact) => {
+        if (contact.id === action.payload.id) {
+          return action.payload;
+        }
+        return contact;
+      });
 
     case DELETE_CONTACTS:
       return [];

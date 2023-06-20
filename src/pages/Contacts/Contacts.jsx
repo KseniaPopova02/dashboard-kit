@@ -49,7 +49,11 @@ export const Contacts = () => {
     };
 
     if (formState.editMode) {
-      dispatch(updateExistingContact(newContact));
+      const updatedContact = {
+        ...newContact,
+        id: formState.editContact.id,
+      };
+      dispatch(updateExistingContact(formState.editContact.id, updatedContact));
     } else {
       dispatch(addNewContact(newContact));
     }
