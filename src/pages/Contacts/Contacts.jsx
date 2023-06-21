@@ -51,6 +51,7 @@ export const Contacts = () => {
     if (formState.editMode) {
       const updatedContact = {
         ...newContact,
+        date: formState.editContact.date,
         id: formState.editContact.id,
       };
       dispatch(updateExistingContact(formState.editContact.id, updatedContact));
