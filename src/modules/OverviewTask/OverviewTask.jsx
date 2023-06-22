@@ -7,7 +7,7 @@ import {
   deleteAllTasks,
   updateTaskCheckbox,
   addNewTask,
-} from "./redux";
+} from "../../pages/View/redux";
 import { OverviewTaskRepresentation } from "./OverviewTaskRepresentation";
 
 export const OverviewTask = ({ showAllTasks = false, tasks }) => {

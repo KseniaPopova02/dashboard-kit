@@ -163,32 +163,7 @@
       "number": "64"
     }
   ],
-  "tasks": [
-    {
-      "id": "kXFsKUZJxEtcWqE51AXfk",
-      "taskName": "ddd",
-      "flags": "default",
-      "isChecked": false
-    },
-    {
-      "id": "u0eX0pK6tbI1U3dfGmg3O",
-      "taskName": "ddd",
-      "flags": "default",
-      "isChecked": false
-    },
-    {
-      "id": "AxXJ_JrdTCGpPFVw-zQK2",
-      "taskName": "jjj",
-      "flags": "new",
-      "isChecked": false
-    },
-    {
-      "id": "OZxIgHkAqFyPfcGj5MFxE",
-      "taskName": "ddd",
-      "flags": "default",
-      "isChecked": false
-    }
-  ],
+  "tasks": [],
   "contacts": [
     {
       "id": "o8m66LjJqDXDyBrlkflBq",

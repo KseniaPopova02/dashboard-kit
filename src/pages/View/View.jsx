@@ -7,11 +7,13 @@ import {
 } from "../../modules";
 import { StyledWrapper } from "./style";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTasks } from "../../modules/OverviewTask/redux";
-import { fetchInfoChartData } from "../../modules/OverviewChartBlock/Info/redux";
-import { fetchOverviewInfo } from "../../modules/OverviewInfo/redux";
-import { fetchOverviewTickets } from "../../modules/OverviewTickets/redux";
-import { fetchChartAxis } from "../../modules/OverviewChartBlock/Chart/redux";
+import {
+  fetchTasks,
+  fetchInfoChartData,
+  fetchOverviewInfo,
+  fetchOverviewTickets,
+  fetchChartAxis,
+} from "./redux";
 
 export const View = () => {
   const dispatch = useDispatch();

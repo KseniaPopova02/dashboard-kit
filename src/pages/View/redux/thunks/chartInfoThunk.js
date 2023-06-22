@@ -1,4 +1,4 @@
-import { Api, CHART_INFO } from "../../../../../API";
+import { Api, CHART_INFO } from "../../../../API";
 import { setChartInfo } from "../actionCreators";
 
 export const fetchInfoChartData = () => {

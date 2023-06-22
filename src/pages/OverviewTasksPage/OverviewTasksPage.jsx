@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { OverviewTask } from "../../modules";
-import { fetchTasks } from "../../modules/OverviewTask/redux";
+import { fetchTasks } from "../../pages/View/redux";
 import { useDispatch, useSelector } from "react-redux";
 
 export const OverviewTasksPage = () => {

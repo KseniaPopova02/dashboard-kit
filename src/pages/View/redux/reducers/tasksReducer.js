@@ -12,7 +12,7 @@ const initialState = {
   tasks: [],
 };
 
-export const tasksReducer = (state = initialState.tasks, action) => {
+export const overviewTasksReducer = (state = initialState.tasks, action) => {
   switch (action.type) {
     case SET_TASKS:
       return action.payload;
