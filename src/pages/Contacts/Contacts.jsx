@@ -1,7 +1,7 @@
 import { Form, Table } from "../../modules/ContactsContent";
 import { StyledContactsWrapper } from "./style";
 import { TableHeader } from "../../components";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useEffect, useCallback } from "react";
 import { nanoid } from "nanoid";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -13,17 +13,20 @@ import {
   sortContactsByFirstName,
   filterContactsByFirstName,
   setFilterText,
+  setEditMode,
+  setEditContact,
+  setContactsFormToShow,
 } from "./redux";
 
 export const Contacts = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector((state) => state.contacts);
-  const filterText = useSelector((state) => state.filterText);
-  const [formState, setFormState] = useState({
-    showContactsForm: false,
-    editMode: false,
-    editContact: null,
-  });
+  const contacts = useSelector((state) => state.contacts.contacts);
+  const filterText = useSelector((state) => state.contacts.filterText);
+  const showContactsForm = useSelector(
+    (state) => state.contacts.showContactsForm
+  );
+  const editMode = useSelector((state) => state.contacts.editMode);
+  const editContact = useSelector((state) => state.contacts.editContact);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -33,8 +36,8 @@ export const Contacts = () => {
     const newContact = {
       id: nanoid(),
       photo:
-        formState.editMode && values.photo === formState.editContact.photo
-          ? formState.editContact.photo
+        editMode && values.photo === editContact.photo
+          ? editContact.photo
           : values.photo
           ? URL.createObjectURL(values.photo)
           : null,
@@ -49,23 +52,20 @@ export const Contacts = () => {
       }),
     };
 
-    if (formState.editMode) {
+    if (editMode) {
       const updatedContact = {
         ...newContact,
-        date: formState.editContact.date,
-        id: formState.editContact.id,
+        date: editContact.date,
+        id: editContact.id,
       };
-      dispatch(updateExistingContact(formState.editContact.id, updatedContact));
+      dispatch(updateExistingContact(editContact.id, updatedContact));
     } else {
       dispatch(addNewContact(newContact));
     }
 
-    setFormState({
-      ...formState,
-      showContactsForm: false,
-      editMode: false,
-      editContact: null,
-    });
+    dispatch(setContactsFormToShow(false));
+    dispatch(setEditContact(null));
+    dispatch(setEditMode(false));
     resetForm();
   };
 
@@ -92,20 +92,14 @@ export const Contacts = () => {
 
   const handleEdit = (id) => {
     const contact = contacts.find((contact) => contact.id === id);
-    setFormState({
-      ...formState,
-      editMode: true,
-      editContact: contact,
-      showContactsForm: true,
-    });
+    dispatch(setContactsFormToShow(true));
+    dispatch(setEditContact(contact));
+    dispatch(setEditMode(true));
   };
 
   const handleCancelEditModeClick = () => {
-    setFormState({
-      ...formState,
-      editMode: false,
-      showContactsForm: false,
-    });
+    dispatch(setEditMode(false));
+    dispatch(setContactsFormToShow(false));
   };
 
   return (
@@ -114,25 +108,21 @@ export const Contacts = () => {
         handleSort={handleSort}
         handleFilter={handleFilterByFirstName}
         filterText={filterText}
-        setShowContactsForm={(value) =>
-          setFormState({ ...formState, showContactsForm: value })
-        }
+        setShowContactsForm={(value) => dispatch(setContactsFormToShow(value))}
         handleDeleteAll={handleDeleteAll}
         headerText={{
           addContact: "Add contact",
           filterContacts: "contacts by name",
         }}
       />
-      {formState.showContactsForm && (
+      {showContactsForm && (
         <Form
-          setEditMode={(value) =>
-            setFormState({ ...formState, editMode: value })
-          }
-          editMode={formState.editMode}
-          editContact={formState.editContact}
+          setEditMode={(value) => dispatch(setEditMode(value))}
+          editMode={editMode}
+          editContact={editContact}
           handleAddContact={handleAddContact}
           setShowContactsForm={(value) =>
-            setFormState({ ...formState, showContactsForm: value })
+            dispatch(setContactsFormToShow(value))
           }
           handleCancelEditModeClick={handleCancelEditModeClick}
         />

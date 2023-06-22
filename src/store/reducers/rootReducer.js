@@ -8,7 +8,7 @@ import {
   overviewTasksReducer,
 } from "../../pages/View/redux";
 import { photoInputReducer } from "../../modules/ContactsContent/CustomPhotoInput/redux";
-import { contactsReducer, filterTextAction } from "../../pages/Contacts/redux";
+import { contactsReducer } from "../../pages/Contacts/redux";
 
 export const rootReducer = combineReducers({
   currentUser: currentUserReducer,
@@ -19,5 +19,4 @@ export const rootReducer = combineReducers({
   tasks: overviewTasksReducer,
   photoInputSrc: photoInputReducer,
   contacts: contactsReducer,
-  filterText: filterTextAction,
 });

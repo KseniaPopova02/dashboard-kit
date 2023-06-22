@@ -6,30 +6,63 @@ const {
   DELETE_CONTACT,
   UPDATE_CONTACT,
   DELETE_CONTACTS,
+  SET_EDIT_MODE,
+  SET_EDIT_CONTACT,
+  SHOW_CONTACTS_FORM,
 } = actionTypes;
 
 const initialState = {
   contacts: [],
+  filterText: "",
+  showContactsForm: false,
+  editMode: false,
+  editContact: null,
 };
 
-export const contactsReducer = (state = initialState.contacts, action) => {
+export const contactsReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_CONTACTS:
-      return action.payload;
+      return { ...state, contacts: action.payload };
 
     case ADD_CONTACT:
-      return [action.payload, ...state];
+      return { ...state, contacts: [action.payload, ...state.contacts] };
 
     case DELETE_CONTACT:
-      return state.filter((contact) => contact.id !== action.payload);
+      return {
+        ...state,
+        contacts: state.contacts.filter(
+          (contact) => contact.id !== action.payload
+        ),
+      };
 
     case UPDATE_CONTACT:
-      return state.map((contact) =>
-        contact.id === action.payload.id ? action.payload : contact
-      );
+      return {
+        ...state,
+        contacts: state.contacts.map((contact) =>
+          contact.id === action.payload.id ? action.payload : contact
+        ),
+      };
 
     case DELETE_CONTACTS:
-      return [];
+      return { ...state, contacts: [] };
+
+    case SHOW_CONTACTS_FORM:
+      return {
+        ...state,
+        showContactsForm: action.payload,
+      };
+
+    case SET_EDIT_MODE:
+      return {
+        ...state,
+        editMode: action.payload,
+      };
+
+    case SET_EDIT_CONTACT:
+      return {
+        ...state,
+        editContact: action.payload,
+      };
 
     default:
       return state;
