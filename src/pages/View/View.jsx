@@ -17,11 +17,13 @@ import {
 
 export const View = () => {
   const dispatch = useDispatch();
-  const infoChart = useSelector((state) => state.chartInfo);
-  const tickets = useSelector((state) => state.tickets);
-  const overviewInfo = useSelector((state) => state.overviewInfo);
-  const tasks = useSelector((state) => state.tasks.tasks);
-  const axis = useSelector((state) => state.axis);
+  const infoChart = useSelector((state) => state.overviewPage.chartInfo);
+  const tickets = useSelector((state) => state.overviewPage.tickets);
+  const overviewInfo = useSelector((state) => state.overviewPage.overviewInfo);
+  const tasks = useSelector((state) => state.overviewPage.tasks);
+  const axis = useSelector((state) => state.overviewPage.axis);
+
+  console.log(axis);
 
   useEffect(() => {
     dispatch(fetchOverviewTickets());

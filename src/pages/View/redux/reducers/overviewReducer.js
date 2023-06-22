@@ -6,13 +6,21 @@ const {
   DELETE_TASK,
   UPDATE_TASK_CHECKBOX,
   DELETE_ALL_TASKS,
+  SET_TICKETS_DATA,
+  SET_OVERVIEW_INFO,
+  SET_CHART_INFO,
+  SET_CHART_AXIS,
 } = actionTypes;
 
 const initialState = {
   tasks: [],
+  tickets: [],
+  overviewInfo: [],
+  chartInfo: [],
+  axis: [],
 };
 
-export const overviewTasksReducer = (state = initialState, action) => {
+export const overviewPageReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_TASKS:
       return {
@@ -47,6 +55,30 @@ export const overviewTasksReducer = (state = initialState, action) => {
       return {
         ...state,
         tasks: [],
+      };
+
+    case SET_TICKETS_DATA:
+      return {
+        ...state,
+        tickets: action.payload,
+      };
+
+    case SET_OVERVIEW_INFO:
+      return {
+        ...state,
+        overviewInfo: action.payload,
+      };
+
+    case SET_CHART_INFO:
+      return {
+        ...state,
+        chartInfo: action.payload,
+      };
+
+    case SET_CHART_AXIS:
+      return {
+        ...state,
+        axis: action.payload,
       };
 
     default:
