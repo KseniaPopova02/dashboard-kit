@@ -52,7 +52,7 @@ export const SideBar = () => {
               </Suspense>
             </StyledLogoSvgWrapper>
             <StyledLogoText>DashBoard</StyledLogoText>
-            <StyledBarsOutlined onClick={() => dispatch(toggleSidebar())} />
+            <StyledBarsOutlined onClick={() => toggleSidebar()} />
           </StyledTopWrapper>
 
           {menuItems.map((item) => {
@@ -74,10 +74,7 @@ export const SideBar = () => {
             <StyledText isOpen={isOpen}>Log out</StyledText>
           </StyledLogoutWrapper>
 
-          <StyledSearchBtn
-            onClick={() => dispatch(toggleSidebar())}
-            isOpen={isOpen}
-          />
+          <StyledSearchBtn onClick={() => toggleSidebar()} isOpen={isOpen} />
           <StyledInputWrapper isOpen={isOpen}>
             <StyledSearch
               placeholder="Search"
@@ -89,60 +86,3 @@ export const SideBar = () => {
     </StyledSideBarContainer>
   );
 };
-
-//   const [isOpen, setIsOpen] = useState(false);
-//   const toggleSidebar = () => setIsOpen(!isOpen);
-
-//   const handleClickOutside = () => {
-//     setIsOpen(false);
-//   };
-
-//   return (
-//     <StyledSideBarContainer
-//       id="sidebar"
-//       isOpen={isOpen}
-//       onClick={handleClickOutside}
-//     >
-//       <StyledSidebarWrapper isOpen={isOpen}>
-//         <StyledSidebar onClick={(event) => event.stopPropagation()}>
-//           <StyledTopWrapper>
-//             <StyledLogoSvgWrapper>
-//               <Suspense fallback={<div>Loading...</div>}>
-//                 <LogoSvgLazy />
-//               </Suspense>
-//             </StyledLogoSvgWrapper>
-//             <StyledLogoText>DashBoard</StyledLogoText>
-//             <StyledBarsOutlined onClick={toggleSidebar} />
-//           </StyledTopWrapper>
-
-//           {menuItems.map((item) => {
-//             const Icon = item.icon;
-//             return (
-//               <StyledLink to={item.path} key={item.id}>
-//                 <StyledSvgWrapper>
-//                   <Suspense fallback="Loading...">
-//                     <Icon />
-//                   </Suspense>
-//                 </StyledSvgWrapper>
-//                 <StyledText isOpen={isOpen}>{item.name}</StyledText>
-//               </StyledLink>
-//             );
-//           })}
-
-//           <StyledLogoutWrapper onClick={handleLogout}>
-//             <StyledLogoutOutlined />
-//             <StyledText isOpen={isOpen}>Log out</StyledText>
-//           </StyledLogoutWrapper>
-
-//           <StyledSearchBtn onClick={toggleSidebar} isOpen={isOpen} />
-//           <StyledInputWrapper isOpen={isOpen}>
-//             <StyledSearch
-//               placeholder="Search"
-//               enterButton={<SearchOutlined />}
-//             />
-//           </StyledInputWrapper>
-//         </StyledSidebar>
-//       </StyledSidebarWrapper>
-//     </StyledSideBarContainer>
-//   );
-// };
