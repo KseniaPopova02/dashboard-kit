@@ -3,14 +3,15 @@ import styled from "styled-components";
 export const StyledPageContainer = styled.div`
   height: 100vh;
   display: grid;
-  grid-template-columns: 215px calc(100vw - 215px);
+  grid-template-columns: 205px calc(100% - 205px);
   grid-template-rows: auto 1fr;
   grid-template-areas:
     "sidebar topbar"
     "sidebar outlet";
+  overflow: auto;
 
   @media (max-width: 800px) {
-    grid-template-columns: 80px calc(100vw - 80px);
+    grid-template-columns: 80px calc(100% - 80px);
   }
 `;
 
