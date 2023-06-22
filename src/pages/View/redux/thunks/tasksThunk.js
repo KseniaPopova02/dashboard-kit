@@ -4,6 +4,7 @@ import {
   setTaskToAdd,
   setTaskToDelete,
   setAllTasksToDelete,
+  setTaskCheckboxToUpdate,
 } from "../actionCreators";
 
 export const fetchTasks = () => {
@@ -23,6 +24,25 @@ export const addNewTask = (newTask) => {
       await Api.post(TASKS, newTask).then(() =>
         dispatch(setTaskToAdd(newTask))
       );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const updateTaskCheckbox = (id) => {
+  return async (dispatch, getState) => {
+    try {
+      const tasks = getState().tasks.tasks;
+      const taskToUpdate = tasks.find((task) => task.id === id);
+      if (taskToUpdate) {
+        const updatedTask = {
+          ...taskToUpdate,
+          isChecked: !taskToUpdate.isChecked,
+        };
+        await Api.patch(TASKS, id, updatedTask);
+        dispatch(setTaskCheckboxToUpdate(id));
+      }
     } catch (error) {
       console.log(error);
     }

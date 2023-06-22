@@ -23,7 +23,7 @@ export const setTaskToDelete = (id) => ({
   payload: id,
 });
 
-export const updateTaskCheckbox = (id) => ({
+export const setTaskCheckboxToUpdate = (id) => ({
   type: UPDATE_TASK_CHECKBOX,
   payload: id,
 });

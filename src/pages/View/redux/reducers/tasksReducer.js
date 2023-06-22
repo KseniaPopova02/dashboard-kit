@@ -12,27 +12,42 @@ const initialState = {
   tasks: [],
 };
 
-export const overviewTasksReducer = (state = initialState.tasks, action) => {
+export const overviewTasksReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_TASKS:
-      return action.payload;
+      return {
+        ...state,
+        tasks: action.payload,
+      };
 
     case ADD_TASK:
-      return [action.payload, ...state];
+      return {
+        ...state,
+        tasks: [action.payload, ...state.tasks],
+      };
 
     case DELETE_TASK:
-      return state.filter((task) => task.id !== action.payload);
+      return {
+        ...state,
+        tasks: state.tasks.filter((task) => task.id !== action.payload),
+      };
 
     case UPDATE_TASK_CHECKBOX:
-      return state.map((task) => {
-        if (task.id === action.payload) {
-          return { ...task, isChecked: !task.isChecked };
-        }
-        return task;
-      });
+      return {
+        ...state,
+        tasks: state.tasks.map((task) => {
+          if (task.id === action.payload) {
+            return { ...task, isChecked: !task.isChecked };
+          }
+          return task;
+        }),
+      };
 
     case DELETE_ALL_TASKS:
-      return [];
+      return {
+        ...state,
+        tasks: [],
+      };
 
     default:
       return state;

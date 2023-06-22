@@ -20,7 +20,7 @@ export const View = () => {
   const infoChart = useSelector((state) => state.chartInfo);
   const tickets = useSelector((state) => state.tickets);
   const overviewInfo = useSelector((state) => state.overviewInfo);
-  const tasks = useSelector((state) => state.tasks);
+  const tasks = useSelector((state) => state.tasks.tasks);
   const axis = useSelector((state) => state.axis);
 
   useEffect(() => {

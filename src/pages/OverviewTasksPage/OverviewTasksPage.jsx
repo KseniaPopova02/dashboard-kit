@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 export const OverviewTasksPage = () => {
   const dispatch = useDispatch();
-  const tasks = useSelector((state) => state.tasks);
+  const tasks = useSelector((state) => state.tasks.tasks);
 
   useEffect(() => {
     dispatch(fetchTasks());
