@@ -186,7 +186,7 @@
   "contacts": [
     {
       "id": "zWWEEeAf3Is7ikS_PDRZ3",
-      "photo": null,
+      "photo": "blob:http://localhost:3000/cd1f4ff0-8e14-4fe6-808b-17fb5f904e93",
       "firstName": "Kseniaa",
       "lastName": "Popova",
       "email": "kseniapopova02@gmail.com",
