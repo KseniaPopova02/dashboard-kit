@@ -21,6 +21,8 @@ export const View = () => {
   const tasks = useSelector((state) => state.tasks);
   const axis = useSelector((state) => state.axis);
 
+  console.log(tasks);
+
   useEffect(() => {
     dispatch(fetchOverviewTickets());
     dispatch(fetchOverviewInfo());

@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "antd": "^5.4.7",
     "concurrently": "^8.2.0",
+    "cors": "^2.8.5",
     "eslint-plugin-react": "^7.32.2",
     "formik": "^2.2.9",
     "html-to-react": "^1.5.1",

@@ -1,11 +1,15 @@
 const path = require("path");
 const jsonServer = require("json-server");
+const cors = require("cors");
+
 const server = jsonServer.create();
 const router = jsonServer.router(path.join(__dirname, "db.json"));
 const middlewares = jsonServer.defaults();
 
-server.use(jsonServer.bodyParser);
-server.use((req, res, next) => {
+server.use(cors());
+server.use(jsonServer.bodyParser());
+
+server.use((req, next) => {
   if (
     req.method === "POST" &&
     (req.path === "/contacts" || req.path === "/tasks")
@@ -18,20 +22,10 @@ server.use((req, res, next) => {
   next();
 });
 
-server.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  );
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.setHeader("Access-Control-Allow-Credentials", true);
-  next();
-});
-
 server.use(middlewares);
 server.use(router);
 
-server.listen(3001, () => {
-  console.log("JSON Server is running on port 3001");
+const port = 3001;
+server.listen(port, () => {
+  console.log(`JSON Server is running on port ${port}`);
 });
