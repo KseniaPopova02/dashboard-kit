@@ -12,17 +12,18 @@ import {
   updateExistingContact,
   sortContactsByFirstName,
   filterContactsByFirstName,
+  setFilterText,
 } from "./redux";
 
 export const Contacts = () => {
   const dispatch = useDispatch();
   const contacts = useSelector((state) => state.contacts);
+  const filterText = useSelector((state) => state.filterText);
   const [formState, setFormState] = useState({
     showContactsForm: false,
     editMode: false,
     editContact: null,
   });
-  const [filterText, setFilterText] = useState("");
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -79,7 +80,7 @@ export const Contacts = () => {
   const handleFilterByFirstName = async (filterText) => {
     try {
       await dispatch(filterContactsByFirstName(filterText));
-      setFilterText(filterText);
+      dispatch(setFilterText(filterText));
     } catch (error) {
       console.log(error);
     }
@@ -110,7 +111,6 @@ export const Contacts = () => {
   return (
     <StyledContactsWrapper>
       <TableHeader
-        setFilterText={setFilterText}
         handleSort={handleSort}
         handleFilter={handleFilterByFirstName}
         filterText={filterText}

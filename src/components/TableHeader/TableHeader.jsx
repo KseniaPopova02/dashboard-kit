@@ -15,6 +15,7 @@ import { ReloadOutlined, DeleteOutlined } from "@ant-design/icons";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { fetchContacts } from "../../pages/Contacts/redux";
+import { setFilterText } from "../../pages/Contacts/redux";
 
 export const TableHeader = ({
   handleSort,
@@ -23,13 +24,12 @@ export const TableHeader = ({
   setShowContactsForm,
   handleDeleteAll,
   headerText,
-  setFilterText,
 }) => {
   const [isInputActive, setIsInputActive] = useState(false);
   const dispatch = useDispatch();
   const handleReset = () => {
     dispatch(fetchContacts());
-    setFilterText("");
+    dispatch(setFilterText(""));
     setIsInputActive(false);
   };
 

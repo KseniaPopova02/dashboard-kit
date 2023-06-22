@@ -10,7 +10,7 @@ import {
 import { sidebarReducer } from "../../modules/SideBar/redux";
 import { topbarInputReducer } from "../../modules/TopBar/redux";
 import { photoInputReducer } from "../../modules/ContactsContent/CustomPhotoInput/redux";
-import { contactsReducer } from "../../pages/Contacts/redux";
+import { contactsReducer, filterTextAction } from "../../pages/Contacts/redux";
 
 export const rootReducer = combineReducers({
   currentUser: currentUserReducer,
@@ -23,4 +23,5 @@ export const rootReducer = combineReducers({
   isTopbarInputDisplayed: topbarInputReducer,
   photoInputSrc: photoInputReducer,
   contacts: contactsReducer,
+  filterText: filterTextAction,
 });
