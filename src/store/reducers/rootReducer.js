@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import { currentUserReducer } from "../../modules/SignUpForm/redux";
 import { chartAxisReducer } from "../../modules/OverviewChartBlock/Chart/redux";
 import { chartInfoReducer } from "../../modules/OverviewChartBlock/Info/redux";
-import { overviewTicketsReducer } from "../../modules/OverviewTickets/redux";
+import { overviewTicketsReducer } from "../../modules/OverviewTickets/redux/reducers/overviewTicketsReducer";
 import { overviewInfoReducer } from "../../modules/OverviewInfo/redux";
 import { tasksReducer } from "../../modules/OverviewTask/redux";
 import { sidebarReducer } from "../../modules/SideBar/redux";
