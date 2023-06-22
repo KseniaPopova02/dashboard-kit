@@ -23,8 +23,6 @@ export const View = () => {
   const tasks = useSelector((state) => state.overviewPage.tasks);
   const axis = useSelector((state) => state.overviewPage.axis);
 
-  console.log(axis);
-
   useEffect(() => {
     dispatch(fetchOverviewTickets());
     dispatch(fetchOverviewInfo());

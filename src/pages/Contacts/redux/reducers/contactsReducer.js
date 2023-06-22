@@ -19,7 +19,7 @@ const initialState = {
   editContact: null,
 };
 
-export const contactsReducer = (state = initialState, action) => {
+export const contactsPageReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_CONTACTS:
       return { ...state, contacts: action.payload };

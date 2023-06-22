@@ -20,13 +20,13 @@ import {
 
 export const Contacts = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector((state) => state.contacts.contacts);
-  const filterText = useSelector((state) => state.contacts.filterText);
+  const contacts = useSelector((state) => state.contactsPage.contacts);
+  const filterText = useSelector((state) => state.contactsPage.filterText);
   const showContactsForm = useSelector(
-    (state) => state.contacts.showContactsForm
+    (state) => state.contactsPage.showContactsForm
   );
-  const editMode = useSelector((state) => state.contacts.editMode);
-  const editContact = useSelector((state) => state.contacts.editContact);
+  const editMode = useSelector((state) => state.contactsPage.editMode);
+  const editContact = useSelector((state) => state.contactsPage.editContact);
 
   useEffect(() => {
     dispatch(fetchContacts());
