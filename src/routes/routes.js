@@ -1,0 +1,17 @@
+export const ROUTES = {
+  DASHBOARD: "/dashboard",
+  OVERVIEW: "/overview",
+  TICKETS: "/tickets",
+  IDEAS: "/ideas",
+  CONTACTS: "/contacts",
+  AGENTS: "/agents",
+  ARTICLES: "/articles",
+  SETTINGS: "/settings",
+  SUBSCRIPTION: "/subscription",
+  FORGOT: "/forgot",
+  RESET: "/reset",
+  SIGNUP: "/sign-up",
+  OVERVIEW_TICKETS_DETAILS: "/overview-tickets-details",
+  OVERVIEW_TASKS: "/overview-tasks",
+  NOT_FOUND: "*",
+};
