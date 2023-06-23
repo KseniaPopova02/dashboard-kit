@@ -7,13 +7,15 @@ import {
 import { StyledBtn, StyledModal } from "./style";
 import { Form } from "formik";
 import { CustomPhotoInput } from "../CustomPhotoInput";
+import { useSelector } from "react-redux";
 
 export const FormContent = ({
   setShowContactsForm,
-  editMode,
   handleCancelEditModeClick,
-  editContact,
 }) => {
+  const editMode = useSelector((state) => state.contactsPage.editMode);
+  const editContact = useSelector((state) => state.contactsPage.editContact);
+
   const handleCancel = () => {
     setShowContactsForm(false);
     handleCancelEditModeClick();

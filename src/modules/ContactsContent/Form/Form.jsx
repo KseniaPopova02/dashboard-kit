@@ -18,9 +18,7 @@ export const Form = ({
     {() => (
       <FormContent
         setEditMode={setEditMode}
-        editContact={editContact}
         setShowContactsForm={setShowContactsForm}
-        editMode={editMode}
         handleCancelEditModeClick={handleCancelEditModeClick}
       />
     )}
