@@ -1,22 +1,17 @@
-import { useEffect, useCallback } from "react";
-import { OverviewTaskRepresentation } from "./OverviewTaskRepresentation";
+import { useCallback } from "react";
+import { useDispatch } from "react-redux";
 import { nanoid } from "nanoid";
+import {
+  fetchTasks,
+  deleteTask,
+  deleteAllTasks,
+  updateTaskCheckbox,
+  addNewTask,
+} from "../../store";
+import { OverviewTaskRepresentation } from "./OverviewTaskRepresentation";
 
-export const OverviewTask = ({
-  tasksToShow,
-  setTasksToShow,
-  showAllTasks = false,
-}) => {
-  useEffect(() => {
-    const storedTasks = JSON.parse(localStorage.getItem("tasks"));
-    if (storedTasks) {
-      setTasksToShow(storedTasks);
-    }
-  }, [setTasksToShow]);
-
-  useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasksToShow));
-  }, [tasksToShow]);
+export const OverviewTask = ({ showAllTasks = false, tasks }) => {
+  const dispatch = useDispatch();
 
   const onSubmit = useCallback(
     (values) => {
@@ -26,53 +21,33 @@ export const OverviewTask = ({
         flags: values.flags,
         isChecked: false,
       };
-
-      setTasksToShow((prevTasks) => [newTask, ...prevTasks]);
+      dispatch(addNewTask(newTask));
     },
-    [setTasksToShow]
+    [dispatch]
   );
 
   const handleShowAllTasks = useCallback(() => {
-    setTasksToShow(tasksToShow);
-  }, [tasksToShow, setTasksToShow]);
+    dispatch(fetchTasks());
+  }, [dispatch]);
 
   const handleDeleteAllTasks = () => {
-    setTasksToShow([]);
-    localStorage.removeItem("tasks");
+    dispatch(deleteAllTasks());
   };
 
   const handleDeleteTask = (taskId) => {
-    const updatedTasks = tasksToShow.filter((task) => task.id !== taskId);
-    setTasksToShow(updatedTasks);
+    dispatch(deleteTask(taskId));
   };
 
   const handleCheckboxChange = useCallback(
     (taskId) => {
-      const updatedTasks = tasksToShow.map((task) => {
-        if (task.id === taskId) {
-          return { ...task, isChecked: !task.isChecked };
-        }
-        return task;
-      });
-
-      const sortedTasks = [...updatedTasks].sort((a, b) => {
-        if (a.isChecked && !b.isChecked) {
-          return 1;
-        }
-        if (!a.isChecked && b.isChecked) {
-          return -1;
-        }
-        return 0;
-      });
-
-      setTasksToShow(sortedTasks);
+      dispatch(updateTaskCheckbox(taskId));
     },
-    [tasksToShow, setTasksToShow]
+    [dispatch]
   );
 
   return (
     <OverviewTaskRepresentation
-      tasks={tasksToShow}
+      tasks={tasks}
       showAllTasks={showAllTasks}
       onSubmit={onSubmit}
       handleShowAllTasks={handleShowAllTasks}

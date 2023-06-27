@@ -1,5 +1,10 @@
 import styled from "styled-components";
 import { ReactComponent as CircleChart } from "../../../assets/svg/circleChart.svg";
+import { Spin } from "antd";
+
+export const StyledSpin = styled(Spin)`
+  margin: auto;
+`;
 
 export const StyledLineWrapper = styled.div`
   height: 336px;

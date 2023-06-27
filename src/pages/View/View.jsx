@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import {
   OverviewInfo,
   OverviewTickets,
@@ -6,45 +6,39 @@ import {
   OverviewChartBlock,
 } from "../../modules";
 import { StyledWrapper } from "./style";
-import ticketsData from "../../mockedData/ticketsOverview.json";
-import overviewInfoData from "../../mockedData/infoOverview.json";
-import infoChartData from "../../mockedData/todaysChartInfo.json";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchTasks,
+  fetchInfoChartData,
+  fetchOverviewInfo,
+  fetchOverviewTickets,
+  fetchChartAxis,
+} from "../../store";
 
 export const View = () => {
-  const [tasksToShow, setTasksToShow] = useState(() => {
-    const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    return storedTasks;
-  });
-  const [tickets, setTicket] = useState([]);
-  const [overviewInfo, setOverviewInfo] = useState([]);
-  const [infoChart, setInfoChart] = useState([]);
+  const dispatch = useDispatch();
+  const infoChart = useSelector((state) => state.overviewPage.chartInfo);
+  const tickets = useSelector((state) => state.overviewPage.tickets);
+  const overviewInfo = useSelector((state) => state.overviewPage.overviewInfo);
+  const tasks = useSelector((state) => state.overviewPage.tasks);
+  const axis = useSelector((state) => state.overviewPage.axis);
+  console.log(tasks);
 
   useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasksToShow));
-  }, [tasksToShow]);
-
-  useEffect(() => {
-    setTicket(ticketsData);
-  }, []);
-
-  useEffect(() => {
-    setOverviewInfo(overviewInfoData);
-  }, []);
-
-  useEffect(() => {
-    setInfoChart(infoChartData[0].data);
-  }, []);
+    dispatch(fetchOverviewTickets());
+    dispatch(fetchOverviewInfo());
+    dispatch(fetchInfoChartData());
+    dispatch(fetchChartAxis());
+    dispatch(fetchTasks());
+  }, [dispatch]);
 
   return (
     <>
       <OverviewInfo overviewInfo={overviewInfo} />
-      <OverviewChartBlock infoChart={infoChart} />
+      <OverviewChartBlock axis={axis} infoChart={infoChart} />
       <StyledWrapper>
         <OverviewTickets tickets={tickets} />
-        <OverviewTask
-          tasksToShow={tasksToShow.slice(0, 3)}
-          setTasksToShow={setTasksToShow}
-        />
+        <OverviewTask tasks={tasks.slice(0, 3)} />
       </StyledWrapper>
     </>
   );
