@@ -1,39 +1,43 @@
 import { Form, Table } from "../../modules/ContactsContent";
 import { StyledContactsWrapper } from "./style";
 import { TableHeader } from "../../components";
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import React, { useEffect, useCallback } from "react";
 import { nanoid } from "nanoid";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchContacts,
+  addNewContact,
+  deleteContact,
+  deleteAllContact,
+  updateExistingContact,
+  sortContactsByFirstName,
+  filterContactsByFirstName,
+  setFilterText,
+  setEditMode,
+  setEditContact,
+  setContactsFormToShow,
+} from "../../store";
 
 export const Contacts = () => {
-  const [contacts, setContacts] = useState([]);
-  const [formState, setFormState] = useState({
-    showContactsForm: false,
-    editMode: false,
-    editContact: null,
-  });
-  const [filterText, setFilterText] = useState("");
+  const dispatch = useDispatch();
+  const contacts = useSelector((state) => state.contactsPage.contacts);
+  const filterText = useSelector((state) => state.contactsPage.filterText);
+  const showContactsForm = useSelector(
+    (state) => state.contactsPage.showContactsForm
+  );
+  const editMode = useSelector((state) => state.contactsPage.editMode);
+  const editContact = useSelector((state) => state.contactsPage.editContact);
 
   useEffect(() => {
-    const storedContacts = JSON.parse(localStorage.getItem("contacts"));
-    if (storedContacts) {
-      setContacts(storedContacts);
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("contacts", JSON.stringify(contacts));
-  }, [contacts]);
-
-  const originalContacts = useMemo(() => {
-    return JSON.parse(localStorage.getItem("contacts")) || [];
-  }, []);
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   const handleAddContact = (values, { resetForm }) => {
     const newContact = {
       id: nanoid(),
       photo:
-        formState.editMode && values.photo === formState.editContact.photo
-          ? formState.editContact.photo
+        editMode && values.photo === editContact.photo
+          ? editContact.photo
           : values.photo
           ? URL.createObjectURL(values.photo)
           : null,
@@ -48,99 +52,77 @@ export const Contacts = () => {
       }),
     };
 
-    const updatedContacts = formState.editMode
-      ? contacts.map((contact) =>
-          contact.id === formState.editContact.id
-            ? { ...newContact, date: contact.date }
-            : contact
-        )
-      : [newContact, ...contacts];
+    if (editMode) {
+      const updatedContact = {
+        ...newContact,
+        date: editContact.date,
+        id: editContact.id,
+      };
+      dispatch(updateExistingContact(editContact.id, updatedContact));
+    } else {
+      dispatch(addNewContact(newContact));
+    }
 
-    setContacts(updatedContacts);
-    setFormState({
-      ...formState,
-      showContactsForm: false,
-      editMode: false,
-      editContact: null,
-    });
+    dispatch(setContactsFormToShow(false));
+    dispatch(setEditContact(null));
+    dispatch(setEditMode(false));
     resetForm();
   };
 
   const handleDeleteAll = useCallback(() => {
-    setContacts([]);
-    localStorage.removeItem("contacts");
-  }, []);
+    dispatch(deleteAllContact());
+  }, [dispatch]);
 
   const handleSort = useCallback(() => {
-    setContacts(
-      [...contacts].sort((a, b) => a.firstName.localeCompare(b.firstName))
-    );
-  }, [contacts]);
+    dispatch(sortContactsByFirstName());
+  }, [dispatch]);
 
-  const handleFilter = useCallback(
-    (filterText) => {
-      setFilterText(filterText);
-      if (!filterText) {
-        setContacts(originalContacts);
-      } else {
-        const filteredContacts = originalContacts.filter((contact) =>
-          contact.firstName.toLowerCase().includes(filterText.toLowerCase())
-        );
-        setContacts(filteredContacts);
-      }
-    },
-    [originalContacts]
-  );
+  const handleFilterByFirstName = async (filterText) => {
+    try {
+      await dispatch(filterContactsByFirstName(filterText));
+      dispatch(setFilterText(filterText));
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleDelete = (id) => {
-    setContacts((prevContacts) =>
-      prevContacts.filter((contact) => contact.id !== id)
-    );
+    dispatch(deleteContact(id));
   };
 
   const handleEdit = (id) => {
     const contact = contacts.find((contact) => contact.id === id);
-    setFormState({
-      ...formState,
-      editMode: true,
-      editContact: contact,
-      showContactsForm: true,
-    });
+    dispatch(setContactsFormToShow(true));
+    dispatch(setEditContact(contact));
+    dispatch(setEditMode(true));
   };
 
   const handleCancelEditModeClick = () => {
-    setFormState({
-      ...formState,
-      editMode: false,
-      showContactsForm: false,
-    });
+    dispatch(setEditMode(false));
+    dispatch(setContactsFormToShow(false));
   };
 
   return (
     <StyledContactsWrapper>
       <TableHeader
         handleSort={handleSort}
-        handleFilter={handleFilter}
+        handleFilter={handleFilterByFirstName}
         filterText={filterText}
-        setShowContactsForm={(value) =>
-          setFormState({ ...formState, showContactsForm: value })
-        }
+        setShowContactsForm={(value) => dispatch(setContactsFormToShow(value))}
         handleDeleteAll={handleDeleteAll}
         headerText={{
           addContact: "Add contact",
           filterContacts: "contacts by name",
         }}
       />
-      {formState.showContactsForm && (
+      {showContactsForm && (
         <Form
-          setEditMode={(value) =>
-            setFormState({ ...formState, editMode: value })
-          }
-          editMode={formState.editMode}
-          editContact={formState.editContact}
+          setEditMode={(value) => dispatch(setEditMode(value))}
+          editMode={editMode}
+          editContact={editContact}
           handleAddContact={handleAddContact}
           setShowContactsForm={(value) =>
-            setFormState({ ...formState, showContactsForm: value })
+            dispatch(setContactsFormToShow(value))
           }
           handleCancelEditModeClick={handleCancelEditModeClick}
         />

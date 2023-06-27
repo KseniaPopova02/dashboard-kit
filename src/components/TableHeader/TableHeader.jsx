@@ -13,6 +13,8 @@ import { ReactComponent as SortSvg } from "../../assets/svg/sort.svg";
 import { ReactComponent as FilterSvg } from "../../assets/svg/filter.svg";
 import { ReloadOutlined, DeleteOutlined } from "@ant-design/icons";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { fetchContacts, setFilterText } from "../../store";
 
 export const TableHeader = ({
   handleSort,
@@ -23,9 +25,10 @@ export const TableHeader = ({
   headerText,
 }) => {
   const [isInputActive, setIsInputActive] = useState(false);
-
+  const dispatch = useDispatch();
   const handleReset = () => {
-    handleFilter("");
+    dispatch(fetchContacts());
+    dispatch(setFilterText(""));
     setIsInputActive(false);
   };
 
