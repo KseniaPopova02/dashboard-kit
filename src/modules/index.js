@@ -12,3 +12,4 @@ export * from "./OverviewTask/OverviewTask";
 export * from "./OverviewChartBlock";
 export * from "./TopBar";
 export * from "./SideBar";
+export * from "./ContactsContent";

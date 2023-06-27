@@ -8,7 +8,7 @@ import {
   SettingsSvgLazy,
   SubscriptionSvgLazy,
 } from "../../assets/LogoSvgLazy";
-import { ROUTES } from "../../routes/routes";
+import { ROUTES } from "../../routes";
 import { nanoid } from "nanoid";
 
 const {
