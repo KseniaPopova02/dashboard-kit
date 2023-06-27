@@ -1,22 +1,24 @@
-import { FormContent } from "./FormContent";
 import { Formik } from "formik";
-import { initialValues, validationSchema } from "./formConfig";
+import { validationSchema, initialValues } from "./formConfig";
+import { FormContent } from "./FormContent";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setCurrentUser } from "../../store";
+import { Api, USERS } from "../../api";
 
-export const LogInForm = ({ updateLoggedIn }) => {
+export const LogInForm = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const onSubmit = async (values, actions) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const users = await Api.get(USERS);
 
     const user = users.find(
       (user) => user.email === values.email && user.password === values.password
     );
 
     if (user) {
-      updateLoggedIn(true, user);
+      dispatch(setCurrentUser(user));
       navigate("/dashboard/Overview");
     } else {
       actions.setFieldError("email", "Wrong email or password");

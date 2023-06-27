@@ -19,16 +19,3 @@ export const getTitle = (pathname) => {
   const title = routeTitles[`/${path}`];
   return title || "Error 404";
 };
-
-export const getValueFromLocalStorage = (key) => {
-  try {
-    const data = localStorage.getItem("currentUser");
-    if (data !== null) {
-      const parsedData = JSON.parse(data);
-      return parsedData[key];
-    }
-  } catch (error) {
-    console.log("Error retrieving value from localStorage:", error);
-  }
-  return undefined;
-};

@@ -2,18 +2,30 @@ import { Formik } from "formik";
 import { validationSchema, initialValues } from "./formConfig";
 import { FormContent } from "./FormContent";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setCurrentUser } from "../../store";
+import { Api, USERS } from "../../api";
 
-export const SignUpForm = ({ updateLoggedIn }) => {
+export const SignUpForm = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const onSubmit = async (values, actions) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    users.push(values);
-    localStorage.setItem("users", JSON.stringify(users));
-    navigate("/dashboard/Overview");
-    updateLoggedIn(true, values);
-    actions.setSubmitting(false);
+  const onSubmit = (values, actions) => {
+    const user = {
+      email: values.email,
+      name: values.name,
+      surname: values.surname,
+      password: values.password,
+    };
+    Api.post(USERS, user)
+      .then(() => {
+        dispatch(setCurrentUser(user));
+        navigate("/dashboard/Overview");
+      })
+      .catch((error) => console.log(error))
+      .finally(() => {
+        actions.setSubmitting(false);
+      });
   };
 
   return (

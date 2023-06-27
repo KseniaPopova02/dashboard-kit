@@ -1,1 +1,1 @@
-// export * from "./contactsThunk";
+export * from "./contactsThunk";

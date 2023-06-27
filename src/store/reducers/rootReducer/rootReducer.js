@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
-// import { currentUserReducer } from "../../modules/SignUpForm/redux";
+import { currentUserReducer } from "../currentUserReducer";
 // import { overviewPageReducer } from "../../pages/View/redux";
 import { contactsPageReducer } from "../contactsReducer";
 
 export const rootReducer = combineReducers({
-  //   currentUser: currentUserReducer,
+  currentUser: currentUserReducer,
   //   overviewPage: overviewPageReducer,
   contactsPage: contactsPageReducer,
 });
