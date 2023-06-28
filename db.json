@@ -1,0 +1,187 @@
+{
+  "users": [
+    {
+      "email": "kseniapopova02@gmail.com",
+      "name": "Ksenia",
+      "surname": "Popova",
+      "password": "Qwerty12345",
+      "id": 1
+    },
+    {
+      "email": "Olya@gmail",
+      "name": "Olya",
+      "surname": "Rakova",
+      "password": "Qwerty12345",
+      "id": 2
+    },
+    {
+      "email": "andrey@gmail",
+      "name": "Andrey",
+      "surname": "Lykyanov",
+      "password": "Qwerty12345",
+      "id": 3
+    },
+    {
+      "email": "nikita@gmail",
+      "name": "Nikita",
+      "surname": "Soloviyev",
+      "password": "Qwerty12345",
+      "id": 5
+    },
+    {
+      "email": "kkk@kkk",
+      "name": "Katya",
+      "surname": "Skorik",
+      "password": "Qwer12345",
+      "id": 9
+    },
+    {
+      "email": "kolya@gmail",
+      "name": "Kolya",
+      "surname": "Trinev",
+      "password": "Qwer12345",
+      "id": 10
+    }
+  ],
+  "todays-chart-axis": [
+    {
+      "x": 0,
+      "y": 10,
+      "category": "today"
+    },
+    {
+      "x": 1,
+      "y": 22,
+      "category": "today"
+    },
+    {
+      "x": 5,
+      "y": 28,
+      "category": "today"
+    },
+    {
+      "x": 8,
+      "y": 50,
+      "category": "today"
+    },
+    {
+      "x": 12,
+      "y": 19,
+      "category": "today"
+    },
+    {
+      "x": 17,
+      "y": 39,
+      "category": "today"
+    },
+    {
+      "x": 0,
+      "y": 35,
+      "category": "yesterday"
+    },
+    {
+      "x": 5,
+      "y": 25,
+      "category": "yesterday"
+    },
+    {
+      "x": 8,
+      "y": 32,
+      "category": "yesterday"
+    },
+    {
+      "x": 13,
+      "y": 18,
+      "category": "yesterday"
+    },
+    {
+      "x": 16,
+      "y": 48,
+      "category": "yesterday"
+    },
+    {
+      "x": 19,
+      "y": 38,
+      "category": "yesterday"
+    }
+  ],
+  "todays-chart-info": [
+    {
+      "label": "Resolved",
+      "number": "449"
+    },
+    {
+      "label": "Received",
+      "number": "426"
+    },
+    {
+      "label": "Average first response time",
+      "number": "33"
+    },
+    {
+      "label": "Average response time",
+      "number": "188"
+    },
+    {
+      "label": "Resolution within SLA",
+      "number": "94"
+    }
+  ],
+  "overview-tickets": [
+    {
+      "label": "Waiting on Feature Request",
+      "number": "4238"
+    },
+    {
+      "label": "Awaiting Customer Response",
+      "number": "1005"
+    },
+    {
+      "label": "Awaiting Developer Fix",
+      "number": "914"
+    },
+    {
+      "label": "Pending",
+      "number": "281"
+    }
+  ],
+  "overview-info": [
+    {
+      "label": "unresolved",
+      "number": "56"
+    },
+    {
+      "label": "overdue",
+      "number": "16"
+    },
+    {
+      "label": "open",
+      "number": "43"
+    },
+    {
+      "label": "onHold",
+      "number": "64"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "2kPGS3LrG1Z02GFM0jwoE",
+      "taskName": "купить хлэб",
+      "flags": "default",
+      "isChecked": true
+    },
+    {
+      "id": "u7zXR8t1vO9Xg0Nn7hngs",
+      "taskName": "бомбить белгород",
+      "flags": "default",
+      "isChecked": false
+    },
+    {
+      "id": "5BIMicZq-fieoO4SmUMOV",
+      "taskName": "выучить TS",
+      "flags": "new",
+      "isChecked": false
+    }
+  ],
+  "contacts": []
+}

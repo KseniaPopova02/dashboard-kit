@@ -1,14 +1,22 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+
+html{
+  box-sizing: border-box;
+}
+
 body {
+    margin: 0;
+    padding: 0;
     font-family: "Mulish", sans-serif;
     font-weight: 700;
-    color: #4b506d;
     font-size: 14px;
     line-height: 20px;
-    background: #4b506d;
+    min-height: 100vh;
+   
   }
+  
   @font-face {
   font-family: "Mulish", sans-serif;
   src: url("./fonts/Mulish-Bold.ttf") format("ttf");
