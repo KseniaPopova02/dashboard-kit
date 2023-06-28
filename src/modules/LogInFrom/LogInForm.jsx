@@ -3,19 +3,15 @@ import { validationSchema, initialValues } from "./formConfig";
 import { FormContent } from "./FormContent";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setCurrentUser } from "../../store";
-import { Api, USERS } from "../../api";
+import { setCurrentUser, getUser } from "../../store";
 
 export const LogInForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const onSubmit = async (values, actions) => {
-    const users = await Api.get(USERS);
-
-    const user = users.find(
-      (user) => user.email === values.email && user.password === values.password
-    );
+    dispatch(getUser(values));
+    const user = await dispatch(getUser(values));
 
     if (user) {
       dispatch(setCurrentUser(user));
